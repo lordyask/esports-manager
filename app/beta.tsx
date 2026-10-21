@@ -7,6 +7,7 @@ import type {Plan,BuyPlan} from '../src/economy';
 import type {Agent} from '../src/abilities';
 import type {SimEvent} from '../src/tactical-types';
 import {loadWorkspace,commitWorkspace} from '../lib/storage';
+import ProductLogo from './product-logo';
 const fmt=(n:number)=>new Intl.NumberFormat('pt-BR',{maximumFractionDigits:0}).format(n);
 const tabs=['Visão geral','Elenco','Preparação','Partida','Relatório'];
 const attacks={fast:'Execução rápida',control:'Controle e leitura',split:'Pressão dividida'};
@@ -69,7 +70,7 @@ export default function Beta(){
  const coverage=[...new Set(selected.map(p=>CLASS[d.assignments[p.id]?.agent??p.main]))];
  const latest=s?.records.at(-1),important=latest?.result.events.filter(e=>['eliminated','cast_complete','planted','defused','igl_call','round_end'].includes(e.kind))??[];
  return <div className="shell" style={{'--accent':d.color} as CSSProperties}>
- <aside className="sidebar"><a className="brand" href="#" onClick={e=>{e.preventDefault();nav(0);}}><span className="brand-mark"><Mark/></span><span>ESPORTS<b>MANAGER</b></span></a><div className="edition">FPS TÁTICO <span>BETA 1.0</span></div>
+ <aside className="sidebar"><a className="brand" href="#" aria-label="Esports Manager — visão geral" onClick={e=>{e.preventDefault();nav(0);}}><ProductLogo/></a><div className="edition">FPS TÁTICO <span>BETA 1.0</span></div>
  <nav aria-label="Navegação principal">{tabs.map((t,i)=><button key={t} className={tab===i?'active':''} onClick={()=>nav(i)} disabled={busy||i===3&&!s||i===4&&!s?.records.length}><span className="nav-number">0{i+1}</span>{t}{tab===i&&<i/>}</button>)}</nav>
  <div className="sidebar-bottom"><div className="local-dot"/>Progresso local<p>Salvo neste navegador.<br/>Exporte para levar a outro dispositivo.</p><button className="text-button" onClick={exportProgress} disabled={!loaded}>↓ Exportar progresso</button><button className="text-button" onClick={()=>file.current?.click()} disabled={busy}>↑ Importar progresso</button><span className="engine">Motor {ENGINE_VERSION} · Regras 1.3</span></div></aside>
  <div className="main"><header className="topbar"><span className="breadcrumb">CENTRO DE COMANDO <span>/</span> {tabs[tab].toUpperCase()}</span><div className="top-right"><span className={`save-indicator ${saved?'ok':''}`}>{saved?'● Salvo no dispositivo':'○ Alterações locais'}</span><span className="org-badge"><Mark kind={d.crest}/>{d.tag}</span></div></header>
@@ -118,7 +119,7 @@ export default function Beta(){
  {!report&&<div className="button-row end"><button className="secondary" disabled={busy||!s.records.length} onClick={()=>setTab(4)}>Ver relatório parcial</button></div>}
  </>}
  </>}
- <footer className="footer"><span>ESPORTS MANAGER <b>BETA 1.0</b></span><span>Teste de partida · Personagens fictícios · Progresso neste dispositivo</span><button onClick={diagnostic}>Diagnóstico</button></footer>
+ <footer className="footer"><span className="footer-brand"><ProductLogo/><b>BETA 1.0</b></span><span>Teste de partida · Personagens fictícios · Progresso neste dispositivo</span><button onClick={diagnostic}>Diagnóstico</button></footer>
  </main></div></div>;
  function tacticFields(){return <><Field label="Plano de ataque"><select value={d.plan.attack} disabled={busy} onChange={e=>edit({plan:{...d.plan,attack:e.target.value as Draft['plan']['attack']}})}>{Object.entries(attacks).map(([v,n])=><option key={v} value={v}>{n}</option>)}</select></Field><div className="form-grid"><Field label="Plano de defesa"><select value={d.plan.defense} disabled={busy} onChange={e=>edit({plan:{...d.plan,defense:e.target.value as Draft['plan']['defense']}})}>{Object.entries(defenses).map(([v,n])=><option key={v} value={v}>{n}</option>)}</select></Field><Field label="Ponto inicial de ataque"><select value={d.plan.site} disabled={busy} onChange={e=>edit({plan:{...d.plan,site:e.target.value as 'A'|'B'}})}><option>A</option><option>B</option></select></Field></div></>;}
 }
