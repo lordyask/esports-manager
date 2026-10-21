@@ -1,0 +1,50 @@
+{
+  "engine": "0.3.0",
+  "scope": "Same four original seeds, initial side, composition and tactical plans. Computational guard 2000 is not a victory rule.",
+  "results": [
+    {
+      "seed": 20261028,
+      "defense": "aggressive",
+      "before": 366,
+      "after": 24,
+      "score": {
+        "A": 11,
+        "B": 13
+      },
+      "winner": "B"
+    },
+    {
+      "seed": 20261031,
+      "defense": "aggressive",
+      "before": 230,
+      "after": 128,
+      "score": {
+        "A": 65,
+        "B": 63
+      },
+      "winner": "A"
+    },
+    {
+      "seed": 20261025,
+      "defense": "balanced",
+      "before": 248,
+      "after": 92,
+      "score": {
+        "A": 45,
+        "B": 47
+      },
+      "winner": "B"
+    },
+    {
+      "seed": 20261032,
+      "defense": "balanced",
+      "before": 218,
+      "after": 50,
+      "score": {
+        "A": 24,
+        "B": 26
+      },
+      "winner": "B"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+import {createHash} from 'node:crypto';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import {duel} from '../src/combat.ts';
+import {Random} from '../src/random.ts';
+import {runRound,serializeCheckpoint} from '../src/round.ts';
+import type {Actor} from '../src/round.ts';
+import {quoteBuy} from '../src/economy.ts';
+import {ENGINE_VERSION} from '../src/rules.ts';
+const actor=(id:string,team:'A'|'B'):Actor=>({id,team,sector:'A',vital:{life:10000,shield:0,temporary:0,reduction:0},charges:[true,true,true],ult:8,usedUlt:false});
+const players=readFileSync(new URL('../data/catalog.json',import.meta.url));
+const hash=createHash('sha256').update(players).digest('hex');
+const commands=[{at:96000,kind:'plant' as const,actor:'a'}];
+const round=runRound([actor('a','A'),actor('b','B')],'A',commands);
+const shotDuel=duel({id:'a',score:50,weapon:'main',vital:{life:10000,shield:5000,temporary:0,reduction:0}},
+  {id:'b',score:50,weapon:'intermediate',vital:{life:10000,shield:2500,temporary:0,reduction:0}},'medium',new Random(77));
+const buy=quoteBuy([{id:'a',credits:6000,weapon:'main',shield:0,charges:[false,false,false],ult:0}],'full');
+const report={engine:ENGINE_VERSION,rules:'gdd-1.3',scope:'Demonstração isolada dos primeiros núcleos. Execute npm run match para o mapa autônomo com IA e habilidades.',examples:{round,duel:shotDuel,buy},checkpoint:JSON.parse(serializeCheckpoint(round,shotDuel.rngState,commands,hash))};
+const path=fileURLToPath(new URL('../demo-result.json',import.meta.url));writeFileSync(path,JSON.stringify(report,null,2));
+console.log(JSON.stringify({roundWinner:round.winner,reason:round.reason,at:round.at,duelWinner:shotDuel.winner,fullRepurchase:buy.total,report:path},null,2));
