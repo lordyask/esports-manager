@@ -1,7 +1,7 @@
 # Beta 1.1 — Proposta para aprovação, revisão 0.1
 
-Data: 25/10/2026. **Status: proposta, aguardando aprovação por código.**
-Não autoriza implementar ou lançar a versão. O Beta 1.0 continua publicado.
+Data: 25/10/2026. **Status: B11-01 a B11-14 aprovados pelo autor em 25/10/2026.**
+Implementação autorizada em branch separada. Publicação depende de autorização posterior. O Beta 1.0 continua publicado.
 Este documento formaliza e substitui o agrupamento preliminar B11-01–B11-07;
 nenhum item daquele agrupamento havia recebido aprovação automática.
 
@@ -308,8 +308,6 @@ Nenhum desses sistemas é adicionado implicitamente pelo treinamento.
 
 ## Registro de aprovação
 
-Todos os itens B11-01 a B11-14 estão **aguardando aprovação**. O autor pode aprovar
-um intervalo, rejeitar um item ou solicitar revisão dos números. A aprovação do
-escopo não é autorização de publicação. As orientações anteriores sobre foco em
-ataque/defesa, treinamento e agentes são a direção fornecida pelo autor; as curvas,
-quantidades de planos, regras de sessão e compatibilidade acima são propostas.
+O autor aprovou todos os itens B11-01 a B11-14, incluindo as regras e curvas desta revisão. Ajustes posteriores continuam possíveis mediante registro e aprovação quando materiais. A aprovação não autoriza publicação.
+
+A série Beta 1 fica concentrada em partida, rodadas, estratégias, compras, treinamento e agentes. Beta 2.0 é a direção futura para novas adições de conteúdo e ajustes de balanceamento; seu catálogo e escopo ainda não foram definidos. Correções necessárias ao funcionamento e equilíbrio do Beta 1 continuam possíveis, sem antecipar os conteúdos do Beta 2.0.

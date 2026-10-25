@@ -1,12 +1,23 @@
-# Esports Manager — Beta 1.0
+# Esports Manager — Beta 1.1 em desenvolvimento
 
-Beta de teste de partida publicado no GitHub Pages. Motor 0.3.0; regras aprovadas do GDD FPS Web 1.3. Interface em português, Next.js/React/TypeScript com exportação estática. O pacote inicial foi identificado como RC1; o nome público da aplicação é Beta 1.0. Este projeto é independente e usa personagens e coeficientes fictícios.
+Esta branch implementa o escopo B11-01 a B11-14 aprovado em 25/10/2026. Motor **0.4.0**, save schema **2**. É uma versão para revisão, **sem autorização de publicação**. O [site público](https://lordyask.github.io/esports-manager/) continua no Beta 1.0, motor 0.3.0.
 
-**Status atualizado em 24/10/2026:** publicado e em avaliação. [Abrir o Beta](https://lordyask.github.io/esports-manager/) · [Repositório](https://github.com/lordyask/esports-manager).
+Interface em português, Next.js/React/TypeScript com exportação estática. Projeto independente, com agentes e coeficientes fictícios. Os preços e rendimentos das rodadas permanecem os aprovados no GDD FPS Web 1.3; a [especificação aprovada do Beta 1.1](docs/BETA_1_1_PROPOSTA.md) acrescenta estratégias e desenvolvimento.
 
-O GitHub executou testes, TypeScript, build e publicação com sucesso. No Chrome do ambiente de verificação foram exercitados elenco, preparação, uma partida completa, relatório e recuperação do progresso após recarga. Um salvamento e um diagnóstico de Chrome Android também foram analisados: as 15 rodadas foram reproduzidas sem divergência. Isso não representa homologação completa de aparelhos, navegadores ou equilíbrio competitivo.
+**A liberação está pendente.** Os lotes finais terminaram sem erros de execução, mas apontam desequilíbrio importante em Enlace e prorrogações longas. Consulte [validação do Beta 1.1](docs/VALIDACAO_BETA_1_1.md), [registro do projeto](docs/REGISTRO_PROJETO.md) e [changelog](CHANGELOG.md). A [validação do Beta 1.0](VALIDACAO_BETA.md) é histórica e não certifica esta versão.
 
-O [registro consolidado do projeto](docs/REGISTRO_PROJETO.md) reúne decisões, entregas e pendências. Consulte também [validação](VALIDACAO_BETA.md), [checklist manual](docs/CHECKLIST_BETA.md) e [histórico de alterações](CHANGELOG.md). O Beta 1.1 está em planejamento; seu escopo ainda depende dos feedbacks e da aprovação do autor.
+## Novidades desta branch
+
+- Uma rodada por confirmação; sequência opcional que pausa na troca de lados e na entrada da prorrogação.
+- Quatro estratégias de ataque, quatro de defesa e complementos compatíveis, com objetivo, força e vulnerabilidade explicados.
+- Responsabilidades participam da movimentação; desempates táticos não usam o nome/ID do jogador como preferência.
+- Compras Eco/Semi/Forte individuais sempre editáveis na preparação normal, sugestão editável e aplicação aos cinco. Saldos, gasto próprio, ajuda e equipamento preservado visíveis.
+- Análise pós-rodada com condição de encerramento, fatos observados e cronologia consultável. Sem apresentar correlação como causa comprovada.
+- Uma sessão coletiva opcional por partida completa: atributo dos cinco ou agentes escolhidos individualmente. XP separado, excedente preservado, potencial e limites aprovados.
+- Catálogo dos oito agentes, classes, habilidades, limitações e familiaridades dos titulares.
+- Nova partida preserva o elenco e o desenvolvimento. Reiniciar organização é uma ação distinta, com confirmação.
+- Importação explícita de organização do motor 0.3.0 com XP zero; relatório antigo somente para consulta. A partida antiga não continua no novo motor. Preserve o arquivo original.
+- Workflow de verificação da branch sem tarefa de deploy. A publicação permanece exclusiva de `main` e não foi acionada por esta entrega.
 
 ## O que foi implementado
 
@@ -18,7 +29,7 @@ O [registro consolidado do projeto](docs/REGISTRO_PROJETO.md) reúne decisões, 
 - Partida: cenário, adversários sintéticos de atributos 45/60/75, planos de ataque/defesa, acompanhamento por rodada, sequência automática e pausa.
 - Salvamento: IndexedDB transacional com revisão global, conferência de versões, exportação/importação JSON e diagnóstico. Um progresso ativo por navegador/origem.
 - Relatório: eliminações, mortes, primeira eliminação/morte registrada, trades, habilidades concluídas, plants, desarmes e gastos reais registrados.
-- GitHub Actions: testes e TypeScript antes do build; publicação pelo Pages com o caminho do repositório configurado automaticamente.
+- GitHub Actions: testes e TypeScript antes do build; nesta branch a validação não publica no Pages.
 - Identidade visual: marca EM aprovada, assinaturas SVG para fundos claros/escuros, aplicação no menu e rodapé, favicon e ícones Android/iOS com manifesto de atalho. Sem funcionamento offline.
 
 ## Executar no computador
@@ -44,31 +55,32 @@ Os arquivos estáticos ficam em `out/`. Para um caminho de projeto do GitHub, o 
 
 ## Publicação
 
-O repositório de destino é `lordyask/esports-manager`, branch `main`, com Pages configurado para GitHub Actions. O site já está publicado. O procedimento de manutenção e a referência para novas instalações estão em [docs/PUBLICAR_GITHUB.md](docs/PUBLICAR_GITHUB.md).
+O repositório é `lordyask/esports-manager`. `main` publica o Beta 1.0 por GitHub Actions; `beta/1.1` é exclusiva de revisão e validação. Mesclar a versão 1.1 em `main` acionaria publicação e exige nova autorização do autor. O procedimento de manutenção e a referência para novas instalações estão em [docs/PUBLICAR_GITHUB.md](docs/PUBLICAR_GITHUB.md).
 
 ## Avaliação
 
-Siga `docs/CHECKLIST_BETA.md`. O lote controlado pode ser reproduzido com:
+O checklist e os resultados desta versão estão em [docs/VALIDACAO_BETA_1_1.md](docs/VALIDACAO_BETA_1_1.md). Reproduza os lotes de planos principais:
 
 ```bash
-npm run benchmark:controlled
+node scripts/beta11-validation.ts
+node scripts/beta11-validation.ts --holdout
 ```
 
-Ele conclui 1.080 mapas: três cenários × três planos de ataque × três de defesa × vinte pares de seeds com lado inicial trocado. Composição, atributos e condições ficam fixos. Resultados em `validation/controlled-current.json`. A opção de comparação histórica `--baseline` exige disponibilizar a versão anterior em `/tmp/esports-baseline`; não faz parte da execução normal do aplicativo.
+O primeiro executa 384 mapas; o segundo, 192 com novas seeds. Os JSON em `validation/beta11/` preservam composição, plano, lado e resultado. Não abrangem exaustivamente complementos nem todos os níveis de atributos.
 
-O lote antigo `npm run benchmark` continua disponível para regressão, mas varia composição entre grupos e não serve para isolar o efeito de cada estratégia. Detalhes do motor anterior estão em `docs/MOTOR_0_2_HISTORICO.md` e são histórico: a arquitetura de servidor descrita ali foi temporariamente substituída pelo Beta local aprovado.
+`npm run benchmark:controlled` e `npm run benchmark` continuam como ferramentas históricas de regressão. Seus desenhos diferem do lote 1.1; não comparar taxas agregadas como se isolassem o efeito desta alteração.
 
 ## Limites atuais
 
-- Esta entrega testa a partida. Calendário, campeonato de carreira, treinamento, evolução, folha salarial em operação e autenticação não estão conectados.
-- A escolha do IGL participa das chamadas de controle; Main OP define a preparação interna de precisão. As demais responsabilidades são indicações de escalação, com aptidões visíveis; ainda não têm todas as políticas específicas de Entry/Second/Support/Anchor/Lurker implementadas. Classes e habilidades dos agentes já participam da simulação.
-- Potencial é informação de contratação, sem força imediata ou crescimento nesta partida. Mental exibido vem dos atributos; as condições de teste começam com moral 70, fadiga 10 e familiaridade de mapa 50.
-- A navegação tem cinco setores abstratos. Não modela coordenadas/ângulos/cobertura física; desempates de alvo ainda usam ID. Não há mapa visual ou apresentação de armas individuais.
+- Esta entrega testa partida, treino e agentes. Calendário, campeonato de carreira, folha salarial em operação e autenticação não estão conectados.
+- A escolha do IGL participa das chamadas de controle; Main OP define a preparação interna de precisão. Entry/Second/Support/Anchor/Lurker têm tendências de decisão implementadas, ainda em calibração. As aptidões do catálogo exibidas como referência inicial não são uma previsão de estatística individual. Classes e habilidades dos agentes já participam da simulação.
+- Potencial regula XP por sessão e o teto da média dos atributos; não aumenta por treino nem concede força direta adicional na rodada. Mental exibido vem dos atributos; as condições de teste começam com moral 70, fadiga 10 e familiaridade de mapa 50.
+- A navegação tem cinco setores abstratos. Não modela coordenadas/ângulos/cobertura física; a ordenação tática usa situação, agente e seed; não o ID como preferência. Não há mapa visual ou apresentação de armas individuais.
 - Relatório mostra acontecimentos, sem atribuir uma causa que não possa ser demonstrada. Uma primeira eliminação não mede sozinha a qualidade de uma entrada.
 - Há desequilíbrios entre mapas/planos e agentes ainda em avaliação. Execução concluída não significa balanceamento competitivo aprovado.
 - Banco local pode ser apagado ao limpar dados do navegador; navegação privada, outro navegador ou outro domínio podem usar armazenamento diferente. Exporte o progresso antes de mudar de dispositivo ou origem.
 - Arquivos identificam versão e integridade. Isso não autentica resultados: o usuário controla o próprio navegador e pode alterar dados locais. A produção deverá voltar a um servidor autoritativo.
-- Não há migração automática de saves de outra versão do motor. Arquivos incompatíveis são rejeitados sem sobrescrever o progresso existente.
+- O banco local 1.1 é separado do 1.0. A importação do formato 0.3.0 é explícita e preserva apenas a organização e um relatório histórico; não retoma nem recalcula a partida antiga. Arquivos inválidos são rejeitados antes da gravação.
 - A sequência automática pausa após 30 rodadas por interação para manter controle do usuário. Isso não é um limite da partida: continue a sequência para concluir a prorrogação. Nenhum vencedor é forçado.
 
 ## Organização do código
@@ -76,3 +88,5 @@ O lote antigo `npm run benchmark` continua disponível para regressão, mas vari
 `src/`: motor; `lib/game.ts`: sessão portátil, compras, checkpoints e estatísticas; `lib/worker.ts`: protocolo de cálculo; `lib/storage.ts`: persistência IndexedDB; `app/`: telas e estilo; `test/`: regressões; `validation/`: evidências; `docs/`: publicação e avaliação.
 
 O motor deve continuar independente da interface. Supabase/Vercel continuam como direção futura aprovada; não estão ativos no Beta 1.0 e não foram incluídos automaticamente no Beta 1.1. A futura integração deverá substituir o adaptador local pelo servidor e salvar resultados autorizados em transação; não confiar nos dados enviados pelo navegador.
+
+A série Beta 1.x concentra estes sistemas. Beta 2.0 é a direção futura para novos conteúdos; não há catálogo de adições aprovado.

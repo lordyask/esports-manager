@@ -1,5 +1,16 @@
 # Histórico de alterações — Esports Manager
 
+## 25/10/2026 — Beta 1.1 implementado para revisão, sem lançamento
+
+- B11-01 a B11-14 aprovados. Beta 1.x focado em partidas, treinamento e agentes; Beta 2.0 reservado à direção de novos conteúdos, sem escopo detalhado.
+- Motor/pacote 0.4.0, save schema 2; banco local separado e importação explícita da organização 1.0 com relatório histórico.
+- Intervalos manuais, compras individuais e sugestão editável, quatro planos por lado e complementos, tendências por responsabilidade e revisão factual por rodada.
+- Treino coletivo de atributo ou agente, XP crescente por faixa, potencial e familiaridade persistentes; catálogo dos oito agentes existentes.
+- Nova partida preserva a evolução. Reset da organização exige confirmação.
+- Workflow da branch valida sem publicar. O Beta 1.0 público permanece preservado.
+- Validação e bloqueios de lançamento em `docs/VALIDACAO_BETA_1_1.md`. Execução sem erros não demonstra equilíbrio; Enlace e prorrogações longas continuam pendentes.
+
+
 ## 25/10/2026 — Proposta do Beta 1.1 para aprovação
 
 - Registrados feedbacks de informações, estratégias e compras entre rodadas.

@@ -8,6 +8,13 @@ import type {Random} from './random.ts';
 // Only an Observation enters this module. No access to hidden positions or future events.
 export function decide(view:Observation,random:Random):Decision {
   const {self}=view;
+  const attacking=self.team===view.attacking;
+  const instruction=attacking?view.plan.attackInstruction:view.plan.defenseInstruction;
+  const aliveAllies=view.allies.filter(a=>a.life>0);
+  const leading=aliveAllies.find(a=>a.role==='Entry');
+  const feint=attacking&&view.plan.attack==='feint'&&view.now<18000&&!view.planted;
+  const lurking=attacking&&self.role==='Lurker'&&view.now<22000&&!view.planted;
+  const targetSite=(feint||lurking)?(view.attackTarget==='A'?'B':'A'):view.attackTarget;
   if(self.busy||!self.ready)return {kind:'wait'};
   const adjacent=(s:Sector)=>mapEdges(view.map).some(([a,b])=>a===self.sector&&b===s||b===self.sector&&a===s);
   const visible=view.visible.filter(x=>x.sector===self.sector||adjacent(x.sector));
@@ -22,7 +29,8 @@ export function decide(view:Observation,random:Random):Decision {
   const available=(slot:Slot)=>slot===3?self.ult>=8&&!self.usedUlt:self.charges[slot];
   for(const slot of [3,0,1,2] as Slot[]){
     if(!available(slot))continue;
-    const skill=ABILITIES[self.agent][slot],sector=contact?.sector??view.attackTarget;
+    const skill=ABILITIES[self.agent][slot],sector=contact?.sector??targetSite;
+    if(instruction==='resources'&&!view.planted&&slot>0)continue;
     const inRange=sector===self.sector||adjacent(sector);
     if(['blind','disorient','blast','zone','slow','confinement'].includes(skill.kind)&&contact&&inRange){
       if((self.agent==='Estalo'&&slot===3||self.agent==='Pulso'&&slot===3||self.agent==='Farol'&&slot===2)&&!adjacent(sector))continue;
@@ -49,15 +57,29 @@ export function decide(view:Observation,random:Random):Decision {
   // A retake must reach the planted device rather than duel forever from an adjacent sector.
   // Hold a threatened route rather than crossing helplessly under observed fire.
   // Contact on a different route must not pin an attack with a clear next step.
-  const order=[self,...view.allies].map(a=>a.id).sort();
+  if(!view.planted&&attacking&&self.sector==='attack'){
+    if(self.role==='Second'&&leading&&leading.sector===self.sector&&leading.action!=='move'&&view.now<6000)return {kind:'wait'};
+    if(self.role==='Support'&&leading&&leading.sector===self.sector&&leading.action!=='move'&&view.now<6000)return {kind:'wait'};
+    if(instruction==='utility'&&view.now<1500)return {kind:'wait'};
+  }
+  if(!attacking&&!view.planted&&self.role==='Anchor'&&view.plan.defense!=='aggressive')return {kind:'wait'};
+  if(instruction==='preserve'&&self.life<3500&&visible.length>0&&self.sector!=='attack'){
+    const retreat=shortestPath(view.map,self.sector,'attack',view.blocked);if(retreat?.path[1])return {kind:'move',to:retreat.path[1]};
+  }
+  if(instruction==='trade'&&view.now<15000&&localAllies.length<2&&!view.planted)return {kind:'wait'};
+  const order=[self,...view.allies].sort((a,b)=>(a.slot??0)-(b.slot??0)).map(a=>a.id);
   const staging=self.sector==='attack'&&(view.plan.attack==='control'&&view.now<15000||view.plan.attack==='split'&&view.now<20000&&order.indexOf(self.id)%2===0);
-  const route=shortestPath(view.map,self.sector,staging?'mid':view.attackTarget,view.blocked);
+  const route=shortestPath(view.map,self.sector,staging||lurking?'mid':targetSite,view.blocked);
   // A fast execution uses the direct site connection; control stages through mid.
   // Shortest travel time alone used to collapse all three plans onto the same route.
-  const direct=self.team===view.attacking&&!view.planted&&self.sector==='attack'&&!staging&&adjacent(view.attackTarget)&&!view.blocked.includes([self.sector,view.attackTarget].sort().join(':'));
-  const routeNext=direct?view.attackTarget:route?.path[1];
+  const direct=self.team===view.attacking&&!view.planted&&self.sector==='attack'&&!staging&&!lurking&&adjacent(targetSite)&&!view.blocked.includes([self.sector,targetSite].sort().join(':'));
+  const routeNext=direct?targetSite:route?.path[1];
   const clearStep=!!routeNext&&!visible.some(e=>e.sector===routeNext);
-  const advancing=localEnemies.length===0&&(!view.planted&&self.team===view.attacking&&clearStep||!!view.planted&&self.team!==view.attacking&&self.sector!==view.planted.sector);
+  // A designated Entry may contest a route with nearby support after preparation.
+  // Units without that responsibility still hold observed fire on their crossing.
+  const supportedEntry=self.role==='Entry'&&localAllies.length>=2&&view.now>=5000&&view.now<75000;
+  const followingEntry=self.role==='Second'&&!!leading&&(leading.action==='move'||leading.sector!==self.sector);
+  const advancing=localEnemies.length===0&&(!view.planted&&self.team===view.attacking&&(clearStep||supportedEntry||followingEntry)||!!view.planted&&self.team!==view.attacking&&self.sector!==view.planted.sector);
   if(visible.length>0&&!advancing)return {kind:'wait'};
   const device=view.devices[0];if(device)return {kind:'destroy',device:device.id};
   let destination:Sector=self.sector;
@@ -65,20 +87,21 @@ export function decide(view:Observation,random:Random):Decision {
     if(self.team!==view.attacking)destination=view.planted.sector;
     else return {kind:'wait'};
   }else if(self.team===view.attacking){
-    destination=view.attackTarget;
+    destination=targetSite;
     if(view.plan.attack==='control'&&view.now<15000&&(self.sector==='attack'||self.sector==='mid'))destination='mid';
     if(view.plan.attack==='split'&&view.now<20000&&order.indexOf(self.id)%2===0&&self.sector==='attack')destination='mid';
     if(self.sector===destination)return destination==='A'||destination==='B'?{kind:'plant'}:{kind:'wait'};
   }else{
     const observed=known[0];
-    if(observed)destination=observed.sector;
+    const patient=view.plan.defense==='reading'||instruction==='cautious';
+    if(observed&&(!patient||known.length>=2||view.now>=30000))destination=observed.sector;
     else if(view.plan.defense==='aggressive'&&view.now<20000)destination='mid';
     else return {kind:'wait'};
   }
   if(destination===self.sector)return {kind:'wait'};
   const path=shortestPath(view.map,self.sector,destination,view.blocked);
   if(!path||path.path.length<2)return {kind:'wait'};
-  const next=direct?view.attackTarget:path.path[1];
+  const next=lurking&&self.sector==='attack'?'mid':direct?targetSite:path.path[1];
   for(const slot of [0,1,2,3] as Slot[]){
     if(!available(slot))continue;
     const kind=ABILITIES[self.agent][slot].kind;
