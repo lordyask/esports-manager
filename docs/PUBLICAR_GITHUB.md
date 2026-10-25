@@ -1,51 +1,77 @@
-# Publicar o Beta pelo GitHub Pages
+# Publicação e manutenção — GitHub Pages
 
-## Antes de publicar
+Atualizado em 24/10/2026. O Beta 1.0 já está publicado.
 
-Este é um candidato de teste. Conclua o checklist manual; a verificação visual não foi possível no ambiente de desenvolvimento. Não há publicação feita nesta entrega.
+## Ambiente ativo
 
-A combinação GitHub Free + Pages exige repositório público. Assim, o código e os parâmetros do jogo ficarão públicos. Guarde apenas código fictício e arquivos de desenvolvimento; não envie credenciais, arquivos pessoais ou salvamentos de avaliadores.
+- Site: https://lordyask.github.io/esports-manager/
+- Código: https://github.com/lordyask/esports-manager
+- Branch: `main`.
+- Pages: **Settings → Pages → Build and deployment → Source → GitHub Actions**.
+- Workflow: `.github/workflows/pages.yml`, **Verificar e publicar Beta**.
+- Aplicação estática com persistência local; sem API Node.js hospedada no Pages.
 
-## Pelo repositório
+A publicação inicial parou porque o Pages não estava habilitado. Depois da
+ativação pelo autor, a tentativa 2 do [workflow inicial](https://github.com/lordyask/esports-manager/actions/runs/39688311712)
+concluiu testes, TypeScript, build e deploy. A atualização da marca também passou
+pelo [workflow seguinte](https://github.com/lordyask/esports-manager/actions/runs/39691526627).
+Não é necessário criar outro repositório ou reenviar o pacote inicial.
 
-1. Crie ou escolha um repositório público na sua conta. Sugestão de nome: `esports-manager`. A escolha do nome não é obrigatória: o workflow usa o caminho real.
-2. Extraia o pacote de código. Envie o conteúdo da pasta `codigo/` para a raiz do repositório, incluindo `package.json`, `package-lock.json`, `app/`, `lib/`, `src/`, `data/`, `test/`, `scripts/`, `.github/` e os arquivos de configuração. Não envie só o ZIP nem coloque `codigo/` como uma pasta extra na raiz.
-3. Use a branch `main`. Se o repositório usa outro nome, ajuste `branches: [main]` em `.github/workflows/pages.yml`.
-4. Em **Settings → Pages → Build and deployment → Source**, escolha **GitHub Actions**.
-5. Em **Actions**, selecione **Verificar e publicar Beta** e execute **Run workflow**, ou envie um commit para `main`.
-6. Espere as etapas `build` e `deploy` concluírem. Se falhar, abra a etapa em vermelho e copie a mensagem para investigação; não ignore os testes.
-7. O próprio workflow/Settings Pages exibirá o endereço publicado. Abra esse endereço em computador e celular e conclua o checklist.
+## Atualizar a aplicação existente
 
-A pasta `.github` é parte essencial da entrega. Se a interface de upload não a incluir, use GitHub Desktop ou Git para enviar o projeto completo.
+1. Preparar e revisar as alterações com o escopo autorizado pelo autor.
+2. Executar os testes e verificações adequados. Para código da aplicação, o fluxo
+   existente exige `npm test`, `npm run typecheck` e `npm run build`.
+3. Conferir o caminho de projeto com `PAGES_BASE_PATH=/esports-manager npm run build`
+   quando houver mudança de configuração, metadados ou arquivos públicos.
+4. Concluir os itens aplicáveis do [checklist](CHECKLIST_BETA.md), mantendo clara
+   a diferença entre testes em código, navegador e aparelhos físicos.
+5. Somente quando o lançamento estiver autorizado, enviar o código à `main`:
+   commits comuns nessa branch disparam a publicação automática.
+6. Acompanhar **Actions → Verificar e publicar Beta**. `build` e `deploy` devem
+   concluir com sucesso. Se falhar, investigar a etapa correspondente.
+7. Abrir o endereço do site e verificar a alteração publicada e o progresso salvo.
 
-## Com Git, para quem já usa
+O Beta 1.1 está em planejamento e não tem lançamento autorizado. Discussões,
+propostas e a atualização documental do Beta 1.0 não representam uma nova versão.
+Para o registro exclusivamente documental, usa-se mensagem de commit com
+`[skip ci]` para evitar republicar a aplicação pelo workflow de push.
 
-Dentro da raiz do código extraído, use o endereço real do repositório criado. Não digite senhas ou tokens em arquivos do projeto.
+## Caminhos, ícones e arquivos estáticos
 
-```bash
-git init -b main
-git add .
-git commit -m "Prepare Esports Manager Beta 1.0 RC1"
-git remote add origin ENDERECO_REAL_DO_REPOSITORIO
-git push -u origin main
-```
+O workflow usa `actions/configure-pages` e transmite `base_path` para
+`PAGES_BASE_PATH`. O build usa esse valor para o subcaminho da aplicação, as
+imagens da marca, os links de favicon e o manifesto de atalho. A configuração
+expõe o mesmo valor ao código cliente por `NEXT_PUBLIC_BASE_PATH`.
 
-Para manter o histórico original, o pacote inclui um Git bundle separado. Restaure com `git clone source-history.bundle esports-manager`, entre na pasta e use a branch `beta/github-pages`. Crie/atualize `main` com o conteúdo da versão revisada antes de publicar. O bundle não contém `node_modules` nem as builds estáticas.
+Os arquivos finais do build ficam em `out/`, e o workflow envia esse diretório.
+O Pages não recebe `node_modules` nem executa o servidor de desenvolvimento.
+A identidade visual está em `public/brand/`, com favicon e ícone Apple na raiz
+pública. Consulte [IDENTIDADE_VISUAL.md](IDENTIDADE_VISUAL.md).
 
-## Como o caminho é tratado
+## Novas instalações e pacote histórico
 
-O workflow usa `actions/configure-pages` e transmite `base_path` para `PAGES_BASE_PATH`. Isso atende tanto o endereço principal de usuário quanto um site em `/nome-do-repositorio/`. O build é estático; o Pages não executa uma API Node.js.
+Estas instruções só se aplicam a uma cópia nova ou restauração:
 
-O diretório `site-estatico/` do pacote é uma exportação para a raiz de um servidor HTTP. É útil para inspeção local, mas o workflow deve gerar a publicação novamente para o caminho do repositório real.
+1. Escolher um repositório e habilitar o Pages para GitHub Actions conforme o
+   ambiente da conta. O projeto atual utiliza um repositório público.
+2. Enviar os fontes à raiz, incluindo `.github/`, `app/`, `lib/`, `src/`, `public/`,
+   `data/`, `test/`, `scripts/`, `package.json`, lockfile e configurações.
+3. Usar `main`, ou adaptar o gatilho do workflow à branch escolhida.
+4. Executar o workflow e confirmar o endereço efetivamente informado pelo deploy.
 
-## Atualizações e salvamentos
+O ZIP RC1 e seu Git bundle são fotografias da entrega anterior à publicação e
+à marca. Sua documentação reflete aquele momento. Para continuar o projeto,
+preferir os fontes e os registros atuais do repositório; não restaurar o pacote
+antigo sobre a versão publicada sem revisão. Não enviar o ZIP como se fosse o site.
 
-Cada commit na branch configurada refaz as verificações e publica a nova versão. Antes de atualizar o motor, exporte os saves de teste: esta entrega não migra formatos incompatíveis. Se o domínio/caminho de origem mudar, o banco local anterior não acompanhará o site automaticamente; use exportação/importação quando as versões forem compatíveis.
+## Salvamentos
 
-Não envie arquivos de progresso ou diagnóstico ao repositório público. Eles devem ser compartilhados separadamente, quando necessário para reproduzir um problema.
+Antes de mudar a versão do motor, definir a compatibilidade/migração e preservar
+os saves. O Beta 1.0 rejeita formatos incompatíveis e não faz migração automática.
+O mesmo site usa um progresso local por origem; mudar navegador ou domínio não
+transfere esse progresso. Exportação/importação atende versões compatíveis.
 
-## Referências verificadas
-
-- https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages
-- https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
-- https://nextjs.org/docs/app/guides/static-exports
+O repositório é público. Salvamentos e diagnósticos dos avaliadores são
+compartilhados separadamente para análise; não anexá-los ao código ou ao histórico
+público. Nunca incluir credenciais ou arquivos pessoais.

@@ -1,0 +1,186 @@
+# Registro consolidado — Esports Manager
+
+Atualizado em 24/10/2026. Este é o ponto de entrada para continuar o projeto.
+Atualização documental: não altera código, regras, versão do motor ou partidas salvas.
+
+## Estado atual
+
+| Item | Registro confirmado |
+| --- | --- |
+| Aplicação pública | Beta 1.0, originado do pacote RC1 |
+| Site | https://lordyask.github.io/esports-manager/ |
+| Repositório | https://github.com/lordyask/esports-manager |
+| Branch de publicação | `main` |
+| Motor / pacote npm | 0.3.0 |
+| Regras / formato de save | `gdd-1.3` / schema 1 |
+| Último código funcional publicado | `9815c64305a13ec912c892a1f70ae6530dc2cc74` |
+| Hospedagem e persistência | GitHub Pages; progresso local em IndexedDB |
+| Próxima versão | Beta 1.1 em planejamento, sem escopo fechado ou autorização de lançamento |
+
+O autor compartilhou o Beta 1.0 com amigos, realizou testes e informou ter
+recebido feedbacks. Esses feedbacks ainda serão apresentados e consolidados.
+A instrução atual é atualizar os registros do Beta 1.0 antes de definir o Beta 1.1.
+
+## Decisões e limites de escopo
+
+O foco passou do conceito histórico de MOBA para gerenciamento de uma equipe de
+FPS tático, com agentes e personagens fictícios. O documento antigo de etapas
+01–06 e os catálogos de MOBA são históricos; não reintroduzir suas regras de
+heróis, níveis ou draft/ban no Beta FPS sem decisão explícita do autor.
+
+As decisões expressamente aprovadas e seus ajustes posteriores prevalecem sobre
+recomendações, resultados de simulação e propostas ainda em discussão. A referência
+de regras usada pelo motor atual é o GDD FPS Web 1.3.
+
+Supabase e Vercel foram aprovados como direção para uma etapa futura. O autor
+aprovou posteriormente executar o primeiro Beta pelo GitHub: Pages com exportação
+estática e salvamento local, adiando contas, banco em nuvem e servidor autoritativo.
+O Beta 1.0 valida principalmente o motor, as rodadas e o fluxo de uma partida;
+a gestão completa da carreira ainda não foi desenvolvida.
+
+## Desenvolvimento e entregas concluídas
+
+### Motor e regras
+
+- Motor tático 0.2.0: conexão de agentes, habilidades, movimentação, observação,
+  decisões da IA, economia, troca de lados e prorrogação. O histórico dessa entrega
+  está em [MOTOR_0_2_HISTORICO.md](MOTOR_0_2_HISTORICO.md).
+- Motor 0.3.0: integração ao navegador, hash portátil, sessões com comandos e
+  revisões, execução por rodada em Web Worker e integração ao fluxo do Beta.
+- Cinco contra cinco; oito agentes fictícios, quatro classes e 32 habilidades.
+- Três cenários abstratos: Pátio, Horizonte e Enlace. A simulação usa cinco setores
+  e conexões, sem mapa visual, coordenadas ou ângulos físicos.
+- Planos de ataque Execução rápida, Controle e leitura e Pressão dividida;
+  defesa agressiva, equilibrada e de retomada; ponto inicial A/B.
+- Vitória na regulamentação aos 13; troca de lados após 12 rodadas; prorrogação
+  em pares de lados, exigindo dois de vantagem. A pausa automática após 30 rodadas
+  por interação é proteção de execução, não limite do confronto ou vencedor forçado.
+- Compras Eco/Semi/Forte, com referências do zero de até 1.000/3.000/6.000 por jogador,
+  preservação de equipamento e ajuda após reservar a compra própria. Detalhamento
+  visual de armas foi adiado por decisão do autor.
+- Abertura de cada metade com 1.000 por jogador; limite de saldo de 12.000.
+  Prorrogação fornece kit pela regra vigente. Créditos da rodada são separados
+  do dinheiro de gestão da organização.
+
+### Organização, elenco e preparação
+
+- Personalização do nome, sigla, cor e escolha entre três escudos de organização.
+- Catálogo aprovado de 24 jogadores fictícios; escolha de exatamente cinco,
+  respeitando teto salarial mensal de 12.000. Saldo inicial de gestão de 30.000
+  é informativo; salários não são descontados na partida isolada.
+- Exibição de oito atributos, potencial, mental, aptidões táticas e afinidades.
+  Potencial não altera a força atual nem gera evolução nesta versão.
+- Cinco agentes distintos na equipe, afinidades 85/65/45/10 e avisos sobre classes
+  ausentes, sem impor composição obrigatória das quatro classes.
+- Funções aprovadas: IGL, Entry Fragger, Second Entry, Support, Anchor, Lurker e
+  Main OP. IGL acumula uma responsabilidade e participa das chamadas de Controle;
+  Main OP define a preparação interna de precisão. As demais funções ainda são
+  indicações de escalação, sem políticas específicas completas na IA.
+- Oponente sintético com oito atributos fixos em 45, 60 ou 75. Não são equipes
+  definitivas de carreira ou dados do Valorant real.
+- Condições iniciais de teste: moral 70, fadiga 10, familiaridade de mapa 50.
+
+### Interface e dados locais
+
+- Telas Visão geral, Elenco, Preparação, Partida e Relatório, em português.
+- Economia exibida por jogador, gasto previsto/real e aviso de kit parcial.
+- Rodada individual, sequência automática, ritmo normal/acelerado e pausa da
+  sequência. Essa pausa não é uma pausa tática com efeito na moral.
+- Relatório com eliminações, mortes, primeiras eliminações/mortes registradas,
+  trades, utilitários concluídos, plants, desarmes e gastos.
+- Progresso confirmado em IndexedDB antes do avanço, com revisão global para
+  impedir sobrescrita por uma aba desatualizada. Um progresso ativo por origem.
+- Exportação/importação JSON com conferência de formato, versão, estrutura e
+  integridade, além de exportação de diagnóstico. Não há migração automática
+  entre motores incompatíveis ou autenticação de resultados locais.
+
+### Publicação e identidade visual
+
+- Publicação inicial no repositório indicado pelo autor, commit
+  `d1932756e37aeae4419bfa8e435bbdc934ff9764`.
+- O primeiro workflow parou com o Pages desativado. O autor ativou a opção
+  GitHub Actions; a segunda tentativa concluiu build e deploy com sucesso.
+- Em 21/10/2026, a proposta visual 01 da marca EM foi aprovada pelo autor.
+- Símbolo reproduzido em SVG, assinaturas horizontal e vertical, versão para
+  fundo claro, aplicação no menu e rodapé, favicon SVG/ICO, ícones Android/iOS e
+  manifesto com caminhos compatíveis com o Pages. Marca do produto independente
+  da cor e do escudo da equipe do jogador.
+- Atualização da marca publicada no commit
+  `9815c64305a13ec912c892a1f70ae6530dc2cc74`, com workflow concluído com sucesso.
+- Ícones e manifesto preparados; instalação de atalhos em aparelhos físicos
+  ainda não exercitada. Não foi implementado funcionamento offline.
+
+## Validação realizada e limites da evidência
+
+Os 76 testes automatizados, a verificação TypeScript e os builds estáticos
+passaram. Os workflows públicos confirmam a publicação inicial e a da marca.
+As verificações abaixo são evidências do desenvolvimento do Beta 1.0, não uma
+nova execução de testes motivada por esta atualização documental.
+
+| Evidência | Resultado e alcance |
+| --- | --- |
+| Lote exploratório final do motor 0.3.0 | 1.080 mapas, zero erros de execução |
+| Lote adicional com novas seeds | 270 mapas, zero erros de execução |
+| Soma das rodadas nesses lotes | 29.693 |
+| Habilidades | 32 exercitadas em testes dirigidos; 20 usadas naturalmente na composição fixa desses lotes |
+| Chrome do ambiente de verificação | Elenco, preparação, rodada, sequência até o fim, relatório, recarga e recuperação do progresso |
+| Partida desse navegador | Pátio, atributos 60, salário 7.500, placar 4–13 em 17 rodadas |
+| Salvamento e diagnóstico de avaliação | Mesma partida, Pátio, atributos 45, salário 9.300, placar 13–2 em 15 rodadas |
+| Reprodução do salvamento | As 15 rodadas, compras, perfis e estado final coincidiram exatamente |
+| Auditoria financeira independente | Saldos e gastos conferiram; sem negativos; teto de 12.000 e reset para 1.000 na rodada 13 respeitados |
+| Marca no site | Imagens carregadas, sem excesso de largura na janela observada; referências de favicon e manifesto conferidas |
+
+A exportação de Chrome Android comprova a existência daquele progresso e permite
+sua auditoria. Não substitui teste visual de todos os controles do celular. O
+checklist completo, incluindo importação, duas abas, falha de armazenamento,
+acessibilidade e outros navegadores, permanece parcialmente pendente.
+
+O diagnóstico avaliado não registrava erro. As dez primeiras mortes de um
+jogador definido como Second Entry foram destacadas como sinal para investigação.
+A influência dos IDs e a ausência de políticas completas por função podem
+contribuir; essa causalidade não foi isolada. Uma partida 13–2 contra atributos
+45 não demonstra equilíbrio ou superioridade geral de uma estratégia.
+
+Os arquivos brutos de avaliação e seus metadados permanecem fora do repositório
+público. Este registro conserva apenas o resumo necessário à continuidade.
+
+## Limitações conhecidas ainda abertas
+
+1. IDs ainda participam do desempate de alvos, distribuição inicial e algumas
+   ordens de processamento; possível viés de comportamento continua sem correção.
+2. Entry/Second/Support/Anchor/Lurker ainda não têm todas as políticas próprias.
+3. Equilíbrio não validado: no lote final, taxa de ataque de 75,6% no Pátio,
+   60,9% no Horizonte e 22,2% no Enlace. Na comparação com mesmas condições,
+   Enlace caiu de 45,4% no motor 0.2.0 para 22,8% no 0.3.0. Os desenhos de lote
+   são diferentes; não comparar diretamente a tabela do lote antigo variável.
+4. As quatro regressões antigas de prorrogação melhoraram, mas duas ainda
+   chegaram a 128 e 92 rodadas. Não há limite artificial de vitória.
+5. Treinamento, evolução, moral entre partidas, calendário, campeonatos, folha
+   salarial em operação e carreira completa ainda não estão integrados.
+6. Pausa tática com efeito na moral, contas e salvamento em nuvem não implementados.
+7. Migração de saves entre versões incompatíveis não implementada. Resultados
+   locais não são adequados para rankings autenticados.
+8. Compatibilidade completa de celulares, atalhos instalados, outros navegadores
+   e todos os casos de persistência ainda precisa ser verificada.
+
+## Transição para o Beta 1.1
+
+O autor orientou organizar a próxima versão sem lançá-la. B11-01 a B11-07 foram
+apresentados somente como proposta inicial: consolidação de feedbacks, seleção
+alvos/posições, funções táticas, equilíbrio, experiência de uso, possível expansão
+de gestão e salvamentos/validação.
+
+A sequência de amistosos com elenco e histórico foi uma sugestão, não uma decisão
+aprovada. Moral, treinamento, evolução e campeonatos também não entraram
+automaticamente no escopo. Aguardar os feedbacks e as expectativas do autor,
+revisar a lista e obter definição de escopo antes de implementar ou publicar.
+
+## Documentos de continuidade
+
+- [README](../README.md): apresentação, execução e limites atuais.
+- [Validação do Beta](../VALIDACAO_BETA.md): resultados, método, evidências e ressalvas.
+- [Checklist manual](CHECKLIST_BETA.md): itens exercitados e pendentes, por tipo de evidência.
+- [Publicação](PUBLICAR_GITHUB.md): situação atual e manutenção do site.
+- [Identidade visual](IDENTIDADE_VISUAL.md): marca aprovada e arquivos finais.
+- [Changelog](../CHANGELOG.md): histórico resumido das entregas.
+- [Motor 0.2.0](MOTOR_0_2_HISTORICO.md): referência histórica, não instrução da versão atual.

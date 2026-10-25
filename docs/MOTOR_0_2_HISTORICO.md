@@ -1,5 +1,12 @@
 # Esports Manager FPS Web — motor tático 0.2.0
 
+> Documento histórico do motor 0.2.0. As instruções e a arquitetura abaixo
+> descrevem aquela entrega, não o estado atual da aplicação. O Beta 1.0 já está
+> publicado com motor 0.3.0, interface web, execução local e persistência no
+> navegador. Consulte [o registro atual](REGISTRO_PROJETO.md),
+> [o README](../README.md) e [a validação](../VALIDACAO_BETA.md).
+> Os resultados e as decisões históricos foram preservados.
+
 O motor executa rodadas e mapas autônomos de cinco contra cinco, com os oito agentes, 32 habilidades, economia individual, movimentação, informação e decisões táticas. Referência: GDD FPS Web 1.3, com AF01–AF03 e RV01–RV16 aprovados em 16/10/2026. Os personagens e parâmetros são do jogo fictício em desenvolvimento.
 
 ## Executar

@@ -1,8 +1,12 @@
-# Esports Manager — Beta 1.0 RC1
+# Esports Manager — Beta 1.0
 
-Candidato de teste de partida para GitHub Pages. Motor 0.3.0; regras aprovadas do GDD FPS Web 1.3. Interface em português, Next.js/React/TypeScript com exportação estática. Este projeto é independente e usa personagens e coeficientes fictícios.
+Beta de teste de partida publicado no GitHub Pages. Motor 0.3.0; regras aprovadas do GDD FPS Web 1.3. Interface em português, Next.js/React/TypeScript com exportação estática. O pacote inicial foi identificado como RC1; o nome público da aplicação é Beta 1.0. Este projeto é independente e usa personagens e coeficientes fictícios.
 
-**Status:** código e exportação estática preparados. Verificação visual e interação real em celular/computador pendentes: a ferramenta de navegador não conseguiu abrir a prévia neste ambiente. Consulte `VALIDACAO_BETA.md` antes de liberar o link aos avaliadores. O projeto ainda não foi publicado em uma conta GitHub.
+**Status atualizado em 24/10/2026:** publicado e em avaliação. [Abrir o Beta](https://lordyask.github.io/esports-manager/) · [Repositório](https://github.com/lordyask/esports-manager).
+
+O GitHub executou testes, TypeScript, build e publicação com sucesso. No Chrome do ambiente de verificação foram exercitados elenco, preparação, uma partida completa, relatório e recuperação do progresso após recarga. Um salvamento e um diagnóstico de Chrome Android também foram analisados: as 15 rodadas foram reproduzidas sem divergência. Isso não representa homologação completa de aparelhos, navegadores ou equilíbrio competitivo.
+
+O [registro consolidado do projeto](docs/REGISTRO_PROJETO.md) reúne decisões, entregas e pendências. Consulte também [validação](VALIDACAO_BETA.md), [checklist manual](docs/CHECKLIST_BETA.md) e [histórico de alterações](CHANGELOG.md). O Beta 1.1 está em planejamento; seu escopo ainda depende dos feedbacks e da aprovação do autor.
 
 ## O que foi implementado
 
@@ -15,6 +19,7 @@ Candidato de teste de partida para GitHub Pages. Motor 0.3.0; regras aprovadas d
 - Salvamento: IndexedDB transacional com revisão global, conferência de versões, exportação/importação JSON e diagnóstico. Um progresso ativo por navegador/origem.
 - Relatório: eliminações, mortes, primeira eliminação/morte registrada, trades, habilidades concluídas, plants, desarmes e gastos reais registrados.
 - GitHub Actions: testes e TypeScript antes do build; publicação pelo Pages com o caminho do repositório configurado automaticamente.
+- Identidade visual: marca EM aprovada, assinaturas SVG para fundos claros/escuros, aplicação no menu e rodapé, favicon e ícones Android/iOS com manifesto de atalho. Sem funcionamento offline.
 
 ## Executar no computador
 
@@ -39,7 +44,7 @@ Os arquivos estáticos ficam em `out/`. Para um caminho de projeto do GitHub, o 
 
 ## Publicação
 
-Veja `docs/PUBLICAR_GITHUB.md`. A publicação usa `.github/workflows/pages.yml`; envie os arquivos extraídos do projeto, incluindo essa pasta, para a branch `main` do repositório de destino. Não envie o ZIP como se fosse o site.
+O repositório de destino é `lordyask/esports-manager`, branch `main`, com Pages configurado para GitHub Actions. O site já está publicado. O procedimento de manutenção e a referência para novas instalações estão em [docs/PUBLICAR_GITHUB.md](docs/PUBLICAR_GITHUB.md).
 
 ## Avaliação
 
@@ -70,4 +75,4 @@ O lote antigo `npm run benchmark` continua disponível para regressão, mas vari
 
 `src/`: motor; `lib/game.ts`: sessão portátil, compras, checkpoints e estatísticas; `lib/worker.ts`: protocolo de cálculo; `lib/storage.ts`: persistência IndexedDB; `app/`: telas e estilo; `test/`: regressões; `validation/`: evidências; `docs/`: publicação e avaliação.
 
-O motor deve continuar independente da interface. Na fase de Supabase/Vercel, substituir o adaptador local pelo servidor e salvar resultados autorizados em transação; não confiar nos dados enviados pelo navegador.
+O motor deve continuar independente da interface. Supabase/Vercel continuam como direção futura aprovada; não estão ativos no Beta 1.0 e não foram incluídos automaticamente no Beta 1.1. A futura integração deverá substituir o adaptador local pelo servidor e salvar resultados autorizados em transação; não confiar nos dados enviados pelo navegador.

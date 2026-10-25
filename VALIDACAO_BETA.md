@@ -1,10 +1,12 @@
-# Esports Manager — Validação do Beta 1.0 RC1
+# Esports Manager — Validação do Beta 1.0
 
-Motor 0.3.0 · Regras GDD FPS Web 1.3 · Destino: GitHub Pages.
+Motor 0.3.0 · Regras GDD FPS Web 1.3 · Publicado no GitHub Pages. Registro atualizado em 24/10/2026; pacote de origem RC1.
 
 ## Situação da entrega
 
-Candidato implementado para teste de partida. Fonte, exportação estática e workflow preparados; nenhuma publicação na conta GitHub foi realizada. Verificação visual/interação em navegador real pendente: a ferramenta de navegador travou ao abrir a prévia. A implementação não deve ser apresentada como homologada em celular ou computador.
+Beta implementado e publicado para teste de partida em https://lordyask.github.io/esports-manager/, com código em https://github.com/lordyask/esports-manager, branch `main`. A primeira tentativa parou porque o Pages estava desativado; após sua ativação, a segunda tentativa concluiu com sucesso. A atualização posterior da identidade visual também passou pelo workflow e foi publicada.
+
+A indisponibilidade inicial da ferramenta de prévia foi superada. O Chrome do ambiente de verificação executou montagem do elenco, preparação, cálculo de rodada, sequência até o encerramento, relatório e recuperação do mesmo progresso após recarga. Esses testes foram pontuais e não completam o checklist de compatibilidade, acessibilidade, importação, duas abas e dispositivos físicos. Um arquivo de avaliação de Chrome Android foi validado e reproduzido separadamente.
 
 As decisões P01–P07 e T01–T05 foram consideradas, com o ajuste posterior aprovado: Beta local pelo GitHub Pages, adiando contas, banco em nuvem e execução autoritativa no servidor. As regras de MOBA do documento histórico não foram reintroduzidas.
 
@@ -17,6 +19,8 @@ O motor portátil usa SHA-256 compatível com Node/UTF-8, sem dependência de `n
 IndexedDB confirma o progresso em transação com revisão global. Uma aba antiga não pode sobrescrever a confirmação de outra. Exportação/importação verifica formato, versão, checksum e estrutura. Checksum local não autentica resultados. Há um progresso ativo; exporte antes de substituir ou mudar de navegador.
 
 Interface em português com montagem de elenco, preparação, economia individual, acompanhamento por rodada, sequência automática e relatórios. A sequência pausa após 30 rodadas por interação; pode continuar e não define vencedor. Ritmo normal/acelerado muda o intervalo entre rodadas, não os cálculos.
+
+A marca EM aprovada foi aplicada ao menu e rodapé, com SVGs de fundo claro/escuro, favicon, ícones de atalho Android/iOS e manifesto. Os arquivos e metadados foram conferidos no build para a raiz e para `/esports-manager`; as duas imagens da marca carregaram no site publicado. A instalação de atalhos em aparelhos físicos permanece pendente.
 
 ## Verificações concluídas
 
@@ -31,10 +35,24 @@ Interface em português com montagem de elenco, preparação, economia individua
 | Novas seeds após congelar a política | 270 mapas; 0 erros de execução |
 | Rodadas desses dois lotes | 29.693 |
 | Casos anteriores de prorrogação longa | Quatro repetidos com mesma seed/composição/lado/plano |
-| Navegador real / celular | Não verificado; ferramenta de prévia indisponível |
-| GitHub Actions na conta do usuário | Preparado, ainda não executado remotamente |
+| Chrome no ambiente de verificação | Elenco, preparação, rodada, partida completa, relatório e recarga exercitados no site publicado |
+| Arquivo de avaliação de Chrome Android | Exportação e diagnóstico recebidos; integridade, reprodução e economia conferidas |
+| Compatibilidade completa em celular / outros navegadores | Pendente; exportação de um aparelho não substitui a avaliação visual e de todas as interações |
+| GitHub Actions na conta do usuário | Testes, TypeScript, build e deploy concluídos com sucesso nas publicações da aplicação e da marca |
+| Identidade visual | SVGs, imagens carregadas, manifesto e referências de ícones verificados; instalação em aparelhos não exercitada |
 
-Os testes de IndexedDB usam `fake-indexeddb`. O protocolo do worker é exercitado em `worker_threads` com adaptação da interface de mensagens. Essas verificações não substituem IndexedDB/Web Worker reais em Chrome Android, Chrome/Edge ou Safari. Os testes nativos anteriores das 32 habilidades continuam incluídos.
+Os testes automatizados de IndexedDB usam `fake-indexeddb`. O protocolo do worker é exercitado em `worker_threads` com adaptação da interface de mensagens. O fluxo de navegador citado acima acrescenta uso real de IndexedDB e Web Worker no ambiente de verificação; a matriz de compatibilidade em aparelhos continua incompleta. Os testes nativos anteriores das 32 habilidades continuam incluídos. Os lotes de simulação não foram reexecutados para esta atualização exclusivamente documental.
+
+## Evidências posteriores à preparação do pacote
+
+- Publicação inicial: commit `d1932756e37aeae4419bfa8e435bbdc934ff9764`; [workflow 39688311712, tentativa 2](https://github.com/lordyask/esports-manager/actions/runs/39688311712), concluído com sucesso.
+- Marca aprovada e ícones: commit `9815c64305a13ec912c892a1f70ae6530dc2cc74`; [workflow 39691526627](https://github.com/lordyask/esports-manager/actions/runs/39691526627), concluído com sucesso.
+- Navegador do ambiente de verificação: elenco de cinco jogadores, salário 7.500, Pátio contra atributos 60; partida concluída em 17 rodadas, placar 4–13. O relatório e o progresso permaneceram após recarga.
+- Arquivos fornecidos para avaliação: salvamento e diagnóstico da mesma partida, motor 0.3.0/regras `gdd-1.3`, Pátio contra atributos 45; placar 13–2 em 15 rodadas. Todas as rodadas e o estado final foram reproduzidos exatamente com as decisões registradas. Perfis, nomes, compras e resultado conferiram; o diagnóstico não continha erro.
+- Na avaliação do salvamento, a contabilidade foi calculada também de forma independente: gastos totais 177.580/166.800, nenhum saldo negativo, limite de 12.000 respeitado e reinício de 1.000 antes da rodada 13. Salário total 9.300 de 12.000.
+- O caso de avaliação registrou dez primeiras mortes para um jogador definido como Second Entry. A causa não foi isolada: o uso de IDs como critério de desempate e as políticas incompletas por função são hipóteses de contribuição a investigar, não uma atribuição causal demonstrada.
+
+Os dados acima são resumos de verificação. Salvamentos, diagnóstico bruto, metadados do navegador e dados pessoais dos avaliadores não são incluídos no repositório público. Uma partida reproduzível não demonstra equilíbrio, causa de vitória ou desempenho geral do aparelho. O tempo de última rodada zero no diagnóstico não é uma medição de desempenho válida.
 
 ## Revisão da IA
 
@@ -83,16 +101,16 @@ Os quatro casos concluíram, mas partidas de 128 e 92 rodadas continuam longas. 
 
 ## Pendências e limites relevantes
 
-1. Executar `docs/CHECKLIST_BETA.md` em navegador real, incluindo celular, recarga, duas abas, importação/exportação e falha de armazenamento.
+1. Completar `docs/CHECKLIST_BETA.md`, especialmente avaliação visual no celular, duas abas, importação/restauração, acessibilidade e falha de armazenamento. O fluxo principal e a recarga já foram exercitados no ambiente de verificação.
 2. Revisar o equilíbrio do Enlace e a relação entre rotas, visão abstrata e coordenação. Mudanças nos coeficientes ou regras aprovados exigem proposta separada com evidências.
 3. As responsabilidades de Entry/Second/Support/Anchor/Lurker são indicações visíveis; políticas específicas completas por função continuam pendentes. IGL e preparação Main OP já têm ligação com o motor.
 4. O modelo continua com cinco setores, sem distância interna, ângulos ou cobertura física. Alvos empatados ainda usam ID. Isso pode introduzir vieses.
 5. A carreira completa, progressão de moral entre partidas, evolução/potencial, calendário, campeonato e folha salarial em operação não estão conectados. As condições dos testes são explícitas e fixas.
 6. “Pausar sequência” interrompe o avanço automático; ainda não implementa a pausa tática com efeito na moral.
 7. Preparar migração de saves antes de atualizar o motor. Nesta versão, formatos incompatíveis são rejeitados, sem migração automática.
-8. Identificar o repositório GitHub de destino e executar o workflow. O pacote não inclui domínio ou link público publicado.
+8. Consolidar os feedbacks dos avaliadores e definir o escopo do Beta 1.1 com o autor. A publicação do Beta 1.0 já foi concluída; nenhuma funcionalidade nova do Beta 1.1 está aprovada neste registro.
 
-Este candidato permite avaliar o fluxo da partida e localizar problemas. Não é uma declaração de homologação visual ou equilíbrio competitivo.
+O Beta 1.0 permite avaliar o fluxo da partida e localizar problemas. Não é uma declaração de homologação completa de dispositivos ou equilíbrio competitivo.
 
 ## Reproduzir
 
