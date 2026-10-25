@@ -1,6 +1,6 @@
 # Registro consolidado — Esports Manager
 
-Atualizado em 24/10/2026. Este é o ponto de entrada para continuar o projeto.
+Atualizado em 25/10/2026. Este é o ponto de entrada para continuar o projeto.
 Atualização documental: não altera código, regras, versão do motor ou partidas salvas.
 
 ## Estado atual
@@ -17,9 +17,10 @@ Atualização documental: não altera código, regras, versão do motor ou parti
 | Hospedagem e persistência | GitHub Pages; progresso local em IndexedDB |
 | Próxima versão | Beta 1.1 em planejamento, sem escopo fechado ou autorização de lançamento |
 
-O autor compartilhou o Beta 1.0 com amigos, realizou testes e informou ter
-recebido feedbacks. Esses feedbacks ainda serão apresentados e consolidados.
-A instrução atual é atualizar os registros do Beta 1.0 antes de definir o Beta 1.1.
+O autor compartilhou o Beta 1.0 com amigos e apresentou feedbacks sobre decisões
+entre rodadas, informações limitadas, estratégias pouco variadas e dificuldade
+para escolher compras. A documentação do Beta 1.0 foi consolidada antes desta etapa.
+Agora o autor solicitou uma proposta numerada para aprovação do Beta 1.1.
 
 ## Decisões e limites de escopo
 
@@ -165,15 +166,24 @@ público. Este registro conserva apenas o resumo necessário à continuidade.
 
 ## Transição para o Beta 1.1
 
-O autor orientou organizar a próxima versão sem lançá-la. B11-01 a B11-07 foram
-apresentados somente como proposta inicial: consolidação de feedbacks, seleção
-alvos/posições, funções táticas, equilíbrio, experiência de uso, possível expansão
-de gestão e salvamentos/validação.
+O autor orientou organizar a próxima versão sem lançá-la. Os feedbacks apresentados
+priorizam informação/intervalo, estratégias e compras. Depois definiu a direção de
+separar estratégias pelo lado atual e acrescentar treinamento e aba de agentes.
 
-A sequência de amistosos com elenco e histórico foi uma sugestão, não uma decisão
-aprovada. Moral, treinamento, evolução e campeonatos também não entraram
-automaticamente no escopo. Aguardar os feedbacks e as expectativas do autor,
-revisar a lista e obter definição de escopo antes de implementar ou publicar.
+A proposta detalhada está em [BETA_1_1_PROPOSTA.md](BETA_1_1_PROPOSTA.md), revisão 0.1,
+com códigos B11-01 a B11-14. Ela substitui o agrupamento preliminar de sete frentes.
+Todos os itens detalhados ainda aguardam aprovação. As tabelas de XP, potencial,
+familiaridade, sessão coletiva e regras de compatibilidade não são regras vigentes.
+
+A sessão coletiva, os quatro planos por lado e o uso de XP determinístico são
+recomendações do assistente. A decisão do autor foi solicitar sua elaboração para
+aprovação, não autorizar implementação ou lançamento. O Beta 1.0 permanece com
+motor 0.3.0 e sem treinamento integrado. O núcleo antigo de ganho de até 0,1 está
+isolado e sua substituição depende da nova aprovação.
+
+A organização persistente entre partidas é proposta como suporte ao treino;
+calendário, campeonatos e carreira financeira continuam fora do escopo proposto.
+Moral dinâmica e migração para Supabase/Vercel também não entram automaticamente.
 
 ## Documentos de continuidade
 
@@ -183,4 +193,5 @@ revisar a lista e obter definição de escopo antes de implementar ou publicar.
 - [Publicação](PUBLICAR_GITHUB.md): situação atual e manutenção do site.
 - [Identidade visual](IDENTIDADE_VISUAL.md): marca aprovada e arquivos finais.
 - [Changelog](../CHANGELOG.md): histórico resumido das entregas.
+- [Proposta do Beta 1.1](BETA_1_1_PROPOSTA.md): itens numerados, aguardando aprovação.
 - [Motor 0.2.0](MOTOR_0_2_HISTORICO.md): referência histórica, não instrução da versão atual.

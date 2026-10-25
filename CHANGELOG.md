@@ -1,5 +1,13 @@
 # Histórico de alterações — Esports Manager
 
+## 25/10/2026 — Proposta do Beta 1.1 para aprovação
+
+- Registrados feedbacks de informações, estratégias e compras entre rodadas.
+- Formalizada a proposta de treinamento e catálogo de agentes em 14 itens,
+  com regras e números identificados como ainda não aprovados.
+- Atualizado o registro do projeto com a direção do autor e os pontos de decisão.
+- Atualização apenas documental; sem implementação ou lançamento do Beta 1.1.
+
 ## 24/10/2026 — Consolidação documental do Beta 1.0
 
 - Atualizados README, validação, checklist, publicação e identidade visual para
