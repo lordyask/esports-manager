@@ -1,6 +1,6 @@
-# Beta 1.1 — validação da implementação para revisão
+# Beta 1.1 — validação inicial de 25/10/2026
 
-Data: 25/10/2026. Branch `beta/1.1`. Motor/pacote 0.4.0, schema 2. **Não publicado.**
+Data: 25/10/2026. **Registro histórico da implementação 0.4.0. A revisão atual está em [LANCAMENTO_BETA_1_1_RC1.md](LANCAMENTO_BETA_1_1_RC1.md).** Branch `beta/1.1`. Motor/pacote 0.4.0, schema 2. **Não publicado.**
 B11-01 a B11-14 estão aprovados. A implementação está disponível para revisão;
 a liberação ainda depende de correções, homologação e autorização posterior.
 

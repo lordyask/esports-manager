@@ -1,0 +1,8950 @@
+{
+  "engine": "0.4.1",
+  "overtimePairLimit": 3,
+  "rules": "gdd-1.3+b11-rc1",
+  "coreSHA256": "1b0fe7e964ffea0d66faf431dc4b9e0ad9a152a8d158acdfe767ca0759d491cb",
+  "elapsedMs": 143078,
+  "errors": [],
+  "levelMaps": 120,
+  "combinationMaps": 450,
+  "trainingMatches": 30,
+  "maxRounds": 30,
+  "levels": [
+    {
+      "map": "patio",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "seed": 26012160,
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "seed": 26012160,
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "seed": 26012161,
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "patio",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "seed": 26012161,
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "seed": 26012162,
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "seed": 26012162,
+      "rounds": 19,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "seed": 26012163,
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "seed": 26012163,
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "seed": 26015880,
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "seed": 26015880,
+      "rounds": 18,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "seed": 26015881,
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "seed": 26015881,
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "seed": 26015882,
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "seed": 26015882,
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "seed": 26015883,
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "patio",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "seed": 26015883,
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "patio",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "seed": 26019600,
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "seed": 26019600,
+      "rounds": 18,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "seed": 26019601,
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "seed": 26019601,
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "seed": 26019602,
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "seed": 26019602,
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "seed": 26019603,
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "patio",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "seed": 26019603,
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "seed": 26013090,
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "seed": 26013090,
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "seed": 26013091,
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "seed": 26013091,
+      "rounds": 16,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "seed": 26013092,
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "seed": 26013092,
+      "rounds": 14,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "seed": 26013093,
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "seed": 26013093,
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "seed": 26018670,
+      "rounds": 13,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "seed": 26018670,
+      "rounds": 13,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "seed": 26018671,
+      "rounds": 19,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "seed": 26018671,
+      "rounds": 13,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "seed": 26018672,
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "seed": 26018672,
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "seed": 26018673,
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "seed": 26018673,
+      "rounds": 13,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "seed": 26012160,
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "seed": 26012160,
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "seed": 26012161,
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "seed": 26012161,
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "seed": 26012162,
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "seed": 26012162,
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "seed": 26012163,
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "seed": 26012163,
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "seed": 26015880,
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "seed": 26015880,
+      "rounds": 19,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "seed": 26015881,
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "seed": 26015881,
+      "rounds": 28,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "seed": 26015882,
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "seed": 26015882,
+      "rounds": 19,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "seed": 26015883,
+      "rounds": 28,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "seed": 26015883,
+      "rounds": 28,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "seed": 26019600,
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "seed": 26019600,
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "seed": 26019601,
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "seed": 26019601,
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "seed": 26019602,
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "seed": 26019602,
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "seed": 26019603,
+      "rounds": 26,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "seed": 26019603,
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "seed": 26013090,
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "seed": 26013090,
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "seed": 26013091,
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "seed": 26013091,
+      "rounds": 15,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "seed": 26013092,
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "seed": 26013092,
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "seed": 26013093,
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "seed": 26013093,
+      "rounds": 17,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "seed": 26018670,
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "seed": 26018670,
+      "rounds": 13,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "seed": 26018671,
+      "rounds": 13,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "seed": 26018671,
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "seed": 26018672,
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "seed": 26018672,
+      "rounds": 13,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "seed": 26018673,
+      "rounds": 15,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "seed": 26018673,
+      "rounds": 13,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "seed": 26012160,
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "seed": 26012160,
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "seed": 26012161,
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "seed": 26012161,
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "seed": 26012162,
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "seed": 26012162,
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "seed": 26012163,
+      "rounds": 18,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        45,
+        45
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "seed": 26012163,
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "seed": 26015880,
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "seed": 26015880,
+      "rounds": 18,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "seed": 26015881,
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "seed": 26015881,
+      "rounds": 16,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "seed": 26015882,
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "seed": 26015882,
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "seed": 26015883,
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        60,
+        60
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "seed": 26015883,
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "seed": 26019600,
+      "rounds": 22,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "seed": 26019600,
+      "rounds": 17,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "seed": 26019601,
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "seed": 26019601,
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "seed": 26019602,
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "seed": 26019602,
+      "rounds": 19,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "seed": 26019603,
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        75,
+        75
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "seed": 26019603,
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "seed": 26013090,
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "seed": 26013090,
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "seed": 26013091,
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "seed": 26013091,
+      "rounds": 18,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "seed": 26013092,
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "seed": 26013092,
+      "rounds": 14,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "seed": 26013093,
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        45,
+        75
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "seed": 26013093,
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "seed": 26018670,
+      "rounds": 13,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "seed": 26018670,
+      "rounds": 13,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "seed": 26018671,
+      "rounds": 18,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "B",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "seed": 26018671,
+      "rounds": 13,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "seed": 26018672,
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "seed": 26018672,
+      "rounds": 16,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "seed": 26018673,
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "levels": [
+        75,
+        45
+      ],
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "B",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "seed": 26018673,
+      "rounds": 13,
+      "winner": "A"
+    }
+  ],
+  "combinations": [
+    {
+      "map": "patio",
+      "seed": 26400000,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400000,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400002,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400002,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400004,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 17,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400004,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400006,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400006,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400008,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 16,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400008,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400010,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 26,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400010,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400012,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400012,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400014,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 26,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400014,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400016,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 28,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400016,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 26,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400018,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400018,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400020,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 22,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400020,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400022,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400022,
+      "plan": {
+        "attack": "fast",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400024,
+      "plan": {
+        "attack": "fast",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 26,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400024,
+      "plan": {
+        "attack": "fast",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400026,
+      "plan": {
+        "attack": "fast",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 26,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400026,
+      "plan": {
+        "attack": "fast",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 19,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400028,
+      "plan": {
+        "attack": "fast",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 17,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400028,
+      "plan": {
+        "attack": "fast",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400030,
+      "plan": {
+        "attack": "fast",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400030,
+      "plan": {
+        "attack": "fast",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400032,
+      "plan": {
+        "attack": "fast",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 26,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400032,
+      "plan": {
+        "attack": "fast",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 19,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400034,
+      "plan": {
+        "attack": "fast",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400034,
+      "plan": {
+        "attack": "fast",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400036,
+      "plan": {
+        "attack": "fast",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 26,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400036,
+      "plan": {
+        "attack": "fast",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400038,
+      "plan": {
+        "attack": "fast",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "enlace",
+      "seed": 26400038,
+      "plan": {
+        "attack": "fast",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400040,
+      "plan": {
+        "attack": "fast",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 20,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400040,
+      "plan": {
+        "attack": "fast",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400042,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 18,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400042,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "enlace",
+      "seed": 26400044,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400044,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 18,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400046,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 16,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400046,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400048,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 22,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400048,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 19,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400050,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400050,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400052,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400052,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400054,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400054,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400056,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400056,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 16,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400058,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 18,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400058,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400060,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 26,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400060,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400062,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400062,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400064,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 18,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400064,
+      "plan": {
+        "attack": "fast",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400066,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400066,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 18,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400068,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400068,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 18,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400070,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400070,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400072,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "patio",
+      "seed": 26400072,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "enlace",
+      "seed": 26400074,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 22,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400074,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400076,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400076,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 17,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400078,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 18,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400078,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400080,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400080,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400082,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 20,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400082,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 17,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400084,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 19,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400084,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 28,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400086,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400086,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 26,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400088,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400088,
+      "plan": {
+        "attack": "fast",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 17,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400090,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 15,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400090,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400092,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 28,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400092,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 18,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400094,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400094,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 26,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400096,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400096,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400098,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400098,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400100,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400100,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400102,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400102,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400104,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400104,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 28,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400106,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 28,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400106,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400108,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 17,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400108,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400110,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400110,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 18,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400112,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400112,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400114,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400114,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 15,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400116,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 20,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400116,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400118,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 22,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400118,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 19,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400120,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400120,
+      "plan": {
+        "attack": "control",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 30,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400122,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 17,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400122,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400124,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400124,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400126,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 14,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400126,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400128,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 15,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400128,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400130,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400130,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400132,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400132,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400134,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "enlace",
+      "seed": 26400134,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400136,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 16,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400136,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 17,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400138,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400138,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 15,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400140,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400140,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400142,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400142,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400144,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "patio",
+      "seed": 26400144,
+      "plan": {
+        "attack": "control",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400146,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400146,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 28,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400148,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 20,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400148,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400150,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400150,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 26,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400152,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 22,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400152,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 26,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400154,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400154,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400156,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 28,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400156,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 26,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400158,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400158,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400160,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400160,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400162,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 28,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400162,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 14,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400164,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 20,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400164,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 17,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400166,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 16,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400166,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400168,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 22,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400168,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400170,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400170,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 15,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400172,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400172,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400174,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400174,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 19,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400176,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 17,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400176,
+      "plan": {
+        "attack": "control",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 19,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400178,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 17,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400178,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400180,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400180,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 26,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400182,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 19,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400182,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400184,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 18,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400184,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 28,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400186,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400186,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400188,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400188,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400190,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400190,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 17,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400192,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "patio",
+      "seed": 26400192,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "enlace",
+      "seed": 26400194,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400194,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400196,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 18,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400196,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400198,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400198,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 18,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400200,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400200,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400202,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400202,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400204,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400204,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400206,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400206,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400208,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400208,
+      "plan": {
+        "attack": "control",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 26,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400210,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 19,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400210,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 17,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400212,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400212,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400214,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400214,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400216,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400216,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 26,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400218,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 22,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400218,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400220,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 19,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400220,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400222,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400222,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400224,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 15,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400224,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 26,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400226,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400226,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400228,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400228,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400230,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400230,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 19,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400232,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400232,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 15,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400234,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 20,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400234,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400236,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 15,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400236,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400238,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400238,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400240,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 28,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400240,
+      "plan": {
+        "attack": "split",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "enlace",
+      "seed": 26400242,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 28,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400242,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400244,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 15,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400244,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 15,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400246,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 15,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400246,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400248,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 15,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400248,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 26,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400250,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400250,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 30,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400252,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 18,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400252,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 18,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400254,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "enlace",
+      "seed": 26400254,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400256,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400256,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 16,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400258,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400258,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400260,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400260,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400262,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400262,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 28,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400264,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400264,
+      "plan": {
+        "attack": "split",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 17,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400266,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400266,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400268,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 26,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400268,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400270,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400270,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 17,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400272,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 17,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400272,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400274,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 17,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400274,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400276,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 28,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400276,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400278,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400278,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 26,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400280,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 16,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400280,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 19,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400282,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 18,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400282,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400284,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 18,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400284,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400286,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400286,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400288,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 18,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400288,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400290,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400290,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400292,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400292,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 28,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400294,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 13,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400294,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400296,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400296,
+      "plan": {
+        "attack": "split",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400298,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400298,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400300,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 26,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400300,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400302,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 19,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400302,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400304,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400304,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400306,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 20,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400306,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400308,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400308,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400310,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 19,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400310,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 26,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400312,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "patio",
+      "seed": 26400312,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400314,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 28,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400314,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400316,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400316,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400318,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400318,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 30,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400320,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "enlace",
+      "seed": 26400320,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 13,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400322,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 26,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400322,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 17,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400324,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400324,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 17,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400326,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 28,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400326,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 17,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400328,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400328,
+      "plan": {
+        "attack": "split",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400330,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400330,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400332,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400332,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400334,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 14,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400334,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400336,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400336,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 19,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400338,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 17,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400338,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 17,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400340,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400340,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 15,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400342,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400342,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 28,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400344,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 26,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400344,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400346,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 18,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400346,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 13,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400348,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400348,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400350,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 14,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400350,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400352,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400352,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 15,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400354,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400354,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400356,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400356,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400358,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400358,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400360,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400360,
+      "plan": {
+        "attack": "feint",
+        "defense": "balanced",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "enlace",
+      "seed": 26400362,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 16,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400362,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400364,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400364,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 17,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400366,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400366,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400368,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 28,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400368,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 16,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400370,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400370,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400372,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 16,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400372,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400374,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400374,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 16,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400376,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400376,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 28,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400378,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 19,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400378,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400380,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "enlace",
+      "seed": 26400380,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400382,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 18,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400382,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 28,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400384,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400384,
+      "plan": {
+        "attack": "feint",
+        "defense": "aggressive",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400386,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400386,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400388,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 22,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400388,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "patio",
+      "seed": 26400390,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 28,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400390,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400392,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 15,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400392,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 19,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400394,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 18,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400394,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 28,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400396,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400396,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400398,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400398,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400400,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 20,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400400,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400402,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 17,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400402,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400404,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400404,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 14,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400406,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400406,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400408,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 13,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400408,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 28,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400410,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 17,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400410,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400412,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400412,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400414,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400414,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 28,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400416,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "enlace",
+      "seed": 26400416,
+      "plan": {
+        "attack": "feint",
+        "defense": "retake",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 21,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400418,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400418,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400420,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "patio",
+      "seed": 26400420,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400422,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 15,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400422,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 26,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400424,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 21,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400424,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "none",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 18,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400426,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400426,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400428,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400428,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400430,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400430,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400432,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 30,
+      "winner": null
+    },
+    {
+      "map": "patio",
+      "seed": 26400432,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "trade",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 28,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400434,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 16,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400434,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400436,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 23,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400436,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400438,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 16,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400438,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400440,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 13,
+      "winner": "B"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400440,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "utility",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400442,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "A",
+      "rounds": 14,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400442,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "none"
+      },
+      "initialAttack": "B",
+      "rounds": 14,
+      "winner": "A"
+    },
+    {
+      "map": "patio",
+      "seed": 26400444,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "A",
+      "rounds": 14,
+      "winner": "B"
+    },
+    {
+      "map": "patio",
+      "seed": 26400444,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "trade"
+      },
+      "initialAttack": "B",
+      "rounds": 28,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400446,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "A",
+      "rounds": 24,
+      "winner": "A"
+    },
+    {
+      "map": "enlace",
+      "seed": 26400446,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "cautious"
+      },
+      "initialAttack": "B",
+      "rounds": 23,
+      "winner": "B"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400448,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "A",
+      "rounds": 22,
+      "winner": "A"
+    },
+    {
+      "map": "horizonte",
+      "seed": 26400448,
+      "plan": {
+        "attack": "feint",
+        "defense": "reading",
+        "site": "A",
+        "attackInstruction": "preserve",
+        "defenseInstruction": "resources"
+      },
+      "initialAttack": "B",
+      "rounds": 24,
+      "winner": "B"
+    }
+  ],
+  "regressions": [
+    {
+      "attack": "split",
+      "defense": "aggressive",
+      "composition": 1,
+      "seed": 20261102,
+      "initialAttack": "A",
+      "before": 204,
+      "after": 23
+    },
+    {
+      "attack": "split",
+      "defense": "balanced",
+      "composition": 1,
+      "seed": 20261222,
+      "initialAttack": "B",
+      "before": 246,
+      "after": 22
+    }
+  ],
+  "cycles": [
+    {
+      "cycle": 1,
+      "rounds": 14,
+      "score": {
+        "A": 1,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 2,
+      "rounds": 13,
+      "score": {
+        "A": 0,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 3,
+      "rounds": 17,
+      "score": {
+        "A": 4,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 4,
+      "rounds": 17,
+      "score": {
+        "A": 4,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 5,
+      "rounds": 16,
+      "score": {
+        "A": 3,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 6,
+      "rounds": 14,
+      "score": {
+        "A": 1,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 7,
+      "rounds": 13,
+      "score": {
+        "A": 0,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 8,
+      "rounds": 14,
+      "score": {
+        "A": 1,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 9,
+      "rounds": 13,
+      "score": {
+        "A": 0,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 10,
+      "rounds": 15,
+      "score": {
+        "A": 2,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 11,
+      "rounds": 14,
+      "score": {
+        "A": 1,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 12,
+      "rounds": 13,
+      "score": {
+        "A": 0,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 13,
+      "rounds": 13,
+      "score": {
+        "A": 0,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 14,
+      "rounds": 14,
+      "score": {
+        "A": 1,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 15,
+      "rounds": 15,
+      "score": {
+        "A": 2,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 16,
+      "rounds": 15,
+      "score": {
+        "A": 2,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 17,
+      "rounds": 24,
+      "score": {
+        "A": 11,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 18,
+      "rounds": 14,
+      "score": {
+        "A": 1,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 19,
+      "rounds": 16,
+      "score": {
+        "A": 3,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 20,
+      "rounds": 14,
+      "score": {
+        "A": 1,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 21,
+      "rounds": 15,
+      "score": {
+        "A": 2,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 22,
+      "rounds": 14,
+      "score": {
+        "A": 1,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 23,
+      "rounds": 13,
+      "score": {
+        "A": 0,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 24,
+      "rounds": 17,
+      "score": {
+        "A": 4,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 25,
+      "rounds": 14,
+      "score": {
+        "A": 1,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 26,
+      "rounds": 16,
+      "score": {
+        "A": 3,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 27,
+      "rounds": 17,
+      "score": {
+        "A": 4,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 28,
+      "rounds": 22,
+      "score": {
+        "A": 9,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 29,
+      "rounds": 16,
+      "score": {
+        "A": 3,
+        "B": 13
+      }
+    },
+    {
+      "cycle": 30,
+      "rounds": 14,
+      "score": {
+        "A": 1,
+        "B": 13
+      }
+    }
+  ],
+  "progress": {
+    "J01": {
+      "attrs": [
+        74,
+        64,
+        52,
+        46,
+        46,
+        42,
+        48,
+        48
+      ],
+      "attributeXP": [
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "familiarities": {
+        "Estalo": 95,
+        "Ímpeto": 65,
+        "Farol": 45,
+        "Pulso": 10,
+        "Bruma": 10,
+        "Véu": 10,
+        "Trava": 10,
+        "Bastião": 10
+      },
+      "agentXP": {
+        "Estalo": 120,
+        "Ímpeto": 0,
+        "Farol": 0,
+        "Pulso": 0,
+        "Bruma": 0,
+        "Véu": 0,
+        "Trava": 0,
+        "Bastião": 0
+      }
+    },
+    "J02": {
+      "attrs": [
+        60,
+        53,
+        61,
+        45,
+        41,
+        55,
+        41,
+        43
+      ],
+      "attributeXP": [
+        160,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "familiarities": {
+        "Estalo": 81,
+        "Ímpeto": 85,
+        "Farol": 10,
+        "Pulso": 45,
+        "Bruma": 10,
+        "Véu": 10,
+        "Trava": 10,
+        "Bastião": 10
+      },
+      "agentXP": {
+        "Estalo": 85,
+        "Ímpeto": 0,
+        "Farol": 0,
+        "Pulso": 0,
+        "Bruma": 0,
+        "Véu": 0,
+        "Trava": 0,
+        "Bastião": 0
+      }
+    },
+    "J05": {
+      "attrs": [
+        50,
+        42,
+        50,
+        56,
+        48,
+        62,
+        44,
+        56
+      ],
+      "attributeXP": [
+        80,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "familiarities": {
+        "Estalo": 43,
+        "Ímpeto": 10,
+        "Farol": 10,
+        "Pulso": 10,
+        "Bruma": 85,
+        "Véu": 65,
+        "Trava": 45,
+        "Bastião": 10
+      },
+      "agentXP": {
+        "Estalo": 30,
+        "Ímpeto": 0,
+        "Farol": 0,
+        "Pulso": 0,
+        "Bruma": 0,
+        "Véu": 0,
+        "Trava": 0,
+        "Bastião": 0
+      }
+    },
+    "J03": {
+      "attrs": [
+        51,
+        43,
+        51,
+        57,
+        57,
+        63,
+        45,
+        49
+      ],
+      "attributeXP": [
+        140,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "familiarities": {
+        "Estalo": 44,
+        "Ímpeto": 10,
+        "Farol": 85,
+        "Pulso": 65,
+        "Bruma": 45,
+        "Véu": 10,
+        "Trava": 10,
+        "Bastião": 10
+      },
+      "agentXP": {
+        "Estalo": 40,
+        "Ímpeto": 0,
+        "Farol": 0,
+        "Pulso": 0,
+        "Bruma": 0,
+        "Véu": 0,
+        "Trava": 0,
+        "Bastião": 0
+      }
+    },
+    "J24": {
+      "attrs": [
+        53,
+        39,
+        59,
+        51,
+        59,
+        41,
+        65,
+        51
+      ],
+      "attributeXP": [
+        100,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "familiarities": {
+        "Estalo": 51,
+        "Ímpeto": 45,
+        "Farol": 10,
+        "Pulso": 10,
+        "Bruma": 10,
+        "Véu": 10,
+        "Trava": 65,
+        "Bastião": 85
+      },
+      "agentXP": {
+        "Estalo": 25,
+        "Ímpeto": 0,
+        "Farol": 0,
+        "Pulso": 0,
+        "Bruma": 0,
+        "Véu": 0,
+        "Trava": 0,
+        "Bastião": 0
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@ import type {MapState} from '../src/map.ts';
 import {economicPlan} from '../src/autonomous.ts';
 import {simulateRound} from '../src/simulation.ts';
 import type {Profile,SimulationResult,TeamPlan} from '../src/tactical-types.ts';
-import type {Plan,BuyPlan,Purchase} from '../src/economy.ts';
+import type {Plan,BuyPlan,Purchase,Account} from '../src/economy.ts';
 import {halfReset,validateAccount} from '../src/economy.ts';
 import {sha256} from '../src/hash.ts';
 import {validateStrategy} from '../src/strategies.ts';
@@ -23,6 +23,10 @@ export const ATTRS=['Mira','Movimentação','Posicionamento','Leitura','Utilitá
 export const MAP_NAMES={patio:'Pátio',horizonte:'Horizonte',enlace:'Enlace'};
 export const CLASS:Record<string,string>={Estalo:'Duelista','Ímpeto':'Duelista',Farol:'Iniciador',Pulso:'Iniciador',Bruma:'Controlador','Véu':'Controlador',Trava:'Sentinela','Bastião':'Sentinela'};
 export const PLAN_NAMES:Record<Plan,string>={eco:'Eco',semi:'Semi',full:'Forte'};
+export function packageGaps(a:Account,plan:Plan):string[]{
+ const rank={basic:0,intermediate:1,main:2,precision:2},target=plan==='full'?2:plan==='semi'?1:0,slots=plan==='full'?3:2;
+ return [rank[a.weapon]<target?'Potência do pacote abaixo da solicitada.':'',a.shield<(plan==='full'?50:25)?'Proteção parcial.':'',a.charges.slice(0,slots).some(c=>!c)?`Utilitários: ${a.charges.slice(0,slots).filter(Boolean).length}/${slots} recursos preparados.`:''].filter(Boolean);
+}
 export type Role=typeof ROLES[number];
 export type Player=typeof PLAYERS[number];
 export interface Assignment {agent:Agent;role:Role;}
@@ -58,7 +62,8 @@ export function createSession(d:Draft,id:string,development?:Development):Sessio
  const agents:Agent[]=['Estalo','Farol','Bruma','Trava','Bastião'];
  const opponents=agents.map((agent,i)=>{const id=`B:${i}`;names[id]=`Teste ${i+1}`;return {id,team:'B' as const,agent,role:(['Entry','Support','Support','Main OP','Anchor'] as const)[i],attrs:Array(8).fill(level) as Attributes,agentFamiliarity:85,mapFamiliarity:50,morale:70,fatigue:10,weapon:i===3?'precision' as const:'basic' as const,shield:0,charges:[false,false,false] as [boolean,boolean,boolean],ult:0,igl:i===1};});
  const profiles=[...own,...opponents],accounts=(t:Team)=>profiles.filter(p=>p.team===t).map(p=>({id:p.id,credits:1000,weapon:p.weapon,shield:p.shield,charges:p.charges,ult:p.ult}));
- return {id,map:d.map,seed:d.seed,profiles,names,state:createMap(accounts('A'),accounts('B')),records:[]};
+ // Candidate release format L02, pending the author's approval. Historic maps retain their own format.
+ return {id,map:d.map,seed:d.seed,profiles,names,state:createMap(accounts('A'),accounts('B'),'A',3),records:[]};
 }
 export function automaticBuys(s:Session):Plan {return s.state.rounds===12?'eco':economicPlan(s.state.teams.A);}
 export function previewRound(s:Session,buys:BuyPlan){
@@ -98,7 +103,9 @@ export function validateSession(s:Session){
   for(const team of ['A','B'] as const)if(!Array.isArray(r.purchases?.[team])||r.purchases[team].some(p=>!ids.includes(p.from)||!ids.includes(p.to)||!Number.isSafeInteger(p.cost)||p.cost<0))throw new Error('Compras salvas inválidas.');
  }
  if(score.A!==s.state.score.A||score.B!==s.state.score.B)throw new Error('Histórico e placar não correspondem.');
- if(s.state.phase==='finished'&&!['A','B'].includes(s.state.winner??''))throw new Error('Vencedor salvo inválido.');
+ if(s.state.overtimePairLimit!==undefined)integer(s.state.overtimePairLimit,1,20,'saved overtime pair limit');
+ const drawn=s.state.phase==='finished'&&s.state.winner===null&&s.state.overtimePairLimit!==undefined&&s.state.rounds===24+s.state.overtimePairLimit*2&&s.state.score.A===s.state.score.B;
+ if(s.state.phase==='finished'&&!drawn&&!['A','B'].includes(s.state.winner??''))throw new Error('Vencedor salvo inválido.');
 }
 export function normalizedWorkspace(data:Workspace):Workspace {const out={...data,development:data.development??{...newDevelopment(),used:!!data.session,matchId:data.session?.id??null}};for(const k of Object.keys(out) as (keyof Workspace)[])if(out[k]===undefined)delete out[k];return out;}
 export function freshWorkspace():Workspace{return {draft:defaultDraft(),session:null,development:newDevelopment()};}
@@ -153,7 +160,7 @@ export function nextMatch(w:Workspace):Workspace {
 export function prepareImport(text:string):{data:Workspace;notice:string}{
  let e:any;try{e=JSON.parse(text);}catch{throw new Error('O arquivo não contém um salvamento JSON válido.');}
  if(e?.engine===ENGINE_VERSION)return {data:decodeSave(text),notice:'Salvamento Beta 1.1. O progresso atual será substituído.'};
- if(text.length>20*1024*1024||e?.format!=='esports-manager-beta'||e.engine!=='0.3.0'||e.schema!==1||e.rules!==RULES_VERSION)throw new Error('Versão incompatível. Preserve o arquivo original.');
+ if(text.length>20*1024*1024||e?.format!=='esports-manager-beta'||e.engine!=='0.3.0'||e.schema!==1||e.rules!=='gdd-1.3')throw new Error('Versão incompatível. Preserve o arquivo original.');
  if(e.digest!==sha256(JSON.stringify(e.data)))throw new Error('O arquivo está incompleto ou foi modificado.');
  const old=e.data as Workspace;const next=normalizedWorkspace({...old,session:null,development:newDevelopment(),buyPreparation:undefined,previous:undefined,legacyReport:undefined});
  // Validate configuration through the new format before trusting imported fields.

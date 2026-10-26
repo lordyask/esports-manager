@@ -3,9 +3,11 @@ import type {SimEvent} from '../src/tactical-types.ts';
 import {ATTACKS,DEFENSES,ATTACK_INSTRUCTIONS,DEFENSE_INSTRUCTIONS} from '../src/strategies.ts';
 export const reasonText=(r:string)=>({defenders_eliminated:'defesa eliminada',attackers_eliminated:'ataque eliminado',mutual_elimination:'eliminação simultânea',defused:'dispositivo desarmado',detonation:'dispositivo detonado',time_expired:'tempo esgotado'}[r]??r);
 const sector=(s:string|undefined)=>({attack:'base de ataque',defense:'base de defesa',mid:'meio',A:'ponto A',B:'ponto B'}[s??'']??s??'');
+const location=(s:string|undefined)=>(s==='attack'||s==='defense'?'na ':'no ')+sector(s);
 export function eventText(e:SimEvent,names:Record<string,string>){
  const who=names[e.actor??'']??'Equipe',target=names[e.target??'']??'adversário';
  switch(e.kind){
+  case 'first_contact':return `${who} observou ${target} ${location(e.sector)}: primeiro contato registrado da equipe.`;
   case 'eliminated':return `${who} foi eliminado por ${target}.`;
   case 'planted':return `${who} plantou o dispositivo no ${sector(e.sector)}.`;
   case 'plant_start':return `${who} iniciou o plant.`;
@@ -16,9 +18,14 @@ export function eventText(e:SimEvent,names:Record<string,string>){
   case 'igl_call':return `${who} chamou o ${sector(e.sector)} com base na informação observada.`;
   case 'strategy_shift':return `Ordem de rotação para o ${sector(e.sector)} após a finta.`;
   case 'role_notice':return e.detail??'Composição sem função designada.';
-  case 'move_start':return `${who} iniciou deslocamento para o ${sector(e.sector)}.`;
-  case 'arrived':return `${who} chegou ao ${sector(e.sector)}.`;
-  case 'revealed':return `${who} foi detectado no ${sector(e.sector)}.`;
+  case 'move_start':return `${who} iniciou deslocamento ${e.sector==='attack'||e.sector==='defense'?'para a':'para o'} ${sector(e.sector)}.`;
+  case 'arrived':return `${who} chegou ${e.sector==='attack'||e.sector==='defense'?'à':'ao'} ${sector(e.sector)}.`;
+  case 'move_blocked':return `Uma barreira interrompeu o deslocamento de ${who}.`;
+  case 'move_cancelled':return `${who} cancelou o deslocamento anterior.`;
+  case 'interrupted':return `${who} interrompeu a ação de ${target}.`;
+  case 'weapon_damage':return `${who} atingiu ${target}.`;
+  case 'blast_damage':case 'zone_damage':return `${who} atingiu ${target} com dano de área.`;
+  case 'revealed':return `${who} foi detectado ${location(e.sector)}.`;
   case 'round_end':return `Encerramento: ${reasonText(e.detail??'')}.`;
   case 'plan_start':return 'Plano da equipe registrado antes da rodada.';
   default:return null;
@@ -41,6 +48,8 @@ export function reviewRound(s:Session,r:RoundRecord){
  facts.push(`Gasto confirmado: sua equipe ${total('A').toLocaleString('pt-BR')} cr.; adversário ${total('B').toLocaleString('pt-BR')} cr.`);
  const ours=r.command.plans.A;
  const timeline=r.result.events.map(e=>({event:e,text:eventText(e,s.names)})).filter(x=>x.text&&x.event.kind!=='plan_start');
+ for(let i=0;i<deaths.length;i++){const e=deaths[i],killer=s.profiles.find(p=>p.id===e.target);if(killer&&deaths.slice(0,i).some(d=>d.target===e.actor&&s.profiles.find(p=>p.id===d.actor)?.team===killer.team&&e.at-d.at<=5000))timeline.push({event:{...e,kind:'trade'},text:`${s.names[e.target!]} realizou o trade sobre ${s.names[e.actor!]}.`});}
+ timeline.sort((a,b)=>a.event.at-b.event.at);
  const instruction=attacking==='A'?ATTACK_INSTRUCTIONS[ours.attackInstruction??'none']:DEFENSE_INSTRUCTIONS[ours.defenseInstruction??'none'];
  return {attacking,plan:(attacking==='A'?ATTACKS[ours.attack]:DEFENSES[ours.defense]).name+(instruction==='Sem complemento'?'':` + ${instruction}`),ending:reasonText(r.result.reason),facts,timeline};
 }

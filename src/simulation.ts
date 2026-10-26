@@ -35,6 +35,7 @@ export class TacticalRound {
   #targets:Record<Team,'A'|'B'>;
   #targetChosen:Record<Team,boolean>={A:false,B:false};
   #feintShown=false;
+  #contactShown:Record<Team,boolean>={A:false,B:false};
   constructor(profiles:Profile[],options:SimulationOptions){
     if(profiles.length!==10||new Set(profiles.map(p=>p.id)).size!==10)throw new Error('Ten unique profiles required');
     mapEdges(options.map);integer(options.seed,1,0xffffffff,'seed');
@@ -71,7 +72,13 @@ export class TacticalRound {
     this.#observeAll();this.#refreshShots();
   }
   #actorRank(id:string){const u=this.get(id);if(!u)return null;let x=(this.options.seed^((AGENTS.indexOf(u.agent)+1+(u.team==='B'?8:0))*0x9e3779b9)^Math.floor(this.now/500))>>>0;x^=x>>>16;x=Math.imul(x,0x85ebca6b);x^=x>>>13;return x>>>0;}
-  #compareActors(a:string,b:string){const x=this.#actorRank(a),y=this.#actorRank(b);return x!==null&&y!==null?x-y:compareIds(a,b);}
+  #compareActors(a:string,b:string){
+    const x=this.#actorRank(a),y=this.#actorRank(b);
+    if(x!==null&&y!==null)return x-y;
+    // Keep one total order for mixed unit/area events. Comparing an ID with an
+    // area label between two ranked units made the comparator non-transitive.
+    if(x!==null)return -1;if(y!==null)return 1;return compareIds(a,b);
+  }
   get(id:string){return this.units.find(u=>u.id===id);}
   alive(team?:Team){return this.units.filter(u=>u.vital.life>0&&(!team||u.team===team));}
   #emit(e:Omit<SimEvent,'at'>){this.events.push({at:this.now,...e});}
@@ -101,6 +108,7 @@ export class TacticalRound {
   }
   #observeAll(){
     for(const u of this.alive())for(const e of this.alive(other(u.team)))if(this.#visible(u,e)){
+      if(!this.#contactShown[u.team]){this.#contactShown[u.team]=true;this.#emit({kind:'first_contact',team:u.team,actor:u.id,target:e.id,sector:e.sector});}
       const prior=this.#knowledge[u.team].get(e.id);
       this.#knowledge[u.team].set(e.id,{id:e.id,sector:e.sector,until:Math.max(this.now+1000,prior?.until??0),trackingUntil:prior?.trackingUntil,source:'vision'});
     }
@@ -128,6 +136,8 @@ export class TacticalRound {
       attacking:this.options.attacking,map:this.options.map,plan:structuredClone(this.options.plans[u.team]),attackTarget:this.#targets[u.team]};
   }
   #stopShot(u:Unit){u.shotToken++;u.shotTarget=null;}
+  // Proposed Beta 1.1 traversal rule: fire at half cadence, while actions still block it.
+  #canShoot(u:Unit){return u.vital.life>0&&!u.action;}
   #canAct(u:Unit){return u.vital.life>0&&!u.action&&!u.movement;}
   #buff(u:Unit,kind:Buff['kind'],duration:number,value:number){
     // Strongest reduction only; identical shields replace rather than add.
@@ -190,13 +200,13 @@ export class TacticalRound {
   #refreshShots(){
     if(this.options.autoFire===false)return;
     for(const u of this.alive()){
-      if(!this.#canAct(u)||u.readyAt>this.now){if(u.shotTarget)this.#stopShot(u);continue;}
+      if(!this.#canShoot(u)||u.readyAt>this.now){if(u.shotTarget)this.#stopShot(u);continue;}
       const visible=this.alive(other(u.team)).filter(e=>this.#visible(u,e)).sort((a,b)=>(a.sector===u.sector?-1:0)-(b.sector===u.sector?-1:0)||this.#compareActors(a.id,b.id));
       const existing=visible.find(x=>x.id===u.shotTarget),target=existing??visible[0];
       if(!target){if(u.shotTarget)this.#stopShot(u);continue;}
       if(existing)continue;
       this.#stopShot(u);u.shotTarget=target.id;
-      const cadence=u.weapon==='precision'?CADENCE_PRECISION[this.#range(u,target)]:WEAPONS[u.weapon].cadence;
+      const cadence=(u.weapon==='precision'?CADENCE_PRECISION[this.#range(u,target)]:WEAPONS[u.weapon].cadence)*(u.movement?2:1);
       this.#schedule({at:this.now+cadence,phase:0,kind:'shot',actor:u.id,target:target.id,token:u.shotToken});
     }
   }
@@ -351,11 +361,11 @@ export class TacticalRound {
     for(const e of batch){
       if(e.kind==='shot'){
         const u=this.get(e.actor!),t=this.get(e.target!);
-        if(!u||!t||e.token!==u.shotToken||!this.#canAct(u)||u.readyAt>this.now||!this.#visible(u,t)){if(u&&e.token===u.shotToken)this.#stopShot(u);continue;}
+        if(!u||!t||e.token!==u.shotToken||!this.#canShoot(u)||u.readyAt>this.now||!this.#visible(u,t)){if(u&&e.token===u.shotToken)this.#stopShot(u);continue;}
         const range=this.#range(u,t),a=this.#score(u)+(u.weapon==='precision'?RANGE_SCORE[range]:0),b=this.#score(t)+(t.weapon==='precision'?RANGE_SCORE[range]:0);
         const hit=this.rng.combat.chance(probability(a,b));this.#emit({kind:'shot',actor:u.id,target:t.id,detail:hit?'hit':'miss'});
         if(hit)hits.push({actor:u.id,target:t.id,raw:WEAPONS[u.weapon].damage*100,kind:'weapon_damage'});
-        const cadence=u.weapon==='precision'?CADENCE_PRECISION[range]:WEAPONS[u.weapon].cadence;
+        const cadence=(u.weapon==='precision'?CADENCE_PRECISION[range]:WEAPONS[u.weapon].cadence)*(u.movement?2:1);
         this.#schedule({at:this.now+cadence,phase:0,kind:'shot',actor:u.id,target:t.id,token:u.shotToken});
       }else if(e.kind==='blast'){
         const blast=this.#explosions.get(e.id!);if(!blast)continue;

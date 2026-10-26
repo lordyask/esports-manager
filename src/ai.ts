@@ -90,10 +90,11 @@ export function decide(view:Observation,random:Random):Decision {
     destination=targetSite;
     if(view.plan.attack==='control'&&view.now<15000&&(self.sector==='attack'||self.sector==='mid'))destination='mid';
     if(view.plan.attack==='split'&&view.now<20000&&order.indexOf(self.id)%2===0&&self.sector==='attack')destination='mid';
-    if(self.sector===destination)return destination==='A'||destination==='B'?{kind:'plant'}:{kind:'wait'};
+    if(self.sector===destination)return (destination==='A'||destination==='B')&&destination===view.attackTarget?{kind:'plant'}:{kind:'wait'};
   }else{
     const observed=known[0];
     const patient=view.plan.defense==='reading'||instruction==='cautious';
+    if(observed?.sector==='attack'&&view.plan.defense!=='aggressive')return {kind:'wait'};
     if(observed&&(!patient||known.length>=2||view.now>=30000))destination=observed.sector;
     else if(view.plan.defense==='aggressive'&&view.now<20000)destination='mid';
     else return {kind:'wait'};

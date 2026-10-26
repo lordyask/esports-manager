@@ -1,0 +1,46 @@
+{
+  "engine": "0.4.1",
+  "format": "uncapped",
+  "results": [
+    {
+      "seed": 20261028,
+      "defense": "aggressive",
+      "beta10Rounds": 24,
+      "candidateUncappedRounds": 21,
+      "score": {
+        "A": 8,
+        "B": 13
+      }
+    },
+    {
+      "seed": 20261031,
+      "defense": "aggressive",
+      "beta10Rounds": 128,
+      "candidateUncappedRounds": 24,
+      "score": {
+        "A": 11,
+        "B": 13
+      }
+    },
+    {
+      "seed": 20261025,
+      "defense": "balanced",
+      "beta10Rounds": 92,
+      "candidateUncappedRounds": 23,
+      "score": {
+        "A": 10,
+        "B": 13
+      }
+    },
+    {
+      "seed": 20261032,
+      "defense": "balanced",
+      "beta10Rounds": 50,
+      "candidateUncappedRounds": 23,
+      "score": {
+        "A": 10,
+        "B": 13
+      }
+    }
+  ]
+}

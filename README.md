@@ -1,10 +1,10 @@
 # Esports Manager — Beta 1.1 em desenvolvimento
 
-Esta branch implementa o escopo B11-01 a B11-14 aprovado em 25/10/2026. Motor **0.4.0**, save schema **2**. É uma versão para revisão, **sem autorização de publicação**. O [site público](https://lordyask.github.io/esports-manager/) continua no Beta 1.0, motor 0.3.0.
+Esta branch implementa o escopo B11-01 a B11-14 aprovado em 25/10/2026. Motor **0.4.1**, save schema **2**. É uma versão para revisão, **sem autorização de publicação**. O [site público](https://lordyask.github.io/esports-manager/) continua no Beta 1.0, motor 0.3.0.
 
 Interface em português, Next.js/React/TypeScript com exportação estática. Projeto independente, com agentes e coeficientes fictícios. Os preços e rendimentos das rodadas permanecem os aprovados no GDD FPS Web 1.3; a [especificação aprovada do Beta 1.1](docs/BETA_1_1_PROPOSTA.md) acrescenta estratégias e desenvolvimento.
 
-**A liberação está pendente.** Os lotes finais terminaram sem erros de execução, mas apontam desequilíbrio importante em Enlace e prorrogações longas. Consulte [validação do Beta 1.1](docs/VALIDACAO_BETA_1_1.md), [registro do projeto](docs/REGISTRO_PROJETO.md) e [changelog](CHANGELOG.md). A [validação do Beta 1.0](VALIDACAO_BETA.md) é histórica e não certifica esta versão.
+**A liberação está pendente de aprovação.** A candidata RC1 passou por 95 testes e 1.176 partidas de validação. As propostas L01 (fogo durante travessia) e L02 (empate após até três pares de prorrogação) estão preparadas para decisão, sem publicação. Consulte o [parecer de lançamento](docs/LANCAMENTO_BETA_1_1_RC1.md). Consulte [validação do Beta 1.1](docs/VALIDACAO_BETA_1_1.md), [registro do projeto](docs/REGISTRO_PROJETO.md) e [changelog](CHANGELOG.md). A [validação do Beta 1.0](VALIDACAO_BETA.md) é histórica e não certifica esta versão.
 
 ## Novidades desta branch
 
@@ -66,7 +66,7 @@ node scripts/beta11-validation.ts
 node scripts/beta11-validation.ts --holdout
 ```
 
-O primeiro executa 384 mapas; o segundo, 192 com novas seeds. Os JSON em `validation/beta11/` preservam composição, plano, lado e resultado. Não abrangem exaustivamente complementos nem todos os níveis de atributos.
+O primeiro executa 384 mapas; o segundo, 192 com novas seeds. Os JSON em `validation/beta11/rc1/` preservam composição, plano, lado e resultado. Não abrangem exaustivamente complementos nem todos os níveis de atributos.
 
 `npm run benchmark:controlled` e `npm run benchmark` continuam como ferramentas históricas de regressão. Seus desenhos diferem do lote 1.1; não comparar taxas agregadas como se isolassem o efeito desta alteração.
 
@@ -77,11 +77,11 @@ O primeiro executa 384 mapas; o segundo, 192 com novas seeds. Os JSON em `valida
 - Potencial regula XP por sessão e o teto da média dos atributos; não aumenta por treino nem concede força direta adicional na rodada. Mental exibido vem dos atributos; as condições de teste começam com moral 70, fadiga 10 e familiaridade de mapa 50.
 - A navegação tem cinco setores abstratos. Não modela coordenadas/ângulos/cobertura física; a ordenação tática usa situação, agente e seed; não o ID como preferência. Não há mapa visual ou apresentação de armas individuais.
 - Relatório mostra acontecimentos, sem atribuir uma causa que não possa ser demonstrada. Uma primeira eliminação não mede sozinha a qualidade de uma entrada.
-- Há desequilíbrios entre mapas/planos e agentes ainda em avaliação. Execução concluída não significa balanceamento competitivo aprovado.
+- Equilíbrio entre mapas/planos e agentes permanece em avaliação; Horizonte ainda favoreceu a defesa. Execução concluída não significa balanceamento competitivo aprovado.
 - Banco local pode ser apagado ao limpar dados do navegador; navegação privada, outro navegador ou outro domínio podem usar armazenamento diferente. Exporte o progresso antes de mudar de dispositivo ou origem.
 - Arquivos identificam versão e integridade. Isso não autentica resultados: o usuário controla o próprio navegador e pode alterar dados locais. A produção deverá voltar a um servidor autoritativo.
 - O banco local 1.1 é separado do 1.0. A importação do formato 0.3.0 é explícita e preserva apenas a organização e um relatório histórico; não retoma nem recalcula a partida antiga. Arquivos inválidos são rejeitados antes da gravação.
-- A sequência automática pausa após 30 rodadas por interação para manter controle do usuário. Isso não é um limite da partida: continue a sequência para concluir a prorrogação. Nenhum vencedor é forçado.
+- A candidata propõe até três pares de prorrogação, com empate na rodada 30. Essa regra L02 aguarda aprovação explícita e não altera retrospectivamente os resultados da versão pública.
 
 ## Organização do código
 

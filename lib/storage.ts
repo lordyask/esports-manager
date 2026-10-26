@@ -1,8 +1,9 @@
 import {decodeSave,encodeSave} from './game.ts';
 import type {Workspace} from './game.ts';
 interface Stored {revision:number;text:string;}
+type Loaded={revision:number;data:Workspace}|{revision:number;raw:string;error:string};
 const open=()=>new Promise<IDBDatabase>((resolve,reject)=>{const r=indexedDB.open('esports-manager-beta-1.1',1);r.onupgradeneeded=()=>r.result.createObjectStore('workspace');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(new Error('O navegador não permitiu abrir o salvamento local.'));});
-export async function loadWorkspace(){const db=await open();try{return await new Promise<{revision:number;data:Workspace}|null>((resolve,reject)=>{const t=db.transaction('workspace','readonly'),r=t.objectStore('workspace').get('active');r.onsuccess=()=>{try{const x=r.result as Stored|undefined;resolve(x?{revision:x.revision,data:decodeSave(x.text)}:null);}catch(e){reject(e);}};r.onerror=()=>reject(r.error);});}finally{db.close();}}
+export async function loadWorkspace(){const db=await open();try{return await new Promise<Loaded|null>((resolve,reject)=>{const t=db.transaction('workspace','readonly'),r=t.objectStore('workspace').get('active');r.onsuccess=()=>{const x=r.result as Stored|undefined;if(!x){resolve(null);return;}try{resolve({revision:x.revision,data:decodeSave(x.text)});}catch(e){resolve({revision:x.revision,raw:x.text,error:e instanceof Error?e.message:String(e)});}};r.onerror=()=>reject(r.error);});}finally{db.close();}}
 export async function commitWorkspace(data:Workspace,expected:number){
  const text=encodeSave(data),db=await open();
  try{return await new Promise<number>((resolve,reject)=>{const t=db.transaction('workspace','readwrite'),store=t.objectStore('workspace'),r=store.get('active');let failure:Error|null=null;

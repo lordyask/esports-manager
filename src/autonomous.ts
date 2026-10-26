@@ -7,7 +7,7 @@ import type {MapId,Team} from './rules.ts';
 import {simulateRound} from './simulation.ts';
 import type {Profile,SimulationResult,TeamPlan} from './tactical-types.ts';
 
-export interface AutonomousOptions {map:MapId;seed:number;initialAttack?:Team;plans:Record<Team,TeamPlan>;maxRounds?:number;}
+export interface AutonomousOptions {map:MapId;seed:number;initialAttack?:Team;plans:Record<Team,TeamPlan>;maxRounds?:number;overtimePairLimit?:number;}
 export function economicPlan(accounts:Account[]):Plan {
   // Quotes consider retained equipment, rather than requiring 6,000 cash every round.
   if(quoteBuy(accounts,'full',{help:true}).missing.length===0)return 'full';
@@ -16,7 +16,7 @@ export function economicPlan(accounts:Account[]):Plan {
 }
 export function simulateMap(profiles:Profile[],options:AutonomousOptions){
   const accounts=(t:Team):Account[]=>profiles.filter(p=>p.team===t).map(p=>({id:p.id,credits:1000,weapon:p.weapon,shield:p.shield,charges:p.charges,ult:p.ult}));
-  let state=createMap(accounts('A'),accounts('B'),options.initialAttack??'A');
+  let state=createMap(accounts('A'),accounts('B'),options.initialAttack??'A',options.overtimePairLimit);
   const rounds:SimulationResult[]=[],purchases:{A:Plan;B:Plan}[]=[];
   const limit=integer(options.maxRounds??200,26,2000,'round safety limit');
   while(state.phase!=='finished'&&rounds.length<limit){

@@ -1,6 +1,6 @@
 # Registro consolidado — Esports Manager
 
-Atualizado em 25/10/2026. Este é o ponto de entrada para continuar o projeto.
+Atualizado em 26/10/2026. Este é o ponto de entrada para continuar o projeto.
 Este registro distingue a versão pública 1.0 da implementação 1.1 para revisão; não houve lançamento da nova versão.
 
 ## Estado atual
@@ -12,7 +12,7 @@ Este registro distingue a versão pública 1.0 da implementação 1.1 para revis
 | Repositório | https://github.com/lordyask/esports-manager |
 | Branch de publicação | `main` |
 | Motor / pacote npm público | 0.3.0 |
-| Branch de revisão | `beta/1.1`, motor/pacote 0.4.0, schema 2 |
+| Branch de revisão | `beta/1.1`, candidata motor/pacote 0.4.1, schema 2 |
 | Regras / formato de save | `gdd-1.3` / schema 1 |
 | Último código funcional publicado | `9815c64305a13ec912c892a1f70ae6530dc2cc74` |
 | Hospedagem e persistência | GitHub Pages; progresso local em IndexedDB |
@@ -203,12 +203,20 @@ Moral dinâmica e migração para Supabase/Vercel também não entram automatica
 
 ## Implementação 1.1 para revisão
 
-- Motor 0.4.0; schema 2 e banco IndexedDB separado do Beta 1.0.
+- Implementação inicial 0.4.0; a revisão RC1 usa 0.4.1. Schema 2 e banco IndexedDB separado do Beta 1.0.
 - Intervalo manual, compras individuais, estratégias por lado e complementos, cronologia e revisão factual.
 - Tendências por responsabilidade e desempates táticos independentes do nome/ID do jogador.
 - Treino coletivo único por partida, XP por atributo/agente, catálogo, persistência entre partidas e importação assistida de organização antiga.
 - Os dados brutos de testes de usuários continuam fora do repositório; os lotes publicados são sintéticos.
 - O [relatório de validação 1.1](VALIDACAO_BETA_1_1.md) registra testes, navegação, limitações e pendências de liberação.
-- **Bloqueio de lançamento:** Enlace ainda favorece muito a defesa; lotes finais incluem partidas de até 246 rodadas. Não declarar o motor balanceado.
-- Faltam calibração, comparação ampla de atributos/complementos e homologação do fluxo 1.1 em Chrome Android físico. O layout estreito local não substitui essa homologação.
+- Estado inicial de 25/10: Enlace favorecia muito a defesa e havia partidas de até 246 rodadas. Esse registro histórico foi revisto nos lotes da candidata RC1; não declarar o motor balanceado.
+- Revisão de 26/10: 95 testes, 1.176 partidas finais e propostas L01/L02 preparadas. A matriz foi ampliada para atributos e complementos; Android físico continua pendente. Consulte o parecer atual.
 - `main` e o site público permanecem no Beta 1.0. A aprovação do escopo não autoriza mesclar ou publicar a versão 1.1.
+
+## Candidata RC1 de 26/10/2026
+
+- Regras da candidata identificadas como `gdd-1.3+b11-rc1`; publicação não autorizada.
+- Correções de IA, ordenação de eventos, cronologia, compras e recuperação de arquivos. Importação real de 0.3.0 com relatório de 15 rodadas conferida.
+- Enlace: ataque passou de 9,24% a 43,27% na mesma grade sem limite. No lote ampliado sem limite houve caso de 352 rodadas; não ocultar esse resultado.
+- L01 e L02 são propostas para aprovação, preparadas somente na branch. L03 autoriza mesclar/publicar como Beta experimental e reconhece a pendência de Android físico.
+- [Parecer para lançamento](LANCAMENTO_BETA_1_1_RC1.md): resultado atual, números, limites e decisões solicitadas. O DOCX MOBA anexado foi lido como histórico, com precedência das decisões FPS mais recentes.

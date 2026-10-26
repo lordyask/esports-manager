@@ -311,3 +311,7 @@ Nenhum desses sistemas é adicionado implicitamente pelo treinamento.
 O autor aprovou todos os itens B11-01 a B11-14, incluindo as regras e curvas desta revisão. Ajustes posteriores continuam possíveis mediante registro e aprovação quando materiais. A aprovação não autoriza publicação.
 
 A série Beta 1 fica concentrada em partida, rodadas, estratégias, compras, treinamento e agentes. Beta 2.0 é a direção futura para novas adições de conteúdo e ajustes de balanceamento; seu catálogo e escopo ainda não foram definidos. Correções necessárias ao funcionamento e equilíbrio do Beta 1 continuam possíveis, sem antecipar os conteúdos do Beta 2.0.
+
+## Propostas adicionais de 26/10/2026 ainda para decisão
+
+O escopo B11-01 a B11-14 continua aprovado. A candidata técnica prepara L01 (fogo durante travessia com intervalo dobrado) e L02 (até três pares de prorrogação com empate), documentadas em [LANCAMENTO_BETA_1_1_RC1.md](LANCAMENTO_BETA_1_1_RC1.md). Essas duas mudanças materiais ainda não foram aprovadas e não alteram o cânone por estarem implementadas na branch de revisão. L03 é a autorização de lançamento experimental, também pendente.
