@@ -1,5 +1,5 @@
-export const ENGINE_VERSION = '0.3.0';
-export const RULES_VERSION = 'gdd-1.3';
+export const ENGINE_VERSION = '0.4.1';
+export const RULES_VERSION = 'gdd-1.3+b11-rc1';
 export type Weapon = 'basic' | 'intermediate' | 'main' | 'precision';
 export type Range = 'short' | 'medium' | 'long';
 export type Team = 'A' | 'B';

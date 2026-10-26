@@ -1,5 +1,36 @@
 # Histórico de alterações — Esports Manager
 
+## 26/10/2026 — Beta 1.1 oficializado com lançamento autorizado
+
+- O autor aprovou L01, L02 e L03 e autorizou publicar pelo GitHub Pages.
+- Fogo durante travessia com intervalo dobrado e até três pares de prorrogação, com empate se a igualdade persistir na rodada 30.
+- Partida, estratégias por lado, compras individuais, revisão de rodadas, treinamento, catálogo de agentes e persistência entre partidas.
+- Motor 0.4.1, regras `gdd-1.3+b11-rc1`, schema 2; identificadores preservados para compatibilidade.
+- 96 testes aprovados, 1.176 partidas de validação e conferência no Chrome local. Android físico permanece pendente.
+- Banco 1.0 preservado, com download do backup original e importação explícita da organização/relatório.
+
+
+## 26/10/2026 — Candidata Beta 1.1 RC1 para aprovação
+
+- Motor 0.4.1 e revisão de regras identificada; sem merge ou publicação.
+- Corrigidos perseguição da base pela defesa, plant na distração da finta e ordenação de eventos mistos que ainda dependia de IDs.
+- Adicionados primeiro contato, trades e interrupções à revisão; detalhes de pacote incompleto e aviso sem Entry.
+- Recuperação de checkpoint incompatível preserva o arquivo original e permite reinício explícito; importação real 0.3.0 verificada.
+- L01: proposta de fogo durante travessia com intervalo dobrado. L02: proposta de três pares de prorrogação e empate. Ambas aguardam aprovação; preparadas na branch de revisão.
+- 96 testes, 1.176 partidas finais e seis regressões específicas. Evidências e pendências em `docs/LANCAMENTO_BETA_1_1_RC1.md`. Android físico permanece pendente.
+
+
+## 25/10/2026 — Beta 1.1 implementado para revisão, sem lançamento
+
+- B11-01 a B11-14 aprovados. Beta 1.x focado em partidas, treinamento e agentes; Beta 2.0 reservado à direção de novos conteúdos, sem escopo detalhado.
+- Motor/pacote 0.4.0, save schema 2; banco local separado e importação explícita da organização 1.0 com relatório histórico.
+- Intervalos manuais, compras individuais e sugestão editável, quatro planos por lado e complementos, tendências por responsabilidade e revisão factual por rodada.
+- Treino coletivo de atributo ou agente, XP crescente por faixa, potencial e familiaridade persistentes; catálogo dos oito agentes existentes.
+- Nova partida preserva a evolução. Reset da organização exige confirmação.
+- Workflow da branch valida sem publicar. O Beta 1.0 público permanece preservado.
+- Validação e bloqueios de lançamento em `docs/VALIDACAO_BETA_1_1.md`. Execução sem erros não demonstra equilíbrio; Enlace e prorrogações longas continuam pendentes.
+
+
 ## 25/10/2026 — Proposta do Beta 1.1 para aprovação
 
 - Registrados feedbacks de informações, estratégias e compras entre rodadas.

@@ -5,6 +5,7 @@ import {randomStreams} from './random.ts';
 import {mapEdges,edgeKey,shortestPath,mobilityTime,compareIds,clamp,integer,finite,WEAPONS,CADENCE_PRECISION,RANGE_SCORE,ROUND_MS,PLANT_MS,DEFUSE_MS,DETONATION_MS} from './rules.ts';
 import type {Sector,Team} from './rules.ts';
 import {decide} from './ai.ts';
+import {validateStrategy} from './strategies.ts';
 import type {Area,Buff,Decision,Observation,Profile,PublicSelf,Sighting,SimEvent,SimulationOptions,SimulationResult,Unit} from './tactical-types.ts';
 import {rangeFor} from './tactical-types.ts';
 
@@ -33,6 +34,8 @@ export class TacticalRound {
   #presence:Record<Team,Map<Sector,{present:boolean;until:number}>>={A:new Map(),B:new Map()};
   #targets:Record<Team,'A'|'B'>;
   #targetChosen:Record<Team,boolean>={A:false,B:false};
+  #feintShown=false;
+  #contactShown:Record<Team,boolean>={A:false,B:false};
   constructor(profiles:Profile[],options:SimulationOptions){
     if(profiles.length!==10||new Set(profiles.map(p=>p.id)).size!==10)throw new Error('Ten unique profiles required');
     mapEdges(options.map);integer(options.seed,1,0xffffffff,'seed');
@@ -41,15 +44,16 @@ export class TacticalRound {
       const group=profiles.filter(p=>p.team===t);
       if(group.length!==5||new Set(group.map(p=>p.agent)).size!==5)throw new Error('Five unique agents per team required');
       const plan=options.plans[t];
-      if(!plan||!['fast','control','split'].includes(plan.attack)||!['aggressive','balanced','retake'].includes(plan.defense)||!['A','B'].includes(plan.site))throw new Error('Invalid tactical plan');
+      validateStrategy(plan);
     }
     this.options=structuredClone(options);this.rng=randomStreams(options.seed);
     this.#targets={A:options.plans.A.site,B:options.plans.B.site};
-    this.units=structuredClone(profiles).sort((a,b)=>compareIds(a.id,b.id)).map((p)=>{
+    this.units=structuredClone(profiles).sort((a,b)=>a.team.localeCompare(b.team)||AGENTS.indexOf(a.agent)-AGENTS.indexOf(b.agent)).map((p)=>{
       if(!AGENTS.includes(p.agent)||!(p.weapon in WEAPONS)||p.attrs.length!==8||p.charges.length!==3||p.charges.some(c=>typeof c!=='boolean'))throw new Error('Invalid profile');
       p.attrs.forEach(v=>finite(v,1,100,'attribute'));[p.agentFamiliarity,p.mapFamiliarity,p.morale,p.fatigue].forEach(v=>finite(v,0,100,'condition'));
       finite(p.shield,0,50,'shield');integer(p.ult,0,8,'ultimate');
-      const group=profiles.filter(q=>q.team===p.team).sort((a,b)=>compareIds(a.id,b.id));
+      const roles=['Anchor','Main OP','Support','Lurker','Entry','Second'];
+      const group=profiles.filter(q=>q.team===p.team).sort((a,b)=>(roles.indexOf(a.role??'Support')-roles.indexOf(b.role??'Support'))||AGENTS.indexOf(a.agent)-AGENTS.indexOf(b.agent));
       const index=group.findIndex(q=>q.id===p.id),attacking=p.team===options.attacking;
       // Retake keeps a reserve in mid and one anchor at each site, instead of
       // stacking all five in spawn and forcing an exposed full-team rotation.
@@ -64,7 +68,16 @@ export class TacticalRound {
     this.#schedule({at:ROUND_MS,phase:5,kind:'timeout'});
     if(options.ai!==false)this.#schedule({at:0,phase:4,kind:'think'});
     for(const s of options.script??[]){integer(s.at,0,140000,'script time');if(!this.get(s.actor))throw new Error('Unknown script actor');this.#schedule({at:s.at,phase:4,kind:'script',actor:s.actor,decision:s.decision});}
+    for(const team of ['A','B'] as const){const plan=options.plans[team];this.#emit({kind:'plan_start',team,detail:JSON.stringify(plan)});if(!profiles.some(p=>p.team===team&&p.role==='Entry'))this.#emit({kind:'role_notice',team,detail:'Sem Entry designado: iniciativa depende da situação e aptidões.'});}
     this.#observeAll();this.#refreshShots();
+  }
+  #actorRank(id:string){const u=this.get(id);if(!u)return null;let x=(this.options.seed^((AGENTS.indexOf(u.agent)+1+(u.team==='B'?8:0))*0x9e3779b9)^Math.floor(this.now/500))>>>0;x^=x>>>16;x=Math.imul(x,0x85ebca6b);x^=x>>>13;return x>>>0;}
+  #compareActors(a:string,b:string){
+    const x=this.#actorRank(a),y=this.#actorRank(b);
+    if(x!==null&&y!==null)return x-y;
+    // Keep one total order for mixed unit/area events. Comparing an ID with an
+    // area label between two ranked units made the comparator non-transitive.
+    if(x!==null)return -1;if(y!==null)return 1;return compareIds(a,b);
   }
   get(id:string){return this.units.find(u=>u.id===id);}
   alive(team?:Team){return this.units.filter(u=>u.vital.life>0&&(!team||u.team===team));}
@@ -95,6 +108,7 @@ export class TacticalRound {
   }
   #observeAll(){
     for(const u of this.alive())for(const e of this.alive(other(u.team)))if(this.#visible(u,e)){
+      if(!this.#contactShown[u.team]){this.#contactShown[u.team]=true;this.#emit({kind:'first_contact',team:u.team,actor:u.id,target:e.id,sector:e.sector});}
       const prior=this.#knowledge[u.team].get(e.id);
       this.#knowledge[u.team].set(e.id,{id:e.id,sector:e.sector,until:Math.max(this.now+1000,prior?.until??0),trackingUntil:prior?.trackingUntil,source:'vision'});
     }
@@ -104,7 +118,7 @@ export class TacticalRound {
   }
   #public(u:Unit):PublicSelf{return {id:u.id,team:u.team,agent:u.agent,sector:u.sector,life:u.vital.life,shield:u.vital.shield,
     charges:[...u.charges],ult:u.ult,usedUlt:u.usedUlt,ready:u.readyAt<=this.now,busy:!!u.action||!!u.movement,action:u.action?.kind??(u.movement?'move':null),
-    tactical:{entry:this.#collectiveScore(u,[0,0,25,20,30,25,0,0]),retake:this.#collectiveScore(u,[0,0,0,30,25,25,20,0]),reading:u.attrs[3],communication:u.attrs[5],discipline:u.attrs[6]}};}
+    role:u.role,slot:AGENTS.indexOf(u.agent),tactical:{entry:this.#collectiveScore(u,[0,0,25,20,30,25,0,0]),retake:this.#collectiveScore(u,[0,0,0,30,25,25,20,0]),reading:u.attrs[3],communication:u.attrs[5],discipline:u.attrs[6]}};}
   #collectiveScore(u:Unit,weights:number[]){
     const condition={agent:u.agentFamiliarity,map:u.mapFamiliarity,morale:u.morale,fatigue:u.fatigue};
     const participants=this.alive(u.team).filter(a=>a.sector===u.sector).length;
@@ -122,6 +136,8 @@ export class TacticalRound {
       attacking:this.options.attacking,map:this.options.map,plan:structuredClone(this.options.plans[u.team]),attackTarget:this.#targets[u.team]};
   }
   #stopShot(u:Unit){u.shotToken++;u.shotTarget=null;}
+  // Proposed Beta 1.1 traversal rule: fire at half cadence, while actions still block it.
+  #canShoot(u:Unit){return u.vital.life>0&&!u.action;}
   #canAct(u:Unit){return u.vital.life>0&&!u.action&&!u.movement;}
   #buff(u:Unit,kind:Buff['kind'],duration:number,value:number){
     // Strongest reduction only; identical shields replace rather than add.
@@ -184,13 +200,13 @@ export class TacticalRound {
   #refreshShots(){
     if(this.options.autoFire===false)return;
     for(const u of this.alive()){
-      if(!this.#canAct(u)||u.readyAt>this.now){if(u.shotTarget)this.#stopShot(u);continue;}
-      const visible=this.alive(other(u.team)).filter(e=>this.#visible(u,e)).sort((a,b)=>(a.sector===u.sector?-1:0)-(b.sector===u.sector?-1:0)||compareIds(a.id,b.id));
+      if(!this.#canShoot(u)||u.readyAt>this.now){if(u.shotTarget)this.#stopShot(u);continue;}
+      const visible=this.alive(other(u.team)).filter(e=>this.#visible(u,e)).sort((a,b)=>(a.sector===u.sector?-1:0)-(b.sector===u.sector?-1:0)||this.#compareActors(a.id,b.id));
       const existing=visible.find(x=>x.id===u.shotTarget),target=existing??visible[0];
       if(!target){if(u.shotTarget)this.#stopShot(u);continue;}
       if(existing)continue;
       this.#stopShot(u);u.shotTarget=target.id;
-      const cadence=u.weapon==='precision'?CADENCE_PRECISION[this.#range(u,target)]:WEAPONS[u.weapon].cadence;
+      const cadence=(u.weapon==='precision'?CADENCE_PRECISION[this.#range(u,target)]:WEAPONS[u.weapon].cadence)*(u.movement?2:1);
       this.#schedule({at:this.now+cadence,phase:0,kind:'shot',actor:u.id,target:target.id,token:u.shotToken});
     }
   }
@@ -203,7 +219,7 @@ export class TacticalRound {
       target.vital=damage({...target.vital,reduction:Math.round(reduction*10000)},raw);
       for(const hit of incoming)this.#emit({kind:hit.kind,actor:hit.actor,target:target.id,amount:hit.raw,sector:target.sector});
       if(before>0&&target.vital.life===0){
-        const killer=[...incoming].sort((a,b)=>b.raw-a.raw||compareIds(a.actor,b.actor))[0].actor;
+        const killer=[...incoming].sort((a,b)=>b.raw-a.raw||this.#compareActors(a.actor,b.actor))[0].actor;
         this.kills[killer]=(this.kills[killer]??0)+1;target.action=null;target.movement=null;target.buffs=[];target.vital.temporary=0;this.#stopShot(target);
         this.#emit({kind:'eliminated',actor:target.id,target:killer,team:target.team});
       }
@@ -222,7 +238,7 @@ export class TacticalRound {
     else if(!attack&&!this.planted)this.#finish(other(this.options.attacking),'attackers_eliminated');
   }
   #targetsIn(owner:Unit,sector:Sector,maximum:number,visual=false){
-    return this.alive(other(owner.team)).filter(u=>!u.movement&&u.sector===sector&&(!visual||this.#visible(owner,u))).sort((a,b)=>compareIds(a.id,b.id)).slice(0,maximum);
+    return this.alive(other(owner.team)).filter(u=>!u.movement&&u.sector===sector&&(!visual||this.#visible(owner,u))).sort((a,b)=>this.#compareActors(a.id,b.id)).slice(0,maximum);
   }
   #validCast(u:Unit,slot:Slot,sector:Sector,target?:string,edge?:[Sector,Sector]){
     const s=ABILITIES[u.agent][slot],adjacent=this.#adjacent(u.sector,sector),local=sector===u.sector;
@@ -321,6 +337,7 @@ export class TacticalRound {
   }
   #think(){
     this.#observeAll();
+    if(!this.#feintShown&&this.now>=18000&&this.options.plans[this.options.attacking].attack==='feint'){this.#feintShown=true;this.#emit({kind:'strategy_shift',team:this.options.attacking,sector:this.#targets[this.options.attacking],detail:'Fim da finta; rotação para o foco confirmado.'});}
     for(const team of ['A','B'] as const)if(team===this.options.attacking&&!this.#targetChosen[team]&&this.now>=10000&&this.options.plans[team].attack==='control'){
       const ranked=this.alive(team).sort((a,b)=>(b.attrs[3]*.35+b.attrs[5]*.30+b.attrs[6]*.20+b.attrs[7]*.15)-(a.attrs[3]*.35+a.attrs[5]*.30+a.attrs[6]*.20+a.attrs[7]*.15));
       const igl=ranked.find(p=>p.igl)??ranked[0];
@@ -344,11 +361,11 @@ export class TacticalRound {
     for(const e of batch){
       if(e.kind==='shot'){
         const u=this.get(e.actor!),t=this.get(e.target!);
-        if(!u||!t||e.token!==u.shotToken||!this.#canAct(u)||u.readyAt>this.now||!this.#visible(u,t)){if(u&&e.token===u.shotToken)this.#stopShot(u);continue;}
+        if(!u||!t||e.token!==u.shotToken||!this.#canShoot(u)||u.readyAt>this.now||!this.#visible(u,t)){if(u&&e.token===u.shotToken)this.#stopShot(u);continue;}
         const range=this.#range(u,t),a=this.#score(u)+(u.weapon==='precision'?RANGE_SCORE[range]:0),b=this.#score(t)+(t.weapon==='precision'?RANGE_SCORE[range]:0);
         const hit=this.rng.combat.chance(probability(a,b));this.#emit({kind:'shot',actor:u.id,target:t.id,detail:hit?'hit':'miss'});
         if(hit)hits.push({actor:u.id,target:t.id,raw:WEAPONS[u.weapon].damage*100,kind:'weapon_damage'});
-        const cadence=u.weapon==='precision'?CADENCE_PRECISION[range]:WEAPONS[u.weapon].cadence;
+        const cadence=(u.weapon==='precision'?CADENCE_PRECISION[range]:WEAPONS[u.weapon].cadence)*(u.movement?2:1);
         this.#schedule({at:this.now+cadence,phase:0,kind:'shot',actor:u.id,target:t.id,token:u.shotToken});
       }else if(e.kind==='blast'){
         const blast=this.#explosions.get(e.id!);if(!blast)continue;
@@ -393,7 +410,7 @@ export class TacticalRound {
   advance(until:number){
     integer(until,this.now,140001,'advance time');
     while(this.#queue.length&&!this.result){
-      this.#queue.sort((a,b)=>a.at-b.at||a.phase-b.phase||compareIds(a.actor??a.id??'',b.actor??b.id??''));
+      this.#queue.sort((a,b)=>a.at-b.at||a.phase-b.phase||this.#compareActors(a.actor??a.id??'',b.actor??b.id??''));
       if(this.#queue[0].at>until)break;
       const at=this.#queue[0].at;this.#progress(at);this.now=at;
       for(const u of this.units){
@@ -401,7 +418,7 @@ export class TacticalRound {
         u.buffs=u.buffs.filter(b=>b.until>this.now);
       }
       while(this.#queue.some(e=>e.at===at)&&!this.result){
-        this.#queue.sort((a,b)=>a.at-b.at||a.phase-b.phase||compareIds(a.actor??a.id??'',b.actor??b.id??''));
+        this.#queue.sort((a,b)=>a.at-b.at||a.phase-b.phase||this.#compareActors(a.actor??a.id??'',b.actor??b.id??''));
         const first=this.#queue.shift()!;if(++this.processed>100000)throw new Error('Round event limit');
         if(first.phase===0){
           const batch=[first];while(this.#queue[0]?.at===at&&this.#queue[0]?.phase===0)batch.push(this.#queue.shift()!);
@@ -413,7 +430,7 @@ export class TacticalRound {
           // by completed casts is applied after this group and before objective completion.
           const priority=(e:Scheduled)=>{const u=e.actor?this.get(e.actor):null,slot=u?.action?.slot;
             const kind=u&&slot!==undefined?ABILITIES[u.agent][slot].kind:'';return kind==='interrupt'?0:kind==='smoke'||kind==='barrier'?1:2;};
-          batch.sort((a,b)=>priority(a)-priority(b)||compareIds(a.actor??'',b.actor??''));
+          batch.sort((a,b)=>priority(a)-priority(b)||this.#compareActors(a.actor??'',b.actor??''));
           for(const e of batch)this.#process(e);
         }else this.#process(first);
         this.#enforceBarriers();this.#rescheduleMovement();this.#observeAll();this.#refreshShots();

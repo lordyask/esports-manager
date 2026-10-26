@@ -3,12 +3,13 @@ import {validateAccount,quoteBuy,settleRound,halfReset,overtimeKit} from './econ
 import type {RoundResult} from './round.ts';
 import type {Team} from './rules.ts';
 import {integer} from './rules.ts';
-export interface MapState {teams: {A: Account[]; B: Account[]}; score: {A:number;B:number}; rounds: number; loss: {A:number;B:number}; initialAttack: Team; phase: 'buy'|'play'|'finished'; winner: Team|null;}
-export function createMap(A:Account[],B:Account[],initialAttack:Team='A'):MapState {
+export interface MapState {teams: {A: Account[]; B: Account[]}; score: {A:number;B:number}; rounds: number; loss: {A:number;B:number}; initialAttack: Team; phase: 'buy'|'play'|'finished'; winner: Team|null;overtimePairLimit?:number;}
+export function createMap(A:Account[],B:Account[],initialAttack:Team='A',overtimePairLimit?:number):MapState {
   if(A.length!==5||B.length!==5||new Set([...A,...B].map(a=>a.id)).size!==10||!['A','B'].includes(initialAttack))throw new Error('Map requires ten unique players');
   [...A,...B].forEach(validateAccount);
   const reset=(a:Account)=>({...halfReset(a),ult:0});
-  return {teams:{A:A.map(reset),B:B.map(reset)},score:{A:0,B:0},rounds:0,loss:{A:0,B:0},initialAttack,phase:'buy',winner:null};
+  if(overtimePairLimit!==undefined)integer(overtimePairLimit,1,20,'overtime pair limit');
+  return {teams:{A:A.map(reset),B:B.map(reset)},score:{A:0,B:0},rounds:0,loss:{A:0,B:0},initialAttack,phase:'buy',winner:null,...(overtimePairLimit===undefined?{}:{overtimePairLimit})};
 }
 export function attackingTeam(s:MapState):Team {
   const swap=s.rounds>=24 ? (s.rounds-24)%2===1 : s.rounds>=12;
@@ -42,6 +43,7 @@ export function completeRound(input:MapState,result:RoundResult,kills:Record<str
   s.score[result.winner]++;s.rounds++;
   if((s.rounds<=24&&s.score[result.winner]>=13)||(s.rounds>24&&s.rounds%2===0&&Math.abs(s.score.A-s.score.B)>=2)){
     s.winner=result.winner;s.phase='finished';
-  }else s.phase='buy';
+  }else if(s.overtimePairLimit!==undefined&&s.rounds>=24+s.overtimePairLimit*2){s.winner=null;s.phase='finished';}
+  else s.phase='buy';
   return s;
 }

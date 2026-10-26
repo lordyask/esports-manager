@@ -35,3 +35,10 @@ test('overtime evaluates complete side pairs and supplies full equipment',()=>{
   s=next(s,'B');assert.equal(s.winner,null);s=next(s,'A');assert.equal(s.winner,null);s=next(s,'A');
   assert.equal(s.winner,'A');assert.deepEqual(s.score,{A:15,B:13});
 });
+test('the proposed beta format ends level after three side pairs and preserves a two-win finish',()=>{
+ let draw=createMap(team('a'),team('b'),'A',3),win=createMap(team('a'),team('b'),'A',3);
+ for(let i=0;i<30;i++){draw=next(draw,i%2?'B':'A');win=next(win,i>=28?'A':i%2?'B':'A');}
+ assert.equal(draw.phase,'finished');assert.equal(draw.winner,null);assert.deepEqual(draw.score,{A:15,B:15});
+ assert.equal(win.phase,'finished');assert.equal(win.winner,'A');assert.deepEqual(win.score,{A:16,B:14});
+ assert.throws(()=>beginRound(draw,'eco','eco'));
+});

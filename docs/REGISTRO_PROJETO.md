@@ -1,7 +1,7 @@
 # Registro consolidado — Esports Manager
 
-Atualizado em 25/10/2026. Este é o ponto de entrada para continuar o projeto.
-Atualização documental: não altera código, regras, versão do motor ou partidas salvas.
+Atualizado em 26/10/2026. Este é o ponto de entrada para continuar o projeto.
+O autor aprovou L01/L02/L03 e autorizou oficializar e publicar o Beta 1.1 em 26/10/2026. A confirmação do deploy será registrada após a conclusão do workflow.
 
 ## Estado atual
 
@@ -11,16 +11,17 @@ Atualização documental: não altera código, regras, versão do motor ou parti
 | Site | https://lordyask.github.io/esports-manager/ |
 | Repositório | https://github.com/lordyask/esports-manager |
 | Branch de publicação | `main` |
-| Motor / pacote npm | 0.3.0 |
+| Motor / pacote npm público | 0.3.0 |
+| Branch de revisão | `beta/1.1`, candidata motor/pacote 0.4.1, schema 2 |
 | Regras / formato de save | `gdd-1.3` / schema 1 |
 | Último código funcional publicado | `9815c64305a13ec912c892a1f70ae6530dc2cc74` |
 | Hospedagem e persistência | GitHub Pages; progresso local em IndexedDB |
-| Próxima versão | Beta 1.1 em planejamento, sem escopo fechado ou autorização de lançamento |
+| Atualização autorizada | Beta 1.1, motor 0.4.1, schema 2; B11-01–14 e L01/L02/L03 aprovados em 26/10/2026 |
 
 O autor compartilhou o Beta 1.0 com amigos e apresentou feedbacks sobre decisões
 entre rodadas, informações limitadas, estratégias pouco variadas e dificuldade
 para escolher compras. A documentação do Beta 1.0 foi consolidada antes desta etapa.
-Agora o autor solicitou uma proposta numerada para aprovação do Beta 1.1.
+A proposta numerada B11-01 a B11-14 foi aprovada. Sua implementação está em revisão na branch `beta/1.1`.
 
 ## Decisões e limites de escopo
 
@@ -145,7 +146,7 @@ contribuir; essa causalidade não foi isolada. Uma partida 13–2 contra atribut
 Os arquivos brutos de avaliação e seus metadados permanecem fora do repositório
 público. Este registro conserva apenas o resumo necessário à continuidade.
 
-## Limitações conhecidas ainda abertas
+## Limitações da versão pública 1.0 (histórico; não descrevem toda a branch 1.1)
 
 1. IDs ainda participam do desempate de alvos, distribuição inicial e algumas
    ordens de processamento; possível viés de comportamento continua sem correção.
@@ -172,16 +173,14 @@ separar estratégias pelo lado atual e acrescentar treinamento e aba de agentes.
 
 A proposta detalhada está em [BETA_1_1_PROPOSTA.md](BETA_1_1_PROPOSTA.md), revisão 0.1,
 com códigos B11-01 a B11-14. Ela substitui o agrupamento preliminar de sete frentes.
-Todos os itens detalhados ainda aguardam aprovação. As tabelas de XP, potencial,
-familiaridade, sessão coletiva e regras de compatibilidade não são regras vigentes.
+Os 14 itens foram aprovados pelo autor em 25/10/2026. As tabelas de XP, potencial, familiaridade, sessão coletiva e compatibilidade compõem a especificação aprovada para o Beta 1.1; ainda não estão na versão pública 1.0.
 
 A sessão coletiva, os quatro planos por lado e o uso de XP determinístico são
-recomendações do assistente. A decisão do autor foi solicitar sua elaboração para
-aprovação, não autorizar implementação ou lançamento. O Beta 1.0 permanece com
+recomendações do assistente. O autor aprovou sua implementação, mantendo o lançamento para autorização posterior. O Beta 1.0 permanece com
 motor 0.3.0 e sem treinamento integrado. O núcleo antigo de ganho de até 0,1 está
-isolado e sua substituição depende da nova aprovação.
+isolado; a evolução integrada desta branch usa o novo modelo de XP aprovado.
 
-A organização persistente entre partidas é proposta como suporte ao treino;
+A organização persistente entre partidas foi implementada como suporte ao treino;
 calendário, campeonatos e carreira financeira continuam fora do escopo proposto.
 Moral dinâmica e migração para Supabase/Vercel também não entram automaticamente.
 
@@ -193,5 +192,37 @@ Moral dinâmica e migração para Supabase/Vercel também não entram automatica
 - [Publicação](PUBLICAR_GITHUB.md): situação atual e manutenção do site.
 - [Identidade visual](IDENTIDADE_VISUAL.md): marca aprovada e arquivos finais.
 - [Changelog](../CHANGELOG.md): histórico resumido das entregas.
-- [Proposta do Beta 1.1](BETA_1_1_PROPOSTA.md): itens numerados, aguardando aprovação.
+- [Proposta do Beta 1.1](BETA_1_1_PROPOSTA.md): itens numerados e regras aprovados.
 - [Motor 0.2.0](MOTOR_0_2_HISTORICO.md): referência histórica, não instrução da versão atual.
+
+## Direção de versões aprovada em 25/10/2026
+
+- Beta 1.x: foco em partida, estratégias, economia das rodadas, treinamento e agentes, com correções e refinamentos.
+- Beta 2.0: direção futura de novas adições de conteúdo e ajustes de balanceamento, sem lista de recursos definida.
+- Implementação do Beta 1.1 na branch `beta/1.1`; o site público 1.0 permanece preservado até nova autorização.
+
+## Implementação 1.1 para revisão
+
+- Implementação inicial 0.4.0; a revisão RC1 usa 0.4.1. Schema 2 e banco IndexedDB separado do Beta 1.0.
+- Intervalo manual, compras individuais, estratégias por lado e complementos, cronologia e revisão factual.
+- Tendências por responsabilidade e desempates táticos independentes do nome/ID do jogador.
+- Treino coletivo único por partida, XP por atributo/agente, catálogo, persistência entre partidas e importação assistida de organização antiga.
+- Os dados brutos de testes de usuários continuam fora do repositório; os lotes publicados são sintéticos.
+- O [relatório de validação 1.1](VALIDACAO_BETA_1_1.md) registra testes, navegação, limitações e pendências de liberação.
+- Estado inicial de 25/10: Enlace favorecia muito a defesa e havia partidas de até 246 rodadas. Esse registro histórico foi revisto nos lotes da candidata RC1; não declarar o motor balanceado.
+- Revisão de 26/10: 96 testes, 1.176 partidas finais e propostas L01/L02 preparadas. A matriz foi ampliada para atributos e complementos; Android físico continua pendente. Consulte o parecer atual.
+- `main` e o site público permanecem no Beta 1.0. A aprovação do escopo não autoriza mesclar ou publicar a versão 1.1.
+
+## Candidata RC1 de 26/10/2026
+
+- Regras da candidata identificadas como `gdd-1.3+b11-rc1`; publicação não autorizada.
+- Correções de IA, ordenação de eventos, cronologia, compras e recuperação de arquivos. Importação real de 0.3.0 com relatório de 15 rodadas conferida.
+- Enlace: ataque passou de 9,24% a 43,27% na mesma grade sem limite. No lote ampliado sem limite houve caso de 352 rodadas; não ocultar esse resultado.
+- L01 e L02 são propostas para aprovação, preparadas somente na branch. L03 autoriza mesclar/publicar como Beta experimental e reconhece a pendência de Android físico.
+- [Parecer para lançamento](LANCAMENTO_BETA_1_1_RC1.md): resultado atual, números, limites e decisões solicitadas. O DOCX MOBA anexado foi lido como histórico, com precedência das decisões FPS mais recentes.
+
+## Oficialização autorizada em 26/10/2026
+
+O autor declarou: “Eu aprovo e pode oficializar e publicar a Atualização Beta 1.1”. Essa decisão aprova L01/L02/L03 e substitui as restrições de lançamento da etapa de revisão descrita acima. O formato aprovado tem fogo durante travessia com intervalo dobrado e até três pares de prorrogação, com empate na rodada 30 se a igualdade persistir.
+
+O lançamento é experimental; Android físico permanece pendente. A atualização preserva o banco 1.0 e oferece exportar o arquivo original. Não há alteração de execução do motor nesta oficialização; permanecem válidos os 96 testes e as 1.176 partidas documentadas.
