@@ -1,27 +1,27 @@
 # Registro consolidado — Esports Manager
 
 Atualizado em 26/10/2026. Este é o ponto de entrada para continuar o projeto.
-O autor aprovou L01/L02/L03 e autorizou oficializar e publicar o Beta 1.1 em 26/10/2026. A confirmação do deploy será registrada após a conclusão do workflow.
+O autor aprovou L01/L02/L03 e autorizou oficializar e publicar o Beta 1.1 em 26/10/2026. O deploy foi concluído com sucesso e o site público confirmou Beta 1.1 e motor 0.4.1.
 
 ## Estado atual
 
 | Item | Registro confirmado |
 | --- | --- |
-| Aplicação pública | Beta 1.0, originado do pacote RC1 |
+| Aplicação pública | Beta 1.1 experimental, publicada em 26/10/2026 |
 | Site | https://lordyask.github.io/esports-manager/ |
 | Repositório | https://github.com/lordyask/esports-manager |
 | Branch de publicação | `main` |
-| Motor / pacote npm público | 0.3.0 |
-| Branch de revisão | `beta/1.1`, candidata motor/pacote 0.4.1, schema 2 |
-| Regras / formato de save | `gdd-1.3` / schema 1 |
-| Último código funcional publicado | `9815c64305a13ec912c892a1f70ae6530dc2cc74` |
+| Motor / pacote npm público | 0.4.1 |
+| Branch de revisão | `beta/1.1`, integrada à `main` pelo PR nº 1 |
+| Regras / formato de save | `gdd-1.3+b11-rc1` / schema 2 |
+| Último código funcional publicado | `ac331be5745b7e18a1e90945a86431f712fc762b` |
 | Hospedagem e persistência | GitHub Pages; progresso local em IndexedDB |
-| Atualização autorizada | Beta 1.1, motor 0.4.1, schema 2; B11-01–14 e L01/L02/L03 aprovados em 26/10/2026 |
+| Estado da atualização | Beta 1.1 publicada; B11-01–14 e L01/L02/L03 aprovados em 26/10/2026 |
 
 O autor compartilhou o Beta 1.0 com amigos e apresentou feedbacks sobre decisões
 entre rodadas, informações limitadas, estratégias pouco variadas e dificuldade
 para escolher compras. A documentação do Beta 1.0 foi consolidada antes desta etapa.
-A proposta numerada B11-01 a B11-14 foi aprovada. Sua implementação está em revisão na branch `beta/1.1`.
+A proposta numerada B11-01 a B11-14 foi aprovada. Sua implementação foi integrada pelo PR nº 1 e publicada em `main`.
 
 ## Decisões e limites de escopo
 
@@ -211,9 +211,9 @@ Moral dinâmica e migração para Supabase/Vercel também não entram automatica
 - O [relatório de validação 1.1](VALIDACAO_BETA_1_1.md) registra testes, navegação, limitações e pendências de liberação.
 - Estado inicial de 25/10: Enlace favorecia muito a defesa e havia partidas de até 246 rodadas. Esse registro histórico foi revisto nos lotes da candidata RC1; não declarar o motor balanceado.
 - Revisão de 26/10: 96 testes, 1.176 partidas finais e propostas L01/L02 preparadas. A matriz foi ampliada para atributos e complementos; Android físico continua pendente. Consulte o parecer atual.
-- `main` e o site público permanecem no Beta 1.0. A aprovação do escopo não autoriza mesclar ou publicar a versão 1.1.
+- Estado histórico anterior à aprovação de lançamento: `main` e o site público permaneciam no Beta 1.0. A aprovação posterior e a publicação estão registradas abaixo.
 
-## Candidata RC1 de 26/10/2026
+## Candidata RC1 de 26/10/2026 (histórico anterior à aprovação)
 
 - Regras da candidata identificadas como `gdd-1.3+b11-rc1`; publicação não autorizada.
 - Correções de IA, ordenação de eventos, cronologia, compras e recuperação de arquivos. Importação real de 0.3.0 com relatório de 15 rodadas conferida.
@@ -226,3 +226,11 @@ Moral dinâmica e migração para Supabase/Vercel também não entram automatica
 O autor declarou: “Eu aprovo e pode oficializar e publicar a Atualização Beta 1.1”. Essa decisão aprova L01/L02/L03 e substitui as restrições de lançamento da etapa de revisão descrita acima. O formato aprovado tem fogo durante travessia com intervalo dobrado e até três pares de prorrogação, com empate na rodada 30 se a igualdade persistir.
 
 O lançamento é experimental; Android físico permanece pendente. A atualização preserva o banco 1.0 e oferece exportar o arquivo original. Não há alteração de execução do motor nesta oficialização; permanecem válidos os 96 testes e as 1.176 partidas documentadas.
+
+## Publicação confirmada em 26/10/2026
+
+- PR nº 1 integrado à `main`; código funcional publicado: `ac331be5745b7e18a1e90945a86431f712fc762b`.
+- [Workflow de publicação](https://github.com/lordyask/esports-manager/actions/runs/40337769779) concluído com sucesso, incluindo build e deploy.
+- Endereço verificado no navegador: https://lordyask.github.io/esports-manager/ . Título e interface mostram Beta 1.1; rodapé confirma motor 0.4.1. Navegação e catálogo de oito agentes conferidos no site público.
+- Esta conferência de publicação não substitui os testes funcionais já documentados nem a homologação em Android físico, que permanece pendente.
+- Registro posterior somente documental, com `[skip ci]`; sem mudança no código funcional publicado.

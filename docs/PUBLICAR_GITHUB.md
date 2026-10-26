@@ -1,6 +1,6 @@
 # Publicação e manutenção — GitHub Pages
 
-Atualizado em 26/10/2026. O lançamento do Beta 1.1 foi autorizado pelo autor; acompanhar o workflow de publicação até sua conclusão.
+Atualizado em 26/10/2026. O Beta 1.1 foi autorizado e publicado. O [workflow de publicação](https://github.com/lordyask/esports-manager/actions/runs/40337769779) concluiu build e deploy com sucesso. Código funcional: `ac331be5745b7e18a1e90945a86431f712fc762b`. Site público conferido com Beta 1.1, motor 0.4.1 e catálogo de agentes.
 
 ## Ambiente ativo
 

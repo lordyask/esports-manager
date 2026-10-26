@@ -1,8 +1,10 @@
 # Histórico de alterações — Esports Manager
 
-## 26/10/2026 — Beta 1.1 oficializado com lançamento autorizado
+## 26/10/2026 — Beta 1.1 oficializado e publicado
 
 - O autor aprovou L01, L02 e L03 e autorizou publicar pelo GitHub Pages.
+- PR nº 1 integrado; [build e deploy concluídos](https://github.com/lordyask/esports-manager/actions/runs/40337769779). Site público conferido: Beta 1.1, motor 0.4.1 e catálogo de agentes.
+- Código funcional publicado: `ac331be5745b7e18a1e90945a86431f712fc762b`.
 - Fogo durante travessia com intervalo dobrado e até três pares de prorrogação, com empate se a igualdade persistir na rodada 30.
 - Partida, estratégias por lado, compras individuais, revisão de rodadas, treinamento, catálogo de agentes e persistência entre partidas.
 - Motor 0.4.1, regras `gdd-1.3+b11-rc1`, schema 2; identificadores preservados para compatibilidade.

@@ -1,7 +1,7 @@
 # Beta 1.1 aprovação e validação para lançamento
 
 Atualizado em 26/10/2026. Motor 0.4.1, regras `gdd-1.3+b11-rc1`, save schema 2.
-**O autor aprovou L01/L02/L03 e autorizou oficializar e publicar o Beta 1.1 em 26/10/2026.** A publicação segue pelo PR nº 1 e pelo workflow de `main`.
+**O autor aprovou L01/L02/L03 e autorizou oficializar e publicar o Beta 1.1 em 26/10/2026.** O PR nº 1 foi integrado e o [workflow de `main`](https://github.com/lordyask/esports-manager/actions/runs/40337769779) concluiu build e deploy com sucesso. Código funcional publicado: `ac331be5745b7e18a1e90945a86431f712fc762b`. O endereço público foi aberto e confirmou Beta 1.1, motor 0.4.1 e catálogo de agentes.
 
 ## Regras e lançamento aprovados
 

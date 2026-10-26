@@ -1,10 +1,10 @@
 # Esports Manager — Beta 1.1
 
-Atualização experimental com lançamento autorizado pelo autor em **26/10/2026**. B11-01 a B11-14 e L01/L02/L03 estão aprovados. Motor **0.4.1**, regras `gdd-1.3+b11-rc1`, save schema **2**. A revisão de regras mantém seu identificador para preservar a compatibilidade dos arquivos testados.
+Atualização experimental **publicada em 26/10/2026**, após autorização do autor. B11-01 a B11-14 e L01/L02/L03 estão aprovados. Motor **0.4.1**, regras `gdd-1.3+b11-rc1`, save schema **2**. A revisão de regras mantém seu identificador para preservar a compatibilidade dos arquivos testados.
 
 [Abrir o jogo](https://lordyask.github.io/esports-manager/) · [Registro do projeto](docs/REGISTRO_PROJETO.md) · [Aprovação e validação](docs/LANCAMENTO_BETA_1_1_RC1.md) · [Histórico](CHANGELOG.md).
 
-A publicação é executada pelo workflow de `main`; o resultado do deploy deve ser conferido em Actions. Foram aprovados 96 testes e 1.176 partidas de validação. Android físico, Safari/iOS e acessibilidade completa permanecem sem homologação. O equilíbrio dos mapas continua em avaliação.
+A publicação em `main` foi concluída com sucesso: [workflow de build e deploy](https://github.com/lordyask/esports-manager/actions/runs/40337769779). O site público foi aberto e confirmou Beta 1.1, motor 0.4.1 e catálogo de agentes. Foram aprovados 96 testes e 1.176 partidas de validação. Android físico, Safari/iOS e acessibilidade completa permanecem sem homologação. O equilíbrio dos mapas continua em avaliação.
 
 Interface em português, Next.js/React/TypeScript com exportação estática. Projeto independente, com agentes e coeficientes fictícios. Preços e rendimentos permanecem os aprovados no GDD FPS Web 1.3, com o [adendo aprovado do Beta 1.1](docs/BETA_1_1_PROPOSTA.md).
 
@@ -57,7 +57,7 @@ Os arquivos estáticos ficam em `out/`. Para um caminho de projeto do GitHub, o 
 
 ## Publicação
 
-O repositório é `lordyask/esports-manager`. `main` publica pelo GitHub Actions; o lançamento do Beta 1.1 foi autorizado em 26/10/2026. `beta/1.1` reúne a preparação e a validação desta atualização. O procedimento de manutenção e a referência para novas instalações estão em [docs/PUBLICAR_GITHUB.md](docs/PUBLICAR_GITHUB.md).
+O repositório é `lordyask/esports-manager`. `main` publica pelo GitHub Actions; o lançamento do Beta 1.1 foi autorizado em 26/10/2026. `beta/1.1` reuniu a preparação e a validação desta atualização, integrada pelo PR nº 1. O procedimento de manutenção e a referência para novas instalações estão em [docs/PUBLICAR_GITHUB.md](docs/PUBLICAR_GITHUB.md).
 
 ## Avaliação
 
