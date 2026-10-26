@@ -7,7 +7,7 @@
 - Adicionados primeiro contato, trades e interrupções à revisão; detalhes de pacote incompleto e aviso sem Entry.
 - Recuperação de checkpoint incompatível preserva o arquivo original e permite reinício explícito; importação real 0.3.0 verificada.
 - L01: proposta de fogo durante travessia com intervalo dobrado. L02: proposta de três pares de prorrogação e empate. Ambas aguardam aprovação; preparadas na branch de revisão.
-- 95 testes, 1.176 partidas finais e seis regressões específicas. Evidências e pendências em `docs/LANCAMENTO_BETA_1_1_RC1.md`. Android físico permanece pendente.
+- 96 testes, 1.176 partidas finais e seis regressões específicas. Evidências e pendências em `docs/LANCAMENTO_BETA_1_1_RC1.md`. Android físico permanece pendente.
 
 
 ## 25/10/2026 — Beta 1.1 implementado para revisão, sem lançamento

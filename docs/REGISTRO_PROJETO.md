@@ -210,7 +210,7 @@ Moral dinâmica e migração para Supabase/Vercel também não entram automatica
 - Os dados brutos de testes de usuários continuam fora do repositório; os lotes publicados são sintéticos.
 - O [relatório de validação 1.1](VALIDACAO_BETA_1_1.md) registra testes, navegação, limitações e pendências de liberação.
 - Estado inicial de 25/10: Enlace favorecia muito a defesa e havia partidas de até 246 rodadas. Esse registro histórico foi revisto nos lotes da candidata RC1; não declarar o motor balanceado.
-- Revisão de 26/10: 95 testes, 1.176 partidas finais e propostas L01/L02 preparadas. A matriz foi ampliada para atributos e complementos; Android físico continua pendente. Consulte o parecer atual.
+- Revisão de 26/10: 96 testes, 1.176 partidas finais e propostas L01/L02 preparadas. A matriz foi ampliada para atributos e complementos; Android físico continua pendente. Consulte o parecer atual.
 - `main` e o site público permanecem no Beta 1.0. A aprovação do escopo não autoriza mesclar ou publicar a versão 1.1.
 
 ## Candidata RC1 de 26/10/2026

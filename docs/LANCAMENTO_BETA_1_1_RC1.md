@@ -52,9 +52,9 @@ publicação. O teste de layout estreito disponível aqui não equivale a esse t
 
 ## Testes finais
 
-- **95 testes aprovados**, zero falhas. Arquivo `validation/beta11/rc1/tests.tap`.
+- **96 testes aprovados**, zero falhas. Arquivo `validation/beta11/rc1/tests.tap`.
 - TypeScript e builds estáticos aprovados na raiz e em `/esports-manager`.
-- Marca, manifesto e worker conferidos nos dois caminhos; 20 bundles JavaScript.
+- Marca, manifesto e worker conferidos nos dois caminhos, incluindo o bundle do worker.
 - A regressão de compras cobriu **1.215 combinações** de planos e saldos, com
   conservação de créditos, ausência de negativos e avisos coerentes com o kit.
 - Regra de empate verificada, incluindo vitória por dois no último par e bloqueio
@@ -95,6 +95,7 @@ Na exportação final em `/esports-manager`, foram conferidos:
 - Edição de compra em iframe de 390 px, corpo útil de 375 px sem excesso de largura observado. Esse teste não emula um aparelho físico.
 - Duas abas: avanço na primeira e gravação da antiga rejeitada, sem sobrescrever o progresso novo.
 - Cronologia aberta pelo teclado, primeiro contato e resumo de derrota por desarme com fatos e gastos.
+- Backup original 1.0 detectado na visão geral e exportado com bytes idênticos, sem gravar no banco antigo.
 - Checkpoint sintético incompatível: original exportado com bytes idênticos, confirmação de reinício e recuperação sem bloqueio da revisão antiga.
 
 Não foram testados Android físico, instalação de atalho, Safari/iOS ou acessibilidade completa. São limites declarados da candidata, não itens marcados como concluídos por testes automatizados.
@@ -130,6 +131,8 @@ formato deve ser aceito pelo autor; não significa uma taxa esperada para todos
 os elencos ou estratégias reais.
 
 ## Compatibilidade e fontes
+
+A visão geral oferece baixar o backup original do banco local 1.0, em leitura somente, antes de importar. Isso evita depender de uma exportação feita antes da atualização. Essa detecção foi direcionada ao Chrome e depende da API de listagem de bancos do navegador; arquivos JSON exportados continuam sendo o caminho portátil.
 
 O save real de avaliação do Beta 1.0 foi usado em verificação local e não será
 publicado no repositório. A importação preserva o relatório como retrato e inicia

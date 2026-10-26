@@ -4,7 +4,7 @@ Esta branch implementa o escopo B11-01 a B11-14 aprovado em 25/10/2026. Motor **
 
 Interface em português, Next.js/React/TypeScript com exportação estática. Projeto independente, com agentes e coeficientes fictícios. Os preços e rendimentos das rodadas permanecem os aprovados no GDD FPS Web 1.3; a [especificação aprovada do Beta 1.1](docs/BETA_1_1_PROPOSTA.md) acrescenta estratégias e desenvolvimento.
 
-**A liberação está pendente de aprovação.** A candidata RC1 passou por 95 testes e 1.176 partidas de validação. As propostas L01 (fogo durante travessia) e L02 (empate após até três pares de prorrogação) estão preparadas para decisão, sem publicação. Consulte o [parecer de lançamento](docs/LANCAMENTO_BETA_1_1_RC1.md). Consulte [validação do Beta 1.1](docs/VALIDACAO_BETA_1_1.md), [registro do projeto](docs/REGISTRO_PROJETO.md) e [changelog](CHANGELOG.md). A [validação do Beta 1.0](VALIDACAO_BETA.md) é histórica e não certifica esta versão.
+**A liberação está pendente de aprovação.** A candidata RC1 passou por 96 testes e 1.176 partidas de validação. As propostas L01 (fogo durante travessia) e L02 (empate após até três pares de prorrogação) estão preparadas para decisão, sem publicação. Consulte o [parecer de lançamento](docs/LANCAMENTO_BETA_1_1_RC1.md). Consulte [validação do Beta 1.1](docs/VALIDACAO_BETA_1_1.md), [registro do projeto](docs/REGISTRO_PROJETO.md) e [changelog](CHANGELOG.md). A [validação do Beta 1.0](VALIDACAO_BETA.md) é histórica e não certifica esta versão.
 
 ## Novidades desta branch
 

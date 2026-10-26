@@ -6,7 +6,7 @@ import type {Draft,Workspace,Session,RoundCommand,Role,Player} from '../lib/game
 import type {Plan,BuyPlan} from '../src/economy';
 import type {Agent} from '../src/abilities';
 import type {SimEvent} from '../src/tactical-types';
-import {loadWorkspace,commitWorkspace} from '../lib/storage';
+import {loadWorkspace,commitWorkspace,loadLegacyExport} from '../lib/storage';
 import ProductLogo from './product-logo';
 import {StrategyEditor,TrainingPanel,AgentsPanel,RoundReview,EconomyPanel,PastReport} from './beta-panels';
 import {freshWorkspace,beginMatch,nextMatch,prepareImport} from '../lib/game';
@@ -28,7 +28,7 @@ function PlayerCard({p,selected,disabled,toggle}:{p:Player;selected:boolean;disa
  </article>;}
 const reasonText=(r:string)=>({defenders_eliminated:'defesa eliminada',attackers_eliminated:'ataque eliminado',mutual_elimination:'eliminação simultânea',defused:'dispositivo desarmado',detonation:'dispositivo detonado',time_expired:'tempo esgotado'}[r]??r);
 export default function Beta(){
- const [data,setData]=useState<Workspace>(freshWorkspace),[tab,setTab]=useState(0),[loaded,setLoaded]=useState(false),[saved,setSaved]=useState(false),[error,setError]=useState(''),[note,setNote]=useState(''),[busy,setBusy]=useState(false),[query,setQuery]=useState(''),[filter,setFilter]=useState('Todos'),[sort,setSort]=useState('salary'),[autoBuy,setAutoBuy]=useState(false),[plans,setPlans]=useState<Record<string,Plan>>({}),[speed,setSpeed]=useState('normal'),[lastMs,setLastMs]=useState(0),[recovery,setRecovery]=useState<string|null>(null);
+ const [data,setData]=useState<Workspace>(freshWorkspace),[tab,setTab]=useState(0),[loaded,setLoaded]=useState(false),[saved,setSaved]=useState(false),[error,setError]=useState(''),[note,setNote]=useState(''),[busy,setBusy]=useState(false),[query,setQuery]=useState(''),[filter,setFilter]=useState('Todos'),[sort,setSort]=useState('salary'),[autoBuy,setAutoBuy]=useState(false),[plans,setPlans]=useState<Record<string,Plan>>({}),[speed,setSpeed]=useState('normal'),[lastMs,setLastMs]=useState(0),[recovery,setRecovery]=useState<string|null>(null),[legacyExport,setLegacyExport]=useState<string|null>(null);
  const current=useRef(data),revision=useRef(0),worker=useRef<Worker|null>(null),pending=useRef(new Map<string,{resolve:(s:Session)=>void;reject:(e:Error)=>void;timer:ReturnType<typeof setTimeout>}>()),working=useRef(false),stop=useRef(false),file=useRef<HTMLInputElement>(null);
  current.current=data;
  const d=data.draft,s=data.session,dev=data.development??newDevelopment();
@@ -36,6 +36,7 @@ export default function Beta(){
  const selected=d.selected.map(id=>playerView(PLAYERS.find(p=>p.id===id)!)),totalSalary=salary(d),rosterLocked=!!s||dev.used||dev.completed>0;
  const fam=(p:Player,a:string)=>growthFor(dev,p.id).familiarities[a];
  useEffect(()=>{let active=true;loadWorkspace().then(x=>{if(active){if(x){revision.current=x.revision;if('data' in x){setData(x.data);setPlans(x.data.buyPreparation??{});setSaved(true);}else{setRecovery(x.raw);setError(x.error);}}setLoaded(true);}}).catch(e=>{if(active){setLoaded(true);setError(String(e instanceof Error?e.message:e));}});return()=>{active=false;};},[]);
+ useEffect(()=>{let active=true;loadLegacyExport().then(raw=>{if(active)setLegacyExport(raw);});return()=>{active=false;};},[]);
  useEffect(()=>{const w=new Worker(new URL('../lib/worker.ts',import.meta.url));worker.current=w;
  w.onmessage=e=>{const p=pending.current.get(e.data.id);if(!p)return;clearTimeout(p.timer);pending.current.delete(e.data.id);if(e.data.error)p.reject(new Error(e.data.error));else p.resolve(e.data.session);};
  w.onerror=()=>{for(const p of pending.current.values()){clearTimeout(p.timer);p.reject(new Error('O motor não iniciou. Recarregue para tentar novamente com o progresso salvo.'));}pending.current.clear();};
@@ -82,6 +83,7 @@ export default function Beta(){
  <main className="content">
  {error&&<div className="notice error" role="alert"><div><b>Precisamos da sua atenção</b><p>{error}</p></div><button onClick={diagnostic}>Baixar diagnóstico</button></div>}
  {note&&<div className="notice" role="status"><span>{note}</span><button aria-label="Fechar aviso" onClick={()=>setNote('')}>×</button></div>}
+ {tab===0&&legacyExport&&<section className="notice"><div><b>Seu progresso do Beta 1.0 continua preservado.</b><p>Baixe o arquivo original. Para trazer a organização com XP zero e consultar o relatório antigo, use Importar progresso.</p></div><button className="secondary" onClick={()=>download('esports-manager-beta-1.0-original.json',legacyExport)}>Baixar backup do Beta 1.0</button></section>}
  {recovery&&<section className="panel"><h1>Seu arquivo foi preservado.</h1><p>Este progresso não pode ser aberto nesta versão. Exporte o arquivo original antes de importar outro ou reiniciar a organização.</p><div className="button-row"><button className="primary" onClick={exportProgress}>Exportar arquivo preservado</button><button className="secondary" disabled={busy} onClick={()=>file.current?.click()}>Importar outro arquivo</button><button className="secondary" disabled={busy} onClick={reset}>Reiniciar com esta versão</button></div></section>}
  {!loaded?<div className="panel loading">Abrindo seu centro de comando…</div>:recovery?null:<>
  {tab===0&&<>
