@@ -1,14 +1,14 @@
 # Histórico de alterações — Esports Manager
 
-## 26/10/2026 — Beta 1.1.1: correções de treinamento aprovadas
+## 26/10/2026 — Beta 1.1.1 publicado: correções de treinamento
 
-- T01–T05 aprovados pelo autor, com autorização de publicação.
+- T01–T05 aprovados pelo autor; [build e deploy concluídos](https://github.com/lordyask/esports-manager/actions/runs/40409964868). Código funcional: `130280f5e3eb0b87cb46a0dd801b8a314a59bf58`.
 - Corrigido reset do foco, atributo e agentes ao sair da aba de treinamento. Escolhas salvas automaticamente no mesmo banco local e incluídas na exportação.
 - Alternar os modos preserva tanto o atributo quanto os agentes individuais; trocar titulares remove somente as escolhas de quem saiu.
 - Função, IGL, agente escalado e sua classe/familiaridade visíveis no treino; detalhes com os oito atributos e familiaridades atuais.
 - Distinção entre agente escalado e agente treinado, estado das escolhas e resumo dos ganhos confirmados.
 - XP, potencial, regras e motor 0.4.1 preservados. Compatível com arquivos schema 2 do Beta 1.1.
-- 103 testes aprovados; builds estáticos verificados antes da publicação. Evidências e estado do deploy em `docs/BETA_1_1_1.md`.
+- 103 testes aprovados; TypeScript, builds estáticos e conferência dos dois modos no site público. Atributo e agentes persistiram após navegação e recarga; confirmação não se repetiu. Evidências em `docs/BETA_1_1_1.md`.
 
 ## 26/10/2026 — Beta 1.1 oficializado e publicado
 

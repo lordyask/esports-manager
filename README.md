@@ -1,10 +1,10 @@
 # Esports Manager — Beta 1.1.1
 
-Beta 1.1 publicado em 26/10/2026. A correção **Beta 1.1.1** foi aprovada pelo autor e está sendo preparada para publicação. B11-01 a B11-14 e L01/L02/L03 estão aprovados. Motor **0.4.1**, regras `gdd-1.3+b11-rc1`, save schema **2**. A revisão de regras mantém seu identificador para preservar a compatibilidade dos arquivos testados.
+Atualização experimental **Beta 1.1.1 publicada em 26/10/2026**, com autorização do autor. B11-01 a B11-14 e L01/L02/L03 estão aprovados. Motor **0.4.1**, regras `gdd-1.3+b11-rc1`, save schema **2**. A revisão de regras mantém seu identificador para preservar a compatibilidade dos arquivos testados.
 
 [Abrir o jogo](https://lordyask.github.io/esports-manager/) · [Registro do projeto](docs/REGISTRO_PROJETO.md) · [Aprovação e validação](docs/LANCAMENTO_BETA_1_1_RC1.md) · [Histórico](CHANGELOG.md).
 
-A publicação em `main` foi concluída com sucesso: [workflow de build e deploy](https://github.com/lordyask/esports-manager/actions/runs/40337769779). O site público foi aberto e confirmou Beta 1.1, motor 0.4.1 e catálogo de agentes. Foram aprovados 96 testes e 1.176 partidas de validação. Android físico, Safari/iOS e acessibilidade completa permanecem sem homologação. O equilíbrio dos mapas continua em avaliação.
+A publicação em `main` foi concluída com sucesso: [workflow de build e deploy](https://github.com/lordyask/esports-manager/actions/runs/40409964868). O site público confirmou Beta 1.1.1, motor 0.4.1 e persistência das escolhas de atributo e agentes após troca de aba e recarregamento. Foram aprovados 103 testes nesta correção; as 1.176 partidas de validação do motor são do Beta 1.1. Android físico, Safari/iOS e acessibilidade completa permanecem sem homologação. O equilíbrio dos mapas continua em avaliação.
 
 Interface em português, Next.js/React/TypeScript com exportação estática. Projeto independente, com agentes e coeficientes fictícios. Preços e rendimentos permanecem os aprovados no GDD FPS Web 1.3, com o [adendo aprovado do Beta 1.1](docs/BETA_1_1_PROPOSTA.md).
 

@@ -30,4 +30,15 @@ Motor 0.4.1, regras `gdd-1.3+b11-rc1`, schema 2 e banco `esports-manager-beta-1.
 
 ## Publicação
 
-Autorizada. Aguardar conclusão de build/deploy do GitHub Actions e conferir os dois modos no endereço público antes de anunciar como concluída. O navegador de teste não alcança o localhost do executor; a conferência visual será realizada no Pages após o deploy. Android físico permanece sem homologação nesta sessão.
+Publicada em 26/10/2026. Código funcional: `130280f5e3eb0b87cb46a0dd801b8a314a59bf58`. [GitHub Actions](https://github.com/lordyask/esports-manager/actions/runs/40409964868) concluiu build e deploy com sucesso. O navegador de teste não alcançou o localhost do executor; a conferência visual foi realizada no Pages após o deploy.
+
+No Chrome, com dados sintéticos:
+
+1. Equipe salva no Beta 1.1 abriu no Beta 1.1.1 sem reiniciar a organização.
+2. Disciplina permaneceu selecionada após consultar Agentes e após recarregar. No Beta 1.1, a mesma navegação havia retornado para Mira.
+3. Farol para Drift e Bruma para Pingo permaneceram selecionados após consultar Elenco e recarregar. O foco de agentes também foi preservado.
+4. Alternar entre atributos e agentes preservou Disciplina e as escolhas individuais. O agente escalado de Drift continuou Estalo.
+5. Detalhes de Drift mostraram os oito atributos e as oito familiaridades atuais.
+6. Confirmar Disciplina e recarregar manteve 108 XP de Drift, foco bloqueado e nenhum botão de confirmação adicional.
+
+Endereço conferido: https://lordyask.github.io/esports-manager/ . Android físico permanece sem homologação nesta sessão. O registro posterior é somente documental com `[skip ci]`.

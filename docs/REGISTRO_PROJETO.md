@@ -1,22 +1,22 @@
 # Registro consolidado — Esports Manager
 
 Atualizado em 26/10/2026. Este é o ponto de entrada para continuar o projeto.
-O autor aprovou L01/L02/L03 e autorizou oficializar e publicar o Beta 1.1 em 26/10/2026. O deploy foi concluído com sucesso e o site público confirmou Beta 1.1 e motor 0.4.1.
+O autor aprovou L01/L02/L03 e autorizou oficializar e publicar o Beta 1.1 em 26/10/2026. O deploy do Beta 1.1.1 foi concluído com sucesso; o site público e os dois modos de preparação de treino foram conferidos. Motor 0.4.1 preservado.
 
 ## Estado atual
 
 | Item | Registro confirmado |
 | --- | --- |
-| Aplicação pública | Beta 1.1 experimental, publicada em 26/10/2026 |
+| Aplicação pública | Beta 1.1.1 experimental, publicada em 26/10/2026 |
 | Site | https://lordyask.github.io/esports-manager/ |
 | Repositório | https://github.com/lordyask/esports-manager |
 | Branch de publicação | `main` |
 | Motor / pacote npm público | 0.4.1 |
 | Branch de revisão | `beta/1.1`, integrada à `main` pelo PR nº 1 |
 | Regras / formato de save | `gdd-1.3+b11-rc1` / schema 2 |
-| Último código funcional publicado | `ac331be5745b7e18a1e90945a86431f712fc762b` |
+| Último código funcional publicado | `130280f5e3eb0b87cb46a0dd801b8a314a59bf58` |
 | Hospedagem e persistência | GitHub Pages; progresso local em IndexedDB |
-| Estado da atualização | Beta 1.1 publicada; B11-01–14 e L01/L02/L03 aprovados em 26/10/2026 |
+| Estado da atualização | Beta 1.1.1 publicada; T01–T05 aprovados, incluindo treino de atributos |
 
 O autor compartilhou o Beta 1.0 com amigos e apresentou feedbacks sobre decisões
 entre rodadas, informações limitadas, estratégias pouco variadas e dificuldade
@@ -237,4 +237,12 @@ O lançamento é experimental; Android físico permanece pendente. A atualizaç�
 
 ## Correção Beta 1.1.1 autorizada em 26/10/2026
 
-O autor aprovou T01–T05, solicitou verificar os mesmos erros no treino de atributos e autorizou deixar a correção publicada. Ambos os modos usavam estado local descartado ao trocar de aba. A atualização preserva as escolhas no workspace/IndexedDB, apresenta contexto e detalhes dos jogadores e separa agente escalado de agente treinado. [Registro da correção](BETA_1_1_1.md). Motor, XP, potencial e schema preservados. Aguardar confirmação do deploy para atualizar a versão pública na tabela inicial.
+O autor aprovou T01–T05, solicitou verificar os mesmos erros no treino de atributos e autorizou deixar a correção publicada. Ambos os modos usavam estado local descartado ao trocar de aba. A atualização preserva as escolhas no workspace/IndexedDB, apresenta contexto e detalhes dos jogadores e separa agente escalado de agente treinado. [Registro da correção](BETA_1_1_1.md). Motor, XP, potencial e schema preservados. Publicação confirmada conforme registro abaixo.
+
+## Beta 1.1.1 publicado e conferido em 26/10/2026
+
+Código funcional: `130280f5e3eb0b87cb46a0dd801b8a314a59bf58`. [Workflow](https://github.com/lordyask/esports-manager/actions/runs/40409964868) com build e deploy concluídos com sucesso. 103 testes aprovados, TypeScript e builds estáticos na raiz e no caminho do Pages.
+
+Conferência no Chrome do site público: save criado no Beta 1.1 abriu no 1.1.1; Disciplina preservada após navegar por Agentes e recarregar; Farol para Drift e Bruma para Pingo preservados após consultar Elenco e recarregar; alternar modos preservou ambas as escolhas. Drift permaneceu escalado com Estalo. Detalhes mostraram oito atributos e oito familiaridades atuais. Confirmação de Disciplina seguida de recarga manteve 108 XP de Drift e removeu a opção de confirmar de novo. Dados sintéticos de QA. Android físico permanece sem homologação.
+
+O registro posterior é somente documental, com `[skip ci]`, sem mudança na aplicação publicada.
