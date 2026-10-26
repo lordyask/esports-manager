@@ -246,3 +246,7 @@ Código funcional: `130280f5e3eb0b87cb46a0dd801b8a314a59bf58`. [Workflow](https:
 Conferência no Chrome do site público: save criado no Beta 1.1 abriu no 1.1.1; Disciplina preservada após navegar por Agentes e recarregar; Farol para Drift e Bruma para Pingo preservados após consultar Elenco e recarregar; alternar modos preservou ambas as escolhas. Drift permaneceu escalado com Estalo. Detalhes mostraram oito atributos e oito familiaridades atuais. Confirmação de Disciplina seguida de recarga manteve 108 XP de Drift e removeu a opção de confirmar de novo. Dados sintéticos de QA. Android físico permanece sem homologação.
 
 O registro posterior é somente documental, com `[skip ci]`, sem mudança na aplicação publicada.
+
+## Pendências reunidas após o Beta 1.1.1 — 26/10/2026
+
+O autor decidiu deixar o histórico de partidas para a próxima atualização e reunir novos feedbacks antes da revisão conjunta. H01–H04 (histórico, relatórios por partida, exportação JSON/CSV e estatísticas acumuladas) estão no [registro de pendências](PENDENCIAS_PROXIMA_ATUALIZACAO.md). Nenhuma implementação ou novo lançamento foi autorizado nesta decisão. O autor informou que tem partidas para análise; os novos arquivos ainda não foram recebidos neste momento.
