@@ -14,6 +14,8 @@ import {sha256} from '../src/hash.ts';
 import {validateStrategy} from '../src/strategies.ts';
 import {newDevelopment,growthFor,validateDevelopment} from './development.ts';
 import type {Development} from './development.ts';
+import {validateTrainingPreparation} from './training-preparation.ts';
+import type {TrainingPreparation} from './training-preparation.ts';
 export {AGENTS,ENGINE_VERSION,RULES_VERSION};
 export const PLAYERS=rawCatalog.players;
 export function newId(){const values=new Uint32Array(4);globalThis.crypto.getRandomValues(values);return Array.from(values,n=>n.toString(16).padStart(8,'0')).join('');}
@@ -34,7 +36,7 @@ export interface Draft {org:string;tag:string;color:string;crest:number;selected
 export interface RoundRecord {command:RoundCommand;seed:number;result:SimulationResult;purchases:Record<Team,Purchase[]>;}
 export interface Session {id:string;map:MapId;seed:number;profiles:Profile[];names:Record<string,string>;state:MapState;records:RoundRecord[];}
 export interface RoundCommand {id:string;revision:number;plans:Record<Team,TeamPlan>;buys:BuyPlan;}
-export interface Workspace {draft:Draft;session:Session|null;development?:Development;buyPreparation?:Record<string,Plan>;previous?:Session;legacyReport?:{engine:string;session:Session};}
+export interface Workspace {trainingPreparation?:TrainingPreparation;draft:Draft;session:Session|null;development?:Development;buyPreparation?:Record<string,Plan>;previous?:Session;legacyReport?:{engine:string;session:Session};}
 export function defaultDraft():Draft{return {org:'Minha organização',tag:'ORG',color:'#62e5ba',crest:0,selected:[],assignments:{},igl:'',map:'patio',opponent:'balanced',seed:20261021,plan:{attack:'fast',defense:'balanced',site:'A'}};}
 export const salary=(d:Draft)=>d.selected.reduce((s,id)=>s+(PLAYERS.find(p=>p.id===id)?.salary??0),0);
 export const familiarity=(p:Player,agent:string)=>agent===p.main?85:agent===p.second?65:agent===p.third?45:10;
@@ -111,7 +113,7 @@ export function normalizedWorkspace(data:Workspace):Workspace {const out={...dat
 export function freshWorkspace():Workspace{return {draft:defaultDraft(),session:null,development:newDevelopment()};}
 export function encodeSave(input:Workspace):string {
  const data=normalizedWorkspace(input),payload=JSON.stringify(data);
- return JSON.stringify({format:'esports-manager-beta',schema:2,beta:'1.1.0',engine:ENGINE_VERSION,rules:RULES_VERSION,digest:sha256(payload),data});
+ return JSON.stringify({format:'esports-manager-beta',schema:2,beta:'1.1.1',engine:ENGINE_VERSION,rules:RULES_VERSION,digest:sha256(payload),data});
 }
 export function decodeSave(text:string):Workspace {
  if(text.length>20*1024*1024)throw new Error('Arquivo maior que o limite de 20 MB.');
@@ -124,6 +126,7 @@ export function decodeSave(text:string):Workspace {
  for(const a of Object.values(w.draft.assignments))if(!a||!AGENTS.includes(a.agent)||!ROLES.includes(a.role))throw new Error('Escalação salva inválida.');
  if(w.session){validateDraft(w.draft);validateSession(w.session);}
  if(!w.development)throw new Error('Registro de desenvolvimento ausente.');validateDevelopment(w.development);
+ if(w.trainingPreparation!==undefined)validateTrainingPreparation(w.trainingPreparation,w.draft.selected);
  if(w.session&&w.development.matchId!==w.session.id)throw new Error('Preparação e partida não correspondem.');
  if(w.buyPreparation&&Object.entries(w.buyPreparation).some(([id,p])=>!w.session?.profiles.some(a=>a.id===id&&a.team==='A')||!['eco','semi','full'].includes(p)))throw new Error('Preparação de compra inválida.');
  if(w.previous)validateSession(w.previous);
@@ -154,7 +157,7 @@ export function beginMatch(w:Workspace,id:string):Workspace {
 export function nextMatch(w:Workspace):Workspace {
  if(!w.session||w.session.state.phase!=='finished')throw new Error('Conclua a partida atual antes de preparar outra.');
  const dev=structuredClone(w.development??newDevelopment());dev.used=false;dev.matchId=null;dev.completed++;delete dev.receipt;
- return normalizedWorkspace({...w,previous:structuredClone(w.session),session:null,development:dev,buyPreparation:undefined});
+ return normalizedWorkspace({...w,previous:structuredClone(w.session),session:null,development:dev,buyPreparation:undefined,trainingPreparation:undefined});
 }
 /** Explicit import; old results remain a read-only snapshot, never simulated by new rules. */
 export function prepareImport(text:string):{data:Workspace;notice:string}{

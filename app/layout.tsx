@@ -2,7 +2,7 @@ import type {Metadata,Viewport} from 'next';
 import './style.css';
 const base=process.env.PAGES_BASE_PATH??'';
 export const metadata:Metadata={
- title:'Esports Manager — Beta 1.1',
+ title:'Esports Manager — Beta 1.1.1',
  description:'Monte seu elenco, distribua os recursos e comande uma equipe de FPS tático. Beta de teste com salvamento local.',
  applicationName:'Esports Manager',
  manifest:`${base}/manifest.webmanifest`,

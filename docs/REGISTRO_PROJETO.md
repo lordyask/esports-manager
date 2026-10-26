@@ -234,3 +234,7 @@ O lançamento é experimental; Android físico permanece pendente. A atualizaç�
 - Endereço verificado no navegador: https://lordyask.github.io/esports-manager/ . Título e interface mostram Beta 1.1; rodapé confirma motor 0.4.1. Navegação e catálogo de oito agentes conferidos no site público.
 - Esta conferência de publicação não substitui os testes funcionais já documentados nem a homologação em Android físico, que permanece pendente.
 - Registro posterior somente documental, com `[skip ci]`; sem mudança no código funcional publicado.
+
+## Correção Beta 1.1.1 autorizada em 26/10/2026
+
+O autor aprovou T01–T05, solicitou verificar os mesmos erros no treino de atributos e autorizou deixar a correção publicada. Ambos os modos usavam estado local descartado ao trocar de aba. A atualização preserva as escolhas no workspace/IndexedDB, apresenta contexto e detalhes dos jogadores e separa agente escalado de agente treinado. [Registro da correção](BETA_1_1_1.md). Motor, XP, potencial e schema preservados. Aguardar confirmação do deploy para atualizar a versão pública na tabela inicial.

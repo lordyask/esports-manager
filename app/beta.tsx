@@ -12,6 +12,8 @@ import {StrategyEditor,TrainingPanel,AgentsPanel,RoundReview,EconomyPanel,PastRe
 import {freshWorkspace,beginMatch,nextMatch,prepareImport} from '../lib/game';
 import {growthFor,newDevelopment,previewTraining} from '../lib/development';
 import type {TrainingChoice} from '../lib/development';
+import {trainingPreparation} from '../lib/training-preparation';
+import type {TrainingPreparation} from '../lib/training-preparation';
 const fmt=(n:number)=>new Intl.NumberFormat('pt-BR',{maximumFractionDigits:0}).format(n);
 const tabs=['Visão geral','Elenco','Preparação','Partida','Relatório','Treinamento','Agentes'];
 function Mark({kind=0}:{kind?:number}){return <svg viewBox="0 0 40 44" fill="none" aria-hidden="true"><path d="M20 2 37 9v15c0 9-9 15-17 18C12 39 3 33 3 24V9L20 2Z" stroke="currentColor" strokeWidth="2"/>{kind===0?<path d="m12 27 8-15 8 15M15 22h10" stroke="currentColor" strokeWidth="3"/>:kind===1?<path d="m23 10-12 15h9l-3 10 14-17h-10l2-8Z" fill="currentColor"/>:<path d="m11 27 9-15 9 15H11Zm9-8v15" stroke="currentColor" strokeWidth="2"/>}</svg>;}
@@ -45,7 +47,7 @@ export default function Beta(){
  const metrics=useMemo(()=>s?stats(s):[],[s]);
  const report=tab===4;
  async function persist(next:Workspace){const rev=await commitWorkspace(next,revision.current);revision.current=rev;current.current=next;setData(next);setRecovery(null);setSaved(true);}
- function edit(p:Partial<Draft>){setData(x=>({...x,draft:{...x.draft,...p}}));setSaved(false);}
+ function edit(p:Partial<Draft>){setData(x=>{const draft={...x.draft,...p};return {...x,draft,...(p.selected&&x.trainingPreparation?{trainingPreparation:trainingPreparation(draft,x.trainingPreparation)}:{})};});setSaved(false);}
  function fail(e:unknown){setError(e instanceof Error?e.message:String(e));}
  async function save(){if(working.current)return;working.current=true;setBusy(true);try{await persist(current.current);setNote('Progresso salvo neste navegador.');}catch(e){fail(e);}finally{working.current=false;setBusy(false);}}
  function toggle(id:string){if(rosterLocked)return;const sel=d.selected.includes(id)?d.selected.filter(x=>x!==id):[...d.selected,id];if(sel.length<=5)edit({selected:sel});}
@@ -67,15 +69,16 @@ export default function Beta(){
  if(session.state.phase==='finished'){setTab(4);setNote('Partida concluída e salva.');}else if(session.state.rounds===12||session.state.rounds===24)setNote('Sequência pausada na mudança de fase. Revise estratégia e compras para continuar.');else if(count>=30)setNote('Sequência pausada após 30 rodadas. Você pode continuar; a prorrogação não tem vencedor forçado.');
  }catch(e){fail(e);}finally{working.current=false;setBusy(false);}}
  function exportProgress(){download(`esports-manager-beta-${d.tag.toLowerCase()}.json`,recovery??encodeSave(current.current));}
- function diagnostic(){download('esports-manager-diagnostico.json',JSON.stringify({kind:'diagnostic',beta:'1.1.0',engine:ENGINE_VERSION,error,browser:navigator.userAgent,lastRoundMs:lastMs,save:JSON.parse(encodeSave(current.current))}));}
+ function diagnostic(){download('esports-manager-diagnostico.json',JSON.stringify({kind:'diagnostic',beta:'1.1.1',engine:ENGINE_VERSION,error,browser:navigator.userAgent,lastRoundMs:lastMs,save:JSON.parse(encodeSave(current.current))}));}
  function updatePlans(p:Record<string,Plan>){setPlans(p);setData(x=>({...x,buyPreparation:p}));setSaved(false);}
- async function train(choice:TrainingChoice){if(working.current)return;working.current=true;setBusy(true);try{const x=current.current;const draft=x.draft.selected.every(id=>x.draft.assignments[id])?x.draft:suggestAssignments(x.draft,dev);validateDraft(draft);const next=previewTraining(x.development??newDevelopment(),x.draft.selected,choice);await persist({...x,draft,development:next.development});setTab(2);setError('');setNote('Treino confirmado e salvo.');}catch(e){fail(e);}finally{working.current=false;setBusy(false);}}
- async function skipTraining(){if(working.current)return;working.current=true;setBusy(true);try{const x=current.current,development=structuredClone(x.development??newDevelopment());if(development.used||development.matchId)throw new Error('Preparação já confirmada.');if(x.draft.selected.length!==5)throw new Error('Selecione os cinco titulares.');const draft=x.draft.selected.every(id=>x.draft.assignments[id])?x.draft:suggestAssignments(x.draft,dev);validateDraft(draft);development.used=true;await persist({...x,draft,development});setTab(2);setError('');}catch(e){fail(e);}finally{working.current=false;setBusy(false);}}
+ async function changeTraining(choice:TrainingPreparation){if(working.current)return;working.current=true;setBusy(true);try{const x=current.current;if(x.session||x.development?.used)throw new Error('A sessão desta partida está encerrada.');await persist({...x,trainingPreparation:trainingPreparation(x.draft,choice)});setError('');}catch(e){fail(e);}finally{working.current=false;setBusy(false);}}
+ async function train(choice:TrainingChoice){if(working.current)return;working.current=true;setBusy(true);try{const x=current.current;const draft=x.draft.selected.every(id=>x.draft.assignments[id])?x.draft:suggestAssignments(x.draft,dev);validateDraft(draft);const next=previewTraining(x.development??newDevelopment(),x.draft.selected,choice);await persist({...x,draft,development:next.development,trainingPreparation:undefined});setTab(2);setError('');setNote('Treino confirmado e salvo.');}catch(e){fail(e);}finally{working.current=false;setBusy(false);}}
+ async function skipTraining(){if(working.current)return;working.current=true;setBusy(true);try{const x=current.current,development=structuredClone(x.development??newDevelopment());if(development.used||development.matchId)throw new Error('Preparação já confirmada.');if(x.draft.selected.length!==5)throw new Error('Selecione os cinco titulares.');const draft=x.draft.selected.every(id=>x.draft.assignments[id])?x.draft:suggestAssignments(x.draft,dev);validateDraft(draft);development.used=true;await persist({...x,draft,development,trainingPreparation:undefined});setTab(2);setError('');}catch(e){fail(e);}finally{working.current=false;setBusy(false);}}
  async function prepareNext(){if(working.current)return;working.current=true;setBusy(true);try{await persist(nextMatch(current.current));setPlans({});setTab(5);setError('');setNote('Nova partida: evolução preservada e uma sessão disponível.');}catch(e){fail(e);}finally{working.current=false;setBusy(false);}}
  function nav(i:number){if(busy)return;if(i===2&&!s){if(d.selected.length!==5){setTab(1);return;}void configure();return;}if(i===3&&!s){setTab(2);return;}if(i===4&&!s?.records.length&&!data.previous&&!data.legacyReport)return;setTab(i);setError('');}
  const coverage=[...new Set(selected.map(p=>CLASS[d.assignments[p.id]?.agent??p.main]))];
  return <div className="shell" style={{'--accent':d.color} as CSSProperties}>
- <aside className="sidebar"><a className="brand" href="#" aria-label="Esports Manager — visão geral" onClick={e=>{e.preventDefault();nav(0);}}><ProductLogo/></a><div className="edition">FPS TÁTICO <span>BETA 1.1</span></div>
+ <aside className="sidebar"><a className="brand" href="#" aria-label="Esports Manager — visão geral" onClick={e=>{e.preventDefault();nav(0);}}><ProductLogo/></a><div className="edition">FPS TÁTICO <span>BETA 1.1.1</span></div>
  <nav aria-label="Navegação principal">{tabs.map((t,i)=><button key={t} className={tab===i?'active':''} onClick={()=>nav(i)} disabled={busy||i===3&&!s||i===4&&!s?.records.length&&!data.previous&&!data.legacyReport}><span className="nav-number">0{i+1}</span>{t}{tab===i&&<i/>}</button>)}</nav>
  <div className="sidebar-bottom"><div className="local-dot"/>Progresso local<p>Salvo neste navegador.<br/>Exporte para levar a outro dispositivo.</p><button className="text-button" onClick={exportProgress} disabled={!loaded}>↓ Exportar progresso</button><button className="text-button" onClick={()=>file.current?.click()} disabled={busy}>↑ Importar progresso</button><span className="engine">Motor {ENGINE_VERSION} · Regras 1.3</span></div></aside>
  <div className="main"><header className="topbar"><span className="breadcrumb">CENTRO DE COMANDO <span>/</span> {tabs[tab].toUpperCase()}</span><div className="top-right"><span className={`save-indicator ${saved?'ok':''}`}>{saved?'● Salvo no dispositivo':'○ Alterações locais'}</span><span className="org-badge"><Mark kind={d.crest}/>{d.tag}</span></div></header>
@@ -99,7 +102,7 @@ export default function Beta(){
  <div className="roster-grid">{filtered.map(p=><PlayerCard key={p.id} p={p} selected={d.selected.includes(p.id)} disabled={rosterLocked||d.selected.length===5} toggle={()=>toggle(p.id)}/>)}</div>
  <div className="selection-footer"><span>{selected.length?selected.map(p=>p.name).join(' · '):'Escolha seus primeiros jogadores para começar.'}</span><small>Saldo inicial da organização: 30.000 cr. · Salário não é descontado nesta partida de teste.</small></div>
  </>}
- {tab===5&&<TrainingPanel draft={d} development={dev} onConfirm={train} onSkip={skipTraining} disabled={busy}/>}{tab===6&&<AgentsPanel draft={d} development={dev}/>}
+ {tab===5&&<TrainingPanel draft={d} development={dev} preparation={data.trainingPreparation} onChange={changeTraining} saved={saved} onConfirm={train} onSkip={skipTraining} disabled={busy}/>}{tab===6&&<AgentsPanel draft={d} development={dev}/>}
  {tab===4&&!s&&(data.previous||data.legacyReport)&&<PastReport session={(data.previous??data.legacyReport!.session)} legacy={!data.previous}/>}
  {tab===2&&<>
  <Section eyebrow="02 / PREPARAÇÃO" title="Dê uma direção ao talento." description="Escolha cinco agentes diferentes, indique as responsabilidades e defina um IGL. Lacunas de composição são avisos: você decide o risco."/>
@@ -127,7 +130,7 @@ export default function Beta(){
  {!report&&<div className="button-row end"><button className="secondary" disabled={busy||!s.records.length} onClick={()=>setTab(4)}>Ver relatório parcial</button></div>}
  </>}
  </>}
- <footer className="footer"><span className="footer-brand"><ProductLogo/><b>BETA 1.1</b></span><span>Teste de partida · Personagens fictícios · Progresso neste dispositivo</span><button onClick={reset} disabled={busy}>Reiniciar organização</button><button onClick={diagnostic}>Diagnóstico</button></footer>
+ <footer className="footer"><span className="footer-brand"><ProductLogo/><b>BETA 1.1.1</b></span><span>Teste de partida · Personagens fictícios · Progresso neste dispositivo</span><button onClick={reset} disabled={busy}>Reiniciar organização</button><button onClick={diagnostic}>Diagnóstico</button></footer>
  </main></div></div>;
  function tacticFields(){return s?<StrategyEditor plan={d.plan} side={nextSide(s)==='Ataque'?'attack':'defense'} disabled={busy} onChange={plan=>edit({plan})}/>:<><StrategyEditor plan={d.plan} side="attack" disabled={busy} onChange={plan=>edit({plan})}/><StrategyEditor plan={d.plan} side="defense" disabled={busy} onChange={plan=>edit({plan})}/></>;}
 
