@@ -62,7 +62,7 @@ export function createSession(d:Draft,id:string,development?:Development):Sessio
  const agents:Agent[]=['Estalo','Farol','Bruma','Trava','Bastião'];
  const opponents=agents.map((agent,i)=>{const id=`B:${i}`;names[id]=`Teste ${i+1}`;return {id,team:'B' as const,agent,role:(['Entry','Support','Support','Main OP','Anchor'] as const)[i],attrs:Array(8).fill(level) as Attributes,agentFamiliarity:85,mapFamiliarity:50,morale:70,fatigue:10,weapon:i===3?'precision' as const:'basic' as const,shield:0,charges:[false,false,false] as [boolean,boolean,boolean],ult:0,igl:i===1};});
  const profiles=[...own,...opponents],accounts=(t:Team)=>profiles.filter(p=>p.team===t).map(p=>({id:p.id,credits:1000,weapon:p.weapon,shield:p.shield,charges:p.charges,ult:p.ult}));
- // Candidate release format L02, pending the author's approval. Historic maps retain their own format.
+ // Beta 1.1 format L02, approved on 2026-10-26. Historic maps retain their own format.
  return {id,map:d.map,seed:d.seed,profiles,names,state:createMap(accounts('A'),accounts('B'),'A',3),records:[]};
 }
 export function automaticBuys(s:Session):Plan {return s.state.rounds===12?'eco':economicPlan(s.state.teams.A);}

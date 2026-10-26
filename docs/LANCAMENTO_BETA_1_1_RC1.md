@@ -1,30 +1,18 @@
-# Beta 1.1 RC1 para decisão de lançamento
+# Beta 1.1 aprovação e validação para lançamento
 
 Atualizado em 26/10/2026. Motor 0.4.1, regras `gdd-1.3+b11-rc1`, save schema 2.
-Branch `beta/1.1`, PR de revisão nº 1. **Não mesclado e não publicado.**
+**O autor aprovou L01/L02/L03 e autorizou oficializar e publicar o Beta 1.1 em 26/10/2026.** A publicação segue pelo PR nº 1 e pelo workflow de `main`.
 
-## Recomendação
+## Regras e lançamento aprovados
 
-A candidata pode ser submetida à aprovação para um lançamento experimental.
-Os testes de código e os lotes finais não encontraram falhas de execução. Isso
-não certifica equilíbrio competitivo nem todos os aparelhos. O teste em Android
-físico permanece pendente; a publicação precisa reconhecer esse alcance.
-
-Duas mudanças de regra foram preparadas para revisão e **não constituem decisões
-aprovadas**: L01 e L02 abaixo. Elas só passam a integrar a especificação de produto
-se o autor aprovar. O código está isolado da versão pública para permitir avaliar
-a proposta concreta, com resultados reproduzíveis.
-
-## Decisões solicitadas ao autor
-
-| Código | Proposta concreta | Efeito e alcance |
+| Código | Decisão aprovada | Alcance |
 | --- | --- | --- |
-| L01 | Permitir atirar durante a travessia entre setores com o dobro do intervalo normal entre disparos. | O jogador deixa de ficar totalmente indefeso durante o deslocamento. Plant, desarme, uso de habilidade e destruição de dispositivo continuam bloqueando os tiros. Não muda dano, preços, atributos ou a fórmula de acerto. |
-| L02 | No Beta 1.1, limitar a prorrogação a três pares de lados, encerrando em empate se a igualdade persistir na rodada 30. | Continua exigindo dois de vantagem ao final de um par para vencer. No empate não há vencedor inventado; o relatório fica salvo e a próxima partida libera uma sessão de treino. Substitui, somente se aprovada, a prorrogação ilimitada do formato anterior. |
-| L03 | Autorizar publicar esta candidata como Beta experimental no GitHub Pages, após a aprovação de L01/L02, aceitando a pendência de Android físico. | Mesclar o PR nº 1 em `main` acionará o workflow de testes/build/deploy. A seguir, verificar o fluxo no celular e registrar os feedbacks. Sem essa autorização o site continua no Beta 1.0. |
+| L01 | Atirar durante a travessia com o dobro do intervalo normal entre disparos. | Ações de objetivo e utilitários bloqueiam os tiros. Dano, preços, atributos e fórmula de acerto são preservados. |
+| L02 | Até três pares de prorrogação, com empate se a igualdade persistir na rodada 30. | Vitória segue exigindo dois de vantagem ao final de um par. O empate salva o relatório e libera a preparação da próxima partida. |
+| L03 | Publicar como Beta 1.1 experimental no GitHub Pages. | Android físico permanece pendente; o teste de layout estreito não equivale à homologação do aparelho. |
 
-Se o autor preferir homologar Android físico antes, manter a candidata sem
-publicação. O teste de layout estreito disponível aqui não equivale a esse teste.
+Os testes não certificam equilíbrio competitivo ou todos os aparelhos. Os dados
+abaixo registram a candidata aprovada, sem mudança de execução do motor na oficialização.
 
 ## Correções preparadas dentro do escopo aprovado
 
@@ -62,7 +50,7 @@ publicação. O teste de layout estreito disponível aqui não equivale a esse t
 - Renomeação de IDs conferida em nove combinações de mapa/seed com tiros,
   explosões e áreas simultâneos, além da regressão já existente.
 
-| Lote final com o formato proposto | Partidas | Maior partida | Erros | Empates |
+| Lote final com o formato aprovado | Partidas | Maior partida | Erros | Empates |
 | --- | ---: | ---: | ---: | ---: |
 | Grade de planos principais | 384 | 30 | 0 | 26 |
 | Novas seeds reservadas | 192 | 30 | 0 | 13 |
@@ -122,12 +110,12 @@ mesmo sem limite. As quatro regressões históricas 1.0 de 24/128/92/50 passaram
 a 21/24/23/23, também sem limite, conforme `legacy-regressions.json`.
 
 O teste ampliado sem limite, porém, ainda encontrou **352 rodadas** com Finta +
-preservação contra Leitura + reserva. Esse dado motivou a proposta explícita L02.
+preservação contra Leitura + reserva. Esse dado motivou L02, posteriormente aprovada pelo autor.
 O limite não é apresentado como prova de correção de equilíbrio: ele limita a
 duração e preserva o empate. Os dados sem limite estão em `rc1/uncapped/`.
 
 Nos lotes finais, 80 de 1.176 partidas terminaram empatadas (6,8%). Esse custo de
-formato deve ser aceito pelo autor; não significa uma taxa esperada para todos
+formato foi apresentado ao autor na aprovação; não significa uma taxa esperada para todos
 os elencos ou estratégias reais.
 
 ## Compatibilidade e fontes
@@ -158,5 +146,5 @@ usar `PAGES_BASE_PATH=/esports-manager` no build e na conferência de arquivos.
 
 Os JSON finais registram o SHA-256 de todos os arquivos TypeScript de `src/` no
 início do lote. O workflow de `beta/1.1` apenas testa e compila. A publicação em
-`main` continua aguardando autorização. Beta 2.0 e novos conteúdos não entram
+`main` foi autorizada pelo autor. Beta 2.0 e novos conteúdos não entram
 nesta candidata.

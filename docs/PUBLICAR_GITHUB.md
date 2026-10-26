@@ -1,6 +1,6 @@
 # Publicação e manutenção — GitHub Pages
 
-Atualizado em 24/10/2026. O Beta 1.0 já está publicado.
+Atualizado em 26/10/2026. O lançamento do Beta 1.1 foi autorizado pelo autor; acompanhar o workflow de publicação até sua conclusão.
 
 ## Ambiente ativo
 
@@ -32,8 +32,7 @@ Não é necessário criar outro repositório ou reenviar o pacote inicial.
    concluir com sucesso. Se falhar, investigar a etapa correspondente.
 7. Abrir o endereço do site e verificar a alteração publicada e o progresso salvo.
 
-O Beta 1.1 está em planejamento e não tem lançamento autorizado. Discussões,
-propostas e a atualização documental do Beta 1.0 não representam uma nova versão.
+L01, L02 e L03 do Beta 1.1 foram aprovadas em 26/10/2026. O autor autorizou oficializar e publicar a atualização. A preparação foi validada com 96 testes e 1.176 partidas; a integração em `main` executa os testes e o deploy.
 Para o registro exclusivamente documental, usa-se mensagem de commit com
 `[skip ci]` para evitar republicar a aplicação pelo workflow de push.
 
@@ -68,7 +67,7 @@ antigo sobre a versão publicada sem revisão. Não enviar o ZIP como se fosse o
 ## Salvamentos
 
 Antes de mudar a versão do motor, definir a compatibilidade/migração e preservar
-os saves. O Beta 1.0 rejeita formatos incompatíveis e não faz migração automática.
+os saves. O Beta 1.1 mantém o banco 1.0 intacto e oferece baixar seu backup original na visão geral. A importação explícita traz a organização com XP zero e preserva o relatório antigo; a partida antiga não continua no motor novo. Arquivos internos de ensaio 0.4.0 não são migrados silenciosamente.
 O mesmo site usa um progresso local por origem; mudar navegador ou domínio não
 transfere esse progresso. Exportação/importação atende versões compatíveis.
 

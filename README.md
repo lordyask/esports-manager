@@ -1,12 +1,14 @@
-# Esports Manager — Beta 1.1 em desenvolvimento
+# Esports Manager — Beta 1.1
 
-Esta branch implementa o escopo B11-01 a B11-14 aprovado em 25/10/2026. Motor **0.4.1**, save schema **2**. É uma versão para revisão, **sem autorização de publicação**. O [site público](https://lordyask.github.io/esports-manager/) continua no Beta 1.0, motor 0.3.0.
+Atualização experimental com lançamento autorizado pelo autor em **26/10/2026**. B11-01 a B11-14 e L01/L02/L03 estão aprovados. Motor **0.4.1**, regras `gdd-1.3+b11-rc1`, save schema **2**. A revisão de regras mantém seu identificador para preservar a compatibilidade dos arquivos testados.
 
-Interface em português, Next.js/React/TypeScript com exportação estática. Projeto independente, com agentes e coeficientes fictícios. Os preços e rendimentos das rodadas permanecem os aprovados no GDD FPS Web 1.3; a [especificação aprovada do Beta 1.1](docs/BETA_1_1_PROPOSTA.md) acrescenta estratégias e desenvolvimento.
+[Abrir o jogo](https://lordyask.github.io/esports-manager/) · [Registro do projeto](docs/REGISTRO_PROJETO.md) · [Aprovação e validação](docs/LANCAMENTO_BETA_1_1_RC1.md) · [Histórico](CHANGELOG.md).
 
-**A liberação está pendente de aprovação.** A candidata RC1 passou por 96 testes e 1.176 partidas de validação. As propostas L01 (fogo durante travessia) e L02 (empate após até três pares de prorrogação) estão preparadas para decisão, sem publicação. Consulte o [parecer de lançamento](docs/LANCAMENTO_BETA_1_1_RC1.md). Consulte [validação do Beta 1.1](docs/VALIDACAO_BETA_1_1.md), [registro do projeto](docs/REGISTRO_PROJETO.md) e [changelog](CHANGELOG.md). A [validação do Beta 1.0](VALIDACAO_BETA.md) é histórica e não certifica esta versão.
+A publicação é executada pelo workflow de `main`; o resultado do deploy deve ser conferido em Actions. Foram aprovados 96 testes e 1.176 partidas de validação. Android físico, Safari/iOS e acessibilidade completa permanecem sem homologação. O equilíbrio dos mapas continua em avaliação.
 
-## Novidades desta branch
+Interface em português, Next.js/React/TypeScript com exportação estática. Projeto independente, com agentes e coeficientes fictícios. Preços e rendimentos permanecem os aprovados no GDD FPS Web 1.3, com o [adendo aprovado do Beta 1.1](docs/BETA_1_1_PROPOSTA.md).
+
+## Novidades do Beta 1.1
 
 - Uma rodada por confirmação; sequência opcional que pausa na troca de lados e na entrada da prorrogação.
 - Quatro estratégias de ataque, quatro de defesa e complementos compatíveis, com objetivo, força e vulnerabilidade explicados.
@@ -17,7 +19,7 @@ Interface em português, Next.js/React/TypeScript com exportação estática. Pr
 - Catálogo dos oito agentes, classes, habilidades, limitações e familiaridades dos titulares.
 - Nova partida preserva o elenco e o desenvolvimento. Reiniciar organização é uma ação distinta, com confirmação.
 - Importação explícita de organização do motor 0.3.0 com XP zero; relatório antigo somente para consulta. A partida antiga não continua no novo motor. Preserve o arquivo original.
-- Workflow de verificação da branch sem tarefa de deploy. A publicação permanece exclusiva de `main` e não foi acionada por esta entrega.
+- Workflow de verificação da branch sem tarefa de deploy. A publicação ocorre pelo workflow de `main`.
 
 ## O que foi implementado
 
@@ -29,7 +31,7 @@ Interface em português, Next.js/React/TypeScript com exportação estática. Pr
 - Partida: cenário, adversários sintéticos de atributos 45/60/75, planos de ataque/defesa, acompanhamento por rodada, sequência automática e pausa.
 - Salvamento: IndexedDB transacional com revisão global, conferência de versões, exportação/importação JSON e diagnóstico. Um progresso ativo por navegador/origem.
 - Relatório: eliminações, mortes, primeira eliminação/morte registrada, trades, habilidades concluídas, plants, desarmes e gastos reais registrados.
-- GitHub Actions: testes e TypeScript antes do build; nesta branch a validação não publica no Pages.
+- GitHub Actions: testes e TypeScript antes do build; a branch de revisão valida sem publicar; `main` executa o deploy autorizado.
 - Identidade visual: marca EM aprovada, assinaturas SVG para fundos claros/escuros, aplicação no menu e rodapé, favicon e ícones Android/iOS com manifesto de atalho. Sem funcionamento offline.
 
 ## Executar no computador
@@ -55,11 +57,11 @@ Os arquivos estáticos ficam em `out/`. Para um caminho de projeto do GitHub, o 
 
 ## Publicação
 
-O repositório é `lordyask/esports-manager`. `main` publica o Beta 1.0 por GitHub Actions; `beta/1.1` é exclusiva de revisão e validação. Mesclar a versão 1.1 em `main` acionaria publicação e exige nova autorização do autor. O procedimento de manutenção e a referência para novas instalações estão em [docs/PUBLICAR_GITHUB.md](docs/PUBLICAR_GITHUB.md).
+O repositório é `lordyask/esports-manager`. `main` publica pelo GitHub Actions; o lançamento do Beta 1.1 foi autorizado em 26/10/2026. `beta/1.1` reúne a preparação e a validação desta atualização. O procedimento de manutenção e a referência para novas instalações estão em [docs/PUBLICAR_GITHUB.md](docs/PUBLICAR_GITHUB.md).
 
 ## Avaliação
 
-O checklist e os resultados desta versão estão em [docs/VALIDACAO_BETA_1_1.md](docs/VALIDACAO_BETA_1_1.md). Reproduza os lotes de planos principais:
+Os resultados atuais estão em [docs/LANCAMENTO_BETA_1_1_RC1.md](docs/LANCAMENTO_BETA_1_1_RC1.md). A validação inicial 0.4.0 permanece como histórico. Reproduza os lotes de planos principais:
 
 ```bash
 node scripts/beta11-validation.ts
@@ -81,7 +83,7 @@ O primeiro executa 384 mapas; o segundo, 192 com novas seeds. Os JSON em `valida
 - Banco local pode ser apagado ao limpar dados do navegador; navegação privada, outro navegador ou outro domínio podem usar armazenamento diferente. Exporte o progresso antes de mudar de dispositivo ou origem.
 - Arquivos identificam versão e integridade. Isso não autentica resultados: o usuário controla o próprio navegador e pode alterar dados locais. A produção deverá voltar a um servidor autoritativo.
 - O banco local 1.1 é separado do 1.0. A importação do formato 0.3.0 é explícita e preserva apenas a organização e um relatório histórico; não retoma nem recalcula a partida antiga. Arquivos inválidos são rejeitados antes da gravação.
-- A candidata propõe até três pares de prorrogação, com empate na rodada 30. Essa regra L02 aguarda aprovação explícita e não altera retrospectivamente os resultados da versão pública.
+- O Beta 1.1 admite até três pares de prorrogação, com empate se a igualdade persistir na rodada 30. L02 foi aprovada em 26/10/2026; resultados antigos não são recalculados.
 
 ## Organização do código
 

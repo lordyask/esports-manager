@@ -1,7 +1,7 @@
 # Registro consolidado — Esports Manager
 
 Atualizado em 26/10/2026. Este é o ponto de entrada para continuar o projeto.
-Este registro distingue a versão pública 1.0 da implementação 1.1 para revisão; não houve lançamento da nova versão.
+O autor aprovou L01/L02/L03 e autorizou oficializar e publicar o Beta 1.1 em 26/10/2026. A confirmação do deploy será registrada após a conclusão do workflow.
 
 ## Estado atual
 
@@ -16,7 +16,7 @@ Este registro distingue a versão pública 1.0 da implementação 1.1 para revis
 | Regras / formato de save | `gdd-1.3` / schema 1 |
 | Último código funcional publicado | `9815c64305a13ec912c892a1f70ae6530dc2cc74` |
 | Hospedagem e persistência | GitHub Pages; progresso local em IndexedDB |
-| Próxima versão | Beta 1.1 com B11-01 a B11-14 aprovados; implementação em branch separada; sem autorização de lançamento |
+| Atualização autorizada | Beta 1.1, motor 0.4.1, schema 2; B11-01–14 e L01/L02/L03 aprovados em 26/10/2026 |
 
 O autor compartilhou o Beta 1.0 com amigos e apresentou feedbacks sobre decisões
 entre rodadas, informações limitadas, estratégias pouco variadas e dificuldade
@@ -220,3 +220,9 @@ Moral dinâmica e migração para Supabase/Vercel também não entram automatica
 - Enlace: ataque passou de 9,24% a 43,27% na mesma grade sem limite. No lote ampliado sem limite houve caso de 352 rodadas; não ocultar esse resultado.
 - L01 e L02 são propostas para aprovação, preparadas somente na branch. L03 autoriza mesclar/publicar como Beta experimental e reconhece a pendência de Android físico.
 - [Parecer para lançamento](LANCAMENTO_BETA_1_1_RC1.md): resultado atual, números, limites e decisões solicitadas. O DOCX MOBA anexado foi lido como histórico, com precedência das decisões FPS mais recentes.
+
+## Oficialização autorizada em 26/10/2026
+
+O autor declarou: “Eu aprovo e pode oficializar e publicar a Atualização Beta 1.1”. Essa decisão aprova L01/L02/L03 e substitui as restrições de lançamento da etapa de revisão descrita acima. O formato aprovado tem fogo durante travessia com intervalo dobrado e até três pares de prorrogação, com empate na rodada 30 se a igualdade persistir.
+
+O lançamento é experimental; Android físico permanece pendente. A atualização preserva o banco 1.0 e oferece exportar o arquivo original. Não há alteração de execução do motor nesta oficialização; permanecem válidos os 96 testes e as 1.176 partidas documentadas.
