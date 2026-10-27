@@ -2,6 +2,8 @@
 
 Registro iniciado em 26/10/2026, após o lançamento do Beta 1.1.1.
 
+Revisão de 27/10: consulte [REVISAO_BETA_1_3.md](REVISAO_BETA_1_3.md) para os testes executados, a falha limitada de identificação de lado no relatório e as propostas R13-01 a R13-04. Nenhum lançamento autorizado. As propostas adicionais continuam dependentes de decisão.
+
 Atualização de 27/10/2026: o [escopo do Beta 1.3](BETA_1_3_ESCOPO.md) registra a aprovação de B13-03/04/05/06, com análise pós-partida e treinamento coletivo ou individual. B13-01/02 foram adiados. Essa decisão não aprova automaticamente os itens H/M abaixo nem autoriza um novo lançamento.
 
 O autor decidiu adiar o histórico de partidas e reunir as pendências para uma revisão conjunta. A decisão autoriza registrar os itens, sem implementar nem publicar funcionalidades agora. A versão, o desenho final e a ordem de implementação serão definidos na revisão.

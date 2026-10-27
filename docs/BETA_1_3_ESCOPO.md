@@ -2,6 +2,8 @@
 
 Decisão de 27/10/2026. Registro de escopo; funcionalidades ainda não implementadas ou publicadas. A versão pública permanece Beta 1.1.1.
 
+Orientação posterior do autor: nenhum lançamento; realizar testes e revisar pendências antes de fechar as adições, ajustes e melhorias. A [revisão técnica](REVISAO_BETA_1_3.md) registra os testes da base atual e separa novas propostas de itens já aprovados.
+
 O autor aprovou somente B13-03, B13-04, B13-05 e B13-06, mantendo os demais pontos como estão. Solicitou uma análise após a partida que explique os fatores que contribuíram para a vitória ou derrota.
 
 | Código | Decisão | Aplicação prevista |

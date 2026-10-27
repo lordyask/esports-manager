@@ -5,6 +5,8 @@ O autor aprovou L01/L02/L03 e autorizou oficializar e publicar o Beta 1.1 em 26/
 
 ## Estado atual
 
+Revisão de 27/10: o autor determinou não lançar e rever as pendências antes de fechar o Beta 1.3. [Revisão técnica e decisões pendentes](REVISAO_BETA_1_3.md): 103 testes atuais aprovados, 4.608 sessões sintéticas de treino e 24 partidas sintéticas, build local e verificações de exportação. Somente documentação e diagnóstico na branch `review/beta-1.3`, sem alterar a aplicação pública.
+
 Próximo escopo: [Beta 1.3](BETA_1_3_ESCOPO.md), aprovado parcialmente em 27/10/2026: B13-03/04/05/06, com análise pós-partida e treino coletivo ou individual. B13-01/02 adiados; sem nova análise pré-jogo ou probabilidade de vitória. Registro de planejamento, sem implementação ou novo lançamento neste momento.
 
 | Item | Registro confirmado |
