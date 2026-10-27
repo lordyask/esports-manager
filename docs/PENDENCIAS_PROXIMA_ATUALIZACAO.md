@@ -2,6 +2,8 @@
 
 Registro iniciado em 26/10/2026, após o lançamento do Beta 1.1.1.
 
+Atualização de 27/10/2026: o [escopo do Beta 1.3](BETA_1_3_ESCOPO.md) registra a aprovação de B13-03/04/05/06, com análise pós-partida e treinamento coletivo ou individual. B13-01/02 foram adiados. Essa decisão não aprova automaticamente os itens H/M abaixo nem autoriza um novo lançamento.
+
 O autor decidiu adiar o histórico de partidas e reunir as pendências para uma revisão conjunta. A decisão autoriza registrar os itens, sem implementar nem publicar funcionalidades agora. A versão, o desenho final e a ordem de implementação serão definidos na revisão.
 
 | Código | Item registrado | Estado |

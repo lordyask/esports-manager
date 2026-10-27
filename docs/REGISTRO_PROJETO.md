@@ -1,9 +1,11 @@
 # Registro consolidado — Esports Manager
 
-Atualizado em 26/10/2026. Este é o ponto de entrada para continuar o projeto.
+Atualizado em 27/10/2026. Este é o ponto de entrada para continuar o projeto.
 O autor aprovou L01/L02/L03 e autorizou oficializar e publicar o Beta 1.1 em 26/10/2026. O deploy do Beta 1.1.1 foi concluído com sucesso; o site público e os dois modos de preparação de treino foram conferidos. Motor 0.4.1 preservado.
 
 ## Estado atual
+
+Próximo escopo: [Beta 1.3](BETA_1_3_ESCOPO.md), aprovado parcialmente em 27/10/2026: B13-03/04/05/06, com análise pós-partida e treino coletivo ou individual. B13-01/02 adiados; sem nova análise pré-jogo ou probabilidade de vitória. Registro de planejamento, sem implementação ou novo lançamento neste momento.
 
 | Item | Registro confirmado |
 | --- | --- |
