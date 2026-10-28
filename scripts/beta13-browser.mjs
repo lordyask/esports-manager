@@ -37,7 +37,7 @@ try{
   await nav('Preparação');await expect(page.getByLabel('Código reproduzível da partida')).toHaveCount(0);
   accept=false;await page.getByRole('button',{name:/Confirmar e ir à partida/}).click();await expect(page.getByRole('button',{name:/Confirmar e ir à partida/})).toBeEnabled();accept=true;
   await page.getByRole('button',{name:/Confirmar e ir à partida/}).click();await expect(page.getByText('Partida criada. Revise as compras antes de iniciar.',{exact:true})).toBeVisible();
-  await page.getByLabel('Usar compras automáticas ao simular sequência').check();
+  await page.getByLabel('Usar compras automáticas ao simular sequência').click();await expect(page.getByLabel('Usar compras automáticas ao simular sequência')).toBeChecked();
   await expect(page.getByLabel('Usar compras automáticas ao simular sequência')).toBeEnabled();await page.reload();await nav('Partida');await expect(page.getByLabel('Usar compras automáticas ao simular sequência')).toBeChecked();
   await page.getByLabel('Ritmo entre rodadas automáticas').selectOption('fast');
   for(let i=0;i<3;i++){
