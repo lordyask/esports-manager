@@ -7,7 +7,7 @@
 - Análise factual pós-partida e correção do lado inicial no relatório.
 - Treinamento individual 2× XP ou coletivo, oportunidade única, previsão de evolução e escolhas persistentes.
 - Save schema 3 com leitura do schema 2; motor, combate, preços e dificuldades preservados.
-- 113 testes locais, 9.159 sessões de treino e 72 partidas sintéticas; validação de interface em workflow sem deploy. [Parecer](docs/BETA_1_3_RC1.md).
+- 113 testes locais, 9.159 sessões de treino e 72 partidas sintéticas; validação de interface desktop/móvel aprovada no workflow 40720519242, sem deploy. [Parecer](docs/BETA_1_3_RC1.md).
 
 ## 26/10/2026 — Beta 1.1.1 publicado: correções de treinamento
 

@@ -1,0 +1,54 @@
+{
+  "sourceCommit": "2290301373e751f4595beb56b6f1db1457e37805",
+  "workflow": "https://github.com/lordyask/esports-manager/actions/runs/40720519242",
+  "artifactId": 12831035724,
+  "results": [
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "status": "passed",
+      "history": 2,
+      "checks": [
+        "schema2 import",
+        "individual choices reload",
+        "single training confirmation",
+        "start cancellation",
+        "auto-buy reload",
+        "automatic match",
+        "seed change",
+        "history JSON/CSV",
+        "deletion reload",
+        "merge deduplication",
+        "no horizontal overflow",
+        "no page errors",
+        "organization reset preserves history"
+      ]
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": "passed",
+      "history": 2,
+      "checks": [
+        "schema2 import",
+        "individual choices reload",
+        "single training confirmation",
+        "start cancellation",
+        "auto-buy reload",
+        "automatic match",
+        "seed change",
+        "history JSON/CSV",
+        "deletion reload",
+        "merge deduplication",
+        "no horizontal overflow",
+        "no page errors",
+        "organization reset preserves history"
+      ]
+    }
+  ],
+  "physicalDevicesTested": false
+}

@@ -5,7 +5,7 @@ O autor aprovou L01/L02/L03 e autorizou oficializar e publicar o Beta 1.1 em 26/
 
 ## Estado atual
 
-Atualização mais recente: autor autorizou aplicar e testar histórico e sementes automáticas, além dos itens já aprovados. [Beta 1.3 RC1 implementada para validação](BETA_1_3_RC1.md) em `review/beta-1.3`, sem lançamento. Este estado substitui a indicação anterior de “somente documentação” para essa branch. Site público preservado em 1.1.1. A nova política de compra automática não foi incorporada.
+Atualização mais recente: candidata 1.3 passou na validação automatizada e nos fluxos Chromium desktop/móvel, workflow 40720519242. Parecer apto para Beta experimental, aguardando autorização de lançamento. O autor autorizou aplicar e testar histórico e sementes automáticas, além dos itens já aprovados. [Beta 1.3 RC1 implementada para validação](BETA_1_3_RC1.md) em `review/beta-1.3`, sem lançamento. Este estado substitui a indicação anterior de “somente documentação” para essa branch. Site público preservado em 1.1.1. A nova política de compra automática não foi incorporada.
 
 Revisão de 27/10: o autor determinou não lançar e rever as pendências antes de fechar o Beta 1.3. [Revisão técnica e decisões pendentes](REVISAO_BETA_1_3.md): 103 testes atuais aprovados, 4.608 sessões sintéticas de treino e 24 partidas sintéticas, build local e verificações de exportação. Somente documentação e diagnóstico na branch `review/beta-1.3`, sem alterar a aplicação pública.
 
