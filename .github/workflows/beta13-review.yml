@@ -1,0 +1,40 @@
+name: Verificar candidata Beta 1.3 (sem publicar)
+on:
+  push:
+    branches: [review/beta-1.3]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+      - run: node scripts/beta13-validation.ts
+      - run: npm run build
+        env:
+          PAGES_BASE_PATH: /esports-manager
+      - run: node scripts/check-export.ts
+        env:
+          PAGES_BASE_PATH: /esports-manager
+      - run: npm install --prefix /tmp/esports-browser --no-save playwright@1.62.1
+      - run: /tmp/esports-browser/node_modules/.bin/playwright install --with-deps chromium
+      - run: |
+          mkdir -p /tmp/esports-site
+          ln -s "$GITHUB_WORKSPACE/out" /tmp/esports-site/esports-manager
+          node scripts/beta13-browser-fixture.ts
+          node scripts/beta13-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: beta13-review-results
+          path: validation/beta13/
+          retention-days: 14

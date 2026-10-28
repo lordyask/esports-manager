@@ -1,5 +1,7 @@
 # Pendências para a próxima atualização
 
+28/10/2026: histórico e sementes aprovados para aplicação/testes; H01/H02 e exportação por partida de H03 agora têm implementação candidata no [Beta 1.3 RC1](BETA_1_3_RC1.md). H04 e a mudança da política de compras continuam fora da candidata. A lista abaixo preserva o registro anterior das discussões.
+
 Registro iniciado em 26/10/2026, após o lançamento do Beta 1.1.1.
 
 Revisão de 27/10: consulte [REVISAO_BETA_1_3.md](REVISAO_BETA_1_3.md) para os testes executados, a falha limitada de identificação de lado no relatório e as propostas R13-01 a R13-04. Nenhum lançamento autorizado. As propostas adicionais continuam dependentes de decisão.

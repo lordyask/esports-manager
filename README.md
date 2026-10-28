@@ -1,4 +1,6 @@
-# Esports Manager — Beta 1.1.1
+# Esports Manager — candidata Beta 1.3
+
+Esta branch contém a **Beta 1.3 RC1 em validação, ainda não publicada**: histórico, sementes automáticas, análise pós-partida e treino individual/coletivo. [Escopo implementado, testes e pendências](docs/BETA_1_3_RC1.md). O site público descrito abaixo permanece no Beta 1.1.1 até aprovação de lançamento.
 
 Atualização experimental **Beta 1.1.1 publicada em 26/10/2026**, com autorização do autor. B11-01 a B11-14 e L01/L02/L03 estão aprovados. Motor **0.4.1**, regras `gdd-1.3+b11-rc1`, save schema **2**. A revisão de regras mantém seu identificador para preservar a compatibilidade dos arquivos testados.
 

@@ -1,0 +1,807 @@
+{
+  "date": "2026-10-28",
+  "scope": "Synthetic Beta 1.3 RC1 verification; no global balance or UI certification.",
+  "trainingCases": 768,
+  "trainingSessions": 9159,
+  "blockedCases": 22,
+  "matches": [
+    {
+      "map": "patio",
+      "opponent": "development",
+      "seed": 281001,
+      "initialAttack": "A",
+      "score": {
+        "A": 13,
+        "B": 10
+      },
+      "rounds": 23
+    },
+    {
+      "map": "patio",
+      "opponent": "development",
+      "seed": 281001,
+      "initialAttack": "B",
+      "score": {
+        "A": 10,
+        "B": 13
+      },
+      "rounds": 23
+    },
+    {
+      "map": "patio",
+      "opponent": "development",
+      "seed": 281017,
+      "initialAttack": "A",
+      "score": {
+        "A": 1,
+        "B": 13
+      },
+      "rounds": 14
+    },
+    {
+      "map": "patio",
+      "opponent": "development",
+      "seed": 281017,
+      "initialAttack": "B",
+      "score": {
+        "A": 9,
+        "B": 13
+      },
+      "rounds": 22
+    },
+    {
+      "map": "patio",
+      "opponent": "development",
+      "seed": 281053,
+      "initialAttack": "A",
+      "score": {
+        "A": 14,
+        "B": 12
+      },
+      "rounds": 26
+    },
+    {
+      "map": "patio",
+      "opponent": "development",
+      "seed": 281053,
+      "initialAttack": "B",
+      "score": {
+        "A": 8,
+        "B": 13
+      },
+      "rounds": 21
+    },
+    {
+      "map": "patio",
+      "opponent": "development",
+      "seed": 281081,
+      "initialAttack": "A",
+      "score": {
+        "A": 13,
+        "B": 3
+      },
+      "rounds": 16
+    },
+    {
+      "map": "patio",
+      "opponent": "development",
+      "seed": 281081,
+      "initialAttack": "B",
+      "score": {
+        "A": 16,
+        "B": 14
+      },
+      "rounds": 30
+    },
+    {
+      "map": "patio",
+      "opponent": "balanced",
+      "seed": 281001,
+      "initialAttack": "A",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "patio",
+      "opponent": "balanced",
+      "seed": 281001,
+      "initialAttack": "B",
+      "score": {
+        "A": 7,
+        "B": 13
+      },
+      "rounds": 20
+    },
+    {
+      "map": "patio",
+      "opponent": "balanced",
+      "seed": 281017,
+      "initialAttack": "A",
+      "score": {
+        "A": 1,
+        "B": 13
+      },
+      "rounds": 14
+    },
+    {
+      "map": "patio",
+      "opponent": "balanced",
+      "seed": 281017,
+      "initialAttack": "B",
+      "score": {
+        "A": 2,
+        "B": 13
+      },
+      "rounds": 15
+    },
+    {
+      "map": "patio",
+      "opponent": "balanced",
+      "seed": 281053,
+      "initialAttack": "A",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "patio",
+      "opponent": "balanced",
+      "seed": 281053,
+      "initialAttack": "B",
+      "score": {
+        "A": 1,
+        "B": 13
+      },
+      "rounds": 14
+    },
+    {
+      "map": "patio",
+      "opponent": "balanced",
+      "seed": 281081,
+      "initialAttack": "A",
+      "score": {
+        "A": 1,
+        "B": 13
+      },
+      "rounds": 14
+    },
+    {
+      "map": "patio",
+      "opponent": "balanced",
+      "seed": 281081,
+      "initialAttack": "B",
+      "score": {
+        "A": 2,
+        "B": 13
+      },
+      "rounds": 15
+    },
+    {
+      "map": "patio",
+      "opponent": "experienced",
+      "seed": 281001,
+      "initialAttack": "A",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "patio",
+      "opponent": "experienced",
+      "seed": 281001,
+      "initialAttack": "B",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "patio",
+      "opponent": "experienced",
+      "seed": 281017,
+      "initialAttack": "A",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "patio",
+      "opponent": "experienced",
+      "seed": 281017,
+      "initialAttack": "B",
+      "score": {
+        "A": 3,
+        "B": 13
+      },
+      "rounds": 16
+    },
+    {
+      "map": "patio",
+      "opponent": "experienced",
+      "seed": 281053,
+      "initialAttack": "A",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "patio",
+      "opponent": "experienced",
+      "seed": 281053,
+      "initialAttack": "B",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "patio",
+      "opponent": "experienced",
+      "seed": 281081,
+      "initialAttack": "A",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "patio",
+      "opponent": "experienced",
+      "seed": 281081,
+      "initialAttack": "B",
+      "score": {
+        "A": 2,
+        "B": 13
+      },
+      "rounds": 15
+    },
+    {
+      "map": "horizonte",
+      "opponent": "development",
+      "seed": 281001,
+      "initialAttack": "A",
+      "score": {
+        "A": 13,
+        "B": 9
+      },
+      "rounds": 22
+    },
+    {
+      "map": "horizonte",
+      "opponent": "development",
+      "seed": 281001,
+      "initialAttack": "B",
+      "score": {
+        "A": 11,
+        "B": 13
+      },
+      "rounds": 24
+    },
+    {
+      "map": "horizonte",
+      "opponent": "development",
+      "seed": 281017,
+      "initialAttack": "A",
+      "score": {
+        "A": 2,
+        "B": 13
+      },
+      "rounds": 15
+    },
+    {
+      "map": "horizonte",
+      "opponent": "development",
+      "seed": 281017,
+      "initialAttack": "B",
+      "score": {
+        "A": 13,
+        "B": 0
+      },
+      "rounds": 13
+    },
+    {
+      "map": "horizonte",
+      "opponent": "development",
+      "seed": 281053,
+      "initialAttack": "A",
+      "score": {
+        "A": 13,
+        "B": 10
+      },
+      "rounds": 23
+    },
+    {
+      "map": "horizonte",
+      "opponent": "development",
+      "seed": 281053,
+      "initialAttack": "B",
+      "score": {
+        "A": 13,
+        "B": 10
+      },
+      "rounds": 23
+    },
+    {
+      "map": "horizonte",
+      "opponent": "development",
+      "seed": 281081,
+      "initialAttack": "A",
+      "score": {
+        "A": 13,
+        "B": 8
+      },
+      "rounds": 21
+    },
+    {
+      "map": "horizonte",
+      "opponent": "development",
+      "seed": 281081,
+      "initialAttack": "B",
+      "score": {
+        "A": 13,
+        "B": 2
+      },
+      "rounds": 15
+    },
+    {
+      "map": "horizonte",
+      "opponent": "balanced",
+      "seed": 281001,
+      "initialAttack": "A",
+      "score": {
+        "A": 1,
+        "B": 13
+      },
+      "rounds": 14
+    },
+    {
+      "map": "horizonte",
+      "opponent": "balanced",
+      "seed": 281001,
+      "initialAttack": "B",
+      "score": {
+        "A": 5,
+        "B": 13
+      },
+      "rounds": 18
+    },
+    {
+      "map": "horizonte",
+      "opponent": "balanced",
+      "seed": 281017,
+      "initialAttack": "A",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "horizonte",
+      "opponent": "balanced",
+      "seed": 281017,
+      "initialAttack": "B",
+      "score": {
+        "A": 7,
+        "B": 13
+      },
+      "rounds": 20
+    },
+    {
+      "map": "horizonte",
+      "opponent": "balanced",
+      "seed": 281053,
+      "initialAttack": "A",
+      "score": {
+        "A": 2,
+        "B": 13
+      },
+      "rounds": 15
+    },
+    {
+      "map": "horizonte",
+      "opponent": "balanced",
+      "seed": 281053,
+      "initialAttack": "B",
+      "score": {
+        "A": 7,
+        "B": 13
+      },
+      "rounds": 20
+    },
+    {
+      "map": "horizonte",
+      "opponent": "balanced",
+      "seed": 281081,
+      "initialAttack": "A",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "horizonte",
+      "opponent": "balanced",
+      "seed": 281081,
+      "initialAttack": "B",
+      "score": {
+        "A": 13,
+        "B": 15
+      },
+      "rounds": 28
+    },
+    {
+      "map": "horizonte",
+      "opponent": "experienced",
+      "seed": 281001,
+      "initialAttack": "A",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "horizonte",
+      "opponent": "experienced",
+      "seed": 281001,
+      "initialAttack": "B",
+      "score": {
+        "A": 1,
+        "B": 13
+      },
+      "rounds": 14
+    },
+    {
+      "map": "horizonte",
+      "opponent": "experienced",
+      "seed": 281017,
+      "initialAttack": "A",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "horizonte",
+      "opponent": "experienced",
+      "seed": 281017,
+      "initialAttack": "B",
+      "score": {
+        "A": 1,
+        "B": 13
+      },
+      "rounds": 14
+    },
+    {
+      "map": "horizonte",
+      "opponent": "experienced",
+      "seed": 281053,
+      "initialAttack": "A",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "horizonte",
+      "opponent": "experienced",
+      "seed": 281053,
+      "initialAttack": "B",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "horizonte",
+      "opponent": "experienced",
+      "seed": 281081,
+      "initialAttack": "A",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "horizonte",
+      "opponent": "experienced",
+      "seed": 281081,
+      "initialAttack": "B",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "enlace",
+      "opponent": "development",
+      "seed": 281001,
+      "initialAttack": "A",
+      "score": {
+        "A": 13,
+        "B": 11
+      },
+      "rounds": 24
+    },
+    {
+      "map": "enlace",
+      "opponent": "development",
+      "seed": 281001,
+      "initialAttack": "B",
+      "score": {
+        "A": 9,
+        "B": 13
+      },
+      "rounds": 22
+    },
+    {
+      "map": "enlace",
+      "opponent": "development",
+      "seed": 281017,
+      "initialAttack": "A",
+      "score": {
+        "A": 3,
+        "B": 13
+      },
+      "rounds": 16
+    },
+    {
+      "map": "enlace",
+      "opponent": "development",
+      "seed": 281017,
+      "initialAttack": "B",
+      "score": {
+        "A": 10,
+        "B": 13
+      },
+      "rounds": 23
+    },
+    {
+      "map": "enlace",
+      "opponent": "development",
+      "seed": 281053,
+      "initialAttack": "A",
+      "score": {
+        "A": 15,
+        "B": 15
+      },
+      "rounds": 30
+    },
+    {
+      "map": "enlace",
+      "opponent": "development",
+      "seed": 281053,
+      "initialAttack": "B",
+      "score": {
+        "A": 5,
+        "B": 13
+      },
+      "rounds": 18
+    },
+    {
+      "map": "enlace",
+      "opponent": "development",
+      "seed": 281081,
+      "initialAttack": "A",
+      "score": {
+        "A": 7,
+        "B": 13
+      },
+      "rounds": 20
+    },
+    {
+      "map": "enlace",
+      "opponent": "development",
+      "seed": 281081,
+      "initialAttack": "B",
+      "score": {
+        "A": 12,
+        "B": 14
+      },
+      "rounds": 26
+    },
+    {
+      "map": "enlace",
+      "opponent": "balanced",
+      "seed": 281001,
+      "initialAttack": "A",
+      "score": {
+        "A": 2,
+        "B": 13
+      },
+      "rounds": 15
+    },
+    {
+      "map": "enlace",
+      "opponent": "balanced",
+      "seed": 281001,
+      "initialAttack": "B",
+      "score": {
+        "A": 1,
+        "B": 13
+      },
+      "rounds": 14
+    },
+    {
+      "map": "enlace",
+      "opponent": "balanced",
+      "seed": 281017,
+      "initialAttack": "A",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "enlace",
+      "opponent": "balanced",
+      "seed": 281017,
+      "initialAttack": "B",
+      "score": {
+        "A": 3,
+        "B": 13
+      },
+      "rounds": 16
+    },
+    {
+      "map": "enlace",
+      "opponent": "balanced",
+      "seed": 281053,
+      "initialAttack": "A",
+      "score": {
+        "A": 2,
+        "B": 13
+      },
+      "rounds": 15
+    },
+    {
+      "map": "enlace",
+      "opponent": "balanced",
+      "seed": 281053,
+      "initialAttack": "B",
+      "score": {
+        "A": 2,
+        "B": 13
+      },
+      "rounds": 15
+    },
+    {
+      "map": "enlace",
+      "opponent": "balanced",
+      "seed": 281081,
+      "initialAttack": "A",
+      "score": {
+        "A": 2,
+        "B": 13
+      },
+      "rounds": 15
+    },
+    {
+      "map": "enlace",
+      "opponent": "balanced",
+      "seed": 281081,
+      "initialAttack": "B",
+      "score": {
+        "A": 1,
+        "B": 13
+      },
+      "rounds": 14
+    },
+    {
+      "map": "enlace",
+      "opponent": "experienced",
+      "seed": 281001,
+      "initialAttack": "A",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "enlace",
+      "opponent": "experienced",
+      "seed": 281001,
+      "initialAttack": "B",
+      "score": {
+        "A": 1,
+        "B": 13
+      },
+      "rounds": 14
+    },
+    {
+      "map": "enlace",
+      "opponent": "experienced",
+      "seed": 281017,
+      "initialAttack": "A",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "enlace",
+      "opponent": "experienced",
+      "seed": 281017,
+      "initialAttack": "B",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "enlace",
+      "opponent": "experienced",
+      "seed": 281053,
+      "initialAttack": "A",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "enlace",
+      "opponent": "experienced",
+      "seed": 281053,
+      "initialAttack": "B",
+      "score": {
+        "A": 1,
+        "B": 13
+      },
+      "rounds": 14
+    },
+    {
+      "map": "enlace",
+      "opponent": "experienced",
+      "seed": 281081,
+      "initialAttack": "A",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    },
+    {
+      "map": "enlace",
+      "opponent": "experienced",
+      "seed": 281081,
+      "initialAttack": "B",
+      "score": {
+        "A": 0,
+        "B": 13
+      },
+      "rounds": 13
+    }
+  ],
+  "history": {
+    "entries": 20,
+    "bytes": 5374503,
+    "encodeDecodeAndHistoryRoundtripMs": 1317,
+    "fixtureRounds": 13
+  }
+}

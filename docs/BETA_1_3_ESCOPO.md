@@ -1,5 +1,7 @@
 # Beta 1.3 — escopo aprovado
 
+28/10/2026: H13-01 a H13-07 e S13-01/02 aprovados pela autorização de aplicação/testes da proposta de histórico e sementes. Implementação candidata descrita em [BETA_1_3_RC1.md](BETA_1_3_RC1.md), ainda sem publicação. Os registros de planejamento abaixo são históricos; o estado implementado mais recente está no parecer.
+
 Decisão de 27/10/2026. Registro de escopo; funcionalidades ainda não implementadas ou publicadas. A versão pública permanece Beta 1.1.1.
 
 Orientação posterior do autor: nenhum lançamento; realizar testes e revisar pendências antes de fechar as adições, ajustes e melhorias. A [revisão técnica](REVISAO_BETA_1_3.md) registra os testes da base atual e separa novas propostas de itens já aprovados.

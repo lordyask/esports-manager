@@ -4,7 +4,7 @@ import type {Agent} from '../src/abilities.ts';
 import type {Attributes} from '../src/rules.ts';
 import {integer,finite} from '../src/rules.ts';
 export interface Growth {attrs:Attributes;attributeXP:number[];familiarities:Record<string,number>;agentXP:Record<string,number>;}
-export interface TrainingChoice {kind:'attribute'|'agent';attribute?:number;agents?:Record<string,Agent>;}
+export interface TrainingChoice {mode?:'collective'|'individual';playerId?:string;kind:'attribute'|'agent';attribute?:number;agents?:Record<string,Agent>;}
 export interface TrainingGain {id:string;before:number;after:number;xpBefore:number;xpAfter:number;gainedXP:number;target:string;blocked:boolean;}
 export interface Development {players:Record<string,Growth>;used:boolean;matchId:string|null;completed:number;receipt?:{choice:TrainingChoice;gains:TrainingGain[]};}
 export const newDevelopment=():Development=>({players:{},used:false,matchId:null,completed:0});
@@ -28,12 +28,12 @@ export function validateDevelopment(d:Development){
  if(d.matchId!==null&&!d.used)throw new Error('Preparação da partida não foi confirmada.');
  if(d.receipt){
   const {choice,gains}=d.receipt;
-  if(!d.used||!choice||!['attribute','agent'].includes(choice.kind)||!Array.isArray(gains)||gains.length!==5||new Set(gains.map(g=>g.id)).size!==5)throw new Error('Comprovante de treino inválido.');
+  if(!d.used||!choice||!['attribute','agent'].includes(choice.kind)||choice.mode!==undefined&&!['collective','individual'].includes(choice.mode)||!Array.isArray(gains)||gains.length!==(choice.mode==='individual'?1:5)||new Set(gains.map(g=>g.id)).size!==gains.length||choice.mode==='individual'&&gains[0]?.id!==choice.playerId)throw new Error('Comprovante de treino inválido.');
   if(choice.kind==='attribute')integer(choice.attribute!,0,7,'trained attribute index');
   for(const g of gains){
    if(!raw.players.some(p=>p.id===g.id)||typeof g.blocked!=='boolean'||(choice.kind==='attribute'?g.target!==String(choice.attribute):!AGENTS.includes(choice.agents?.[g.id] as Agent)||g.target!==choice.agents?.[g.id]))throw new Error('Foco registrado inválido.');
    integer(g.before,0,100,'training before');integer(g.after,g.before,100,'training after');
-   integer(g.xpBefore,0,10000000,'training XP before');integer(g.xpAfter,0,10000000,'training XP after');integer(g.gainedXP,0,150,'training earned XP');
+   integer(g.xpBefore,0,10000000,'training XP before');integer(g.xpAfter,0,10000000,'training XP after');integer(g.gainedXP,0,choice.mode==='individual'?300:150,'training earned XP');
   }
  }
 }
@@ -43,9 +43,12 @@ export function previewTraining(dev:Development,ids:string[],choice:TrainingChoi
  if(ids.length!==5||new Set(ids).size!==5)throw new Error('Selecione os cinco titulares antes do treino.');
  if(!choice||!['attribute','agent'].includes(choice.kind))throw new Error('Escolha o foco do treino.');
  if(choice.kind==='attribute')integer(choice.attribute!,0,7,'attribute index');
+ if(choice.mode!==undefined&&!['collective','individual'].includes(choice.mode))throw new Error('Modalidade de treino inválida.');
+ const targets=choice.mode==='individual'?[choice.playerId!]:ids;
+ if(targets.some(id=>!ids.includes(id)))throw new Error('Escolha um titular para o treino individual.');
  const next=structuredClone(dev),gains:TrainingGain[]=[];
- for(const id of ids){
-  const p=raw.players.find(p=>p.id===id);if(!p)throw new Error('Jogador inválido.');const g=growthFor(dev,id),earned=xpPerSession(p.potential);
+ for(const id of targets){
+  const p=raw.players.find(p=>p.id===id);if(!p)throw new Error('Jogador inválido.');const g=growthFor(dev,id),earned=xpPerSession(p.potential)*(choice.mode==='individual'?2:1);
   if(choice.kind==='attribute'){
    const i=choice.attribute!,before=g.attrs[i],xpBefore=g.attributeXP[i],blocked=before>=100||g.attrs.reduce((a,b)=>a+b,0)+1>p.potential*8;
    if(!blocked){g.attributeXP[i]+=earned;while(g.attrs[i]<100&&g.attributeXP[i]>=attributeCost(g.attrs[i])&&g.attrs.reduce((a,b)=>a+b,0)+1<=p.potential*8){g.attributeXP[i]-=attributeCost(g.attrs[i]);g.attrs[i]++;}}
@@ -60,4 +63,14 @@ export function previewTraining(dev:Development,ids:string[],choice:TrainingChoi
  }
  if(gains.every(g=>g.blocked))throw new Error('Todos atingiram o limite nesse foco. Escolha outro treino.');
  next.used=true;next.receipt={choice:structuredClone(choice),gains};return {development:next,gains};
+}
+
+export function sessionsToGain(dev:Development,id:string,choice:TrainingChoice):number|null {
+ const p=raw.players.find(p=>p.id===id);if(!p)throw new Error('Jogador inválido.');
+ const g=growthFor(dev,id),i=choice.attribute??0,agent=choice.agents?.[id];
+ const value=choice.kind==='attribute'?g.attrs[i]:g.familiarities[agent!];
+ if(!Number.isFinite(value)||value>=100||choice.kind==='attribute'&&g.attrs.reduce((a,b)=>a+b,0)+1>p.potential*8)return null;
+ const xp=choice.kind==='attribute'?g.attributeXP[i]:g.agentXP[agent!];
+ const cost=choice.kind==='attribute'?attributeCost(value):agentCost(value);
+ return Math.max(1,Math.ceil((cost-xp)/(xpPerSession(p.potential)*(choice.mode==='individual'?2:1))));
 }

@@ -17,3 +17,5 @@
 
 /* Beta 1.1.1: player context remains available beside training choices. */
 .training-player h2{margin:0;font-size:18px}.training-identity{margin:0;font-size:12px;line-height:1.7;color:var(--muted)}.training-player details h3{font-size:12px;margin:12px 0}.training-player .attribute-grid{gap:8px}.training-player .attribute-grid div{min-width:0}
+
+.history-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin:24px 0}.analysis-fact{border-top:1px solid var(--border,#28313c);padding:12px 0}.history-list .button-row{flex-wrap:wrap}.panel details{margin:12px 0}.panel summary{cursor:pointer;line-height:1.6}

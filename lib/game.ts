@@ -16,6 +16,8 @@ import {newDevelopment,growthFor,validateDevelopment} from './development.ts';
 import type {Development} from './development.ts';
 import {validateTrainingPreparation} from './training-preparation.ts';
 import type {TrainingPreparation} from './training-preparation.ts';
+import {validateHistory,validateMetadata,initializeHistory,HISTORY_LIMIT,SAVE_LIMIT} from './history.ts';
+import type {MatchMetadata} from './history.ts';
 export {AGENTS,ENGINE_VERSION,RULES_VERSION};
 export const PLAYERS=rawCatalog.players;
 export function newId(){const values=new Uint32Array(4);globalThis.crypto.getRandomValues(values);return Array.from(values,n=>n.toString(16).padStart(8,'0')).join('');}
@@ -34,9 +36,9 @@ export type Player=typeof PLAYERS[number];
 export interface Assignment {agent:Agent;role:Role;}
 export interface Draft {org:string;tag:string;color:string;crest:number;selected:string[];assignments:Record<string,Assignment>;igl:string;map:MapId;opponent:'development'|'balanced'|'experienced';seed:number;plan:TeamPlan;}
 export interface RoundRecord {command:RoundCommand;seed:number;result:SimulationResult;purchases:Record<Team,Purchase[]>;}
-export interface Session {id:string;map:MapId;seed:number;profiles:Profile[];names:Record<string,string>;state:MapState;records:RoundRecord[];}
+export interface Session {metadata?:MatchMetadata;id:string;map:MapId;seed:number;profiles:Profile[];names:Record<string,string>;state:MapState;records:RoundRecord[];}
 export interface RoundCommand {id:string;revision:number;plans:Record<Team,TeamPlan>;buys:BuyPlan;}
-export interface Workspace {trainingPreparation?:TrainingPreparation;draft:Draft;session:Session|null;development?:Development;buyPreparation?:Record<string,Plan>;previous?:Session;legacyReport?:{engine:string;session:Session};}
+export interface Workspace {history?:Session[];autoBuy?:boolean;trainingPreparation?:TrainingPreparation;draft:Draft;session:Session|null;development?:Development;buyPreparation?:Record<string,Plan>;previous?:Session;legacyReport?:{engine:string;session:Session};}
 export function defaultDraft():Draft{return {org:'Minha organização',tag:'ORG',color:'#62e5ba',crest:0,selected:[],assignments:{},igl:'',map:'patio',opponent:'balanced',seed:20261021,plan:{attack:'fast',defense:'balanced',site:'A'}};}
 export const salary=(d:Draft)=>d.selected.reduce((s,id)=>s+(PLAYERS.find(p=>p.id===id)?.salary??0),0);
 export const familiarity=(p:Player,agent:string)=>agent===p.main?85:agent===p.second?65:agent===p.third?45:10;
@@ -87,6 +89,7 @@ export function advanceSession(input:Session,command:RoundCommand):Session {
  return {...input,state:completeRound(ready.state,result,result.kills),records:[...input.records,{command:structuredClone(command),seed,result,purchases:ready.purchases}]};
 }
 export function validateSession(s:Session){
+ if(s?.metadata!==undefined)validateMetadata(s.metadata);
  if(!s||typeof s.id!=='string'||!s.id||!['patio','horizonte','enlace'].includes(s.map)||!Array.isArray(s.records)||s.records.length!==s.state?.rounds||!['buy','finished'].includes(s.state.phase))throw new Error('Progresso de partida inválido.');
  integer(s.seed,1,0xffffffff,'seed');
  if(!Array.isArray(s.profiles)||s.profiles.length!==10||new Set(s.profiles.map(p=>p.id)).size!==10)throw new Error('Elenco salvo inválido.');
@@ -113,12 +116,12 @@ export function normalizedWorkspace(data:Workspace):Workspace {const out={...dat
 export function freshWorkspace():Workspace{return {draft:defaultDraft(),session:null,development:newDevelopment()};}
 export function encodeSave(input:Workspace):string {
  const data=normalizedWorkspace(input),payload=JSON.stringify(data);
- return JSON.stringify({format:'esports-manager-beta',schema:2,beta:'1.1.1',engine:ENGINE_VERSION,rules:RULES_VERSION,digest:sha256(payload),data});
+ return JSON.stringify({format:'esports-manager-beta',schema:3,beta:'1.3.0-rc1',engine:ENGINE_VERSION,rules:RULES_VERSION,digest:sha256(payload),data});
 }
 export function decodeSave(text:string):Workspace {
- if(text.length>20*1024*1024)throw new Error('Arquivo maior que o limite de 20 MB.');
+ if(new TextEncoder().encode(text).length>SAVE_LIMIT)throw new Error('Arquivo maior que o limite de 64 MB.');
  let e:any;try{e=JSON.parse(text);}catch{throw new Error('O arquivo não contém um salvamento JSON válido.');}
- if(e?.format!=='esports-manager-beta'||e.schema!==2||e.engine!==ENGINE_VERSION||e.rules!==RULES_VERSION)throw new Error('Versão incompatível. Preserve o arquivo original para uma futura migração.');
+ if(e?.format!=='esports-manager-beta'||![2,3].includes(e.schema)||e.engine!==ENGINE_VERSION||e.rules!==RULES_VERSION)throw new Error('Versão incompatível. Preserve o arquivo original para uma futura migração.');
  if(e.digest!==sha256(JSON.stringify(e.data)))throw new Error('O arquivo está incompleto ou foi modificado.');
  const w=e.data as Workspace;
  if(!w?.draft||!Array.isArray(w.draft.selected)||w.draft.selected.length>5||new Set(w.draft.selected).size!==w.draft.selected.length||w.draft.selected.some(id=>!PLAYERS.some(p=>p.id===id))||typeof w.draft.org!=='string'||w.draft.org.length>40||typeof w.draft.tag!=='string'||w.draft.tag.length>5||typeof w.draft.igl!=='string'||!w.draft.assignments||typeof w.draft.assignments!=='object'||!/^#[0-9a-f]{6}$/i.test(w.draft.color)||![0,1,2].includes(w.draft.crest)||!['patio','horizonte','enlace'].includes(w.draft.map)||!['development','balanced','experienced'].includes(w.draft.opponent))throw new Error('Configuração salva inválida.');
@@ -129,6 +132,8 @@ export function decodeSave(text:string):Workspace {
  if(w.trainingPreparation!==undefined)validateTrainingPreparation(w.trainingPreparation,w.draft.selected);
  if(w.session&&w.development.matchId!==w.session.id)throw new Error('Preparação e partida não correspondem.');
  if(w.buyPreparation&&Object.entries(w.buyPreparation).some(([id,p])=>!w.session?.profiles.some(a=>a.id===id&&a.team==='A')||!['eco','semi','full'].includes(p)))throw new Error('Preparação de compra inválida.');
+ if(w.history!==undefined)validateHistory(w.history);
+ if(w.autoBuy!==undefined&&typeof w.autoBuy!=='boolean')throw new Error('Preferência de compra inválida.');
  if(w.previous)validateSession(w.previous);
  if(w.legacyReport){if(w.legacyReport.engine!=='0.3.0')throw new Error('Relatório histórico incompatível.');validateSession(w.legacyReport.session);}
  return structuredClone(w);
@@ -152,7 +157,11 @@ export function beginMatch(w:Workspace,id:string):Workspace {
  const dev=structuredClone(w.development??newDevelopment());
  if(w.session||dev.matchId)throw new Error('Conclua a partida atual e escolha Nova partida.');
  if(!dev.used)throw new Error('Confirme ou pule o treino antes da partida.');
- const session=createSession(w.draft,id,dev);dev.matchId=id;return {...w,session,development:dev};
+ const prepared=initializeHistory(w);
+ if(prepared.history!.length>=HISTORY_LIMIT)throw new Error('Histórico cheio (20 partidas). Exporte e exclua uma partida antes de iniciar outra.');
+ const draft={...w.draft,seed:randomSeed([w.draft.seed,...prepared.history!.map(s=>s.seed)])};
+ const session=createSession(draft,id,dev);session.metadata={startedAt:new Date().toISOString(),organization:draft.org,opponent:draft.opponent};
+ dev.matchId=id;return {...prepared,draft,session,development:dev};
 }
 export function nextMatch(w:Workspace):Workspace {
  if(!w.session||w.session.state.phase!=='finished')throw new Error('Conclua a partida atual antes de preparar outra.');
@@ -162,7 +171,7 @@ export function nextMatch(w:Workspace):Workspace {
 /** Explicit import; old results remain a read-only snapshot, never simulated by new rules. */
 export function prepareImport(text:string):{data:Workspace;notice:string}{
  let e:any;try{e=JSON.parse(text);}catch{throw new Error('O arquivo não contém um salvamento JSON válido.');}
- if(e?.engine===ENGINE_VERSION)return {data:decodeSave(text),notice:'Salvamento Beta 1.1. O progresso atual será substituído.'};
+ if(e?.engine===ENGINE_VERSION)return {data:initializeHistory(decodeSave(text)),notice:'Salvamento compatível. O progresso e histórico atuais serão substituídos.'};
  if(text.length>20*1024*1024||e?.format!=='esports-manager-beta'||e.engine!=='0.3.0'||e.schema!==1||e.rules!=='gdd-1.3')throw new Error('Versão incompatível. Preserve o arquivo original.');
  if(e.digest!==sha256(JSON.stringify(e.data)))throw new Error('O arquivo está incompleto ou foi modificado.');
  const old=e.data as Workspace;const next=normalizedWorkspace({...old,session:null,development:newDevelopment(),buyPreparation:undefined,previous:undefined,legacyReport:undefined});
@@ -170,4 +179,10 @@ export function prepareImport(text:string):{data:Workspace;notice:string}{
  decodeSave(encodeSave(next));
  if(old.session){validateDraft(old.draft);validateSession(old.session);next.legacyReport={engine:'0.3.0',session:structuredClone(old.session)};}
  return {data:next,notice:old.session?.state.phase==='buy'?'Partida Beta 1.0 em andamento: não continuará no novo motor. Importe só a organização, com XP zero, e preserve o arquivo original para concluir no Beta 1.0.':'Importar organização do Beta 1.0 com XP zero. O relatório antigo será preservado para consulta; não será recalculado.'};
+}
+
+/** Random only on creation, never during reload or replay. */
+export function randomSeed(excluded:number[]=[],draw:()=>number=()=>globalThis.crypto.getRandomValues(new Uint32Array(1))[0]):number {
+ for(let n=0;n<128;n++){const seed=draw()>>>0;if(seed&&!excluded.includes(seed))return seed;}
+ throw new Error('Não foi possível gerar um novo código. Tente iniciar novamente.');
 }

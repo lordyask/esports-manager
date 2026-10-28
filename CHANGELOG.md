@@ -1,5 +1,14 @@
 # Histórico de alterações — Esports Manager
 
+## 28/10/2026 — Beta 1.3 RC1, candidata não publicada
+
+- Histórico local até 20 partidas, migração das sessões disponíveis, relatórios, JSON/CSV, importação com deduplicação e exclusão explícita.
+- Semente automática por nova partida, preservada ao continuar; confirmação de dificuldade.
+- Análise factual pós-partida e correção do lado inicial no relatório.
+- Treinamento individual 2× XP ou coletivo, oportunidade única, previsão de evolução e escolhas persistentes.
+- Save schema 3 com leitura do schema 2; motor, combate, preços e dificuldades preservados.
+- 113 testes locais, 9.159 sessões de treino e 72 partidas sintéticas; validação de interface em workflow sem deploy. [Parecer](docs/BETA_1_3_RC1.md).
+
 ## 26/10/2026 — Beta 1.1.1 publicado: correções de treinamento
 
 - T01–T05 aprovados pelo autor; [build e deploy concluídos](https://github.com/lordyask/esports-manager/actions/runs/40409964868). Código funcional: `130280f5e3eb0b87cb46a0dd801b8a314a59bf58`.

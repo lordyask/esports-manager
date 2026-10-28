@@ -1,4 +1,5 @@
 import type {Session,RoundRecord} from './game.ts';
+import {attackingTeam} from '../src/map.ts';
 import type {SimEvent} from '../src/tactical-types.ts';
 import {ATTACKS,DEFENSES,ATTACK_INSTRUCTIONS,DEFENSE_INSTRUCTIONS} from '../src/strategies.ts';
 export const reasonText=(r:string)=>({defenders_eliminated:'defesa eliminada',attackers_eliminated:'ataque eliminado',mutual_elimination:'eliminação simultânea',defused:'dispositivo desarmado',detonation:'dispositivo detonado',time_expired:'tempo esgotado'}[r]??r);
@@ -32,7 +33,7 @@ export function eventText(e:SimEvent,names:Record<string,string>){
  }
 }
 export function reviewRound(s:Session,r:RoundRecord){
- const index=r.command.revision,attacking=index<12?'A':index<24?'B':(index-24)%2===0?'A':'B';
+ const index=r.command.revision,attacking=attackingTeam({...s.state,initialAttack:s.state?.initialAttack??'A',rounds:index});
  const deaths=r.result.events.filter(e=>e.kind==='eliminated'),facts:string[]=[];
  const first=deaths[0];if(first)facts.push(`Primeira eliminação: ${s.names[first.target??'']??'adversário'} sobre ${s.names[first.actor??'']??'jogador'}, aos ${(first.at/1000).toFixed(1)} s.`);
  const ownDeaths=deaths.filter(e=>e.actor?.startsWith('A:'));
