@@ -1,10 +1,12 @@
 # Esports Manager — Beta 1.3
 
-**Beta 1.3 experimental — lançamento autorizado, publicação em andamento.** Histórico de partidas com exportação JSON/CSV, sementes automáticas, análise pós-partida e treino individual/coletivo. [Escopo, testes e pendências](docs/BETA_1_3_RC1.md).
+**Beta 1.3 experimental publicada em 29/10/2026.** Histórico de partidas com exportação JSON/CSV, sementes automáticas, análise pós-partida e treino individual/coletivo. [Escopo, testes e pendências](docs/BETA_1_3_RC1.md).
 
 Motor **0.4.1**, regras `gdd-1.3+b11-rc1`, save schema **3**, com leitura do schema 2. O banco local é preservado; saves exportados pelo 1.3 não devem ser reimportados no 1.1.1.
 
 [Abrir o jogo](https://lordyask.github.io/esports-manager/) · [Registro do projeto](docs/REGISTRO_PROJETO.md) · [Validação 1.3](docs/BETA_1_3_RC1.md) · [Histórico](CHANGELOG.md).
+
+[Build e deploy concluídos](https://github.com/lordyask/esports-manager/actions/runs/40809888123); título Beta 1.3 e aba Histórico conferidos no site público.
 
 Validação da candidata: 113 testes, 9.159 sessões sintéticas de treino, 72 partidas sintéticas e fluxos Chromium desktop/móvel aprovados no [workflow de revisão](https://github.com/lordyask/esports-manager/actions/runs/40720519242). Android físico, Safari/iOS, acessibilidade completa e equilíbrio global permanecem sem homologação.
 

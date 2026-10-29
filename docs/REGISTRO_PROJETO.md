@@ -5,7 +5,7 @@ O autor aprovou L01/L02/L03 e autorizou oficializar e publicar o Beta 1.1 em 26/
 
 ## Estado atual
 
-Atualização mais recente: o autor aprovou expressamente o lançamento do Beta 1.3 após o parecer favorável. Publicação em andamento. [Validação e lançamento](BETA_1_3_RC1.md): 113 testes, 9.159 sessões sintéticas de treino, 72 partidas sintéticas e fluxos Chromium desktop/móvel aprovados (workflow 40720519242).
+Atualização mais recente: o autor aprovou expressamente o lançamento do Beta 1.3 após o parecer favorável. [Publicação concluída](https://github.com/lordyask/esports-manager/actions/runs/40809888123) e site público conferido com Beta 1.3 e aba Histórico. [Validação e lançamento](BETA_1_3_RC1.md): 113 testes, 9.159 sessões sintéticas de treino, 72 partidas sintéticas e fluxos Chromium desktop/móvel aprovados (workflow 40720519242).
 
 Escopo implementado: B13-03/04/05/06, H13-01 a H13-07 e S13-01/02 — análise pós-partida, treino coletivo/individual, histórico e sementes automáticas. B13-01/02 e a nova política econômica R13-01 continuam adiados. Sem probabilidades pré-jogo nem alteração dos coeficientes de combate.
 
@@ -13,16 +13,16 @@ A restrição de não publicar registrada na revisão de 27/10 foi substituída 
 
 | Item | Registro confirmado |
 | --- | --- |
-| Aplicação pública | Beta 1.1.1 experimental, publicada em 26/10/2026 |
+| Aplicação pública | Beta 1.3 experimental, publicada em 29/10/2026 |
 | Site | https://lordyask.github.io/esports-manager/ |
 | Repositório | https://github.com/lordyask/esports-manager |
 | Branch de publicação | `main` |
 | Motor / pacote npm público | 0.4.1 |
-| Branch de revisão | `review/beta-1.3`, candidata validada |
+| Branch de revisão | `review/beta-1.3`, candidata integrada em `main` |
 | Regras / formato de save 1.3 | `gdd-1.3+b11-rc1` / schema 3, lê schema 2 |
-| Último código funcional publicado | `130280f5e3eb0b87cb46a0dd801b8a314a59bf58` |
+| Último código funcional publicado | `33ed9e3a1bf4638461c1d1d7661c6c14ff90ac88` |
 | Hospedagem e persistência | GitHub Pages; progresso local em IndexedDB |
-| Estado da atualização | Beta 1.3 autorizada; publicação em andamento |
+| Estado da atualização | Beta 1.3 publicada e conferida |
 
 O autor compartilhou o Beta 1.0 com amigos e apresentou feedbacks sobre decisões
 entre rodadas, informações limitadas, estratégias pouco variadas e dificuldade
@@ -256,3 +256,13 @@ O registro posterior é somente documental, com `[skip ci]`, sem mudança na apl
 ## Pendências reunidas após o Beta 1.1.1 — 26/10/2026
 
 O autor decidiu deixar o histórico de partidas para a próxima atualização e reunir novos feedbacks antes da revisão conjunta. H01–H04 (histórico, relatórios por partida, exportação JSON/CSV e estatísticas acumuladas) estão no [registro de pendências](PENDENCIAS_PROXIMA_ATUALIZACAO.md). Nenhuma implementação ou novo lançamento foi autorizado nesta decisão. O autor informou que tem partidas para análise; os novos arquivos ainda não foram recebidos neste momento.
+
+## Publicação confirmada — 29/10/2026
+
+- Lançamento expressamente autorizado pelo autor após aprovação do parecer.
+- Código funcional publicado: `33ed9e3a1bf4638461c1d1d7661c6c14ff90ac88`; candidato validado integrado em `main` por avanço direto, preservando sua ancestralidade.
+- [Workflow de publicação](https://github.com/lordyask/esports-manager/actions/runs/40809888123): testes (113 aprovados), TypeScript, build e deploy concluídos com sucesso.
+- Conferência no site público: título e identificação visual **Beta 1.3**, navegação até **Histórico de partidas**, capacidade de 20 partidas e controles de importação/exportação. Perfil de QA sem partidas armazenadas; esta conferência não afirma migrar um save real do usuário.
+- [Comprovante visual](../validation/beta13/release-live.jpg). Validação funcional completa desktop/móvel da candidata permanece no workflow 40720519242.
+- Sem erros da aplicação nos logs consultados. Mensagens da extensão do navegador não pertencem ao jogo.
+- Rótulos e versão de exportação oficializados; motor 0.4.1, regras e balanceamento preservados. Android físico, iOS/Safari e acessibilidade completa continuam sem homologação.

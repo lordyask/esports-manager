@@ -1,6 +1,6 @@
 # Publicação e manutenção — GitHub Pages
 
-Atualizado em 29/10/2026. O autor autorizou o lançamento do **Beta 1.3** após validação. Publicação em andamento; o recibo será registrado após confirmação. [Escopo e evidências](BETA_1_3_RC1.md).
+Atualizado em 29/10/2026. O autor autorizou o lançamento do **Beta 1.3** após validação. [Build e deploy concluídos](https://github.com/lordyask/esports-manager/actions/runs/40809888123), código funcional `33ed9e3a1bf4638461c1d1d7661c6c14ff90ac88`. Site público conferido com identificação Beta 1.3 e nova aba Histórico. [Escopo e evidências](BETA_1_3_RC1.md).
 
 Histórico do Beta 1.1.1: publicado pelo [workflow 40409964868](https://github.com/lordyask/esports-manager/actions/runs/40409964868), código funcional `130280f5e3eb0b87cb46a0dd801b8a314a59bf58`.
 

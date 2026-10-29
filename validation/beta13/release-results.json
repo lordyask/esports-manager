@@ -1,0 +1,25 @@
+{
+  "version": "1.3.0",
+  "releaseDate": "2026-10-29",
+  "commit": "33ed9e3a1bf4638461c1d1d7661c6c14ff90ac88",
+  "workflow": "https://github.com/lordyask/esports-manager/actions/runs/40809888123",
+  "conclusion": "success",
+  "testsPassed": 113,
+  "typecheck": "passed",
+  "build": "passed",
+  "deploy": "passed",
+  "liveUrl": "https://lordyask.github.io/esports-manager/",
+  "liveChecks": [
+    "Title and visible version Beta 1.3",
+    "History navigation opens",
+    "Empty QA history shows 0/20 and import/export controls"
+  ],
+  "screenshot": "release-live.jpg",
+  "scope": "Post-deploy smoke check; full candidate functional UI tests recorded separately",
+  "remainingLimitations": [
+    "physical Android",
+    "Safari/iOS",
+    "complete accessibility",
+    "global balance"
+  ]
+}

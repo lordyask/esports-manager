@@ -1,6 +1,6 @@
 # Beta 1.3 — validação e lançamento
 
-Atualizado em 29/10/2026. Após o parecer de validação, o autor autorizou expressamente: “Aprovado pode fazer o lançamento do beta 1.3”. Essa autorização substitui a restrição anterior de não publicar. Rótulos oficializados como Beta 1.3; publicação pelo Pages em andamento. A validação da candidata RC1 está preservada abaixo.
+Atualizado em 29/10/2026. Após o parecer de validação, o autor autorizou expressamente: “Aprovado pode fazer o lançamento do beta 1.3”. Essa autorização substitui a restrição anterior de não publicar. Rótulos oficializados como Beta 1.3; publicação pelo Pages concluída e conferida. A validação da candidata RC1 está preservada abaixo.
 
 ## Implementado
 
@@ -47,4 +47,14 @@ Durante a validação, o teste foi ajustado para reconhecer os rótulos completo
 
 **Parecer: apta a publicação como Beta experimental, sem bloqueadores encontrados no escopo aprovado.** Nenhum ajuste adicional de design é exigido por esta rodada de testes. Android físico, iOS/Safari, acessibilidade completa e equilíbrio global permanecem sem homologação; a emulação de tela móvel não os substitui. A alteração de política econômica R13-01 permanece fora desta candidata.
 
-**Lançamento autorizado pelo autor.** Integração em `main` e publicação pelo Pages autorizadas. A oficialização altera somente rótulos de versão e documentação; motor, regras e parâmetros validados permanecem iguais. O registro do deploy será acrescentado após confirmação.
+**Lançamento autorizado pelo autor.** Integração em `main` e publicação pelo Pages autorizadas. A oficialização altera somente rótulos de versão e documentação; motor, regras e parâmetros validados permanecem iguais. Deploy concluído; recibo abaixo.
+
+## Publicação confirmada — 29/10/2026
+
+- Lançamento expressamente autorizado pelo autor após aprovação do parecer.
+- Código funcional publicado: `33ed9e3a1bf4638461c1d1d7661c6c14ff90ac88`; candidato validado integrado em `main` por avanço direto, preservando sua ancestralidade.
+- [Workflow de publicação](https://github.com/lordyask/esports-manager/actions/runs/40809888123): testes (113 aprovados), TypeScript, build e deploy concluídos com sucesso.
+- Conferência no site público: título e identificação visual **Beta 1.3**, navegação até **Histórico de partidas**, capacidade de 20 partidas e controles de importação/exportação. Perfil de QA sem partidas armazenadas; esta conferência não afirma migrar um save real do usuário.
+- [Comprovante visual](../validation/beta13/release-live.jpg). Validação funcional completa desktop/móvel da candidata permanece no workflow 40720519242.
+- Sem erros da aplicação nos logs consultados. Mensagens da extensão do navegador não pertencem ao jogo.
+- Rótulos e versão de exportação oficializados; motor 0.4.1, regras e balanceamento preservados. Android físico, iOS/Safari e acessibilidade completa continuam sem homologação.

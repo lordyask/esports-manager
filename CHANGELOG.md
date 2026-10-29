@@ -1,8 +1,8 @@
 # Histórico de alterações — Esports Manager
 
-## 29/10/2026 — Beta 1.3, lançamento autorizado
+## 29/10/2026 — Beta 1.3 publicado
 
-- Autor aprovou o lançamento; rótulos oficiais Beta 1.3 e identificação de exportação 1.3.0. Publicação em andamento.
+- Autor aprovou o lançamento; rótulos oficiais Beta 1.3 e identificação de exportação 1.3.0. [Publicação concluída](https://github.com/lordyask/esports-manager/actions/runs/40809888123) e site público conferido.
 
 - Histórico local até 20 partidas, migração das sessões disponíveis, relatórios, JSON/CSV, importação com deduplicação e exclusão explícita.
 - Semente automática por nova partida, preservada ao continuar; confirmação de dificuldade.
