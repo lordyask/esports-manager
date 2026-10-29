@@ -72,7 +72,7 @@ export default function Beta(){
  if(session.state.phase==='finished'){setTab(4);setNote('Partida concluída e salva.');}else if(session.state.rounds===12||session.state.rounds===24)setNote('Sequência pausada na mudança de fase. Revise estratégia e compras para continuar.');else if(count>=30)setNote('Sequência pausada após 30 rodadas. Você pode continuar; a prorrogação não tem vencedor forçado.');
  }catch(e){fail(e);}finally{working.current=false;setBusy(false);}}
  function exportProgress(){download(`esports-manager-beta-${d.tag.toLowerCase()}.json`,recovery??encodeSave(current.current));}
- function diagnostic(){download('esports-manager-diagnostico.json',JSON.stringify({kind:'diagnostic',beta:'1.3.0-rc1',engine:ENGINE_VERSION,error,browser:navigator.userAgent,lastRoundMs:lastMs,save:JSON.parse(encodeSave(current.current))}));}
+ function diagnostic(){download('esports-manager-diagnostico.json',JSON.stringify({kind:'diagnostic',beta:'1.3.0',engine:ENGINE_VERSION,error,browser:navigator.userAgent,lastRoundMs:lastMs,save:JSON.parse(encodeSave(current.current))}));}
  function updatePlans(p:Record<string,Plan>){setPlans(p);setData(x=>({...x,buyPreparation:p}));setSaved(false);}
  async function removeHistory(id:string){if(working.current)return;working.current=true;setBusy(true);try{await persist(deleteHistory(current.current,id));setError('');setNote('Partida removida do histórico.');}catch(e){fail(e);}finally{working.current=false;setBusy(false);}}
  async function chooseAutoBuy(value:boolean){if(working.current)return;working.current=true;setBusy(true);try{await persist({...current.current,autoBuy:value});setAutoBuy(value);setError('');}catch(e){fail(e);}finally{working.current=false;setBusy(false);}}
@@ -83,7 +83,7 @@ export default function Beta(){
  function nav(i:number){if(busy)return;if(i===2&&!s){if(d.selected.length!==5){setTab(1);return;}void configure();return;}if(i===3&&!s){setTab(2);return;}if(i===4&&!s?.records.length&&!data.previous&&!data.legacyReport)return;setTab(i);setError('');}
  const coverage=[...new Set(selected.map(p=>CLASS[d.assignments[p.id]?.agent??p.main]))];
  return <div className="shell" style={{'--accent':d.color} as CSSProperties}>
- <aside className="sidebar"><a className="brand" href="#" aria-label="Esports Manager — visão geral" onClick={e=>{e.preventDefault();nav(0);}}><ProductLogo/></a><div className="edition">FPS TÁTICO <span>BETA 1.3 RC1</span></div>
+ <aside className="sidebar"><a className="brand" href="#" aria-label="Esports Manager — visão geral" onClick={e=>{e.preventDefault();nav(0);}}><ProductLogo/></a><div className="edition">FPS TÁTICO <span>BETA 1.3</span></div>
  <nav aria-label="Navegação principal">{tabs.map((t,i)=><button key={t} className={tab===i?'active':''} onClick={()=>nav(i)} disabled={busy||i===3&&!s||i===4&&!s?.records.length&&!data.previous&&!data.legacyReport}><span className="nav-number">0{i+1}</span>{t}{tab===i&&<i/>}</button>)}</nav>
  <div className="sidebar-bottom"><div className="local-dot"/>Progresso local<p>Salvo neste navegador.<br/>Exporte para levar a outro dispositivo.</p><button className="text-button" onClick={exportProgress} disabled={!loaded}>↓ Exportar progresso</button><button className="text-button" onClick={()=>file.current?.click()} disabled={busy}>↑ Importar progresso</button><span className="engine">Motor {ENGINE_VERSION} · Regras 1.3</span></div></aside>
  <div className="main"><header className="topbar"><span className="breadcrumb">CENTRO DE COMANDO <span>/</span> {tabs[tab].toUpperCase()}</span><div className="top-right"><span className={`save-indicator ${saved?'ok':''}`}>{saved?'● Salvo no dispositivo':'○ Alterações locais'}</span><span className="org-badge"><Mark kind={d.crest}/>{d.tag}</span></div></header>
@@ -136,7 +136,7 @@ export default function Beta(){
  {!report&&<div className="button-row end"><button className="secondary" disabled={busy||!s.records.length} onClick={()=>setTab(4)}>Ver relatório parcial</button></div>}
  </>}
  </>}
- <footer className="footer"><span className="footer-brand"><ProductLogo/><b>BETA 1.3 RC1</b></span><span>Teste de partida · Personagens fictícios · Progresso neste dispositivo</span><button onClick={reset} disabled={busy}>Reiniciar organização</button><button onClick={diagnostic}>Diagnóstico</button></footer>
+ <footer className="footer"><span className="footer-brand"><ProductLogo/><b>BETA 1.3</b></span><span>Teste de partida · Personagens fictícios · Progresso neste dispositivo</span><button onClick={reset} disabled={busy}>Reiniciar organização</button><button onClick={diagnostic}>Diagnóstico</button></footer>
  </main></div></div>;
  function tacticFields(){return s?<StrategyEditor plan={d.plan} side={nextSide(s)==='Ataque'?'attack':'defense'} disabled={busy} onChange={plan=>edit({plan})}/>:<><StrategyEditor plan={d.plan} side="attack" disabled={busy} onChange={plan=>edit({plan})}/><StrategyEditor plan={d.plan} side="defense" disabled={busy} onChange={plan=>edit({plan})}/></>;}
 

@@ -1,6 +1,6 @@
-# Beta 1.3 RC1 — candidata em validação, sem lançamento
+# Beta 1.3 — validação e lançamento
 
-Atualizado em 28/10/2026. O autor autorizou aplicar e testar as propostas para receber um parecer antes de publicar. A branch `review/beta-1.3` contém a candidata; `main` e o site público continuam no Beta 1.1.1. Não mesclar nem acionar o workflow Pages sem autorização posterior.
+Atualizado em 29/10/2026. Após o parecer de validação, o autor autorizou expressamente: “Aprovado pode fazer o lançamento do beta 1.3”. Essa autorização substitui a restrição anterior de não publicar. Rótulos oficializados como Beta 1.3; publicação pelo Pages em andamento. A validação da candidata RC1 está preservada abaixo.
 
 ## Implementado
 
@@ -47,4 +47,4 @@ Durante a validação, o teste foi ajustado para reconhecer os rótulos completo
 
 **Parecer: apta a publicação como Beta experimental, sem bloqueadores encontrados no escopo aprovado.** Nenhum ajuste adicional de design é exigido por esta rodada de testes. Android físico, iOS/Safari, acessibilidade completa e equilíbrio global permanecem sem homologação; a emulação de tela móvel não os substitui. A alteração de política econômica R13-01 permanece fora desta candidata.
 
-**Lançamento ainda não autorizado nesta etapa.** Somente após autorização posterior, oficializar os rótulos da versão, integrar a candidata e executar o Pages. A atualização documental posterior aos testes usa `[skip ci]`, sem modificar o código validado.
+**Lançamento autorizado pelo autor.** Integração em `main` e publicação pelo Pages autorizadas. A oficialização altera somente rótulos de versão e documentação; motor, regras e parâmetros validados permanecem iguais. O registro do deploy será acrescentado após confirmação.

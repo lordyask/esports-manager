@@ -1,22 +1,22 @@
-# Esports Manager — candidata Beta 1.3
+# Esports Manager — Beta 1.3
 
-Esta branch contém a **Beta 1.3 RC1 em validação, ainda não publicada**: histórico, sementes automáticas, análise pós-partida e treino individual/coletivo. [Escopo implementado, testes e pendências](docs/BETA_1_3_RC1.md). O site público descrito abaixo permanece no Beta 1.1.1 até aprovação de lançamento.
+**Beta 1.3 experimental — lançamento autorizado, publicação em andamento.** Histórico de partidas com exportação JSON/CSV, sementes automáticas, análise pós-partida e treino individual/coletivo. [Escopo, testes e pendências](docs/BETA_1_3_RC1.md).
 
-Atualização experimental **Beta 1.1.1 publicada em 26/10/2026**, com autorização do autor. B11-01 a B11-14 e L01/L02/L03 estão aprovados. Motor **0.4.1**, regras `gdd-1.3+b11-rc1`, save schema **2**. A revisão de regras mantém seu identificador para preservar a compatibilidade dos arquivos testados.
+Motor **0.4.1**, regras `gdd-1.3+b11-rc1`, save schema **3**, com leitura do schema 2. O banco local é preservado; saves exportados pelo 1.3 não devem ser reimportados no 1.1.1.
 
-[Abrir o jogo](https://lordyask.github.io/esports-manager/) · [Registro do projeto](docs/REGISTRO_PROJETO.md) · [Aprovação e validação](docs/LANCAMENTO_BETA_1_1_RC1.md) · [Histórico](CHANGELOG.md).
+[Abrir o jogo](https://lordyask.github.io/esports-manager/) · [Registro do projeto](docs/REGISTRO_PROJETO.md) · [Validação 1.3](docs/BETA_1_3_RC1.md) · [Histórico](CHANGELOG.md).
 
-A publicação em `main` foi concluída com sucesso: [workflow de build e deploy](https://github.com/lordyask/esports-manager/actions/runs/40409964868). O site público confirmou Beta 1.1.1, motor 0.4.1 e persistência das escolhas de atributo e agentes após troca de aba e recarregamento. Foram aprovados 103 testes nesta correção; as 1.176 partidas de validação do motor são do Beta 1.1. Android físico, Safari/iOS e acessibilidade completa permanecem sem homologação. O equilíbrio dos mapas continua em avaliação.
+Validação da candidata: 113 testes, 9.159 sessões sintéticas de treino, 72 partidas sintéticas e fluxos Chromium desktop/móvel aprovados no [workflow de revisão](https://github.com/lordyask/esports-manager/actions/runs/40720519242). Android físico, Safari/iOS, acessibilidade completa e equilíbrio global permanecem sem homologação.
 
 Interface em português, Next.js/React/TypeScript com exportação estática. Projeto independente, com agentes e coeficientes fictícios. Preços e rendimentos permanecem os aprovados no GDD FPS Web 1.3, com o [adendo aprovado do Beta 1.1](docs/BETA_1_1_PROPOSTA.md).
 
-## Correção Beta 1.1.1
+## Histórico: correção Beta 1.1.1
 
 T01–T05 aprovados: escolhas de atributo e agentes salvas automaticamente, preservadas ao trocar de aba e recarregar. A tela mostra função, IGL, agente escalado, atributos atuais e familiaridades. Treinar um agente não muda a escalação. O rascunho não consome a sessão. Veja [validação e lançamento 1.1.1](docs/BETA_1_1_1.md).
 
 Motor 0.4.1, regras e schema 2 preservados: o save 1.1 continua compatível. Sem ajuste de XP ou de balanceamento.
 
-## Novidades do Beta 1.1
+## Histórico: novidades do Beta 1.1
 
 - Uma rodada por confirmação; sequência opcional que pausa na troca de lados e na entrada da prorrogação.
 - Quatro estratégias de ataque, quatro de defesa e complementos compatíveis, com objetivo, força e vulnerabilidade explicados.
@@ -65,11 +65,11 @@ Os arquivos estáticos ficam em `out/`. Para um caminho de projeto do GitHub, o 
 
 ## Publicação
 
-O repositório é `lordyask/esports-manager`. `main` publica pelo GitHub Actions; o lançamento do Beta 1.1 foi autorizado em 26/10/2026. `beta/1.1` reuniu a preparação e a validação desta atualização, integrada pelo PR nº 1. O procedimento de manutenção e a referência para novas instalações estão em [docs/PUBLICAR_GITHUB.md](docs/PUBLICAR_GITHUB.md).
+O repositório é `lordyask/esports-manager`. `main` publica pelo GitHub Actions; o autor autorizou expressamente o lançamento do Beta 1.3 após o parecer de validação. A candidata foi preparada em `review/beta-1.3`. O procedimento de manutenção e a referência para novas instalações estão em [docs/PUBLICAR_GITHUB.md](docs/PUBLICAR_GITHUB.md).
 
 ## Avaliação
 
-Os resultados atuais estão em [docs/LANCAMENTO_BETA_1_1_RC1.md](docs/LANCAMENTO_BETA_1_1_RC1.md). A validação inicial 0.4.0 permanece como histórico. Reproduza os lotes de planos principais:
+Os resultados atuais estão em [docs/BETA_1_3_RC1.md](docs/BETA_1_3_RC1.md). As validações anteriores permanecem como histórico. Para reproduzir os lotes de planos do Beta 1.1:
 
 ```bash
 node scripts/beta11-validation.ts

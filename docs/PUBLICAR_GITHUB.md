@@ -1,6 +1,8 @@
 # Publicação e manutenção — GitHub Pages
 
-Atualizado em 26/10/2026. A correção **Beta 1.1.1** está publicada: [build e deploy](https://github.com/lordyask/esports-manager/actions/runs/40409964868) concluídos com sucesso, código funcional `130280f5e3eb0b87cb46a0dd801b8a314a59bf58`. Os dois modos de treinamento foram conferidos no site público após navegação e recarga.
+Atualizado em 29/10/2026. O autor autorizou o lançamento do **Beta 1.3** após validação. Publicação em andamento; o recibo será registrado após confirmação. [Escopo e evidências](BETA_1_3_RC1.md).
+
+Histórico do Beta 1.1.1: publicado pelo [workflow 40409964868](https://github.com/lordyask/esports-manager/actions/runs/40409964868), código funcional `130280f5e3eb0b87cb46a0dd801b8a314a59bf58`.
 
 Histórico do Beta 1.1: O Beta 1.1 foi autorizado e publicado. O [workflow de publicação](https://github.com/lordyask/esports-manager/actions/runs/40337769779) concluiu build e deploy com sucesso. Código funcional: `ac331be5745b7e18a1e90945a86431f712fc762b`. Site público conferido com Beta 1.1, motor 0.4.1 e catálogo de agentes.
 

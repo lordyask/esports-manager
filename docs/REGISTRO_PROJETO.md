@@ -1,15 +1,15 @@
 # Registro consolidado — Esports Manager
 
-Atualizado em 28/10/2026. Este é o ponto de entrada para continuar o projeto.
+Atualizado em 29/10/2026. Este é o ponto de entrada para continuar o projeto.
 O autor aprovou L01/L02/L03 e autorizou oficializar e publicar o Beta 1.1 em 26/10/2026. O deploy do Beta 1.1.1 foi concluído com sucesso; o site público e os dois modos de preparação de treino foram conferidos. Motor 0.4.1 preservado.
 
 ## Estado atual
 
-Atualização mais recente: candidata 1.3 passou na validação automatizada e nos fluxos Chromium desktop/móvel, workflow 40720519242. Parecer apto para Beta experimental, aguardando autorização de lançamento. O autor autorizou aplicar e testar histórico e sementes automáticas, além dos itens já aprovados. [Beta 1.3 RC1 implementada para validação](BETA_1_3_RC1.md) em `review/beta-1.3`, sem lançamento. Este estado substitui a indicação anterior de “somente documentação” para essa branch. Site público preservado em 1.1.1. A nova política de compra automática não foi incorporada.
+Atualização mais recente: o autor aprovou expressamente o lançamento do Beta 1.3 após o parecer favorável. Publicação em andamento. [Validação e lançamento](BETA_1_3_RC1.md): 113 testes, 9.159 sessões sintéticas de treino, 72 partidas sintéticas e fluxos Chromium desktop/móvel aprovados (workflow 40720519242).
 
-Revisão de 27/10: o autor determinou não lançar e rever as pendências antes de fechar o Beta 1.3. [Revisão técnica e decisões pendentes](REVISAO_BETA_1_3.md): 103 testes atuais aprovados, 4.608 sessões sintéticas de treino e 24 partidas sintéticas, build local e verificações de exportação. Somente documentação e diagnóstico na branch `review/beta-1.3`, sem alterar a aplicação pública.
+Escopo implementado: B13-03/04/05/06, H13-01 a H13-07 e S13-01/02 — análise pós-partida, treino coletivo/individual, histórico e sementes automáticas. B13-01/02 e a nova política econômica R13-01 continuam adiados. Sem probabilidades pré-jogo nem alteração dos coeficientes de combate.
 
-Próximo escopo: [Beta 1.3](BETA_1_3_ESCOPO.md), aprovado parcialmente em 27/10/2026: B13-03/04/05/06, com análise pós-partida e treino coletivo ou individual. B13-01/02 adiados; sem nova análise pré-jogo ou probabilidade de vitória. Registro de planejamento, sem implementação ou novo lançamento neste momento.
+A restrição de não publicar registrada na revisão de 27/10 foi substituída pela autorização expressa de lançamento. Os registros de planejamento e testes anteriores são históricos.
 
 | Item | Registro confirmado |
 | --- | --- |
@@ -18,11 +18,11 @@ Próximo escopo: [Beta 1.3](BETA_1_3_ESCOPO.md), aprovado parcialmente em 27/10/
 | Repositório | https://github.com/lordyask/esports-manager |
 | Branch de publicação | `main` |
 | Motor / pacote npm público | 0.4.1 |
-| Branch de revisão | `beta/1.1`, integrada à `main` pelo PR nº 1 |
-| Regras / formato de save | `gdd-1.3+b11-rc1` / schema 2 |
+| Branch de revisão | `review/beta-1.3`, candidata validada |
+| Regras / formato de save 1.3 | `gdd-1.3+b11-rc1` / schema 3, lê schema 2 |
 | Último código funcional publicado | `130280f5e3eb0b87cb46a0dd801b8a314a59bf58` |
 | Hospedagem e persistência | GitHub Pages; progresso local em IndexedDB |
-| Estado da atualização | Beta 1.1.1 publicada; T01–T05 aprovados, incluindo treino de atributos |
+| Estado da atualização | Beta 1.3 autorizada; publicação em andamento |
 
 O autor compartilhou o Beta 1.0 com amigos e apresentou feedbacks sobre decisões
 entre rodadas, informações limitadas, estratégias pouco variadas e dificuldade

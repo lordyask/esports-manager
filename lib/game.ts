@@ -116,7 +116,7 @@ export function normalizedWorkspace(data:Workspace):Workspace {const out={...dat
 export function freshWorkspace():Workspace{return {draft:defaultDraft(),session:null,development:newDevelopment()};}
 export function encodeSave(input:Workspace):string {
  const data=normalizedWorkspace(input),payload=JSON.stringify(data);
- return JSON.stringify({format:'esports-manager-beta',schema:3,beta:'1.3.0-rc1',engine:ENGINE_VERSION,rules:RULES_VERSION,digest:sha256(payload),data});
+ return JSON.stringify({format:'esports-manager-beta',schema:3,beta:'1.3.0',engine:ENGINE_VERSION,rules:RULES_VERSION,digest:sha256(payload),data});
 }
 export function decodeSave(text:string):Workspace {
  if(new TextEncoder().encode(text).length>SAVE_LIMIT)throw new Error('Arquivo maior que o limite de 64 MB.');
