@@ -1,0 +1,208 @@
+TAP version 13
+# Subtest: career reset clears campaign, selected roster, XP, training and buys; retains identity without mutation
+ok 1 - career reset clears campaign, selected roster, XP, training and buys; retains identity without mutation
+  ---
+  duration_ms: 22.440859
+  type: 'test'
+  ...
+# Subtest: organization reset also clears the four identity fields while retaining archives
+ok 2 - organization reset also clears the four identity fields while retaining archives
+  ---
+  duration_ms: 5.36057
+  type: 'test'
+  ...
+# Subtest: concluded history remains usable; original unfinished snapshot is exportable and deduplicated
+ok 3 - concluded history remains usable; original unfinished snapshot is exportable and deduplicated
+  ---
+  duration_ms: 930.390538
+  type: 'test'
+  ...
+# Subtest: legacy schemas 2, 3, 4 and 5 become read-only with original Véu; configuration maps to Prisma with base XP
+ok 4 - legacy schemas 2, 3, 4 and 5 become read-only with original Véu; configuration maps to Prisma with base XP
+  ---
+  duration_ms: 10.631267
+  type: 'test'
+  ...
+# Subtest: previous engine results and ability names remain unchanged and cannot enter current engine
+ok 5 - previous engine results and ability names remain unchanged and cannot enter current engine
+  ---
+  duration_ms: 30.281855
+  type: 'test'
+  ...
+# Subtest: legacy 1.0 imports remain read-only and checksum corruption is rejected
+ok 6 - legacy 1.0 imports remain read-only and checksum corruption is rejected
+  ---
+  duration_ms: 3.028988
+  type: 'test'
+  ...
+# Subtest: mechanics mismatch rejected at envelope and session even with a recomputed payload digest
+ok 7 - mechanics mismatch rejected at envelope and session even with a recomputed payload digest
+  ---
+  duration_ms: 1.169728
+  type: 'test'
+  ...
+# Subtest: corrupted archives reject digest changes, unknown mode and nested acervos; rescue preserves bytes
+ok 8 - corrupted archives reject digest changes, unknown mode and nested acervos; rescue preserves bytes
+  ---
+  duration_ms: 0.976446
+  type: 'test'
+  ...
+# Subtest: atomic persistence refuses stale reset and retains current campaign, then commits a valid reset
+ok 9 - atomic persistence refuses stale reset and retains current campaign, then commits a valid reset
+  ---
+  duration_ms: 15.028373
+  type: 'test'
+  ...
+# Subtest: Prisma slot 0: completion consumes one resource and uses approved timing
+ok 10 - Prisma slot 0: completion consumes one resource and uses approved timing
+  ---
+  duration_ms: 9.328486
+  type: 'test'
+  ...
+# Subtest: Prisma slot 1: completion consumes one resource and uses approved timing
+ok 11 - Prisma slot 1: completion consumes one resource and uses approved timing
+  ---
+  duration_ms: 0.848492
+  type: 'test'
+  ...
+# Subtest: Prisma slot 2: completion consumes one resource and uses approved timing
+ok 12 - Prisma slot 2: completion consumes one resource and uses approved timing
+  ---
+  duration_ms: 1.100463
+  type: 'test'
+  ...
+# Subtest: Prisma slot 3: completion consumes one resource and uses approved timing
+ok 13 - Prisma slot 3: completion consumes one resource and uses approved timing
+  ---
+  duration_ms: 1.117028
+  type: 'test'
+  ...
+# Subtest: Bastião slot 0: completion consumes one resource and uses approved timing
+ok 14 - Bastião slot 0: completion consumes one resource and uses approved timing
+  ---
+  duration_ms: 0.816573
+  type: 'test'
+  ...
+# Subtest: Bastião slot 1: completion consumes one resource and uses approved timing
+ok 15 - Bastião slot 1: completion consumes one resource and uses approved timing
+  ---
+  duration_ms: 0.762463
+  type: 'test'
+  ...
+# Subtest: Bastião slot 2: completion consumes one resource and uses approved timing
+ok 16 - Bastião slot 2: completion consumes one resource and uses approved timing
+  ---
+  duration_ms: 0.761831
+  type: 'test'
+  ...
+# Subtest: Bastião slot 3: completion consumes one resource and uses approved timing
+ok 17 - Bastião slot 3: completion consumes one resource and uses approved timing
+  ---
+  duration_ms: 0.518964
+  type: 'test'
+  ...
+# Subtest: Prisma replaces active Véu; all eight agents retain four unique named slots
+ok 18 - Prisma replaces active Véu; all eight agents retain four unique named slots
+  ---
+  duration_ms: 0.200062
+  type: 'test'
+  ...
+# Subtest: explicit local edges required; no duplicate or nonincident core edges and no self link
+ok 19 - explicit local edges required; no duplicate or nonincident core edges and no self link
+  ---
+  duration_ms: 0.459394
+  type: 'test'
+  ...
+# Subtest: opaque wall blocks both observers and transit without blocking movement; filter is directional
+ok 20 - opaque wall blocks both observers and transit without blocking movement; filter is directional
+  ---
+  duration_ms: 2.114465
+  type: 'test'
+  ...
+# Subtest: optical penalties select max, spare allies, end immediately on movement and apply at arrival
+ok 21 - optical penalties select max, spare allies, end immediately on movement and apply at arrival
+  ---
+  duration_ms: 0.703894
+  type: 'test'
+  ...
+# Subtest: neutralization is continuous, local and blocks firing; movement cancels and restarts its clock
+ok 22 - neutralization is continuous, local and blocks firing; movement cancels and restarts its clock
+  ---
+  duration_ms: 0.660348
+  type: 'test'
+  ...
+# Subtest: Prisma: warned core can be neutralized only after full continuous device action
+ok 23 - Prisma: warned core can be neutralized only after full continuous device action
+  ---
+  duration_ms: 0.584132
+  type: 'test'
+  ...
+# Subtest: Bastião: warned core can be neutralized only after full continuous device action
+ok 24 - Bastião: warned core can be neutralized only after full continuous device action
+  ---
+  duration_ms: 0.743072
+  type: 'test'
+  ...
+# Subtest: death before completion preserves charge; deployed cover persists death while link breaks
+ok 25 - death before completion preserves charge; deployed cover persists death while link breaks
+  ---
+  duration_ms: 0.824726
+  type: 'test'
+  ...
+# Subtest: link breaks on movement and invalid target completion spends no charge
+ok 26 - link breaks on movement and invalid target completion spends no charge
+  ---
+  duration_ms: 0.476209
+  type: 'test'
+  ...
+# Subtest: oriented cover protects stationary allies only from its incoming edge and only weapon damage
+ok 27 - oriented cover protects stationary allies only from its incoming edge and only weapon damage
+  ---
+  duration_ms: 0.519785
+  type: 'test'
+  ...
+# Subtest: route pool is shared both directions, moving allies only, with unchanged travel
+ok 28 - route pool is shared both directions, moving allies only, with unchanged travel
+  ---
+  duration_ms: 0.839058
+  type: 'test'
+  ...
+# Subtest: one strongest nominal layer selected; exhausted layer gives no same-hit fallback
+ok 29 - one strongest nominal layer selected; exhausted layer gives no same-hit fallback
+  ---
+  duration_ms: 0.318061
+  type: 'test'
+  ...
+# Subtest: shared redoubt pool apportions simultaneous hits deterministically without source order advantage
+ok 30 - shared redoubt pool apportions simultaneous hits deterministically without source order advantage
+  ---
+  duration_ms: 0.402718
+  type: 'test'
+  ...
+# Subtest: unchanged seeds replay new AI deterministically on both maps and sides
+ok 31 - unchanged seeds replay new AI deterministically on both maps and sides
+  ---
+  duration_ms: 147.607253
+  type: 'test'
+  ...
+# Subtest: resource-preservation instruction also holds new slots until the plant
+ok 32 - resource-preservation instruction also holds new slots until the plant
+  ---
+  duration_ms: 0.677333
+  type: 'test'
+  ...
+# Subtest: new effect telemetry has readable localized summaries including exhausted capacity
+ok 33 - new effect telemetry has readable localized summaries including exhausted capacity
+  ---
+  duration_ms: 5.566291
+  type: 'test'
+  ...
+1..33
+# tests 33
+# suites 0
+# pass 33
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1196.016673

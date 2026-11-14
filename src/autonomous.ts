@@ -1,4 +1,5 @@
 import {sha256} from './hash.ts';
+import {MECHANICS} from './content.ts';
 import {beginRound,completeRound,createMap} from './map.ts';
 import {quoteBuy} from './economy.ts';
 import type {Account,Plan} from './economy.ts';
@@ -33,8 +34,8 @@ export function simulateMap(profiles:Profile[],options:AutonomousOptions){
     state=completeRound(ready.state,result,result.kills);rounds.push(result);
   }
   if(state.phase!=='finished')throw new Error(`Overtime safety limit (${limit}); no partial winner persisted`);
-  const contentHash=sha256(JSON.stringify(profiles));
-  return {engineVersion:ENGINE_VERSION,rulesVersion:RULES_VERSION,contentHash,initialProfiles:structuredClone(profiles),options:structuredClone(options),state,purchases,rounds,
+  const contentHash=sha256(JSON.stringify({profiles,mechanics:MECHANICS}));
+  return {mechanics:MECHANICS,engineVersion:ENGINE_VERSION,rulesVersion:RULES_VERSION,contentHash,initialProfiles:structuredClone(profiles),options:structuredClone(options),state,purchases,rounds,
     summary:{winner:state.winner,score:state.score,rounds:rounds.length,plants:rounds.flatMap(r=>r.events).filter(e=>e.kind==='planted').length,
       defuses:rounds.filter(r=>r.reason==='defused').length,events:rounds.reduce((s,r)=>s+r.processed,0),
       abilityUses:rounds.reduce((all,r)=>{for(const [key,n] of Object.entries(r.abilityUses))all[key]=(all[key]??0)+n;return all;},{} as Record<string,number>)}};

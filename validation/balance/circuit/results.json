@@ -1,0 +1,503 @@
+{
+  "scope": "Integration sample: complete circuits, two legal rosters, three training routines. Not global balance certification or browser QA.",
+  "campaigns": 6,
+  "matches": 168,
+  "rounds": 3221,
+  "npcHash": "b80cfcd8a2e52cbffc41e3eb1807846e3027c658bd07c2d2c6ed461cd07b130f",
+  "npcUnchanged": true,
+  "maximumSaveBytes": 8893781,
+  "results": [
+    {
+      "roster": 0,
+      "mode": "none",
+      "seed": 902111,
+      "matches": 28,
+      "rounds": 532,
+      "trainings": 0,
+      "place": 5,
+      "wins": 3,
+      "draws": 0,
+      "losses": 4,
+      "cashCents": 1609333,
+      "baseCashCents": 1509333,
+      "historyLength": 7,
+      "saveBytes": 5251851,
+      "elapsedMs": 21314,
+      "fixtures": [
+        {
+          "day": 4,
+          "map": "doca",
+          "opponent": "pzr",
+          "score": {
+            "A": 13,
+            "B": 1
+          }
+        },
+        {
+          "day": 8,
+          "map": "cume",
+          "opponent": "frv",
+          "score": {
+            "A": 15,
+            "B": 13
+          }
+        },
+        {
+          "day": 12,
+          "map": "doca",
+          "opponent": "mra",
+          "score": {
+            "A": 7,
+            "B": 13
+          }
+        },
+        {
+          "day": 16,
+          "map": "cume",
+          "opponent": "vrt",
+          "score": {
+            "A": 6,
+            "B": 13
+          }
+        },
+        {
+          "day": 20,
+          "map": "doca",
+          "opponent": "fsk",
+          "score": {
+            "A": 13,
+            "B": 1
+          }
+        },
+        {
+          "day": 24,
+          "map": "cume",
+          "opponent": "blt",
+          "score": {
+            "A": 2,
+            "B": 13
+          }
+        },
+        {
+          "day": 28,
+          "map": "doca",
+          "opponent": "crn",
+          "score": {
+            "A": 4,
+            "B": 13
+          }
+        }
+      ]
+    },
+    {
+      "roster": 0,
+      "mode": "collective",
+      "seed": 902130,
+      "matches": 28,
+      "rounds": 531,
+      "trainings": 28,
+      "place": 5,
+      "wins": 3,
+      "draws": 0,
+      "losses": 4,
+      "cashCents": 1609333,
+      "baseCashCents": 1509333,
+      "historyLength": 7,
+      "saveBytes": 5817583,
+      "elapsedMs": 20568,
+      "fixtures": [
+        {
+          "day": 4,
+          "map": "doca",
+          "opponent": "pzr",
+          "score": {
+            "A": 13,
+            "B": 0
+          }
+        },
+        {
+          "day": 8,
+          "map": "cume",
+          "opponent": "frv",
+          "score": {
+            "A": 13,
+            "B": 5
+          }
+        },
+        {
+          "day": 12,
+          "map": "doca",
+          "opponent": "mra",
+          "score": {
+            "A": 4,
+            "B": 13
+          }
+        },
+        {
+          "day": 16,
+          "map": "cume",
+          "opponent": "vrt",
+          "score": {
+            "A": 8,
+            "B": 13
+          }
+        },
+        {
+          "day": 20,
+          "map": "doca",
+          "opponent": "fsk",
+          "score": {
+            "A": 13,
+            "B": 2
+          }
+        },
+        {
+          "day": 24,
+          "map": "cume",
+          "opponent": "blt",
+          "score": {
+            "A": 6,
+            "B": 13
+          }
+        },
+        {
+          "day": 28,
+          "map": "doca",
+          "opponent": "crn",
+          "score": {
+            "A": 14,
+            "B": 16
+          }
+        }
+      ]
+    },
+    {
+      "roster": 0,
+      "mode": "individual",
+      "seed": 902149,
+      "matches": 28,
+      "rounds": 544,
+      "trainings": 28,
+      "place": 3,
+      "wins": 5,
+      "draws": 0,
+      "losses": 2,
+      "cashCents": 1809333,
+      "baseCashCents": 1509333,
+      "historyLength": 7,
+      "saveBytes": 5611647,
+      "elapsedMs": 20010,
+      "fixtures": [
+        {
+          "day": 4,
+          "map": "doca",
+          "opponent": "pzr",
+          "score": {
+            "A": 13,
+            "B": 6
+          }
+        },
+        {
+          "day": 8,
+          "map": "cume",
+          "opponent": "frv",
+          "score": {
+            "A": 13,
+            "B": 4
+          }
+        },
+        {
+          "day": 12,
+          "map": "doca",
+          "opponent": "mra",
+          "score": {
+            "A": 6,
+            "B": 13
+          }
+        },
+        {
+          "day": 16,
+          "map": "cume",
+          "opponent": "vrt",
+          "score": {
+            "A": 13,
+            "B": 11
+          }
+        },
+        {
+          "day": 20,
+          "map": "doca",
+          "opponent": "fsk",
+          "score": {
+            "A": 13,
+            "B": 1
+          }
+        },
+        {
+          "day": 24,
+          "map": "cume",
+          "opponent": "blt",
+          "score": {
+            "A": 14,
+            "B": 12
+          }
+        },
+        {
+          "day": 28,
+          "map": "doca",
+          "opponent": "crn",
+          "score": {
+            "A": 1,
+            "B": 13
+          }
+        }
+      ]
+    },
+    {
+      "roster": 1,
+      "mode": "none",
+      "seed": 902182,
+      "matches": 28,
+      "rounds": 520,
+      "trainings": 0,
+      "place": 5,
+      "wins": 3,
+      "draws": 0,
+      "losses": 4,
+      "cashCents": 1609333,
+      "baseCashCents": 1509333,
+      "historyLength": 7,
+      "saveBytes": 4890131,
+      "elapsedMs": 16174,
+      "fixtures": [
+        {
+          "day": 4,
+          "map": "doca",
+          "opponent": "pzr",
+          "score": {
+            "A": 13,
+            "B": 2
+          }
+        },
+        {
+          "day": 8,
+          "map": "cume",
+          "opponent": "frv",
+          "score": {
+            "A": 13,
+            "B": 6
+          }
+        },
+        {
+          "day": 12,
+          "map": "doca",
+          "opponent": "mra",
+          "score": {
+            "A": 11,
+            "B": 13
+          }
+        },
+        {
+          "day": 16,
+          "map": "cume",
+          "opponent": "vrt",
+          "score": {
+            "A": 0,
+            "B": 13
+          }
+        },
+        {
+          "day": 20,
+          "map": "doca",
+          "opponent": "fsk",
+          "score": {
+            "A": 13,
+            "B": 6
+          }
+        },
+        {
+          "day": 24,
+          "map": "cume",
+          "opponent": "blt",
+          "score": {
+            "A": 5,
+            "B": 13
+          }
+        },
+        {
+          "day": 28,
+          "map": "doca",
+          "opponent": "crn",
+          "score": {
+            "A": 0,
+            "B": 13
+          }
+        }
+      ]
+    },
+    {
+      "roster": 1,
+      "mode": "collective",
+      "seed": 902201,
+      "matches": 28,
+      "rounds": 570,
+      "trainings": 28,
+      "place": 5,
+      "wins": 3,
+      "draws": 0,
+      "losses": 4,
+      "cashCents": 1609333,
+      "baseCashCents": 1509333,
+      "historyLength": 7,
+      "saveBytes": 5391563,
+      "elapsedMs": 20284,
+      "fixtures": [
+        {
+          "day": 4,
+          "map": "doca",
+          "opponent": "pzr",
+          "score": {
+            "A": 13,
+            "B": 0
+          }
+        },
+        {
+          "day": 8,
+          "map": "cume",
+          "opponent": "frv",
+          "score": {
+            "A": 11,
+            "B": 13
+          }
+        },
+        {
+          "day": 12,
+          "map": "doca",
+          "opponent": "mra",
+          "score": {
+            "A": 13,
+            "B": 10
+          }
+        },
+        {
+          "day": 16,
+          "map": "cume",
+          "opponent": "vrt",
+          "score": {
+            "A": 8,
+            "B": 13
+          }
+        },
+        {
+          "day": 20,
+          "map": "doca",
+          "opponent": "fsk",
+          "score": {
+            "A": 13,
+            "B": 1
+          }
+        },
+        {
+          "day": 24,
+          "map": "cume",
+          "opponent": "blt",
+          "score": {
+            "A": 9,
+            "B": 13
+          }
+        },
+        {
+          "day": 28,
+          "map": "doca",
+          "opponent": "crn",
+          "score": {
+            "A": 3,
+            "B": 13
+          }
+        }
+      ]
+    },
+    {
+      "roster": 1,
+      "mode": "individual",
+      "seed": 902220,
+      "matches": 28,
+      "rounds": 524,
+      "trainings": 28,
+      "place": 3,
+      "wins": 4,
+      "draws": 0,
+      "losses": 3,
+      "cashCents": 1809333,
+      "baseCashCents": 1509333,
+      "historyLength": 20,
+      "saveBytes": 8893781,
+      "elapsedMs": 44691,
+      "fixtures": [
+        {
+          "day": 4,
+          "map": "doca",
+          "opponent": "pzr",
+          "score": {
+            "A": 13,
+            "B": 2
+          }
+        },
+        {
+          "day": 8,
+          "map": "cume",
+          "opponent": "frv",
+          "score": {
+            "A": 13,
+            "B": 10
+          }
+        },
+        {
+          "day": 12,
+          "map": "doca",
+          "opponent": "mra",
+          "score": {
+            "A": 14,
+            "B": 12
+          }
+        },
+        {
+          "day": 16,
+          "map": "cume",
+          "opponent": "vrt",
+          "score": {
+            "A": 10,
+            "B": 13
+          }
+        },
+        {
+          "day": 20,
+          "map": "doca",
+          "opponent": "fsk",
+          "score": {
+            "A": 13,
+            "B": 3
+          }
+        },
+        {
+          "day": 24,
+          "map": "cume",
+          "opponent": "blt",
+          "score": {
+            "A": 5,
+            "B": 13
+          }
+        },
+        {
+          "day": 28,
+          "map": "doca",
+          "opponent": "crn",
+          "score": {
+            "A": 1,
+            "B": 13
+          }
+        }
+      ]
+    }
+  ]
+}

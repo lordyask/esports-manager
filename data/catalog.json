@@ -31,7 +31,8 @@
       "class_": "Duelista",
       "second": "Ímpeto",
       "third": "Farol",
-      "mental": "Sensível"
+      "mental": "Sensível",
+      "country": "México"
     },
     {
       "id": "J02",
@@ -64,7 +65,8 @@
       "class_": "Duelista",
       "second": "Estalo",
       "third": "Pulso",
-      "mental": "Sensível"
+      "mental": "Sensível",
+      "country": "Brasil"
     },
     {
       "id": "J03",
@@ -97,7 +99,8 @@
       "class_": "Iniciador",
       "second": "Pulso",
       "third": "Bruma",
-      "mental": "Sensível"
+      "mental": "Sensível",
+      "country": "Brasil"
     },
     {
       "id": "J04",
@@ -129,8 +132,9 @@
       "main": "Pulso",
       "class_": "Iniciador",
       "second": "Farol",
-      "third": "Véu",
-      "mental": "Moderado"
+      "third": "Prisma",
+      "mental": "Moderado",
+      "country": "Chile"
     },
     {
       "id": "J05",
@@ -161,9 +165,10 @@
       },
       "main": "Bruma",
       "class_": "Controlador",
-      "second": "Véu",
+      "second": "Prisma",
       "third": "Trava",
-      "mental": "Moderado"
+      "mental": "Moderado",
+      "country": "Peru"
     },
     {
       "id": "J06",
@@ -192,11 +197,12 @@
         "Lurker": 59.3,
         "Main OP": 55.8
       },
-      "main": "Véu",
+      "main": "Prisma",
       "class_": "Controlador",
       "second": "Bruma",
       "third": "Bastião",
-      "mental": "Sensível"
+      "mental": "Sensível",
+      "country": "Brasil"
     },
     {
       "id": "J07",
@@ -229,7 +235,8 @@
       "class_": "Sentinela",
       "second": "Bastião",
       "third": "Estalo",
-      "mental": "Moderado"
+      "mental": "Moderado",
+      "country": "Argentina"
     },
     {
       "id": "J08",
@@ -262,7 +269,8 @@
       "class_": "Sentinela",
       "second": "Trava",
       "third": "Ímpeto",
-      "mental": "Moderado"
+      "mental": "Moderado",
+      "country": "Colômbia"
     },
     {
       "id": "J09",
@@ -295,7 +303,8 @@
       "class_": "Duelista",
       "second": "Ímpeto",
       "third": "Farol",
-      "mental": "Moderado"
+      "mental": "Moderado",
+      "country": "Brasil"
     },
     {
       "id": "J10",
@@ -328,7 +337,8 @@
       "class_": "Duelista",
       "second": "Estalo",
       "third": "Pulso",
-      "mental": "Estável"
+      "mental": "Estável",
+      "country": "Argentina"
     },
     {
       "id": "J11",
@@ -361,7 +371,8 @@
       "class_": "Iniciador",
       "second": "Pulso",
       "third": "Bruma",
-      "mental": "Moderado"
+      "mental": "Moderado",
+      "country": "México"
     },
     {
       "id": "J12",
@@ -393,8 +404,9 @@
       "main": "Pulso",
       "class_": "Iniciador",
       "second": "Farol",
-      "third": "Véu",
-      "mental": "Estável"
+      "third": "Prisma",
+      "mental": "Estável",
+      "country": "Uruguai"
     },
     {
       "id": "J13",
@@ -425,9 +437,10 @@
       },
       "main": "Bruma",
       "class_": "Controlador",
-      "second": "Véu",
+      "second": "Prisma",
       "third": "Trava",
-      "mental": "Moderado"
+      "mental": "Moderado",
+      "country": "Chile"
     },
     {
       "id": "J14",
@@ -456,11 +469,12 @@
         "Lurker": 74.3,
         "Main OP": 70.8
       },
-      "main": "Véu",
+      "main": "Prisma",
       "class_": "Controlador",
       "second": "Bruma",
       "third": "Bastião",
-      "mental": "Sensível"
+      "mental": "Sensível",
+      "country": "Brasil"
     },
     {
       "id": "J15",
@@ -493,7 +507,8 @@
       "class_": "Sentinela",
       "second": "Bastião",
       "third": "Estalo",
-      "mental": "Estável"
+      "mental": "Estável",
+      "country": "Colômbia"
     },
     {
       "id": "J16",
@@ -526,7 +541,8 @@
       "class_": "Sentinela",
       "second": "Trava",
       "third": "Ímpeto",
-      "mental": "Estável"
+      "mental": "Estável",
+      "country": "Uruguai"
     },
     {
       "id": "J17",
@@ -559,7 +575,8 @@
       "class_": "Duelista",
       "second": "Ímpeto",
       "third": "Farol",
-      "mental": "Estável"
+      "mental": "Estável",
+      "country": "Brasil"
     },
     {
       "id": "J18",
@@ -592,7 +609,8 @@
       "class_": "Duelista",
       "second": "Estalo",
       "third": "Pulso",
-      "mental": "Estável"
+      "mental": "Estável",
+      "country": "Argentina"
     },
     {
       "id": "J19",
@@ -625,7 +643,8 @@
       "class_": "Iniciador",
       "second": "Pulso",
       "third": "Bruma",
-      "mental": "Sensível"
+      "mental": "Sensível",
+      "country": "Brasil"
     },
     {
       "id": "J20",
@@ -657,8 +676,9 @@
       "main": "Pulso",
       "class_": "Iniciador",
       "second": "Farol",
-      "third": "Véu",
-      "mental": "Sensível"
+      "third": "Prisma",
+      "mental": "Sensível",
+      "country": "México"
     },
     {
       "id": "J21",
@@ -689,9 +709,10 @@
       },
       "main": "Bruma",
       "class_": "Controlador",
-      "second": "Véu",
+      "second": "Prisma",
       "third": "Trava",
-      "mental": "Moderado"
+      "mental": "Moderado",
+      "country": "Peru"
     },
     {
       "id": "J22",
@@ -720,11 +741,12 @@
         "Lurker": 65.7,
         "Main OP": 61.2
       },
-      "main": "Véu",
+      "main": "Prisma",
       "class_": "Controlador",
       "second": "Bruma",
       "third": "Bastião",
-      "mental": "Sensível"
+      "mental": "Sensível",
+      "country": "Costa Rica"
     },
     {
       "id": "J23",
@@ -757,7 +779,8 @@
       "class_": "Sentinela",
       "second": "Bastião",
       "third": "Estalo",
-      "mental": "Sensível"
+      "mental": "Sensível",
+      "country": "Equador"
     },
     {
       "id": "J24",
@@ -790,7 +813,8 @@
       "class_": "Sentinela",
       "second": "Trava",
       "third": "Ímpeto",
-      "mental": "Sensível"
+      "mental": "Sensível",
+      "country": "Paraguai"
     }
   ],
   "weights": {

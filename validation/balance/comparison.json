@@ -1,0 +1,562 @@
+{
+  "scope": "Observed paired results, without forcing a success rate. Mirrored synthetic rosters, fixed attributes 60. Grouped formation contains Second; spread contains Lurker instead. Kit masks are analysis-only ablations on both teams. Full and ultimate are separate tests; full uses zero initial ultimate. No competitive balance certification, browser QA or general population confidence claim.",
+  "mechanics": {
+    "engine": "0.5.1",
+    "rules": "nexus-2.0-reworks-r1",
+    "contentHash": "2927c8d9307e13990592a893fc71a3e35a17d7f1bea92a11bf0a2af0cdd447e8"
+  },
+  "unchangedFiles": [
+    "src/abilities.ts",
+    "src/rework-effects.ts",
+    "src/maps.ts",
+    "src/economy.ts",
+    "data/catalog.json",
+    "data/opponents.json"
+  ],
+  "totalExperimental": 27648,
+  "totalDiagnostic": 864,
+  "totalRounds": 28512,
+  "grouped": {
+    "beforeName": "grouped-before",
+    "afterName": "grouped-after",
+    "pairedRounds": 6144,
+    "summary": [
+      {
+        "kit": "eco",
+        "mask": "none",
+        "rounds": 384,
+        "attackWinsBefore": 151,
+        "attackWinsAfter": 151,
+        "attackRateBefore": 39.32,
+        "attackRateAfter": 39.32,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 69,
+        "plantsAfter": 69
+      },
+      {
+        "kit": "eco",
+        "mask": "prisma",
+        "rounds": 384,
+        "attackWinsBefore": 215,
+        "attackWinsAfter": 215,
+        "attackRateBefore": 55.99,
+        "attackRateAfter": 55.99,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 135,
+        "plantsAfter": 135
+      },
+      {
+        "kit": "eco",
+        "mask": "bastiao",
+        "rounds": 384,
+        "attackWinsBefore": 129,
+        "attackWinsAfter": 129,
+        "attackRateBefore": 33.59,
+        "attackRateAfter": 33.59,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 62,
+        "plantsAfter": 62
+      },
+      {
+        "kit": "eco",
+        "mask": "both",
+        "rounds": 384,
+        "attackWinsBefore": 216,
+        "attackWinsAfter": 216,
+        "attackRateBefore": 56.25,
+        "attackRateAfter": 56.25,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 123,
+        "plantsAfter": 123
+      },
+      {
+        "kit": "semi",
+        "mask": "none",
+        "rounds": 384,
+        "attackWinsBefore": 193,
+        "attackWinsAfter": 193,
+        "attackRateBefore": 50.26,
+        "attackRateAfter": 50.26,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 81,
+        "plantsAfter": 81
+      },
+      {
+        "kit": "semi",
+        "mask": "prisma",
+        "rounds": 384,
+        "attackWinsBefore": 224,
+        "attackWinsAfter": 224,
+        "attackRateBefore": 58.33,
+        "attackRateAfter": 58.33,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 129,
+        "plantsAfter": 129
+      },
+      {
+        "kit": "semi",
+        "mask": "bastiao",
+        "rounds": 384,
+        "attackWinsBefore": 191,
+        "attackWinsAfter": 191,
+        "attackRateBefore": 49.74,
+        "attackRateAfter": 49.74,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 83,
+        "plantsAfter": 83
+      },
+      {
+        "kit": "semi",
+        "mask": "both",
+        "rounds": 384,
+        "attackWinsBefore": 234,
+        "attackWinsAfter": 234,
+        "attackRateBefore": 60.94,
+        "attackRateAfter": 60.94,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 132,
+        "plantsAfter": 132
+      },
+      {
+        "kit": "full",
+        "mask": "none",
+        "rounds": 384,
+        "attackWinsBefore": 171,
+        "attackWinsAfter": 171,
+        "attackRateBefore": 44.53,
+        "attackRateAfter": 44.53,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 87,
+        "plantsAfter": 87
+      },
+      {
+        "kit": "full",
+        "mask": "prisma",
+        "rounds": 384,
+        "attackWinsBefore": 179,
+        "attackWinsAfter": 218,
+        "attackRateBefore": 46.61,
+        "attackRateAfter": 56.77,
+        "gained": 49,
+        "lost": 10,
+        "plantsBefore": 140,
+        "plantsAfter": 136
+      },
+      {
+        "kit": "full",
+        "mask": "bastiao",
+        "rounds": 384,
+        "attackWinsBefore": 194,
+        "attackWinsAfter": 194,
+        "attackRateBefore": 50.52,
+        "attackRateAfter": 50.52,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 87,
+        "plantsAfter": 86
+      },
+      {
+        "kit": "full",
+        "mask": "both",
+        "rounds": 384,
+        "attackWinsBefore": 175,
+        "attackWinsAfter": 215,
+        "attackRateBefore": 45.57,
+        "attackRateAfter": 55.99,
+        "gained": 48,
+        "lost": 8,
+        "plantsBefore": 123,
+        "plantsAfter": 139
+      },
+      {
+        "kit": "ultimate",
+        "mask": "none",
+        "rounds": 384,
+        "attackWinsBefore": 174,
+        "attackWinsAfter": 174,
+        "attackRateBefore": 45.31,
+        "attackRateAfter": 45.31,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 121,
+        "plantsAfter": 121
+      },
+      {
+        "kit": "ultimate",
+        "mask": "prisma",
+        "rounds": 384,
+        "attackWinsBefore": 165,
+        "attackWinsAfter": 182,
+        "attackRateBefore": 42.97,
+        "attackRateAfter": 47.4,
+        "gained": 24,
+        "lost": 7,
+        "plantsBefore": 140,
+        "plantsAfter": 157
+      },
+      {
+        "kit": "ultimate",
+        "mask": "bastiao",
+        "rounds": 384,
+        "attackWinsBefore": 158,
+        "attackWinsAfter": 158,
+        "attackRateBefore": 41.15,
+        "attackRateAfter": 41.15,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 128,
+        "plantsAfter": 127
+      },
+      {
+        "kit": "ultimate",
+        "mask": "both",
+        "rounds": 384,
+        "attackWinsBefore": 148,
+        "attackWinsAfter": 165,
+        "attackRateBefore": 38.54,
+        "attackRateAfter": 42.97,
+        "gained": 22,
+        "lost": 5,
+        "plantsBefore": 127,
+        "plantsAfter": 138
+      }
+    ],
+    "defenses": [
+      {
+        "defense": "balanced",
+        "rounds": 1536,
+        "attackWinsBefore": 773,
+        "attackWinsAfter": 830
+      }
+    ]
+  },
+  "spread": {
+    "beforeName": "exploration",
+    "afterName": "spread-after",
+    "pairedRounds": 6144,
+    "summary": [
+      {
+        "kit": "eco",
+        "mask": "none",
+        "rounds": 384,
+        "attackWinsBefore": 72,
+        "attackWinsAfter": 72,
+        "attackRateBefore": 18.75,
+        "attackRateAfter": 18.75,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 37,
+        "plantsAfter": 37
+      },
+      {
+        "kit": "eco",
+        "mask": "prisma",
+        "rounds": 384,
+        "attackWinsBefore": 70,
+        "attackWinsAfter": 70,
+        "attackRateBefore": 18.23,
+        "attackRateAfter": 18.23,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 43,
+        "plantsAfter": 43
+      },
+      {
+        "kit": "eco",
+        "mask": "bastiao",
+        "rounds": 384,
+        "attackWinsBefore": 67,
+        "attackWinsAfter": 67,
+        "attackRateBefore": 17.45,
+        "attackRateAfter": 17.45,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 30,
+        "plantsAfter": 30
+      },
+      {
+        "kit": "eco",
+        "mask": "both",
+        "rounds": 384,
+        "attackWinsBefore": 70,
+        "attackWinsAfter": 70,
+        "attackRateBefore": 18.23,
+        "attackRateAfter": 18.23,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 32,
+        "plantsAfter": 32
+      },
+      {
+        "kit": "semi",
+        "mask": "none",
+        "rounds": 384,
+        "attackWinsBefore": 81,
+        "attackWinsAfter": 81,
+        "attackRateBefore": 21.09,
+        "attackRateAfter": 21.09,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 10,
+        "plantsAfter": 10
+      },
+      {
+        "kit": "semi",
+        "mask": "prisma",
+        "rounds": 384,
+        "attackWinsBefore": 62,
+        "attackWinsAfter": 62,
+        "attackRateBefore": 16.15,
+        "attackRateAfter": 16.15,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 20,
+        "plantsAfter": 20
+      },
+      {
+        "kit": "semi",
+        "mask": "bastiao",
+        "rounds": 384,
+        "attackWinsBefore": 100,
+        "attackWinsAfter": 100,
+        "attackRateBefore": 26.04,
+        "attackRateAfter": 26.04,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 10,
+        "plantsAfter": 10
+      },
+      {
+        "kit": "semi",
+        "mask": "both",
+        "rounds": 384,
+        "attackWinsBefore": 76,
+        "attackWinsAfter": 76,
+        "attackRateBefore": 19.79,
+        "attackRateAfter": 19.79,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 15,
+        "plantsAfter": 15
+      },
+      {
+        "kit": "full",
+        "mask": "none",
+        "rounds": 384,
+        "attackWinsBefore": 52,
+        "attackWinsAfter": 52,
+        "attackRateBefore": 13.54,
+        "attackRateAfter": 13.54,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 15,
+        "plantsAfter": 15
+      },
+      {
+        "kit": "full",
+        "mask": "prisma",
+        "rounds": 384,
+        "attackWinsBefore": 82,
+        "attackWinsAfter": 76,
+        "attackRateBefore": 21.35,
+        "attackRateAfter": 19.79,
+        "gained": 27,
+        "lost": 33,
+        "plantsBefore": 44,
+        "plantsAfter": 30
+      },
+      {
+        "kit": "full",
+        "mask": "bastiao",
+        "rounds": 384,
+        "attackWinsBefore": 63,
+        "attackWinsAfter": 63,
+        "attackRateBefore": 16.41,
+        "attackRateAfter": 16.41,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 13,
+        "plantsAfter": 13
+      },
+      {
+        "kit": "full",
+        "mask": "both",
+        "rounds": 384,
+        "attackWinsBefore": 73,
+        "attackWinsAfter": 58,
+        "attackRateBefore": 19.01,
+        "attackRateAfter": 15.1,
+        "gained": 27,
+        "lost": 42,
+        "plantsBefore": 36,
+        "plantsAfter": 17
+      },
+      {
+        "kit": "ultimate",
+        "mask": "none",
+        "rounds": 384,
+        "attackWinsBefore": 70,
+        "attackWinsAfter": 70,
+        "attackRateBefore": 18.23,
+        "attackRateAfter": 18.23,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 91,
+        "plantsAfter": 91
+      },
+      {
+        "kit": "ultimate",
+        "mask": "prisma",
+        "rounds": 384,
+        "attackWinsBefore": 85,
+        "attackWinsAfter": 91,
+        "attackRateBefore": 22.14,
+        "attackRateAfter": 23.7,
+        "gained": 17,
+        "lost": 11,
+        "plantsBefore": 104,
+        "plantsAfter": 96
+      },
+      {
+        "kit": "ultimate",
+        "mask": "bastiao",
+        "rounds": 384,
+        "attackWinsBefore": 58,
+        "attackWinsAfter": 58,
+        "attackRateBefore": 15.1,
+        "attackRateAfter": 15.1,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 84,
+        "plantsAfter": 84
+      },
+      {
+        "kit": "ultimate",
+        "mask": "both",
+        "rounds": 384,
+        "attackWinsBefore": 62,
+        "attackWinsAfter": 78,
+        "attackRateBefore": 16.15,
+        "attackRateAfter": 20.31,
+        "gained": 27,
+        "lost": 11,
+        "plantsBefore": 83,
+        "plantsAfter": 88
+      }
+    ],
+    "defenses": [
+      {
+        "defense": "balanced",
+        "rounds": 1536,
+        "attackWinsBefore": 281,
+        "attackWinsAfter": 282
+      }
+    ]
+  },
+  "holdout": {
+    "beforeName": "holdout-before",
+    "afterName": "holdout-after",
+    "pairedRounds": 1536,
+    "summary": [
+      {
+        "kit": "eco",
+        "mask": "both",
+        "rounds": 384,
+        "attackWinsBefore": 194,
+        "attackWinsAfter": 194,
+        "attackRateBefore": 50.52,
+        "attackRateAfter": 50.52,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 110,
+        "plantsAfter": 110
+      },
+      {
+        "kit": "semi",
+        "mask": "both",
+        "rounds": 384,
+        "attackWinsBefore": 192,
+        "attackWinsAfter": 192,
+        "attackRateBefore": 50,
+        "attackRateAfter": 50,
+        "gained": 0,
+        "lost": 0,
+        "plantsBefore": 127,
+        "plantsAfter": 127
+      },
+      {
+        "kit": "full",
+        "mask": "both",
+        "rounds": 384,
+        "attackWinsBefore": 156,
+        "attackWinsAfter": 184,
+        "attackRateBefore": 40.63,
+        "attackRateAfter": 47.92,
+        "gained": 43,
+        "lost": 15,
+        "plantsBefore": 114,
+        "plantsAfter": 128
+      },
+      {
+        "kit": "ultimate",
+        "mask": "both",
+        "rounds": 384,
+        "attackWinsBefore": 159,
+        "attackWinsAfter": 173,
+        "attackRateBefore": 41.41,
+        "attackRateAfter": 45.05,
+        "gained": 25,
+        "lost": 11,
+        "plantsBefore": 147,
+        "plantsAfter": 156
+      }
+    ],
+    "defenses": [
+      {
+        "defense": "balanced",
+        "rounds": 384,
+        "attackWinsBefore": 168,
+        "attackWinsAfter": 185
+      },
+      {
+        "defense": "reading",
+        "rounds": 384,
+        "attackWinsBefore": 173,
+        "attackWinsAfter": 185
+      },
+      {
+        "defense": "aggressive",
+        "rounds": 384,
+        "attackWinsBefore": 224,
+        "attackWinsAfter": 232
+      },
+      {
+        "defense": "retake",
+        "rounds": 384,
+        "attackWinsBefore": 136,
+        "attackWinsAfter": 141
+      }
+    ]
+  },
+  "trace": [
+    {
+      "label": "before",
+      "at": 1500,
+      "simultaneousAlliedNeutralizations": 5
+    },
+    {
+      "label": "after",
+      "at": 1500,
+      "simultaneousAlliedNeutralizations": 1
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+name: Validar balanceamento dos reworks (sem publicar)
+on:
+  push:
+    branches: [development/beta-2.0-reworks-balance]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXUS_VALIDATION_DIRECTORY: validation/balance/circuit
+      NEXUS_CIRCUIT_FIXTURES: /tmp/nexus-balance-circuit
+      NEXUS_BALANCE_FORMATION: grouped
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+      - run: NEXUS_BALANCE_ENGINE=before NEXUS_BALANCE_DIRECTORY=validation/balance/grouped-before node scripts/balance-reworks.ts
+      - run: NEXUS_BALANCE_DIRECTORY=validation/balance/grouped-after node scripts/balance-reworks.ts
+      - run: NEXUS_BALANCE_ENGINE=before NEXUS_BALANCE_FORMATION=spread NEXUS_BALANCE_DIRECTORY=validation/balance/exploration node scripts/balance-reworks.ts
+      - run: NEXUS_BALANCE_FORMATION=spread NEXUS_BALANCE_DIRECTORY=validation/balance/spread-after node scripts/balance-reworks.ts
+      - run: NEXUS_BALANCE_ENGINE=before NEXUS_BALANCE_DEFENSE=all NEXUS_BALANCE_MASKS=both NEXUS_BALANCE_SEEDS=3 NEXUS_BALANCE_OFFSET=2000003 NEXUS_BALANCE_DIRECTORY=validation/balance/holdout-before node scripts/balance-reworks.ts
+      - run: NEXUS_BALANCE_DEFENSE=all NEXUS_BALANCE_MASKS=both NEXUS_BALANCE_SEEDS=3 NEXUS_BALANCE_OFFSET=2000003 NEXUS_BALANCE_DIRECTORY=validation/balance/holdout-after node scripts/balance-reworks.ts
+      - run: NEXUS_TRACE_TAG=before node scripts/trace-balance.ts
+      - run: NEXUS_TRACE_TAG=after node scripts/trace-balance.ts
+      - run: node scripts/balance-summary.ts
+      - run: node scripts/validate-circuit.ts
+      - run: node validation/circuit/check-panels.mjs
+      - run: node validation/reworks/check-panels.mjs
+      - run: npm run build
+      - run: node scripts/check-export.ts
+      - run: npm run build
+        env:
+          PAGES_BASE_PATH: /esports-manager
+      - run: node scripts/check-export.ts
+        env:
+          PAGES_BASE_PATH: /esports-manager
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reworks-balance-validation
+          path: validation/balance/
+          retention-days: 14

@@ -1,0 +1,21 @@
+{
+  "method": "React static rendering only; no browser events, CSS layout, focus, opening links or image network load verification.",
+  "base": "",
+  "checks": [
+    "all eight agents show their own key art, card, class and four live ability names",
+    "preparation displays assigned agents without replacing athlete identities",
+    "locked preparation retains visuals and disables all fifteen existing controls",
+    "controlled preparation props select matching Estalo artwork",
+    "controlled preparation props select matching Ímpeto artwork",
+    "controlled preparation props select matching Farol artwork",
+    "controlled preparation props select matching Pulso artwork",
+    "controlled preparation props select matching Bruma artwork",
+    "controlled preparation props select matching Prisma artwork",
+    "controlled preparation props select matching Trava artwork",
+    "controlled preparation props select matching Bastião artwork",
+    "athlete Prisma J11 keeps main Farol; no alias to agent Prisma",
+    "attribute training illustrates assigned agent",
+    "agent training illustrates focus without modifying assignment"
+  ],
+  "passed": 14
+}

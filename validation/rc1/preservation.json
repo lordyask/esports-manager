@@ -1,0 +1,12 @@
+{
+  "baseline": "7b343e7fdcb4d57d8fb69fe83bac850424ef6bb0",
+  "unchanged": [
+    "src",
+    "data",
+    "public",
+    "legacy"
+  ],
+  "engine": "0.5.1",
+  "saveSchema": 6,
+  "candidate": "2.0.0-rc.1"
+}

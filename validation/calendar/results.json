@@ -1,0 +1,1895 @@
+{
+  "scope": "Calendar/training integration, fixed NPCs, two legal rosters, three routines. No global balance or financial/standings certification.",
+  "campaigns": 6,
+  "matches": 42,
+  "rounds": 716,
+  "dailySessions": 112,
+  "npcUnchanged": true,
+  "npcHash": "f75a5d4febfe404762f594057c561f326f8259a8ef936e300f82b2119fba28a2",
+  "results": [
+    {
+      "roster": 0,
+      "mode": "collective",
+      "seed": 11102026,
+      "days": 28,
+      "trainings": 28,
+      "missed": 0,
+      "matches": 7,
+      "rounds": 125,
+      "results": [
+        {
+          "day": 4,
+          "map": "doca",
+          "opponent": "pzr",
+          "score": {
+            "A": 13,
+            "B": 4
+          },
+          "winner": "A",
+          "seed": 2665537795,
+          "rounds": 17
+        },
+        {
+          "day": 8,
+          "map": "cume",
+          "opponent": "frv",
+          "score": {
+            "A": 8,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 1025006268,
+          "rounds": 21
+        },
+        {
+          "day": 12,
+          "map": "doca",
+          "opponent": "mra",
+          "score": {
+            "A": 6,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 3679442037,
+          "rounds": 19
+        },
+        {
+          "day": 16,
+          "map": "cume",
+          "opponent": "vrt",
+          "score": {
+            "A": 1,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 2038910510,
+          "rounds": 14
+        },
+        {
+          "day": 20,
+          "map": "doca",
+          "opponent": "fsk",
+          "score": {
+            "A": 11,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 398378983,
+          "rounds": 24
+        },
+        {
+          "day": 24,
+          "map": "cume",
+          "opponent": "blt",
+          "score": {
+            "A": 1,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 3052814752,
+          "rounds": 14
+        },
+        {
+          "day": 28,
+          "map": "doca",
+          "opponent": "crn",
+          "score": {
+            "A": 3,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 1412283225,
+          "rounds": 16
+        }
+      ],
+      "finalPlayers": [
+        {
+          "id": "J02",
+          "attrs": [
+            55,
+            55,
+            62,
+            47,
+            42,
+            56,
+            42,
+            44
+          ],
+          "attributeXP": [
+            16,
+            16,
+            116,
+            16,
+            112,
+            112,
+            112,
+            112
+          ],
+          "familiarities": {
+            "Estalo": 65,
+            "Ímpeto": 85,
+            "Farol": 10,
+            "Pulso": 45,
+            "Bruma": 10,
+            "Véu": 10,
+            "Trava": 10,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J24",
+          "attrs": [
+            45,
+            41,
+            61,
+            53,
+            60,
+            43,
+            66,
+            53
+          ],
+          "attributeXP": [
+            160,
+            160,
+            60,
+            160,
+            220,
+            20,
+            120,
+            20
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 45,
+            "Farol": 10,
+            "Pulso": 10,
+            "Bruma": 10,
+            "Véu": 10,
+            "Trava": 65,
+            "Bastião": 85
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J22",
+          "attrs": [
+            55,
+            59,
+            70,
+            72,
+            43,
+            35,
+            62,
+            41
+          ],
+          "attributeXP": [
+            176,
+            176,
+            276,
+            176,
+            32,
+            32,
+            132,
+            32
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 10,
+            "Farol": 10,
+            "Pulso": 10,
+            "Bruma": 65,
+            "Véu": 85,
+            "Trava": 10,
+            "Bastião": 45
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J05",
+          "attrs": [
+            44,
+            44,
+            52,
+            58,
+            49,
+            63,
+            45,
+            57
+          ],
+          "attributeXP": [
+            48,
+            48,
+            48,
+            48,
+            136,
+            36,
+            136,
+            136
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 10,
+            "Farol": 10,
+            "Pulso": 10,
+            "Bruma": 85,
+            "Véu": 65,
+            "Trava": 45,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J03",
+          "attrs": [
+            45,
+            45,
+            53,
+            59,
+            58,
+            64,
+            46,
+            50
+          ],
+          "attributeXP": [
+            64,
+            64,
+            64,
+            64,
+            148,
+            48,
+            148,
+            148
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 10,
+            "Farol": 85,
+            "Pulso": 65,
+            "Bruma": 45,
+            "Véu": 10,
+            "Trava": 10,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        }
+      ],
+      "npcHash": "f75a5d4febfe404762f594057c561f326f8259a8ef936e300f82b2119fba28a2"
+    },
+    {
+      "roster": 0,
+      "mode": "individual",
+      "seed": 11102026,
+      "days": 28,
+      "trainings": 28,
+      "missed": 0,
+      "matches": 7,
+      "rounds": 127,
+      "results": [
+        {
+          "day": 4,
+          "map": "doca",
+          "opponent": "pzr",
+          "score": {
+            "A": 13,
+            "B": 4
+          },
+          "winner": "A",
+          "seed": 2665537795,
+          "rounds": 17
+        },
+        {
+          "day": 8,
+          "map": "cume",
+          "opponent": "frv",
+          "score": {
+            "A": 8,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 1025006268,
+          "rounds": 21
+        },
+        {
+          "day": 12,
+          "map": "doca",
+          "opponent": "mra",
+          "score": {
+            "A": 9,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 3679442037,
+          "rounds": 22
+        },
+        {
+          "day": 16,
+          "map": "cume",
+          "opponent": "vrt",
+          "score": {
+            "A": 2,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 2038910510,
+          "rounds": 15
+        },
+        {
+          "day": 20,
+          "map": "doca",
+          "opponent": "fsk",
+          "score": {
+            "A": 7,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 398378983,
+          "rounds": 20
+        },
+        {
+          "day": 24,
+          "map": "cume",
+          "opponent": "blt",
+          "score": {
+            "A": 1,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 3052814752,
+          "rounds": 14
+        },
+        {
+          "day": 28,
+          "map": "doca",
+          "opponent": "crn",
+          "score": {
+            "A": 5,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 1412283225,
+          "rounds": 18
+        }
+      ],
+      "finalPlayers": [
+        {
+          "id": "J02",
+          "attrs": [
+            54,
+            54,
+            61,
+            45,
+            42,
+            56,
+            41,
+            44
+          ],
+          "attributeXP": [
+            8,
+            8,
+            208,
+            0,
+            8,
+            8,
+            0,
+            8
+          ],
+          "familiarities": {
+            "Estalo": 65,
+            "Ímpeto": 85,
+            "Farol": 10,
+            "Pulso": 45,
+            "Bruma": 10,
+            "Véu": 10,
+            "Trava": 10,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J24",
+          "attrs": [
+            44,
+            40,
+            60,
+            52,
+            59,
+            42,
+            65,
+            51
+          ],
+          "attributeXP": [
+            80,
+            80,
+            80,
+            80,
+            0,
+            80,
+            280,
+            0
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 45,
+            "Farol": 10,
+            "Pulso": 10,
+            "Bruma": 10,
+            "Véu": 10,
+            "Trava": 65,
+            "Bastião": 85
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J22",
+          "attrs": [
+            53,
+            58,
+            69,
+            71,
+            42,
+            33,
+            61,
+            40
+          ],
+          "attributeXP": [
+            0,
+            88,
+            288,
+            288,
+            88,
+            0,
+            288,
+            88
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 10,
+            "Farol": 10,
+            "Pulso": 10,
+            "Bruma": 65,
+            "Véu": 85,
+            "Trava": 10,
+            "Bastião": 45
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J05",
+          "attrs": [
+            43,
+            42,
+            51,
+            57,
+            48,
+            62,
+            44,
+            57
+          ],
+          "attributeXP": [
+            24,
+            0,
+            24,
+            24,
+            0,
+            224,
+            0,
+            24
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 10,
+            "Farol": 10,
+            "Pulso": 10,
+            "Bruma": 85,
+            "Véu": 65,
+            "Trava": 45,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J03",
+          "attrs": [
+            44,
+            44,
+            51,
+            58,
+            58,
+            63,
+            46,
+            49
+          ],
+          "attributeXP": [
+            32,
+            32,
+            0,
+            32,
+            32,
+            0,
+            32,
+            0
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 10,
+            "Farol": 85,
+            "Pulso": 65,
+            "Bruma": 45,
+            "Véu": 10,
+            "Trava": 10,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        }
+      ],
+      "npcHash": "f75a5d4febfe404762f594057c561f326f8259a8ef936e300f82b2119fba28a2"
+    },
+    {
+      "roster": 0,
+      "mode": "jump",
+      "seed": 11102026,
+      "days": 28,
+      "trainings": 0,
+      "missed": 28,
+      "matches": 7,
+      "rounds": 119,
+      "results": [
+        {
+          "day": 4,
+          "map": "doca",
+          "opponent": "pzr",
+          "score": {
+            "A": 13,
+            "B": 4
+          },
+          "winner": "A",
+          "seed": 2665537795,
+          "rounds": 17
+        },
+        {
+          "day": 8,
+          "map": "cume",
+          "opponent": "frv",
+          "score": {
+            "A": 8,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 1025006268,
+          "rounds": 21
+        },
+        {
+          "day": 12,
+          "map": "doca",
+          "opponent": "mra",
+          "score": {
+            "A": 2,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 3679442037,
+          "rounds": 15
+        },
+        {
+          "day": 16,
+          "map": "cume",
+          "opponent": "vrt",
+          "score": {
+            "A": 2,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 2038910510,
+          "rounds": 15
+        },
+        {
+          "day": 20,
+          "map": "doca",
+          "opponent": "fsk",
+          "score": {
+            "A": 6,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 398378983,
+          "rounds": 19
+        },
+        {
+          "day": 24,
+          "map": "cume",
+          "opponent": "blt",
+          "score": {
+            "A": 1,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 3052814752,
+          "rounds": 14
+        },
+        {
+          "day": 28,
+          "map": "doca",
+          "opponent": "crn",
+          "score": {
+            "A": 5,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 1412283225,
+          "rounds": 18
+        }
+      ],
+      "finalPlayers": [
+        {
+          "id": "J02",
+          "attrs": [
+            53,
+            53,
+            61,
+            45,
+            41,
+            55,
+            41,
+            43
+          ],
+          "attributeXP": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "familiarities": {
+            "Estalo": 65,
+            "Ímpeto": 85,
+            "Farol": 10,
+            "Pulso": 45,
+            "Bruma": 10,
+            "Véu": 10,
+            "Trava": 10,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J24",
+          "attrs": [
+            43,
+            39,
+            59,
+            51,
+            59,
+            41,
+            65,
+            51
+          ],
+          "attributeXP": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 45,
+            "Farol": 10,
+            "Pulso": 10,
+            "Bruma": 10,
+            "Véu": 10,
+            "Trava": 65,
+            "Bastião": 85
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J22",
+          "attrs": [
+            53,
+            57,
+            69,
+            71,
+            41,
+            33,
+            61,
+            39
+          ],
+          "attributeXP": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 10,
+            "Farol": 10,
+            "Pulso": 10,
+            "Bruma": 65,
+            "Véu": 85,
+            "Trava": 10,
+            "Bastião": 45
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J05",
+          "attrs": [
+            42,
+            42,
+            50,
+            56,
+            48,
+            62,
+            44,
+            56
+          ],
+          "attributeXP": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 10,
+            "Farol": 10,
+            "Pulso": 10,
+            "Bruma": 85,
+            "Véu": 65,
+            "Trava": 45,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J03",
+          "attrs": [
+            43,
+            43,
+            51,
+            57,
+            57,
+            63,
+            45,
+            49
+          ],
+          "attributeXP": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 10,
+            "Farol": 85,
+            "Pulso": 65,
+            "Bruma": 45,
+            "Véu": 10,
+            "Trava": 10,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        }
+      ],
+      "npcHash": "f75a5d4febfe404762f594057c561f326f8259a8ef936e300f82b2119fba28a2"
+    },
+    {
+      "roster": 1,
+      "mode": "collective",
+      "seed": 11102027,
+      "days": 28,
+      "trainings": 28,
+      "missed": 0,
+      "matches": 7,
+      "rounds": 116,
+      "results": [
+        {
+          "day": 4,
+          "map": "doca",
+          "opponent": "pzr",
+          "score": {
+            "A": 13,
+            "B": 0
+          },
+          "winner": "A",
+          "seed": 2665537796,
+          "rounds": 13
+        },
+        {
+          "day": 8,
+          "map": "cume",
+          "opponent": "frv",
+          "score": {
+            "A": 3,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 1025006269,
+          "rounds": 16
+        },
+        {
+          "day": 12,
+          "map": "doca",
+          "opponent": "mra",
+          "score": {
+            "A": 4,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 3679442038,
+          "rounds": 17
+        },
+        {
+          "day": 16,
+          "map": "cume",
+          "opponent": "vrt",
+          "score": {
+            "A": 6,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 2038910511,
+          "rounds": 19
+        },
+        {
+          "day": 20,
+          "map": "doca",
+          "opponent": "fsk",
+          "score": {
+            "A": 13,
+            "B": 0
+          },
+          "winner": "A",
+          "seed": 398378984,
+          "rounds": 13
+        },
+        {
+          "day": 24,
+          "map": "cume",
+          "opponent": "blt",
+          "score": {
+            "A": 6,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 3052814753,
+          "rounds": 19
+        },
+        {
+          "day": 28,
+          "map": "doca",
+          "opponent": "crn",
+          "score": {
+            "A": 13,
+            "B": 6
+          },
+          "winner": "A",
+          "seed": 1412283226,
+          "rounds": 19
+        }
+      ],
+      "finalPlayers": [
+        {
+          "id": "J12",
+          "attrs": [
+            58,
+            58,
+            69,
+            75,
+            61,
+            84,
+            72,
+            74
+          ],
+          "attributeXP": [
+            112,
+            112,
+            212,
+            112,
+            84,
+            384,
+            384,
+            384
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 10,
+            "Farol": 65,
+            "Pulso": 85,
+            "Bruma": 10,
+            "Véu": 45,
+            "Trava": 10,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J09",
+          "attrs": [
+            88,
+            79,
+            67,
+            61,
+            61,
+            57,
+            63,
+            59
+          ],
+          "attributeXP": [
+            512,
+            112,
+            212,
+            212,
+            84,
+            184,
+            84,
+            184
+          ],
+          "familiarities": {
+            "Estalo": 85,
+            "Ímpeto": 65,
+            "Farol": 45,
+            "Pulso": 10,
+            "Bruma": 10,
+            "Véu": 10,
+            "Trava": 10,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J02",
+          "attrs": [
+            55,
+            55,
+            62,
+            47,
+            42,
+            56,
+            42,
+            44
+          ],
+          "attributeXP": [
+            16,
+            16,
+            116,
+            16,
+            112,
+            112,
+            112,
+            112
+          ],
+          "familiarities": {
+            "Estalo": 65,
+            "Ímpeto": 85,
+            "Farol": 10,
+            "Pulso": 45,
+            "Bruma": 10,
+            "Véu": 10,
+            "Trava": 10,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J05",
+          "attrs": [
+            44,
+            44,
+            52,
+            58,
+            49,
+            63,
+            45,
+            57
+          ],
+          "attributeXP": [
+            48,
+            48,
+            48,
+            48,
+            136,
+            36,
+            136,
+            136
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 10,
+            "Farol": 10,
+            "Pulso": 10,
+            "Bruma": 85,
+            "Véu": 65,
+            "Trava": 45,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J24",
+          "attrs": [
+            45,
+            41,
+            61,
+            53,
+            60,
+            43,
+            66,
+            53
+          ],
+          "attributeXP": [
+            160,
+            160,
+            60,
+            160,
+            220,
+            20,
+            120,
+            20
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 45,
+            "Farol": 10,
+            "Pulso": 10,
+            "Bruma": 10,
+            "Véu": 10,
+            "Trava": 65,
+            "Bastião": 85
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        }
+      ],
+      "npcHash": "f75a5d4febfe404762f594057c561f326f8259a8ef936e300f82b2119fba28a2"
+    },
+    {
+      "roster": 1,
+      "mode": "individual",
+      "seed": 11102027,
+      "days": 28,
+      "trainings": 28,
+      "missed": 0,
+      "matches": 7,
+      "rounds": 114,
+      "results": [
+        {
+          "day": 4,
+          "map": "doca",
+          "opponent": "pzr",
+          "score": {
+            "A": 13,
+            "B": 0
+          },
+          "winner": "A",
+          "seed": 2665537796,
+          "rounds": 13
+        },
+        {
+          "day": 8,
+          "map": "cume",
+          "opponent": "frv",
+          "score": {
+            "A": 3,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 1025006269,
+          "rounds": 16
+        },
+        {
+          "day": 12,
+          "map": "doca",
+          "opponent": "mra",
+          "score": {
+            "A": 4,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 3679442038,
+          "rounds": 17
+        },
+        {
+          "day": 16,
+          "map": "cume",
+          "opponent": "vrt",
+          "score": {
+            "A": 3,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 2038910511,
+          "rounds": 16
+        },
+        {
+          "day": 20,
+          "map": "doca",
+          "opponent": "fsk",
+          "score": {
+            "A": 13,
+            "B": 1
+          },
+          "winner": "A",
+          "seed": 398378984,
+          "rounds": 14
+        },
+        {
+          "day": 24,
+          "map": "cume",
+          "opponent": "blt",
+          "score": {
+            "A": 4,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 3052814753,
+          "rounds": 17
+        },
+        {
+          "day": 28,
+          "map": "doca",
+          "opponent": "crn",
+          "score": {
+            "A": 13,
+            "B": 8
+          },
+          "winner": "A",
+          "seed": 1412283226,
+          "rounds": 21
+        }
+      ],
+      "finalPlayers": [
+        {
+          "id": "J12",
+          "attrs": [
+            57,
+            57,
+            68,
+            74,
+            60,
+            84,
+            72,
+            74
+          ],
+          "attributeXP": [
+            56,
+            56,
+            256,
+            0,
+            256,
+            256,
+            0,
+            256
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 10,
+            "Farol": 65,
+            "Pulso": 85,
+            "Bruma": 10,
+            "Véu": 45,
+            "Trava": 10,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J09",
+          "attrs": [
+            88,
+            78,
+            66,
+            60,
+            60,
+            57,
+            62,
+            58
+          ],
+          "attributeXP": [
+            256,
+            256,
+            256,
+            256,
+            0,
+            56,
+            256,
+            0
+          ],
+          "familiarities": {
+            "Estalo": 85,
+            "Ímpeto": 65,
+            "Farol": 45,
+            "Pulso": 10,
+            "Bruma": 10,
+            "Véu": 10,
+            "Trava": 10,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J02",
+          "attrs": [
+            53,
+            54,
+            61,
+            46,
+            42,
+            55,
+            42,
+            44
+          ],
+          "attributeXP": [
+            0,
+            8,
+            208,
+            8,
+            8,
+            0,
+            8,
+            8
+          ],
+          "familiarities": {
+            "Estalo": 65,
+            "Ímpeto": 85,
+            "Farol": 10,
+            "Pulso": 45,
+            "Bruma": 10,
+            "Véu": 10,
+            "Trava": 10,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J05",
+          "attrs": [
+            43,
+            42,
+            51,
+            57,
+            48,
+            62,
+            44,
+            57
+          ],
+          "attributeXP": [
+            24,
+            0,
+            24,
+            24,
+            0,
+            224,
+            0,
+            24
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 10,
+            "Farol": 10,
+            "Pulso": 10,
+            "Bruma": 85,
+            "Véu": 65,
+            "Trava": 45,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J24",
+          "attrs": [
+            44,
+            40,
+            59,
+            52,
+            60,
+            41,
+            65,
+            51
+          ],
+          "attributeXP": [
+            80,
+            80,
+            0,
+            80,
+            80,
+            0,
+            280,
+            0
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 45,
+            "Farol": 10,
+            "Pulso": 10,
+            "Bruma": 10,
+            "Véu": 10,
+            "Trava": 65,
+            "Bastião": 85
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        }
+      ],
+      "npcHash": "f75a5d4febfe404762f594057c561f326f8259a8ef936e300f82b2119fba28a2"
+    },
+    {
+      "roster": 1,
+      "mode": "jump",
+      "seed": 11102027,
+      "days": 28,
+      "trainings": 0,
+      "missed": 28,
+      "matches": 7,
+      "rounds": 115,
+      "results": [
+        {
+          "day": 4,
+          "map": "doca",
+          "opponent": "pzr",
+          "score": {
+            "A": 13,
+            "B": 0
+          },
+          "winner": "A",
+          "seed": 2665537796,
+          "rounds": 13
+        },
+        {
+          "day": 8,
+          "map": "cume",
+          "opponent": "frv",
+          "score": {
+            "A": 3,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 1025006269,
+          "rounds": 16
+        },
+        {
+          "day": 12,
+          "map": "doca",
+          "opponent": "mra",
+          "score": {
+            "A": 4,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 3679442038,
+          "rounds": 17
+        },
+        {
+          "day": 16,
+          "map": "cume",
+          "opponent": "vrt",
+          "score": {
+            "A": 3,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 2038910511,
+          "rounds": 16
+        },
+        {
+          "day": 20,
+          "map": "doca",
+          "opponent": "fsk",
+          "score": {
+            "A": 13,
+            "B": 2
+          },
+          "winner": "A",
+          "seed": 398378984,
+          "rounds": 15
+        },
+        {
+          "day": 24,
+          "map": "cume",
+          "opponent": "blt",
+          "score": {
+            "A": 5,
+            "B": 13
+          },
+          "winner": "B",
+          "seed": 3052814753,
+          "rounds": 18
+        },
+        {
+          "day": 28,
+          "map": "doca",
+          "opponent": "crn",
+          "score": {
+            "A": 13,
+            "B": 7
+          },
+          "winner": "A",
+          "seed": 1412283226,
+          "rounds": 20
+        }
+      ],
+      "finalPlayers": [
+        {
+          "id": "J12",
+          "attrs": [
+            56,
+            56,
+            68,
+            74,
+            60,
+            84,
+            72,
+            74
+          ],
+          "attributeXP": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 10,
+            "Farol": 65,
+            "Pulso": 85,
+            "Bruma": 10,
+            "Véu": 45,
+            "Trava": 10,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J09",
+          "attrs": [
+            88,
+            78,
+            66,
+            60,
+            60,
+            56,
+            62,
+            58
+          ],
+          "attributeXP": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "familiarities": {
+            "Estalo": 85,
+            "Ímpeto": 65,
+            "Farol": 45,
+            "Pulso": 10,
+            "Bruma": 10,
+            "Véu": 10,
+            "Trava": 10,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J02",
+          "attrs": [
+            53,
+            53,
+            61,
+            45,
+            41,
+            55,
+            41,
+            43
+          ],
+          "attributeXP": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "familiarities": {
+            "Estalo": 65,
+            "Ímpeto": 85,
+            "Farol": 10,
+            "Pulso": 45,
+            "Bruma": 10,
+            "Véu": 10,
+            "Trava": 10,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J05",
+          "attrs": [
+            42,
+            42,
+            50,
+            56,
+            48,
+            62,
+            44,
+            56
+          ],
+          "attributeXP": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 10,
+            "Farol": 10,
+            "Pulso": 10,
+            "Bruma": 85,
+            "Véu": 65,
+            "Trava": 45,
+            "Bastião": 10
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        },
+        {
+          "id": "J24",
+          "attrs": [
+            43,
+            39,
+            59,
+            51,
+            59,
+            41,
+            65,
+            51
+          ],
+          "attributeXP": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "familiarities": {
+            "Estalo": 10,
+            "Ímpeto": 45,
+            "Farol": 10,
+            "Pulso": 10,
+            "Bruma": 10,
+            "Véu": 10,
+            "Trava": 65,
+            "Bastião": 85
+          },
+          "agentXP": {
+            "Estalo": 0,
+            "Ímpeto": 0,
+            "Farol": 0,
+            "Pulso": 0,
+            "Bruma": 0,
+            "Véu": 0,
+            "Trava": 0,
+            "Bastião": 0
+          }
+        }
+      ],
+      "npcHash": "f75a5d4febfe404762f594057c561f326f8259a8ef936e300f82b2119fba28a2"
+    }
+  ]
+}

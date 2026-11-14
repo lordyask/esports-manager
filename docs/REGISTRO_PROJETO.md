@@ -266,3 +266,21 @@ O autor decidiu deixar o histórico de partidas para a próxima atualização e 
 - [Comprovante visual](../validation/beta13/release-live.jpg). Validação funcional completa desktop/móvel da candidata permanece no workflow 40720519242.
 - Sem erros da aplicação nos logs consultados. Mensagens da extensão do navegador não pertencem ao jogo.
 - Rótulos e versão de exportação oficializados; motor 0.4.1, regras e balanceamento preservados. Android físico, iOS/Safari e acessibilidade completa continuam sem homologação.
+
+
+## 10/11/2026 — Calendário e treino diário: adversários fixos no beta inicial
+
+Decisão expressa do autor: neste beta os adversários não treinam nem evoluem. Seus atributos e familiaridades ficam fixos nas fichas aprovadas. A parte de treino adversário de B20-01.06 / B20-03.08 e da proposta anterior fica suspensa até nova aprovação. Não há ajuste automático pela força do jogador.
+
+O restante do pacote foi aprovado: 28 dias, confrontos em 4/8/12/16/20/24/28, Doca/Cume alternados (4/3), uma oportunidade diária exclusiva do usuário, coletivo OU individual, aviso de perdas ao saltar dias, treino antes do confronto, persistência e testes. Classificação completa, finanças e premiação permanecem no próximo pacote. Implementação em desenvolvimento local, sem lançamento público.
+
+Referência da entrega: `docs/BETA_2_0_CALENDARIO_TREINO.md`. O registro desta revisão prevalece sobre a rotina de treino NPC do documento consolidado anterior.
+
+
+## 12/11/2026 — Circuito e finanças implementados em desenvolvimento
+
+Após a autorização de execução do plano de fechamento, a branch `development/beta-2.0-circuit-finance` integra os 28 jogos, classificação, desempates, políticas NPC, caixa, contratos, salários proporcionais, extrato, premiação e encerramento. Nacionalidades e apresentação pré-jogo completam o cadastro aprovado. Referência: [entrega técnica](BETA_2_0_CIRCUITO_FINANCAS.md).
+
+A amostra registrada tem seis circuitos completos, 168 partidas e 3.275 rodadas; 150 testes passaram. Atributos adversários continuam fixos. Isso não homologa equilíbrio global ou interface em navegador. Artes finais dos agentes, conferência visual/funcional real e fechamento da candidata continuam pendentes.
+
+Yask informou que o Beta 1.3 já não tem usuários ativos. A versão pública poderá ser substituída pelo Beta 2.0 quando pronto, mantendo recuperação pelo histórico Git. Nenhum push, merge ou deploy ocorreu nesta implementação.

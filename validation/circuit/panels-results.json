@@ -1,0 +1,15 @@
+{
+  "method": "React server rendering; no browser, CSS or event-dispatch verification",
+  "checks": [
+    "incomplete roster cannot confirm registration",
+    "entry displays costs before confirmation",
+    "calendar entry delegates to the competitive flow",
+    "new circuit shows initial cash and contracts",
+    "dashboard points unfinished rounds to the calendar",
+    "unfinished NPC processing exposes recovery action",
+    "busy processing disables duplicate request",
+    "completed circuit presents champion and all 28 match records",
+    "final finance lists one prize and 337 contract days"
+  ],
+  "passed": 9
+}

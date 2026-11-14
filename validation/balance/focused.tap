@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: one ally neutralizes each observed device; others retain their own tactical action
+ok 1 - one ally neutralizes each observed device; others retain their own tactical action
+  ---
+  duration_ms: 28.736758
+  type: 'test'
+  ...
+# Subtest: neutralization reservation is released by death or interruption, allowing another ally to act
+ok 2 - neutralization reservation is released by death or interruption, allowing another ally to act
+  ---
+  duration_ms: 2.072783
+  type: 'test'
+  ...
+# Subtest: device reservations match the device ID rather than blocking unrelated neutralizations
+ok 3 - device reservations match the device ID rather than blocking unrelated neutralizations
+  ---
+  duration_ms: 1.849972
+  type: 'test'
+  ...
+# Subtest: Pulso does not spend decisions trying to interrupt a movement action
+ok 4 - Pulso does not spend decisions trying to interrupt a movement action
+  ---
+  duration_ms: 2.129507
+  type: 'test'
+  ...
+# Subtest: Pulso still interrupts a real channel and consumes exactly one charge
+ok 5 - Pulso still interrupts a real channel and consumes exactly one charge
+  ---
+  duration_ms: 3.25092
+  type: 'test'
+  ...
+# Subtest: prior 0.5.0 campaign and its embedded acervo remain read-only, exportable and directly accessible
+ok 6 - prior 0.5.0 campaign and its embedded acervo remain read-only, exportable and directly accessible
+  ---
+  duration_ms: 29.651028
+  type: 'test'
+  ...
+# Subtest: completed prior sessions and history exports preserve their original mechanics without continuation
+ok 7 - completed prior sessions and history exports preserve their original mechanics without continuation
+  ---
+  duration_ms: 607.172079
+  type: 'test'
+  ...
+# Subtest: prior decoder rejects incompatible mechanics and an additional nested prior archive level
+ok 8 - prior decoder rejects incompatible mechanics and an additional nested prior archive level
+  ---
+  duration_ms: 1.310142
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1030.739634

@@ -1,0 +1,113 @@
+{
+  "date": "2026-11-11",
+  "scope": "NEXUS Beta 2.0 visual base; local development only",
+  "automated": {
+    "existingTests": 137,
+    "passed": 137,
+    "failed": 0,
+    "typecheck": "passed",
+    "staticBuildRoot": "passed",
+    "staticBuildSubpath": "passed",
+    "assetsManifestWorkerRoot": "passed",
+    "assetsManifestWorkerSubpath": "passed"
+  },
+  "browserMethod": "Chromium via CUA; desktop plus same-origin iframe with real responsive media queries; no physical-device emulation",
+  "calendarWidthChecks": [
+    {
+      "frameWidth": 320,
+      "clientWidth": 305,
+      "scrollWidth": 305
+    },
+    {
+      "frameWidth": 390,
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    {
+      "frameWidth": 768,
+      "clientWidth": 753,
+      "scrollWidth": 753
+    },
+    {
+      "frameWidth": 960,
+      "clientWidth": 945,
+      "scrollWidth": 945
+    },
+    {
+      "frameWidth": 1280,
+      "clientWidth": 1265,
+      "scrollWidth": 1265
+    }
+  ],
+  "reportWidthChecks": [
+    {
+      "frameWidth": 320,
+      "clientWidth": 305,
+      "scrollWidth": 305
+    },
+    {
+      "frameWidth": 390,
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    {
+      "frameWidth": 768,
+      "clientWidth": 753,
+      "scrollWidth": 753
+    }
+  ],
+  "observed": {
+    "primaryRGB": "rgb(184, 148, 90)",
+    "teamColorRGB": "rgb(0, 135, 200)",
+    "focusRGB": "rgb(0, 135, 200)",
+    "focusWidth": "3px",
+    "collapsedSidebarWidth": 88,
+    "fontStatus": "loaded",
+    "manualMotionPreference": "true",
+    "reducedTransition": "0s",
+    "monogramSHA256": "ea6b29bcc680e02dc9991ec79846586aed1630e732f597e97c3cbba7b6835d55"
+  },
+  "uiFlow": [
+    "select five players",
+    "filter roster",
+    "prepare assignments",
+    "start 28-day cycle",
+    "collective daily training",
+    "advance to day 4",
+    "manual round",
+    "partial report",
+    "automatic purchases enabled",
+    "automatic sequence pauses at round 12",
+    "automatic match completion",
+    "history contains result",
+    "reload preserves result and team color",
+    "desktop collapse persists on reload",
+    "mobile menu opens and closes after navigation",
+    "preferences dialog opens and Escape closes with focus returned",
+    "manual reduced motion persists",
+    "keyboard Tab shows cyan focus",
+    "no root horizontal overflow in tested calendar and report widths"
+  ],
+  "match": {
+    "purpose": "UI integration smoke test, not balance sample",
+    "map": "Doca",
+    "opponent": "Ponto Zero",
+    "seed": 828063370,
+    "score": {
+      "A": 6,
+      "B": 13
+    },
+    "rounds": 19,
+    "manualRounds": 1,
+    "remainingRounds": "automatic sequences"
+  },
+  "limits": [
+    "not a WCAG certification",
+    "no Safari/iOS or physical device test",
+    "no new Cume match in this visual package",
+    "no full circuit-finance campaign",
+    "old calendar/maps browser scripts updated for new menu and labels but not rerun in this package",
+    "no public deployment",
+    "no new art or vector master approval"
+  ]
+}

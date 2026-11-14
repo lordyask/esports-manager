@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-12",
+  "base_commit": "557d6c105f7be3a0b80d30d2bfdb0557ef3ff373",
+  "branch": "development/beta-2.0-circuit-finance",
+  "tests": {
+    "passed": 150,
+    "failed": 0
+  },
+  "campaign_matrix": {
+    "campaigns": 6,
+    "matches": 168,
+    "rounds": 3275,
+    "npcUnchanged": true,
+    "maximumSaveBytes": 9583535
+  },
+  "react_panel_states": 9,
+  "typecheck": "passed",
+  "root_export": "passed",
+  "github_pages_subpath_export": "passed: /esports-manager",
+  "browser_qa": {
+    "status": "pending",
+    "reason": "Previous preview access restriction and automatic rejection; no bypass attempted. Server rendering does not validate CSS or clicks."
+  },
+  "remote_ci": "prepared, not executed",
+  "publication": {
+    "push": false,
+    "merge": false,
+    "deploy": false
+  },
+  "source_sha256": {
+    "lib/circuit-state.ts": "b3a7912819f43432f3506e4eddf8c1f7c1e6c6505bbb3119cd9f63465d5a1f06",
+    "lib/circuit.ts": "3cb14524d525f57b33897d8f5b978dd5a1185bcc44d3912733bf32cfb2cc1f8d",
+    "lib/club-policy.ts": "df5b1e78c275957be3b33a10dd606cf939bbc65f2fe0d3dbc88ccad9baaa7f26",
+    "lib/club-finance.ts": "028981ee7ea891d15282edc6908249b8c0a6e7695db387cf66fe9f53161247e8",
+    "lib/career.ts": "b32a8634304abb2aaf004bb43f301768b935f807ffd9710e681683932fa9c29f",
+    "lib/career-state.ts": "a1903924471a3f567ff51f2ffdf0de1f8c376424b7e033d67ebe6d1a6acfdb39",
+    "data/catalog.json": "512f60497eace7cadcd74e3186a3bceb102e35d14faaaebb62242a3f31334662",
+    "data/opponents.json": "57a908c7f7e8b38a4f321e4d443527b360adb782e013aa0603914a0988805d9c"
+  }
+}

@@ -26,11 +26,32 @@ export function decide(view:Observation,random:Random):Decision {
     if(localEnemies.length===0||view.planted.deadline-view.now<=9000)return {kind:'defuse'};
   }
   if(!view.planted&&self.team===view.attacking&&self.sector===view.attackTarget&&localEnemies.length===0&&!view.allies.some(a=>a.action==='plant'))return {kind:'plant'};
+  // One ally per observed device; the others keep fighting or following their plan.
+  const device=view.devices.find(d=>!aliveAllies.some(a=>a.neutralizing===d.id));
+  if(device&&localEnemies.length===0)return {kind:'destroy',device:device.id};
   const available=(slot:Slot)=>slot===3?self.ult>=8&&!self.usedUlt:self.charges[slot];
   for(const slot of [3,0,1,2] as Slot[]){
     if(!available(slot))continue;
-    const skill=ABILITIES[self.agent][slot],sector=contact?.sector??targetSite;
     if(instruction==='resources'&&!view.planted&&slot>0)continue;
+    const skill=ABILITIES[self.agent][slot],sector=contact?.sector??targetSite;
+    const owned=view.effects??[];
+    const localEdges=mapEdges(view.map).filter(([a,b])=>a===self.sector||b===self.sector).map(([a,b])=>[a,b] as [Sector,Sector]).sort((a,b)=>{
+      const priority=(e:[Sector,Sector])=>{const next=e.find(s=>s!==self.sector)!;return visible.some(x=>x.sector===next)?0:known.some(x=>x.sector===next)?1:next===targetSite?2:3;};
+      return priority(a)-priority(b)||[...a].sort().join(':').localeCompare([...b].sort().join(':'));
+    });
+    const threatened=visible.length>0||!!view.planted&&view.planted.sector===self.sector;
+    if(['refraction','redoubt'].includes(skill.kind)&&threatened&&localEdges.length>=2)return {kind:'cast',slot,sector:self.sector,edges:localEdges.slice(0,2)};
+    if(skill.kind==='distortion'&&contact&&(contact.sector===self.sector||adjacent(contact.sector))&&!owned.some(e=>e.kind==='distortion'&&e.sector===contact.sector))return {kind:'cast',slot,sector:contact.sector};
+    if(['optical_wall','optical_filter','cover'].includes(skill.kind)&&contact&&adjacent(contact.sector)){
+      const edge:[Sector,Sector]=[self.sector,contact.sector],key=[...edge].sort().join(':');
+      if(!owned.some(e=>e.kind===skill.kind&&e.edges.includes(key)))return {kind:'cast',slot,sector:self.sector,edge};
+    }
+    if(skill.kind==='interposition'&&threatened){const ally=localAllies.filter(a=>a.id!==self.id&&!a.movement&&!owned.some(e=>e.kind==='interposition'&&e.target===a.id)).sort((a,b)=>a.life-b.life||a.id.localeCompare(b.id))[0];if(ally)return {kind:'cast',slot,target:ally.id,sector:self.sector};}
+    if(skill.kind==='route_cover'){
+      const moving=view.allies.find(a=>a.movement&&(a.movement.from===self.sector||a.movement.to===self.sector));
+      const route=shortestPath(view.map,self.sector,targetSite,view.blocked),next=moving?.movement?(moving.movement.from===self.sector?moving.movement.to:moving.movement.from):self.team===view.attacking&&view.now>2000?route?.path[1]:undefined;
+      if(next&&adjacent(next)&&!owned.some(e=>e.kind==='route_cover'&&e.edges.includes([self.sector,next].sort().join(':'))))return {kind:'cast',slot,sector:self.sector,edge:[self.sector,next]};
+    }
     const inRange=sector===self.sector||adjacent(sector);
     if(['blind','disorient','blast','zone','slow','confinement'].includes(skill.kind)&&contact&&inRange){
       if((self.agent==='Estalo'&&slot===3||self.agent==='Pulso'&&slot===3||self.agent==='Farol'&&slot===2)&&!adjacent(sector))continue;
@@ -39,7 +60,7 @@ export function decide(view:Observation,random:Random):Decision {
       if(random.chance(Math.round(clamp(quality*100,1000,9000))))return {kind:'cast',slot,sector,target:contact.id};
     }
     if(skill.kind==='interrupt'){
-      const channeling=visible.find(e=>e.sector===self.sector&&e.action);
+      const channeling=visible.find(e=>e.sector===self.sector&&['cast','plant','defuse','destroy'].includes(e.action??''));
       if(channeling)return {kind:'cast',slot,target:channeling.id,sector:self.sector};
     }
     if(skill.kind==='fortress'&&visible.length>0)return {kind:'cast',slot};
@@ -81,7 +102,7 @@ export function decide(view:Observation,random:Random):Decision {
   const followingEntry=self.role==='Second'&&!!leading&&(leading.action==='move'||leading.sector!==self.sector);
   const advancing=localEnemies.length===0&&(!view.planted&&self.team===view.attacking&&(clearStep||supportedEntry||followingEntry)||!!view.planted&&self.team!==view.attacking&&self.sector!==view.planted.sector);
   if(visible.length>0&&!advancing)return {kind:'wait'};
-  const device=view.devices[0];if(device)return {kind:'destroy',device:device.id};
+  if(device)return {kind:'destroy',device:device.id};
   let destination:Sector=self.sector;
   if(view.planted){
     if(self.team!==view.attacking)destination=view.planted.sector;

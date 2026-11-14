@@ -1,0 +1,824 @@
+{
+  "source": "B20-03 approved 2026-11-09; fixed opponents override 2026-11-10",
+  "teams": [
+    {
+      "id": "pzr",
+      "name": "Ponto Zero",
+      "tag": "PZR",
+      "players": [
+        {
+          "id": "pzr-1",
+          "name": "Cria",
+          "country": "Brasil",
+          "role": "Entry",
+          "igl": false,
+          "overall": 50,
+          "potential": 86,
+          "attrs": [
+            68,
+            62,
+            48,
+            43,
+            42,
+            39,
+            46,
+            52
+          ],
+          "main": "Estalo",
+          "second": "Ímpeto",
+          "third": "Pulso"
+        },
+        {
+          "id": "pzr-2",
+          "name": "Fry",
+          "country": "Brasil",
+          "role": "Second",
+          "igl": false,
+          "overall": 47,
+          "potential": 79,
+          "attrs": [
+            55,
+            53,
+            50,
+            42,
+            38,
+            49,
+            43,
+            46
+          ],
+          "main": "Ímpeto",
+          "second": "Estalo",
+          "third": "Farol"
+        },
+        {
+          "id": "pzr-3",
+          "name": "Kairu",
+          "country": "Peru",
+          "role": "Support",
+          "igl": true,
+          "overall": 48,
+          "potential": 82,
+          "attrs": [
+            35,
+            38,
+            45,
+            58,
+            55,
+            62,
+            47,
+            44
+          ],
+          "main": "Farol",
+          "second": "Pulso",
+          "third": "Bruma"
+        },
+        {
+          "id": "pzr-4",
+          "name": "Paint",
+          "country": "Brasil",
+          "role": "Anchor",
+          "igl": false,
+          "overall": 46,
+          "potential": 74,
+          "attrs": [
+            39,
+            33,
+            60,
+            44,
+            48,
+            38,
+            59,
+            47
+          ],
+          "main": "Trava",
+          "second": "Bastião",
+          "third": "Véu"
+        },
+        {
+          "id": "pzr-5",
+          "name": "Gyz",
+          "country": "Colômbia",
+          "role": "Lurker",
+          "igl": false,
+          "overall": 44,
+          "potential": 88,
+          "attrs": [
+            46,
+            51,
+            55,
+            53,
+            32,
+            28,
+            47,
+            40
+          ],
+          "main": "Véu",
+          "second": "Bruma",
+          "third": "Trava"
+        }
+      ]
+    },
+    {
+      "id": "frv",
+      "name": "Ferrovia",
+      "tag": "FRV",
+      "players": [
+        {
+          "id": "frv-1",
+          "name": "Bruto",
+          "country": "Brasil",
+          "role": "Entry",
+          "igl": false,
+          "overall": 47,
+          "potential": 78,
+          "attrs": [
+            60,
+            55,
+            45,
+            38,
+            37,
+            40,
+            53,
+            48
+          ],
+          "main": "Estalo",
+          "second": "Ímpeto",
+          "third": "Farol"
+        },
+        {
+          "id": "frv-2",
+          "name": "Finger",
+          "country": "Argentina",
+          "role": "Second",
+          "igl": false,
+          "overall": 48,
+          "potential": 81,
+          "attrs": [
+            52,
+            45,
+            56,
+            43,
+            39,
+            52,
+            54,
+            43
+          ],
+          "main": "Pulso",
+          "second": "Farol",
+          "third": "Ímpeto"
+        },
+        {
+          "id": "frv-3",
+          "name": "Nobre",
+          "country": "Brasil",
+          "role": "Support",
+          "igl": true,
+          "overall": 51,
+          "potential": 76,
+          "attrs": [
+            38,
+            36,
+            52,
+            58,
+            55,
+            62,
+            61,
+            46
+          ],
+          "main": "Bruma",
+          "second": "Véu",
+          "third": "Farol"
+        },
+        {
+          "id": "frv-4",
+          "name": "Volk",
+          "country": "Chile",
+          "role": "Anchor",
+          "igl": false,
+          "overall": 52,
+          "potential": 80,
+          "attrs": [
+            43,
+            36,
+            66,
+            51,
+            54,
+            45,
+            68,
+            53
+          ],
+          "main": "Bastião",
+          "second": "Trava",
+          "third": "Bruma"
+        },
+        {
+          "id": "frv-5",
+          "name": "Raito",
+          "country": "Paraguai",
+          "role": "Main OP",
+          "igl": false,
+          "overall": 47,
+          "potential": 87,
+          "attrs": [
+            68,
+            30,
+            61,
+            45,
+            29,
+            33,
+            61,
+            49
+          ],
+          "main": "Trava",
+          "second": "Bastião",
+          "third": "Véu"
+        }
+      ]
+    },
+    {
+      "id": "mra",
+      "name": "Maré Alta",
+      "tag": "MRA",
+      "players": [
+        {
+          "id": "mra-1",
+          "name": "Surge",
+          "country": "Colômbia",
+          "role": "Entry",
+          "igl": false,
+          "overall": 52,
+          "potential": 84,
+          "attrs": [
+            65,
+            61,
+            49,
+            53,
+            44,
+            45,
+            46,
+            53
+          ],
+          "main": "Ímpeto",
+          "second": "Estalo",
+          "third": "Pulso"
+        },
+        {
+          "id": "mra-2",
+          "name": "Kaze",
+          "country": "Peru",
+          "role": "Second",
+          "igl": false,
+          "overall": 50,
+          "potential": 81,
+          "attrs": [
+            53,
+            50,
+            55,
+            54,
+            41,
+            59,
+            43,
+            45
+          ],
+          "main": "Pulso",
+          "second": "Farol",
+          "third": "Ímpeto"
+        },
+        {
+          "id": "mra-3",
+          "name": "Valen",
+          "country": "Argentina",
+          "role": "Support",
+          "igl": true,
+          "overall": 55,
+          "potential": 83,
+          "attrs": [
+            40,
+            41,
+            52,
+            69,
+            62,
+            70,
+            56,
+            50
+          ],
+          "main": "Farol",
+          "second": "Pulso",
+          "third": "Bruma"
+        },
+        {
+          "id": "mra-4",
+          "name": "Jorik",
+          "country": "Equador",
+          "role": "Anchor",
+          "igl": false,
+          "overall": 52,
+          "potential": 77,
+          "attrs": [
+            42,
+            35,
+            65,
+            59,
+            56,
+            48,
+            61,
+            50
+          ],
+          "main": "Bastião",
+          "second": "Trava",
+          "third": "Véu"
+        },
+        {
+          "id": "mra-5",
+          "name": "Sora",
+          "country": "Brasil",
+          "role": "Lurker",
+          "igl": false,
+          "overall": 51,
+          "potential": 89,
+          "attrs": [
+            50,
+            57,
+            65,
+            68,
+            38,
+            32,
+            54,
+            44
+          ],
+          "main": "Véu",
+          "second": "Bruma",
+          "third": "Trava"
+        }
+      ]
+    },
+    {
+      "id": "vrt",
+      "name": "Vértice",
+      "tag": "VRT",
+      "players": [
+        {
+          "id": "vrt-1",
+          "name": "Vext",
+          "country": "México",
+          "role": "Entry",
+          "igl": false,
+          "overall": 55,
+          "potential": 87,
+          "attrs": [
+            67,
+            62,
+            51,
+            46,
+            43,
+            60,
+            56,
+            55
+          ],
+          "main": "Estalo",
+          "second": "Ímpeto",
+          "third": "Pulso"
+        },
+        {
+          "id": "vrt-2",
+          "name": "Zev",
+          "country": "Colômbia",
+          "role": "Second",
+          "igl": false,
+          "overall": 54,
+          "potential": 85,
+          "attrs": [
+            58,
+            51,
+            62,
+            52,
+            44,
+            66,
+            54,
+            45
+          ],
+          "main": "Farol",
+          "second": "Pulso",
+          "third": "Ímpeto"
+        },
+        {
+          "id": "vrt-3",
+          "name": "Kaelis",
+          "country": "México",
+          "role": "Support",
+          "igl": true,
+          "overall": 56,
+          "potential": 82,
+          "attrs": [
+            40,
+            40,
+            53,
+            65,
+            65,
+            74,
+            61,
+            50
+          ],
+          "main": "Bruma",
+          "second": "Véu",
+          "third": "Pulso"
+        },
+        {
+          "id": "vrt-4",
+          "name": "Kynt",
+          "country": "Costa Rica",
+          "role": "Anchor",
+          "igl": false,
+          "overall": 53,
+          "potential": 78,
+          "attrs": [
+            43,
+            35,
+            64,
+            50,
+            56,
+            58,
+            65,
+            53
+          ],
+          "main": "Bastião",
+          "second": "Trava",
+          "third": "Bruma"
+        },
+        {
+          "id": "vrt-5",
+          "name": "Aether",
+          "country": "Chile",
+          "role": "Main OP",
+          "igl": false,
+          "overall": 52,
+          "potential": 90,
+          "attrs": [
+            73,
+            32,
+            64,
+            50,
+            32,
+            49,
+            64,
+            52
+          ],
+          "main": "Trava",
+          "second": "Bastião",
+          "third": "Véu"
+        }
+      ]
+    },
+    {
+      "id": "fsk",
+      "name": "Faísca",
+      "tag": "FSK",
+      "players": [
+        {
+          "id": "fsk-1",
+          "name": "Reckless",
+          "country": "Argentina",
+          "role": "Entry",
+          "igl": false,
+          "overall": 59,
+          "potential": 88,
+          "attrs": [
+            79,
+            75,
+            56,
+            49,
+            47,
+            46,
+            48,
+            72
+          ],
+          "main": "Estalo",
+          "second": "Ímpeto",
+          "third": "Farol"
+        },
+        {
+          "id": "fsk-2",
+          "name": "Ignite",
+          "country": "Brasil",
+          "role": "Second",
+          "igl": false,
+          "overall": 56,
+          "potential": 85,
+          "attrs": [
+            70,
+            67,
+            59,
+            48,
+            42,
+            58,
+            45,
+            59
+          ],
+          "main": "Ímpeto",
+          "second": "Estalo",
+          "third": "Pulso"
+        },
+        {
+          "id": "fsk-3",
+          "name": "Rival",
+          "country": "Uruguai",
+          "role": "Support",
+          "igl": true,
+          "overall": 53,
+          "potential": 80,
+          "attrs": [
+            40,
+            43,
+            46,
+            62,
+            60,
+            66,
+            54,
+            53
+          ],
+          "main": "Pulso",
+          "second": "Farol",
+          "third": "Bruma"
+        },
+        {
+          "id": "fsk-4",
+          "name": "Stark",
+          "country": "Chile",
+          "role": "Anchor",
+          "igl": false,
+          "overall": 52,
+          "potential": 76,
+          "attrs": [
+            49,
+            39,
+            62,
+            43,
+            51,
+            43,
+            65,
+            64
+          ],
+          "main": "Trava",
+          "second": "Bastião",
+          "third": "Véu"
+        },
+        {
+          "id": "fsk-5",
+          "name": "Nyrox",
+          "country": "México",
+          "role": "Lurker",
+          "igl": false,
+          "overall": 55,
+          "potential": 87,
+          "attrs": [
+            64,
+            65,
+            63,
+            59,
+            38,
+            34,
+            57,
+            60
+          ],
+          "main": "Bruma",
+          "second": "Véu",
+          "third": "Trava"
+        }
+      ]
+    },
+    {
+      "id": "blt",
+      "name": "Baluarte",
+      "tag": "BLT",
+      "players": [
+        {
+          "id": "blt-1",
+          "name": "Impact",
+          "country": "Peru",
+          "role": "Entry",
+          "igl": false,
+          "overall": 56,
+          "potential": 81,
+          "attrs": [
+            67,
+            58,
+            61,
+            47,
+            46,
+            47,
+            65,
+            57
+          ],
+          "main": "Ímpeto",
+          "second": "Estalo",
+          "third": "Farol"
+        },
+        {
+          "id": "blt-2",
+          "name": "Tora",
+          "country": "Brasil",
+          "role": "Second",
+          "igl": false,
+          "overall": 57,
+          "potential": 84,
+          "attrs": [
+            60,
+            49,
+            67,
+            53,
+            46,
+            61,
+            66,
+            54
+          ],
+          "main": "Farol",
+          "second": "Pulso",
+          "third": "Ímpeto"
+        },
+        {
+          "id": "blt-3",
+          "name": "Tenjin",
+          "country": "Chile",
+          "role": "Support",
+          "igl": true,
+          "overall": 58,
+          "potential": 79,
+          "attrs": [
+            41,
+            39,
+            59,
+            67,
+            65,
+            71,
+            68,
+            54
+          ],
+          "main": "Bruma",
+          "second": "Véu",
+          "third": "Pulso"
+        },
+        {
+          "id": "blt-4",
+          "name": "Warden",
+          "country": "Colômbia",
+          "role": "Anchor",
+          "igl": false,
+          "overall": 61,
+          "potential": 83,
+          "attrs": [
+            49,
+            39,
+            77,
+            58,
+            65,
+            52,
+            78,
+            70
+          ],
+          "main": "Bastião",
+          "second": "Trava",
+          "third": "Bruma"
+        },
+        {
+          "id": "blt-5",
+          "name": "Orion",
+          "country": "Argentina",
+          "role": "Main OP",
+          "igl": false,
+          "overall": 58,
+          "potential": 86,
+          "attrs": [
+            78,
+            31,
+            73,
+            59,
+            40,
+            44,
+            74,
+            65
+          ],
+          "main": "Trava",
+          "second": "Bastião",
+          "third": "Véu"
+        }
+      ]
+    },
+    {
+      "id": "crn",
+      "name": "Coroa Negra",
+      "tag": "CRN",
+      "players": [
+        {
+          "id": "crn-1",
+          "name": "Kyng",
+          "country": "Brasil",
+          "role": "Entry",
+          "igl": false,
+          "overall": 62,
+          "potential": 88,
+          "attrs": [
+            78,
+            69,
+            60,
+            59,
+            48,
+            53,
+            61,
+            68
+          ],
+          "main": "Estalo",
+          "second": "Ímpeto",
+          "third": "Pulso"
+        },
+        {
+          "id": "crn-2",
+          "name": "Kalyx",
+          "country": "México",
+          "role": "Second",
+          "igl": false,
+          "overall": 59,
+          "potential": 86,
+          "attrs": [
+            63,
+            58,
+            65,
+            61,
+            46,
+            64,
+            58,
+            57
+          ],
+          "main": "Farol",
+          "second": "Pulso",
+          "third": "Ímpeto"
+        },
+        {
+          "id": "crn-3",
+          "name": "Chronos",
+          "country": "Argentina",
+          "role": "Support",
+          "igl": true,
+          "overall": 63,
+          "potential": 84,
+          "attrs": [
+            45,
+            43,
+            61,
+            79,
+            69,
+            80,
+            71,
+            56
+          ],
+          "main": "Pulso",
+          "second": "Farol",
+          "third": "Bruma"
+        },
+        {
+          "id": "crn-4",
+          "name": "Noxis",
+          "country": "Uruguai",
+          "role": "Anchor",
+          "igl": false,
+          "overall": 58,
+          "potential": 80,
+          "attrs": [
+            45,
+            38,
+            70,
+            63,
+            59,
+            53,
+            72,
+            64
+          ],
+          "main": "Trava",
+          "second": "Bastião",
+          "third": "Véu"
+        },
+        {
+          "id": "crn-5",
+          "name": "Vael",
+          "country": "Venezuela",
+          "role": "Lurker",
+          "igl": false,
+          "overall": 58,
+          "potential": 90,
+          "attrs": [
+            58,
+            59,
+            72,
+            76,
+            40,
+            37,
+            65,
+            57
+          ],
+          "main": "Véu",
+          "second": "Bruma",
+          "third": "Trava"
+        }
+      ]
+    }
+  ]
+}

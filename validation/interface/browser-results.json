@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-13",
+  "status": "partial",
+  "environment": "Chrome desktop, viewport 1363x936 CSS px; managed local development preview",
+  "organization": "NEXUS QA / NQA, synthetic test career",
+  "observed": [
+    "Dashboard and navigation render in the approved dark and gold visual system; initial document width 1348 within viewport 1363.",
+    "Selected Drift, Pingo, Lume, Dobra and Cedro, salary 7600/12000; recruitment locks at five players.",
+    "Preparation previously redirected to training. After correction the Preparation heading is reachable before using the training opportunity.",
+    "Changing Dobra to Bruma changes preview src to /agents/bruma-preview.webp; athlete identity stays Dobra. Restored Prisma.",
+    "Preparation images report complete and positive naturalWidth in DOM after loading.",
+    "Cume sector B Estabilizador opens its connection details; returned to Doca.",
+    "Started circuit via native confirmation; day 1, balance 29000 after entry.",
+    "Individual agent training focuses Cedro on Prisma while assigned agent stays Bastiao; selections survive navigation and reload without consuming training.",
+    "Confirmed training once: Prisma familiarity 10 to 15, 280 XP received and 30 remaining. Reload leaves training disabled; assigned Bastiao stays 85.",
+    "Dismissing calendar skip keeps day 1. Accepting advances to day 4, without automatic training.",
+    "Started day 4 Doca match against Ponto Zero, seed 1840344411, accepting the training skip warning.",
+    "Browser worker executes manual round 1. Reload and reopening Partida show next round 2, score 0:1, original seed, map markers and round report."
+  ],
+  "not_completed": [
+    "Full automatic sequence through final result and NPC fixtures",
+    "Mobile-width rendering and mobile menu interactions",
+    "Visual/keyboard reset dialog checks and reset execution",
+    "All eight catalog agents, art enlargement links and atypical image ratios in browser",
+    "Final browser recheck after label, loading-state, CTA and flex CSS corrections",
+    "Export/import round trip, final finances, standings and legacy gallery in browser"
+  ],
+  "interruption": "CUA transport disconnected; documentation reconnection attempts and final completion-summary call timed out. No alternative browser automation or security bypass used.",
+  "limits": "Technical tests and static rendering are separate evidence, not proof of browser interaction. No physical Android, Safari or touch certification. No public publication or remote git mutation."
+}

@@ -1,3 +1,10 @@
+import {BETA_VERSION} from './release.ts';
+import {archiveFromText,archivesFromText,validateArchives,legacyWorkspace} from './archive.ts';
+import type {Archive} from './archive.ts';
+import {MECHANICS,mechanicsMatch} from '../src/content.ts';
+import {validateCareer} from './career-state.ts';
+import type {Career} from './career-state.ts';
+import {MAP_CATALOG,isMapId} from '../src/maps.ts';
 import rawCatalog from '../data/catalog.json' with {type:'json'};
 import {AGENTS} from '../src/abilities.ts';
 import type {Agent} from '../src/abilities.ts';
@@ -24,8 +31,8 @@ export function newId(){const values=new Uint32Array(4);globalThis.crypto.getRan
 export const ROLES=['Entry','Second','Support','Anchor','Lurker','Main OP'] as const;
 export const ROLE_NAMES:Record<string,string>={Entry:'Entry Fragger',Second:'Second Entry',Support:'Support',Anchor:'Anchor',Lurker:'Lurker','Main OP':'Main OP'};
 export const ATTRS=['Mira','Movimentação','Posicionamento','Leitura','Utilitários','Comunicação','Disciplina','Controle emocional'];
-export const MAP_NAMES={patio:'Pátio',horizonte:'Horizonte',enlace:'Enlace'};
-export const CLASS:Record<string,string>={Estalo:'Duelista','Ímpeto':'Duelista',Farol:'Iniciador',Pulso:'Iniciador',Bruma:'Controlador','Véu':'Controlador',Trava:'Sentinela','Bastião':'Sentinela'};
+export const MAP_NAMES=Object.fromEntries(Object.entries(MAP_CATALOG).map(([id,map])=>[id,map.name])) as Record<MapId,string>;
+export const CLASS:Record<string,string>={Estalo:'Duelista','Ímpeto':'Duelista',Farol:'Iniciador',Pulso:'Iniciador',Bruma:'Controlador',Prisma:'Controlador',Trava:'Sentinela','Bastião':'Sentinela'};
 export const PLAN_NAMES:Record<Plan,string>={eco:'Eco',semi:'Semi',full:'Forte'};
 export function packageGaps(a:Account,plan:Plan):string[]{
  const rank={basic:0,intermediate:1,main:2,precision:2},target=plan==='full'?2:plan==='semi'?1:0,slots=plan==='full'?3:2;
@@ -36,10 +43,10 @@ export type Player=typeof PLAYERS[number];
 export interface Assignment {agent:Agent;role:Role;}
 export interface Draft {org:string;tag:string;color:string;crest:number;selected:string[];assignments:Record<string,Assignment>;igl:string;map:MapId;opponent:'development'|'balanced'|'experienced';seed:number;plan:TeamPlan;}
 export interface RoundRecord {command:RoundCommand;seed:number;result:SimulationResult;purchases:Record<Team,Purchase[]>;}
-export interface Session {metadata?:MatchMetadata;id:string;map:MapId;seed:number;profiles:Profile[];names:Record<string,string>;state:MapState;records:RoundRecord[];}
+export interface Session {mechanics:typeof MECHANICS;metadata?:MatchMetadata;id:string;map:MapId;seed:number;profiles:Profile[];names:Record<string,string>;state:MapState;records:RoundRecord[];}
 export interface RoundCommand {id:string;revision:number;plans:Record<Team,TeamPlan>;buys:BuyPlan;}
-export interface Workspace {history?:Session[];autoBuy?:boolean;trainingPreparation?:TrainingPreparation;draft:Draft;session:Session|null;development?:Development;buyPreparation?:Record<string,Plan>;previous?:Session;legacyReport?:{engine:string;session:Session};}
-export function defaultDraft():Draft{return {org:'Minha organização',tag:'ORG',color:'#62e5ba',crest:0,selected:[],assignments:{},igl:'',map:'patio',opponent:'balanced',seed:20261021,plan:{attack:'fast',defense:'balanced',site:'A'}};}
+export interface Workspace {archives?:Archive[];career?:Career;history?:Session[];autoBuy?:boolean;trainingPreparation?:TrainingPreparation;draft:Draft;session:Session|null;development?:Development;buyPreparation?:Record<string,Plan>;previous?:Session;legacyReport?:{engine:string;session:Session};}
+export function defaultDraft():Draft{return {org:'Minha organização',tag:'ORG',color:'#62e5ba',crest:0,selected:[],assignments:{},igl:'',map:'doca',opponent:'balanced',seed:20261021,plan:{attack:'fast',defense:'balanced',site:'A'}};}
 export const salary=(d:Draft)=>d.selected.reduce((s,id)=>s+(PLAYERS.find(p=>p.id===id)?.salary??0),0);
 export const familiarity=(p:Player,agent:string)=>agent===p.main?85:agent===p.second?65:agent===p.third?45:10;
 export function validateDraft(d:Draft){
@@ -48,7 +55,7 @@ export function validateDraft(d:Draft){
  if(!d.selected.includes(d.igl))throw new Error('Defina um IGL entre os cinco titulares.');
  const assignments=d.selected.map(id=>d.assignments[id]);
  if(assignments.some(a=>!a||!AGENTS.includes(a.agent)||!ROLES.includes(a.role))||new Set(assignments.map(a=>a.agent)).size!==5)throw new Error('Escolha cinco agentes diferentes e uma responsabilidade para cada jogador.');
- if(!['patio','horizonte','enlace'].includes(d.map)||!['development','balanced','experienced'].includes(d.opponent))throw new Error('Cenário de teste inválido.');
+ if(!isMapId(d.map)||!['development','balanced','experienced'].includes(d.opponent))throw new Error('Cenário de teste inválido.');
  integer(d.seed,1,0xffffffff,'seed');validatePlan(d.plan);
 }
 export const validatePlan=validateStrategy;
@@ -67,7 +74,7 @@ export function createSession(d:Draft,id:string,development?:Development):Sessio
  const opponents=agents.map((agent,i)=>{const id=`B:${i}`;names[id]=`Teste ${i+1}`;return {id,team:'B' as const,agent,role:(['Entry','Support','Support','Main OP','Anchor'] as const)[i],attrs:Array(8).fill(level) as Attributes,agentFamiliarity:85,mapFamiliarity:50,morale:70,fatigue:10,weapon:i===3?'precision' as const:'basic' as const,shield:0,charges:[false,false,false] as [boolean,boolean,boolean],ult:0,igl:i===1};});
  const profiles=[...own,...opponents],accounts=(t:Team)=>profiles.filter(p=>p.team===t).map(p=>({id:p.id,credits:1000,weapon:p.weapon,shield:p.shield,charges:p.charges,ult:p.ult}));
  // Beta 1.1 format L02, approved on 2026-10-26. Historic maps retain their own format.
- return {id,map:d.map,seed:d.seed,profiles,names,state:createMap(accounts('A'),accounts('B'),'A',3),records:[]};
+ return {mechanics:structuredClone(MECHANICS),id,map:d.map,seed:d.seed,profiles,names,state:createMap(accounts('A'),accounts('B'),'A',3),records:[]};
 }
 export function automaticBuys(s:Session):Plan {return s.state.rounds===12?'eco':economicPlan(s.state.teams.A);}
 export function previewRound(s:Session,buys:BuyPlan){
@@ -89,8 +96,9 @@ export function advanceSession(input:Session,command:RoundCommand):Session {
  return {...input,state:completeRound(ready.state,result,result.kills),records:[...input.records,{command:structuredClone(command),seed,result,purchases:ready.purchases}]};
 }
 export function validateSession(s:Session){
+ if(!mechanicsMatch(s?.mechanics))throw new Error('Revisão mecânica da partida incompatível.');
  if(s?.metadata!==undefined)validateMetadata(s.metadata);
- if(!s||typeof s.id!=='string'||!s.id||!['patio','horizonte','enlace'].includes(s.map)||!Array.isArray(s.records)||s.records.length!==s.state?.rounds||!['buy','finished'].includes(s.state.phase))throw new Error('Progresso de partida inválido.');
+ if(!s||typeof s.id!=='string'||!s.id||!isMapId(s.map)||!Array.isArray(s.records)||s.records.length!==s.state?.rounds||!['buy','finished'].includes(s.state.phase))throw new Error('Progresso de partida inválido.');
  integer(s.seed,1,0xffffffff,'seed');
  if(!Array.isArray(s.profiles)||s.profiles.length!==10||new Set(s.profiles.map(p=>p.id)).size!==10)throw new Error('Elenco salvo inválido.');
  for(const team of ['A','B'] as const){if(s.state.teams[team].length!==5||s.profiles.filter(p=>p.team===team).length!==5)throw new Error('Equipe salva inválida.');s.state.teams[team].forEach(validateAccount);integer(s.state.score[team],0,s.records.length,'score');}
@@ -116,15 +124,18 @@ export function normalizedWorkspace(data:Workspace):Workspace {const out={...dat
 export function freshWorkspace():Workspace{return {draft:defaultDraft(),session:null,development:newDevelopment()};}
 export function encodeSave(input:Workspace):string {
  const data=normalizedWorkspace(input),payload=JSON.stringify(data);
- return JSON.stringify({format:'esports-manager-beta',schema:3,beta:'1.3.0',engine:ENGINE_VERSION,rules:RULES_VERSION,digest:sha256(payload),data});
+ return JSON.stringify({format:'esports-manager-beta',schema:6,beta:BETA_VERSION,mechanics:MECHANICS,engine:ENGINE_VERSION,rules:RULES_VERSION,digest:sha256(payload),data});
 }
 export function decodeSave(text:string):Workspace {
  if(new TextEncoder().encode(text).length>SAVE_LIMIT)throw new Error('Arquivo maior que o limite de 64 MB.');
  let e:any;try{e=JSON.parse(text);}catch{throw new Error('O arquivo não contém um salvamento JSON válido.');}
- if(e?.format!=='esports-manager-beta'||![2,3].includes(e.schema)||e.engine!==ENGINE_VERSION||e.rules!==RULES_VERSION)throw new Error('Versão incompatível. Preserve o arquivo original para uma futura migração.');
+ if(e?.format==='esports-manager-beta'&&['0.5.0','0.4.1','0.3.0'].includes(e.engine))return legacyWorkspace(text);
+ if(e?.format!=='esports-manager-beta'||e.schema!==6||!mechanicsMatch(e.mechanics)||e.engine!==ENGINE_VERSION||e.rules!==RULES_VERSION)throw new Error('Versão incompatível. Preserve o arquivo original para uma futura migração.');
  if(e.digest!==sha256(JSON.stringify(e.data)))throw new Error('O arquivo está incompleto ou foi modificado.');
  const w=e.data as Workspace;
- if(!w?.draft||!Array.isArray(w.draft.selected)||w.draft.selected.length>5||new Set(w.draft.selected).size!==w.draft.selected.length||w.draft.selected.some(id=>!PLAYERS.some(p=>p.id===id))||typeof w.draft.org!=='string'||w.draft.org.length>40||typeof w.draft.tag!=='string'||w.draft.tag.length>5||typeof w.draft.igl!=='string'||!w.draft.assignments||typeof w.draft.assignments!=='object'||!/^#[0-9a-f]{6}$/i.test(w.draft.color)||![0,1,2].includes(w.draft.crest)||!['patio','horizonte','enlace'].includes(w.draft.map)||!['development','balanced','experienced'].includes(w.draft.opponent))throw new Error('Configuração salva inválida.');
+ if(w.career&&w.career.version!==2)throw new Error('Agenda anterior deve ser aberta pelo acervo legado.');
+ validateArchives(w.archives);
+ if(!w?.draft||!Array.isArray(w.draft.selected)||w.draft.selected.length>5||new Set(w.draft.selected).size!==w.draft.selected.length||w.draft.selected.some(id=>!PLAYERS.some(p=>p.id===id))||typeof w.draft.org!=='string'||w.draft.org.length>40||typeof w.draft.tag!=='string'||w.draft.tag.length>5||typeof w.draft.igl!=='string'||!w.draft.assignments||typeof w.draft.assignments!=='object'||!/^#[0-9a-f]{6}$/i.test(w.draft.color)||![0,1,2].includes(w.draft.crest)||!isMapId(w.draft.map)||!['development','balanced','experienced'].includes(w.draft.opponent))throw new Error('Configuração salva inválida.');
  integer(w.draft.seed,1,0xffffffff,'seed');validatePlan(w.draft.plan);
  for(const a of Object.values(w.draft.assignments))if(!a||!AGENTS.includes(a.agent)||!ROLES.includes(a.role))throw new Error('Escalação salva inválida.');
  if(w.session){validateDraft(w.draft);validateSession(w.session);}
@@ -135,7 +146,8 @@ export function decodeSave(text:string):Workspace {
  if(w.history!==undefined)validateHistory(w.history);
  if(w.autoBuy!==undefined&&typeof w.autoBuy!=='boolean')throw new Error('Preferência de compra inválida.');
  if(w.previous)validateSession(w.previous);
- if(w.legacyReport){if(w.legacyReport.engine!=='0.3.0')throw new Error('Relatório histórico incompatível.');validateSession(w.legacyReport.session);}
+ if(w.legacyReport){if(w.legacyReport.engine!==ENGINE_VERSION)throw new Error('Relatório histórico incompatível.');validateSession(w.legacyReport.session);}
+ validateCareer(w);
  return structuredClone(w);
 }
 export function stats(s:Session){
@@ -154,6 +166,7 @@ export function stats(s:Session){
 export function nextSide(s:Session){return attackingTeam(s.state)==='A'?'Ataque':'Defesa';}
 
 export function beginMatch(w:Workspace,id:string):Workspace {
+ if(w.career)throw new Error('Inicie o confronto pela agenda do calendário.');
  const dev=structuredClone(w.development??newDevelopment());
  if(w.session||dev.matchId)throw new Error('Conclua a partida atual e escolha Nova partida.');
  if(!dev.used)throw new Error('Confirme ou pule o treino antes da partida.');
@@ -164,21 +177,17 @@ export function beginMatch(w:Workspace,id:string):Workspace {
  dev.matchId=id;return {...prepared,draft,session,development:dev};
 }
 export function nextMatch(w:Workspace):Workspace {
+ if(w.career)throw new Error('Avance pelo calendário para liberar o próximo dia.');
  if(!w.session||w.session.state.phase!=='finished')throw new Error('Conclua a partida atual antes de preparar outra.');
  const dev=structuredClone(w.development??newDevelopment());dev.used=false;dev.matchId=null;dev.completed++;delete dev.receipt;
  return normalizedWorkspace({...w,previous:structuredClone(w.session),session:null,development:dev,buyPreparation:undefined,trainingPreparation:undefined});
 }
 /** Explicit import; old results remain a read-only snapshot, never simulated by new rules. */
-export function prepareImport(text:string):{data:Workspace;notice:string}{
+export function prepareImport(text:string):{data:Workspace;notice:string;archiveOnly?:boolean}{
  let e:any;try{e=JSON.parse(text);}catch{throw new Error('O arquivo não contém um salvamento JSON válido.');}
+ if(['0.5.0','0.4.1','0.3.0'].includes(e?.engine)){const archives=archivesFromText(text);return {data:{...freshWorkspace(),archives},archiveOnly:true,notice:'Arquivo antigo validado. Será adicionado ao acervo somente para consulta e exportação; a campanha atual será preservada.'};}
  if(e?.engine===ENGINE_VERSION)return {data:initializeHistory(decodeSave(text)),notice:'Salvamento compatível. O progresso e histórico atuais serão substituídos.'};
- if(text.length>20*1024*1024||e?.format!=='esports-manager-beta'||e.engine!=='0.3.0'||e.schema!==1||e.rules!=='gdd-1.3')throw new Error('Versão incompatível. Preserve o arquivo original.');
- if(e.digest!==sha256(JSON.stringify(e.data)))throw new Error('O arquivo está incompleto ou foi modificado.');
- const old=e.data as Workspace;const next=normalizedWorkspace({...old,session:null,development:newDevelopment(),buyPreparation:undefined,previous:undefined,legacyReport:undefined});
- // Validate configuration through the new format before trusting imported fields.
- decodeSave(encodeSave(next));
- if(old.session){validateDraft(old.draft);validateSession(old.session);next.legacyReport={engine:'0.3.0',session:structuredClone(old.session)};}
- return {data:next,notice:old.session?.state.phase==='buy'?'Partida Beta 1.0 em andamento: não continuará no novo motor. Importe só a organização, com XP zero, e preserve o arquivo original para concluir no Beta 1.0.':'Importar organização do Beta 1.0 com XP zero. O relatório antigo será preservado para consulta; não será recalculado.'};
+ throw new Error('Versão incompatível. Preserve o arquivo original.');
 }
 
 /** Random only on creation, never during reload or replay. */

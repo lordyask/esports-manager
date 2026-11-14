@@ -1,0 +1,43 @@
+[
+  {
+    "width": 1280,
+    "status": "passed",
+    "checks": [
+      "legacy import",
+      "fresh calendar",
+      "individual daily training",
+      "reload cannot retrain",
+      "jump warning and cancellation",
+      "match day stop",
+      "fixed canonical NPCs",
+      "round checkpoint",
+      "automatic match",
+      "same-day training stays closed",
+      "jump preserves player growth",
+      "history persists",
+      "no overflow or JavaScript/asset errors",
+      "day 28 training before final match",
+      "seven-match agenda completion",
+      "completion reload"
+    ]
+  },
+  {
+    "width": 390,
+    "status": "passed",
+    "checks": [
+      "legacy import",
+      "fresh calendar",
+      "individual daily training",
+      "reload cannot retrain",
+      "jump warning and cancellation",
+      "match day stop",
+      "fixed canonical NPCs",
+      "round checkpoint",
+      "automatic match",
+      "same-day training stays closed",
+      "jump preserves player growth",
+      "history persists",
+      "no overflow or JavaScript/asset errors"
+    ]
+  }
+]

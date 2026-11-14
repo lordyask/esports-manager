@@ -1,0 +1,200 @@
+{
+  "exported": true,
+  "base": "/nexus",
+  "files": 24,
+  "bytes": 4863904,
+  "checks": [
+    {
+      "agent": "Estalo",
+      "kind": "card",
+      "path": "out/agents/estalo-card.webp",
+      "bytes": 260894,
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "agent": "Estalo",
+      "kind": "keyart",
+      "path": "out/agents/estalo-keyart.webp",
+      "bytes": 317366,
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "agent": "Estalo",
+      "kind": "preview",
+      "path": "out/agents/estalo-preview.webp",
+      "bytes": 73856,
+      "width": 480,
+      "height": 600
+    },
+    {
+      "agent": "Ímpeto",
+      "kind": "card",
+      "path": "out/agents/impeto-card.webp",
+      "bytes": 254794,
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "agent": "Ímpeto",
+      "kind": "keyart",
+      "path": "out/agents/impeto-keyart.webp",
+      "bytes": 317912,
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "agent": "Ímpeto",
+      "kind": "preview",
+      "path": "out/agents/impeto-preview.webp",
+      "bytes": 78460,
+      "width": 480,
+      "height": 600
+    },
+    {
+      "agent": "Farol",
+      "kind": "card",
+      "path": "out/agents/farol-card.webp",
+      "bytes": 258290,
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "agent": "Farol",
+      "kind": "keyart",
+      "path": "out/agents/farol-keyart.webp",
+      "bytes": 298294,
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "agent": "Farol",
+      "kind": "preview",
+      "path": "out/agents/farol-preview.webp",
+      "bytes": 65694,
+      "width": 480,
+      "height": 600
+    },
+    {
+      "agent": "Pulso",
+      "kind": "card",
+      "path": "out/agents/pulso-card.webp",
+      "bytes": 290760,
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "agent": "Pulso",
+      "kind": "keyart",
+      "path": "out/agents/pulso-keyart.webp",
+      "bytes": 336232,
+      "width": 1190,
+      "height": 1322
+    },
+    {
+      "agent": "Pulso",
+      "kind": "preview",
+      "path": "out/agents/pulso-preview.webp",
+      "bytes": 66634,
+      "width": 480,
+      "height": 533
+    },
+    {
+      "agent": "Bruma",
+      "kind": "card",
+      "path": "out/agents/bruma-card.webp",
+      "bytes": 301476,
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "agent": "Bruma",
+      "kind": "keyart",
+      "path": "out/agents/bruma-keyart.webp",
+      "bytes": 353796,
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "agent": "Bruma",
+      "kind": "preview",
+      "path": "out/agents/bruma-preview.webp",
+      "bytes": 70584,
+      "width": 427,
+      "height": 640
+    },
+    {
+      "agent": "Prisma",
+      "kind": "card",
+      "path": "out/agents/prisma-card.webp",
+      "bytes": 322126,
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "agent": "Prisma",
+      "kind": "keyart",
+      "path": "out/agents/prisma-keyart.webp",
+      "bytes": 261586,
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "agent": "Prisma",
+      "kind": "preview",
+      "path": "out/agents/prisma-preview.webp",
+      "bytes": 59636,
+      "width": 480,
+      "height": 600
+    },
+    {
+      "agent": "Trava",
+      "kind": "card",
+      "path": "out/agents/trava-card.webp",
+      "bytes": 236480,
+      "width": 1086,
+      "height": 1448
+    },
+    {
+      "agent": "Trava",
+      "kind": "keyart",
+      "path": "out/agents/trava-keyart.webp",
+      "bytes": 148840,
+      "width": 1200,
+      "height": 1500
+    },
+    {
+      "agent": "Trava",
+      "kind": "preview",
+      "path": "out/agents/trava-preview.webp",
+      "bytes": 34350,
+      "width": 480,
+      "height": 600
+    },
+    {
+      "agent": "Bastião",
+      "kind": "card",
+      "path": "out/agents/bastiao-card.webp",
+      "bytes": 221330,
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "agent": "Bastião",
+      "kind": "keyart",
+      "path": "out/agents/bastiao-keyart.webp",
+      "bytes": 191052,
+      "width": 1200,
+      "height": 1500
+    },
+    {
+      "agent": "Bastião",
+      "kind": "preview",
+      "path": "out/agents/bastiao-preview.webp",
+      "bytes": 43462,
+      "width": 480,
+      "height": 600
+    }
+  ]
+}

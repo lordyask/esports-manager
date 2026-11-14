@@ -1,0 +1,39 @@
+name: Validar mapas Beta 2.0 (sem publicar)
+on:
+  push:
+    branches: [development/beta-2.0-map-integration]
+permissions:
+  contents: read
+jobs:
+  maps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+      - run: node scripts/maps-validation.ts
+      - run: npm run build
+        env:
+          PAGES_BASE_PATH: /esports-manager
+      - run: node scripts/check-export.ts
+        env:
+          PAGES_BASE_PATH: /esports-manager
+      - run: npm install --prefix /tmp/esports-browser --no-save playwright@1.62.1
+      - run: /tmp/esports-browser/node_modules/.bin/playwright install --with-deps chromium
+      - run: |
+          mkdir -p /tmp/nexus-maps-site
+          ln -s "$GITHUB_WORKSPACE/out" /tmp/nexus-maps-site/esports-manager
+          node scripts/maps-browser-fixtures.ts
+          node scripts/maps-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: maps-development-validation
+          path: validation/maps/
+          retention-days: 14

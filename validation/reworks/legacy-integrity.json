@@ -1,0 +1,146 @@
+{
+  "sourceCommit": "1207e16113a35ff8537bfbf8e8bdda9fd3f273ba",
+  "identical": true,
+  "files": [
+    {
+      "path": "data/catalog.json",
+      "sha256": "512f60497eace7cadcd74e3186a3bceb102e35d14faaaebb62242a3f31334662"
+    },
+    {
+      "path": "data/opponents.json",
+      "sha256": "57a908c7f7e8b38a4f321e4d443527b360adb782e013aa0603914a0988805d9c"
+    },
+    {
+      "path": "lib/career-state.ts",
+      "sha256": "a1903924471a3f567ff51f2ffdf0de1f8c376424b7e033d67ebe6d1a6acfdb39"
+    },
+    {
+      "path": "lib/career.ts",
+      "sha256": "b32a8634304abb2aaf004bb43f301768b935f807ffd9710e681683932fa9c29f"
+    },
+    {
+      "path": "lib/circuit-state.ts",
+      "sha256": "b3a7912819f43432f3506e4eddf8c1f7c1e6c6505bbb3119cd9f63465d5a1f06"
+    },
+    {
+      "path": "lib/circuit.ts",
+      "sha256": "3cb14524d525f57b33897d8f5b978dd5a1185bcc44d3912733bf32cfb2cc1f8d"
+    },
+    {
+      "path": "lib/club-finance.ts",
+      "sha256": "028981ee7ea891d15282edc6908249b8c0a6e7695db387cf66fe9f53161247e8"
+    },
+    {
+      "path": "lib/club-policy.ts",
+      "sha256": "df5b1e78c275957be3b33a10dd606cf939bbc65f2fe0d3dbc88ccad9baaa7f26"
+    },
+    {
+      "path": "lib/countries.ts",
+      "sha256": "2786b9ccfe924181c69797c438845d2d668a4245e2f68c217a28faa578be8d9e"
+    },
+    {
+      "path": "lib/development.ts",
+      "sha256": "1987dab6ba745d3dadffbb802324bb076ee3c7a4b7ae2c6794787c5834bc160f"
+    },
+    {
+      "path": "lib/game.ts",
+      "sha256": "5cabc29a3b6260f442748c0d49ac319b75b136722ad48e1eff3f0df270b9a77b"
+    },
+    {
+      "path": "lib/history.ts",
+      "sha256": "b4159ac9a4e570b78956542431aef9c748602fe530e8ef44e2d0fbe31df285b5"
+    },
+    {
+      "path": "lib/insights.ts",
+      "sha256": "e0603b682545605e19ff6c15009d820791da792b8b1daa2708605962ff874d2b"
+    },
+    {
+      "path": "lib/match-analysis.ts",
+      "sha256": "1bcefe35687c2b2ebfc34d723f3416ff4389041efb157e4cf24225973f2e0cc4"
+    },
+    {
+      "path": "lib/opponents.ts",
+      "sha256": "c779d5316f301cd86fcf0c0c799ea5fd9bfff17c4ad1231ca42240eadcc2bbee"
+    },
+    {
+      "path": "lib/storage.ts",
+      "sha256": "08ed365a7a8f352398651c02ff1cf6740810302df65e833519d7e590eb3149d7"
+    },
+    {
+      "path": "lib/training-preparation.ts",
+      "sha256": "005fd1dabf6e9eb5d2300046db9d31401ac4812a8db2e0033361d6e3003d9221"
+    },
+    {
+      "path": "lib/worker.ts",
+      "sha256": "dd58986a9119d1a5da620de2786ddaec78f38bb67d432e1300f71076e322bcfd"
+    },
+    {
+      "path": "src/abilities.ts",
+      "sha256": "e7497b1656fc4db84bd60bbaa80fdf0e361050e09dcac871a38c5aa003f8343b"
+    },
+    {
+      "path": "src/ai.ts",
+      "sha256": "faac4d6a95362ed8bc5162033a455e99e6e6e2e03e7c2df436f73d7103635145"
+    },
+    {
+      "path": "src/autonomous.ts",
+      "sha256": "a8f5741f204c28b305771a441c06b9b2b8c094d37070b40477da7c2e639ac9b3"
+    },
+    {
+      "path": "src/career.ts",
+      "sha256": "351295b1f18e294446e8b1c9e6dd84bcf62c6d068b7d17248d8cc911ab12f928"
+    },
+    {
+      "path": "src/combat.ts",
+      "sha256": "f6f64956d4ccee09932ca360adabe32b107056495a829feabe3a1991887feafc"
+    },
+    {
+      "path": "src/commands.ts",
+      "sha256": "dbc1c07712c1980993d67ca1175403b57e5bc59b1591c5ef52622209521405cd"
+    },
+    {
+      "path": "src/economy.ts",
+      "sha256": "9cda9ce926df912d13a0248398901f68b4ebd2a65cf01f09f661b6aab0463b16"
+    },
+    {
+      "path": "src/hash.ts",
+      "sha256": "892c5aa3126d53cce9789a150238a30e72074a66e90868b037a915ffa4b1fbbc"
+    },
+    {
+      "path": "src/index.ts",
+      "sha256": "2736f6d658e0515dbb042dd8e34f5b8585adc953244af72e57be0940e8498a16"
+    },
+    {
+      "path": "src/map.ts",
+      "sha256": "d08b662191e205daa7744c67e396ab8c7e03ee9140c3ac92575fd25f34f9f87b"
+    },
+    {
+      "path": "src/maps.ts",
+      "sha256": "581f91c8bc8c07b956270fec108550c6fe0fa8410f6b008ec20080c7a4b303d1"
+    },
+    {
+      "path": "src/random.ts",
+      "sha256": "8541c1403c6f334ebd8c65b8615225eb4b0568fd97d0941bb507904c7cf1ec69"
+    },
+    {
+      "path": "src/round.ts",
+      "sha256": "8b0fe647abb2d5978f19bae4cdd3df964ea430e2f29cb06559d9ef2088ff50bc"
+    },
+    {
+      "path": "src/rules.ts",
+      "sha256": "2147f4f9535838536a03e3512f9c0f716332f38d4c6262cb12961aaee7b812b5"
+    },
+    {
+      "path": "src/simulation.ts",
+      "sha256": "cf140865f7c130f837595c049bbab880773d6656478bdc044e8209928e8c79fa"
+    },
+    {
+      "path": "src/strategies.ts",
+      "sha256": "132b86e502a99cc56373380eb0a2263d97f8f6f89502c4b6605210d5f0b468aa"
+    },
+    {
+      "path": "src/tactical-types.ts",
+      "sha256": "0c8905c955e24e480a081a33e98fa451b078f1c157b5575cc4b6715603967c55"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {readFileSync,readdirSync,existsSync} from 'node:fs';
+import {APP_TITLE,BUILD_LABEL,BETA_VERSION} from '../lib/release.ts';
+const html=readFileSync('out/index.html','utf8'),manifest=JSON.parse(readFileSync('out/manifest.webmanifest','utf8'));
+assert.ok(html.includes(`<title>${APP_TITLE}</title>`));
+assert.ok(manifest.name.endsWith(BUILD_LABEL));
+assert.ok(!existsSync('out/qa-temp'),'Temporary QA page must never ship');
+const walk=(p:string):string[]=>readdirSync(p,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(`${p}/${e.name}`):[`${p}/${e.name}`]);
+const js=walk('out/_next/static').filter(p=>p.endsWith('.js')).map(p=>readFileSync(p,'utf8'));
+assert.ok(js.some(s=>s.includes(BETA_VERSION)));
+assert.ok(!js.some(s=>s.includes('2.0.0-dev.reworks')||s.includes('BETA 2.0 · DEV')));
+console.log(`Candidate ${BETA_VERSION}: title, manifest, client identification and temporary-page exclusion passed.`);

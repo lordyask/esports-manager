@@ -1,0 +1,837 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> esports-manager-engine@0.4.1 test
+> node --test --test-reporter=tap --test-timeout=30000 test/*.test.ts
+
+TAP version 13
+# Subtest: schema 2 remains readable and migration archives only finished current/previous once
+ok 1 - schema 2 remains readable and migration archives only finished current/previous once
+  ---
+  duration_ms: 475.83036
+  type: 'test'
+  ...
+# Subtest: new match gets crypto seed while reload and export retain its exact identity
+ok 2 - new match gets crypto seed while reload and export retain its exact identity
+  ---
+  duration_ms: 10.172063
+  type: 'test'
+  ...
+# Subtest: history roundtrip, merge, conflict detection and independent snapshots
+ok 3 - history roundtrip, merge, conflict detection and independent snapshots
+  ---
+  duration_ms: 225.892992
+  type: 'test'
+  ...
+# Subtest: limit never evicts matches and reserves capacity for an active match
+ok 4 - limit never evicts matches and reserves capacity for an active match
+  ---
+  duration_ms: 277.355796
+  type: 'test'
+  ...
+# Subtest: deleted previous is not resurrected by migration and history import preserves ongoing work
+ok 5 - deleted previous is not resurrected by migration and history import preserves ongoing work
+  ---
+  duration_ms: 7.14076
+  type: 'test'
+  ...
+# Subtest: CSV contains profiles, all rounds, safe cells and both sides
+ok 6 - CSV contains profiles, all rounds, safe cells and both sides
+  ---
+  duration_ms: 5.915045
+  type: 'test'
+  ...
+# Subtest: individual training doubles XP only for its target and persists after save
+ok 7 - individual training doubles XP only for its target and persists after save
+  ---
+  duration_ms: 2.848459
+  type: 'test'
+  ...
+# Subtest: forecast respects XP remainder, individual mode and caps; receipt rejects fake modes
+ok 8 - forecast respects XP remainder, individual mode and caps; receipt rejects fake modes
+  ---
+  duration_ms: 0.638671
+  type: 'test'
+  ...
+# Subtest: analysis uses historical profiles and actual initial side without changing results
+ok 9 - analysis uses historical profiles and actual initial side without changing results
+  ---
+  duration_ms: 61.216833
+  type: 'test'
+  ...
+# Subtest: finished history persists atomically and stale-tab deletion cannot erase a newer save
+ok 10 - finished history persists atomically and stale-tab deletion cannot erase a newer save
+  ---
+  duration_ms: 144.398598
+  type: 'test'
+  ...
+# Subtest: portable SHA-256 matches Node for standard, Unicode, padding and multi-block inputs
+ok 11 - portable SHA-256 matches Node for standard, Unicode, padding and multi-block inputs
+  ---
+  duration_ms: 16.955028
+  type: 'test'
+  ...
+# Subtest: mixed purchases preserve individual caps and reserve own kits before gifts
+ok 12 - mixed purchases preserve individual caps and reserve own kits before gifts
+  ---
+  duration_ms: 1.027406
+  type: 'test'
+  ...
+# Subtest: uniform per-player purchase plans equal the established team contract
+ok 13 - uniform per-player purchase plans equal the established team contract
+  ---
+  duration_ms: 4.186431
+  type: 'test'
+  ...
+# Subtest: draft enforces five contracts, salary cap and unique match agents
+ok 14 - draft enforces five contracts, salary cap and unique match agents
+  ---
+  duration_ms: 1.847218
+  type: 'test'
+  ...
+# Subtest: round checkpoints resume exactly and duplicate commands never consume another round
+ok 15 - round checkpoints resume exactly and duplicate commands never consume another round
+  ---
+  duration_ms: 262.423529
+  type: 'test'
+  ...
+# Subtest: save detects incompatible versions and damaged content
+ok 16 - save detects incompatible versions and damaged content
+  ---
+  duration_ms: 10.005924
+  type: 'test'
+  ...
+# Subtest: manual credits and the second-half reset preview match committed round purchases
+ok 17 - manual credits and the second-half reset preview match committed round purchases
+  ---
+  duration_ms: 344.051815
+  type: 'test'
+  ...
+# Subtest: individual step and accelerated loops produce identical full matches and statistics
+ok 18 - individual step and accelerated loops produce identical full matches and statistics
+  ---
+  duration_ms: 732.202131
+  type: 'test'
+  ...
+# Subtest: attack executes a clear route despite contact on another route, but holds threatened crossings
+ok 19 - attack executes a clear route despite contact on another route, but holds threatened crossings
+  ---
+  duration_ms: 1.40807
+  type: 'test'
+  ...
+# Subtest: control staging waits in mid instead of issuing an invalid plant
+ok 20 - control staging waits in mid instead of issuing an invalid plant
+  ---
+  duration_ms: 0.615356
+  type: 'test'
+  ...
+# Subtest: the manager designated IGL makes the control call without a duplicated attribute bonus
+ok 21 - the manager designated IGL makes the control call without a duplicated attribute bonus
+  ---
+  duration_ms: 6.940929
+  type: 'test'
+  ...
+# Subtest: a structurally inconsistent imported history is rejected even with a recalculated checksum
+ok 22 - a structurally inconsistent imported history is rejected even with a recalculated checksum
+  ---
+  duration_ms: 24.029807
+  type: 'test'
+  ...
+# Subtest: approved fixtures have seven dates, four Doca, three Cume and 4/3 player starts
+ok 23 - approved fixtures have seven dates, four Doca, three Cume and 4/3 player starts
+  ---
+  duration_ms: 5.153735
+  type: 'test'
+  ...
+# Subtest: canonical NPC catalog is fixed, independent and has 35 approved averages and distinct agents
+ok 24 - canonical NPC catalog is fixed, independent and has 35 approved averages and distinct agents
+  ---
+  duration_ms: 6.009332
+  type: 'test'
+  ...
+# Subtest: new career starts at day 1 with zero growth, preserves history, cannot import old XP into progression
+ok 25 - new career starts at day 1 with zero growth, preserves history, cannot import old XP into progression
+  ---
+  duration_ms: 8.897766
+  type: 'test'
+  ...
+# Subtest: collective and individual consume one shared daily chance, reload never restores it
+ok 26 - collective and individual consume one shared daily chance, reload never restores it
+  ---
+  duration_ms: 17.220741
+  type: 'test'
+  ...
+# Subtest: skip and jump discard exactly the available days without automatic training
+ok 27 - skip and jump discard exactly the available days without automatic training
+  ---
+  duration_ms: 3.229381
+  type: 'test'
+  ...
+# Subtest: day-by-day and direct jumps yield identical state and fixed adversaries
+ok 28 - day-by-day and direct jumps yield identical state and fixed adversaries
+  ---
+  duration_ms: 3.727376
+  type: 'test'
+  ...
+# Subtest: match starts only on due day, closes unused training, respects canonical profiles and cannot duplicate
+ok 29 - match starts only on due day, closes unused training, respects canonical profiles and cannot duplicate
+  ---
+  duration_ms: 10.361763
+  type: 'test'
+  ...
+# Subtest: match checkpoints, history, result idempotency and no same-day training after finish
+ok 30 - match checkpoints, history, result idempotency and no same-day training after finish
+  ---
+  duration_ms: 545.085379
+  type: 'test'
+  ...
+# Subtest: save validation rejects altered NPCs, fabricated XP, duplicate days, corrupt agenda and schema downgrade
+ok 31 - save validation rejects altered NPCs, fabricated XP, duplicate days, corrupt agenda and schema downgrade
+  ---
+  duration_ms: 12.701746
+  type: 'test'
+  ...
+# Subtest: daily confirmations persist once and stale IndexedDB writes preserve confirmed growth
+ok 32 - daily confirmations persist once and stale IndexedDB writes preserve confirmed growth
+  ---
+  duration_ms: 13.255284
+  type: 'test'
+  ...
+# Subtest: all 28 daily sessions and seven matches finish, NPC stats never evolve and day 29 is unavailable
+ok 33 - all 28 daily sessions and seven matches finish, NPC stats never evolve and day 29 is unavailable
+  ---
+  duration_ms: 8476.328973
+  type: 'test'
+  ...
+# Subtest: approved initial catalog preserves 24 unique players and valid affordable selections
+ok 34 - approved initial catalog preserves 24 unique players and valid affordable selections
+  ---
+  duration_ms: 23.210021
+  type: 'test'
+  ...
+# Subtest: RNG can resume and independent streams cannot alter combat
+ok 35 - RNG can resume and independent streams cannot alter combat
+  ---
+  duration_ms: 2.192711
+  type: 'test'
+  ...
+# Subtest: damage consumes temporary shield, paid shield and health in order
+ok 36 - damage consumes temporary shield, paid shield and health in order
+  ---
+  duration_ms: 0.89824
+  type: 'test'
+  ...
+# Subtest: duplicate equipment bonuses are absent and condition caps apply
+ok 37 - duplicate equipment bonuses are absent and condition caps apply
+  ---
+  duration_ms: 0.390752
+  type: 'test'
+  ...
+# Subtest: duel is deterministic and input order does not change shot resolution
+ok 38 - duel is deterministic and input order does not change shot resolution
+  ---
+  duration_ms: 1.06303
+  type: 'test'
+  ...
+# Subtest: simultaneous lethal hits may kill both with no forced survival
+ok 39 - simultaneous lethal hits may kill both with no forced survival
+  ---
+  duration_ms: 0.492756
+  type: 'test'
+  ...
+# Subtest: full and semi kits cost 6000 and 3000 per player from zero
+ok 40 - full and semi kits cost 6000 and 3000 per player from zero
+  ---
+  duration_ms: 0.844039
+  type: 'test'
+  ...
+# Subtest: retained main weapon reduces full repurchase to 2400
+ok 41 - retained main weapon reduces full repurchase to 2400
+  ---
+  duration_ms: 0.256699
+  type: 'test'
+  ...
+# Subtest: preserved superior gun and charges are never bought twice
+ok 42 - preserved superior gun and charges are never bought twice
+  ---
+  duration_ms: 0.288998
+  type: 'test'
+  ...
+# Subtest: partial shields are repaired for 20 per point and Eco may save everything
+ok 43 - partial shields are repaired for 20 per point and Eco may save everything
+  ---
+  duration_ms: 0.920244
+  type: 'test'
+  ...
+# Subtest: aid only buys guns after reserving every own purchase
+ok 44 - aid only buys guns after reserving every own purchase
+  ---
+  duration_ms: 0.843958
+  type: 'test'
+  ...
+# Subtest: economy validates identity and never overspends
+ok 45 - economy validates identity and never overspends
+  ---
+  duration_ms: 0.344381
+  type: 'test'
+  ...
+# Subtest: loss rewards, cash cap, death preservation and half reset
+ok 46 - loss rewards, cash cap, death preservation and half reset
+  ---
+  duration_ms: 0.622623
+  type: 'test'
+  ...
+# Subtest: canonical routes include attacker base and recompute blocked paths
+ok 47 - canonical routes include attacker base and recompute blocked paths
+  ---
+  duration_ms: 0.730176
+  type: 'test'
+  ...
+# Subtest: approved mobility preserves meaningful crossing time
+ok 48 - approved mobility preserves meaningful crossing time
+  ---
+  duration_ms: 0.268637
+  type: 'test'
+  ...
+# Subtest: fractional development and potential are preserved
+ok 49 - fractional development and potential are preserved
+  ---
+  duration_ms: 0.285162
+  type: 'test'
+  ...
+# Subtest: renewal uses accumulated fractional growth
+ok 50 - renewal uses accumulated fractional growth
+  ---
+  duration_ms: 0.150087
+  type: 'test'
+  ...
+# Subtest: dismissal before payday includes wages already earned
+ok 51 - dismissal before payday includes wages already earned
+  ---
+  duration_ms: 0.179542
+  type: 'test'
+  ...
+# Subtest: mental profile has no extra hidden penalty
+ok 52 - mental profile has no extra hidden penalty
+  ---
+  duration_ms: 0.139882
+  type: 'test'
+  ...
+# Subtest: plant at exactly time limit is valid
+ok 53 - plant at exactly time limit is valid
+  ---
+  duration_ms: 0.889757
+  type: 'test'
+  ...
+# Subtest: plant too late does not complete
+ok 54 - plant too late does not complete
+  ---
+  duration_ms: 0.263719
+  type: 'test'
+  ...
+# Subtest: defuse at exact detonation deadline wins
+ok 55 - defuse at exact detonation deadline wins
+  ---
+  duration_ms: 0.344372
+  type: 'test'
+  ...
+# Subtest: lethal damage at cast completion cancels without consuming charge
+ok 56 - lethal damage at cast completion cancels without consuming charge
+  ---
+  duration_ms: 0.32964
+  type: 'test'
+  ...
+# Subtest: interrupted ability retains resource and ultimate can only be used once
+ok 57 - interrupted ability retains resource and ultimate can only be used once
+  ---
+  duration_ms: 0.456291
+  type: 'test'
+  ...
+# Subtest: death on defuse deadline is processed before objective completion
+ok 58 - death on defuse deadline is processed before objective completion
+  ---
+  duration_ms: 0.315448
+  type: 'test'
+  ...
+# Subtest: interrupted objective loses its progress and may restart
+ok 59 - interrupted objective loses its progress and may restart
+  ---
+  duration_ms: 4.891338
+  type: 'test'
+  ...
+# Subtest: mutual elimination before plant favors defense regardless input order
+ok 60 - mutual elimination before plant favors defense regardless input order
+  ---
+  duration_ms: 0.312954
+  type: 'test'
+  ...
+# Subtest: mutual elimination after plant favors attack
+ok 61 - mutual elimination after plant favors attack
+  ---
+  duration_ms: 0.171369
+  type: 'test'
+  ...
+# Subtest: eliminating attackers after plant does not end round for defenders
+ok 62 - eliminating attackers after plant does not end round for defenders
+  ---
+  duration_ms: 0.119301
+  type: 'test'
+  ...
+# Subtest: round rejects friendly damage and invalid entities
+ok 63 - round rejects friendly damage and invalid entities
+  ---
+  duration_ms: 0.177789
+  type: 'test'
+  ...
+# Subtest: checkpoint identifies engine, rules and content and preserves confirmed result
+ok 64 - checkpoint identifies engine, rules and content and preserves confirmed result
+  ---
+  duration_ms: 0.218411
+  type: 'test'
+  ...
+# Subtest: duplicate command executes exactly once
+ok 65 - duplicate command executes exactly once
+  ---
+  duration_ms: 0.971
+  type: 'test'
+  ...
+# Subtest: concurrent tabs cannot commit two commands against same revision
+ok 66 - concurrent tabs cannot commit two commands against same revision
+  ---
+  duration_ms: 0.686019
+  type: 'test'
+  ...
+# Subtest: another user cannot read or modify career
+ok 67 - another user cannot read or modify career
+  ---
+  duration_ms: 0.220755
+  type: 'test'
+  ...
+# Subtest: failed calculation leaves state unchanged and ID reuse cannot change payload
+ok 68 - failed calculation leaves state unchanged and ID reuse cannot change payload
+  ---
+  duration_ms: 0.362188
+  type: 'test'
+  ...
+# Subtest: one collective session persists XP and prevents a second confirmation after export/reload
+ok 69 - one collective session persists XP and prevents a second confirmation after export/reload
+  ---
+  duration_ms: 35.309927
+  type: 'test'
+  ...
+# Subtest: progression depends on current tier, preserves excess and respects both ceilings
+ok 70 - progression depends on current tier, preserves excess and respects both ceilings
+  ---
+  duration_ms: 2.739199
+  type: 'test'
+  ...
+# Subtest: agent XP is personal, faster in low tiers and separate from attributes
+ok 71 - agent XP is personal, faster in low tiers and separate from attributes
+  ---
+  duration_ms: 3.646272
+  type: 'test'
+  ...
+# Subtest: import rejects malformed training receipts before they can reach the training screen
+ok 72 - import rejects malformed training receipts before they can reach the training screen
+  ---
+  duration_ms: 3.384536
+  type: 'test'
+  ...
+# Subtest: finishing a match unlocks a new opportunity without rewriting the historical profiles
+ok 73 - finishing a match unlocks a new opportunity without rewriting the historical profiles
+  ---
+  duration_ms: 630.864681
+  type: 'test'
+  ...
+# Subtest: explicit legacy import preserves read-only results, starts XP at zero and rejects corruption
+ok 74 - explicit legacy import preserves read-only results, starts XP at zero and rejects corruption
+  ---
+  duration_ms: 3.060247
+  type: 'test'
+  ...
+# Subtest: new plans and valid complements are accepted; contradictory instructions are rejected
+ok 75 - new plans and valid complements are accepted; contradictory instructions are rejected
+  ---
+  duration_ms: 0.638822
+  type: 'test'
+  ...
+# Subtest: renaming all player IDs preserves events, decisions and outcomes for the same tactical situation
+ok 76 - renaming all player IDs preserves events, decisions and outcomes for the same tactical situation
+  ---
+  duration_ms: 77.742924
+  type: 'test'
+  ...
+# Subtest: Second follows an Entry instead of opening while the Entry remains behind
+ok 77 - Second follows an Entry instead of opening while the Entry remains behind
+  ---
+  duration_ms: 1.643354
+  type: 'test'
+  ...
+# Subtest: feint and reading defense change routes and rotation decisions without hidden state
+ok 78 - feint and reading defense change routes and rotation decisions without hidden state
+  ---
+  duration_ms: 1.170092
+  type: 'test'
+  ...
+# Subtest: round review reports registered facts, preserves the confirmed plan and identifies the half reset
+ok 79 - round review reports registered facts, preserves the confirmed plan and identifies the half reset
+  ---
+  duration_ms: 80.786495
+  type: 'test'
+  ...
+# Subtest: Entry contests an observed route with support while an unassigned unit holds the same fire
+ok 80 - Entry contests an observed route with support while an unassigned unit holds the same fire
+  ---
+  duration_ms: 0.815027
+  type: 'test'
+  ...
+# Subtest: maps start with opening economy and reset ultimate points
+ok 81 - maps start with opening economy and reset ultimate points
+  ---
+  duration_ms: 6.506684
+  type: 'test'
+  ...
+# Subtest: 13 regulation wins end map and invalid phases reject repeated settlement
+ok 82 - 13 regulation wins end map and invalid phases reject repeated settlement
+  ---
+  duration_ms: 27.172188
+  type: 'test'
+  ...
+# Subtest: side switch occurs after 12 rounds and preserves ultimate points
+ok 83 - side switch occurs after 12 rounds and preserves ultimate points
+  ---
+  duration_ms: 14.930291
+  type: 'test'
+  ...
+# Subtest: overtime evaluates complete side pairs and supplies full equipment
+ok 84 - overtime evaluates complete side pairs and supplies full equipment
+  ---
+  duration_ms: 23.920408
+  type: 'test'
+  ...
+# Subtest: the proposed beta format ends level after three side pairs and preserves a two-win finish
+ok 85 - the proposed beta format ends level after three side pairs and preserves a two-win finish
+  ---
+  duration_ms: 8.713097
+  type: 'test'
+  ...
+# Subtest: doca: approved graph, shortest routes, disconnections and legacy combat ranges
+ok 86 - doca: approved graph, shortest routes, disconnections and legacy combat ranges
+  ---
+  duration_ms: 15.032226
+  type: 'test'
+  ...
+# Subtest: doca: all eight edges move in both directions at their approved cost
+ok 87 - doca: all eight edges move in both directions at their approved cost
+  ---
+  duration_ms: 43.913777
+  type: 'test'
+  ...
+# Subtest: doca: illegal shortcuts rejected, barriers interrupt and mobility uses edge duration
+ok 88 - doca: illegal shortcuts rejected, barriers interrupt and mobility uses edge duration
+  ---
+  duration_ms: 2.237799
+  type: 'test'
+  ...
+# Subtest: doca: plant/defuse timers at both objectives and both attacking sides
+ok 89 - doca: plant/defuse timers at both objectives and both attacking sides
+  ---
+  duration_ms: 11.400436
+  type: 'test'
+  ...
+# Subtest: doca: seeded outcomes exactly reuse patio and ignore profile input order
+ok 90 - doca: seeded outcomes exactly reuse patio and ignore profile input order
+  ---
+  duration_ms: 243.15068
+  type: 'test'
+  ...
+# Subtest: doca: manual steps, automatic loop, reload checkpoints and history are identical
+ok 91 - doca: manual steps, automatic loop, reload checkpoints and history are identical
+  ---
+  duration_ms: 1129.67907
+  type: 'test'
+  ...
+# Subtest: cume: approved graph, shortest routes, disconnections and legacy combat ranges
+ok 92 - cume: approved graph, shortest routes, disconnections and legacy combat ranges
+  ---
+  duration_ms: 1.018984
+  type: 'test'
+  ...
+# Subtest: cume: all eight edges move in both directions at their approved cost
+ok 93 - cume: all eight edges move in both directions at their approved cost
+  ---
+  duration_ms: 2.371951
+  type: 'test'
+  ...
+# Subtest: cume: illegal shortcuts rejected, barriers interrupt and mobility uses edge duration
+ok 94 - cume: illegal shortcuts rejected, barriers interrupt and mobility uses edge duration
+  ---
+  duration_ms: 0.652232
+  type: 'test'
+  ...
+# Subtest: cume: plant/defuse timers at both objectives and both attacking sides
+ok 95 - cume: plant/defuse timers at both objectives and both attacking sides
+  ---
+  duration_ms: 1.181749
+  type: 'test'
+  ...
+# Subtest: cume: seeded outcomes exactly reuse enlace and ignore profile input order
+ok 96 - cume: seeded outcomes exactly reuse enlace and ignore profile input order
+  ---
+  duration_ms: 77.709993
+  type: 'test'
+  ...
+# Subtest: cume: manual steps, automatic loop, reload checkpoints and history are identical
+ok 97 - cume: manual steps, automatic loop, reload checkpoints and history are identical
+  ---
+  duration_ms: 575.653911
+  type: 'test'
+  ...
+# Subtest: legacy map IDs and exports stay readable, new maps use development label, unknown IDs fail
+ok 98 - legacy map IDs and exports stay readable, new maps use development label, unknown IDs fail
+  ---
+  duration_ms: 1.353207
+  type: 'test'
+  ...
+# Subtest: traversing a connection permits fire at half cadence and casting still blocks fire
+ok 99 - traversing a connection permits fire at half cadence and casting still blocks fire
+  ---
+  duration_ms: 46.126934
+  type: 'test'
+  ...
+# Subtest: containment, retake and reading hold instead of pursuing spawn; feint never plants its diversion
+ok 100 - containment, retake and reading hold instead of pursuing spawn; feint never plants its diversion
+  ---
+  duration_ms: 3.391997
+  type: 'test'
+  ...
+# Subtest: renaming IDs preserves mixed shot, blast and area event ordering across maps and seeds
+ok 101 - renaming IDs preserves mixed shot, blast and area event ordering across maps and seeds
+  ---
+  duration_ms: 849.042036
+  type: 'test'
+  ...
+# Subtest: all mixed buy instructions conserve credits and the explanation matches the delivered package
+ok 102 - all mixed buy instructions conserve credits and the explanation matches the delivered package
+  ---
+  duration_ms: 50.670675
+  type: 'test'
+  ...
+# Subtest: first contact and a registered trade are included in the chronological review
+ok 103 - first contact and a registered trade are included in the chronological review
+  ---
+  duration_ms: 40.586403
+  type: 'test'
+  ...
+# Subtest: local transaction rejects a stale tab and preserves the confirmed workspace
+ok 104 - local transaction rejects a stale tab and preserves the confirmed workspace
+  ---
+  duration_ms: 19.15533
+  type: 'test'
+  ...
+# Subtest: an unreadable checkpoint preserves original bytes and revision so an explicit recovery can succeed
+ok 105 - an unreadable checkpoint preserves original bytes and revision so an explicit recovery can succeed
+  ---
+  duration_ms: 8.922654
+  type: 'test'
+  ...
+# Subtest: legacy backup reads exact bytes without creating, upgrading or overwriting the old database
+ok 106 - legacy backup reads exact bytes without creating, upgrading or overwriting the old database
+  ---
+  duration_ms: 3.780516
+  type: 'test'
+  ...
+# Subtest: all 32 abilities resolve and consume exactly their own resource
+ok 107 - all 32 abilities resolve and consume exactly their own resource
+  ---
+  duration_ms: 62.467297
+  type: 'test'
+  ...
+# Subtest: fumaça blocks both teams and reveal never permits fire through it
+ok 108 - fumaça blocks both teams and reveal never permits fire through it
+  ---
+  duration_ms: 2.430912
+  type: 'test'
+  ...
+# Subtest: hidden enemy changes do not change an identical AI observation
+ok 109 - hidden enemy changes do not change an identical AI observation
+  ---
+  duration_ms: 2.980835
+  type: 'test'
+  ...
+# Subtest: blast warns first, checks presence again and never harms allies
+ok 110 - blast warns first, checks presence again and never harms allies
+  ---
+  duration_ms: 13.705778
+  type: 'test'
+  ...
+# Subtest: zone delivers exactly five ticks and persists after caster death
+ok 111 - zone delivers exactly five ticks and persists after caster death
+  ---
+  duration_ms: 1.385599
+  type: 'test'
+  ...
+# Subtest: alarm and trap survive beyond 10 seconds and creator elimination
+ok 112 - alarm and trap survive beyond 10 seconds and creator elimination
+  ---
+  duration_ms: 2.083015
+  type: 'test'
+  ...
+# Subtest: known devices require uninterrupted destruction time
+ok 113 - known devices require uninterrupted destruction time
+  ---
+  duration_ms: 1.062629
+  type: 'test'
+  ...
+# Subtest: shield abilities cannot stack over 25 and expire without restoring paid shield
+ok 114 - shield abilities cannot stack over 25 and expire without restoring paid shield
+  ---
+  duration_ms: 1.012274
+  type: 'test'
+  ...
+# Subtest: speed expiration recomputes remaining travel rather than restarting edge
+ok 115 - speed expiration recomputes remaining travel rather than restarting edge
+  ---
+  duration_ms: 2.322717
+  type: 'test'
+  ...
+# Subtest: barrier blocks movement, smoke allows it, and step signals arrival
+ok 116 - barrier blocks movement, smoke allows it, and step signals arrival
+  ---
+  duration_ms: 3.622335
+  type: 'test'
+  ...
+# Subtest: tracking cannot be extended indefinitely by ordinary visual contact
+ok 117 - tracking cannot be extended indefinitely by ordinary visual contact
+  ---
+  duration_ms: 1.089881
+  type: 'test'
+  ...
+# Subtest: a barrier appearing during a crossing invalidates the old arrival
+ok 118 - a barrier appearing during a crossing invalidates the old arrival
+  ---
+  duration_ms: 0.769165
+  type: 'test'
+  ...
+# Subtest: integrated objective timers accept exact plant and defuse deadlines
+ok 119 - integrated objective timers accept exact plant and defuse deadlines
+  ---
+  duration_ms: 2.13906
+  type: 'test'
+  ...
+# Subtest: integrated explosive damage precedes a plant finishing at the same instant
+ok 120 - integrated explosive damage precedes a plant finishing at the same instant
+  ---
+  duration_ms: 0.649203
+  type: 'test'
+  ...
+# Subtest: autonomous 5v5 round is reproducible and independent of input array order
+ok 121 - autonomous 5v5 round is reproducible and independent of input array order
+  ---
+  duration_ms: 185.357734
+  type: 'test'
+  ...
+# Subtest: autonomous map reaches 13 regulation wins or complete overtime pair
+ok 122 - autonomous map reaches 13 regulation wins or complete overtime pair
+  ---
+  duration_ms: 400.022551
+  type: 'test'
+  ...
+# Subtest: teleport cannot follow an ally into a destination different from the confirmed sector
+ok 123 - teleport cannot follow an ally into a destination different from the confirmed sector
+  ---
+  duration_ms: 0.572302
+  type: 'test'
+  ...
+# Subtest: retake regression seed reaches an objective result without the former overtime stall
+ok 124 - retake regression seed reaches an objective result without the former overtime stall
+  ---
+  duration_ms: 457.207088
+  type: 'test'
+  ...
+# Subtest: speed changes during a delayed crossing never schedule fractional milliseconds
+ok 125 - speed changes during a delayed crossing never schedule fractional milliseconds
+  ---
+  duration_ms: 310.069922
+  type: 'test'
+  ...
+# Subtest: a rotation cannot be shot from an unrelated connection merely because origin sectors are adjacent
+ok 126 - a rotation cannot be shot from an unrelated connection merely because origin sectors are adjacent
+  ---
+  duration_ms: 0.601576
+  type: 'test'
+  ...
+# Subtest: starting a legal escape leaves the blast sector without making movement generally invulnerable
+ok 127 - starting a legal escape leaves the blast sector without making movement generally invulnerable
+  ---
+  duration_ms: 0.401064
+  type: 'test'
+  ...
+# Subtest: retake defense uses site anchors and a central reserve instead of five players in spawn
+ok 128 - retake defense uses site anchors and a central reserve instead of five players in spawn
+  ---
+  duration_ms: 0.363828
+  type: 'test'
+  ...
+# Subtest: Horizonte retake regression seed completes without reaching the safety limit
+ok 129 - Horizonte retake regression seed completes without reaching the safety limit
+  ---
+  duration_ms: 232.69916
+  type: 'test'
+  ...
+# Subtest: an unconfirmed attribute choice survives durable reload without consuming training or granting XP
+ok 130 - an unconfirmed attribute choice survives durable reload without consuming training or granting XP
+  ---
+  duration_ms: 38.981056
+  type: 'test'
+  ...
+# Subtest: agent training is independent of the assigned match agent and retains individual choices
+ok 131 - agent training is independent of the assigned match agent and retains individual choices
+  ---
+  duration_ms: 2.310629
+  type: 'test'
+  ...
+# Subtest: changing the roster drops only departed players and defaults the replacement by its own identity
+ok 132 - changing the roster drops only departed players and defaults the replacement by its own identity
+  ---
+  duration_ms: 1.11618
+  type: 'test'
+  ...
+# Subtest: schema 2 saves from Beta 1.1 remain readable without a training draft
+ok 133 - schema 2 saves from Beta 1.1 remain readable without a training draft
+  ---
+  duration_ms: 0.94371
+  type: 'test'
+  ...
+# Subtest: invalid saved training targets are rejected before rendering
+ok 134 - invalid saved training targets are rejected before rendering
+  ---
+  duration_ms: 3.136382
+  type: 'test'
+  ...
+# Subtest: confirmed attribute training uses the saved target exactly once after reload
+ok 135 - confirmed attribute training uses the saved target exactly once after reload
+  ---
+  duration_ms: 5.392018
+  type: 'test'
+  ...
+# Subtest: a new full match clears the previous preparation and preserves confirmed growth
+ok 136 - a new full match clears the previous preparation and preserves confirmed growth
+  ---
+  duration_ms: 436.089681
+  type: 'test'
+  ...
+# Subtest: worker message protocol produces the same serialized round and reports errors
+ok 137 - worker message protocol produces the same serialized round and reports errors
+  ---
+  duration_ms: 480.359174
+  type: 'test'
+  ...
+1..137
+# tests 137
+# suites 0
+# pass 137
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9539.38119

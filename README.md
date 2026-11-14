@@ -1,4 +1,19 @@
-# Esports Manager — Beta 1.3
+# NEXUS — Beta 2.0 · RC1
+
+Candidata `2.0.0-rc.1` para validação, sem lançamento automático. [Notas da versão](docs/BETA_2_0_NOTAS.md) · [Saves antigos e backups](docs/BETA_2_0_SAVES.md).
+
+
+Esta branch contém Doca/Cume, calendário de 28 dias, treino diário, circuito completo, os reworks aprovados de Prisma/Bastião e a opção **Reiniciar carreira**. Adversários mantêm atributos fixos. **Sem lançamento público nesta etapa.** [Integração visual e situação atual](docs/BETA_2_0_ARTES_AGENTES.md).
+
+Novas campanhas usam motor **0.5.1**, regras `nexus-2.0-reworks-r1` e save **schema 6**, com identificação mecânica no arquivo, partidas e resultados do circuito. Prisma ocupa o lugar de Véu. Arquivos anteriores ficam no **Acervo**, em consulta e exportação com as regras originais; não continuam sob o motor novo nem recebem XP/finanças retroativos.
+
+**Preferências e dados → Reiniciar carreira** zera campeonato, elenco e evolução, mantendo nome/sigla/cor/escudo. **Reiniciar organização** também redefine esses quatro campos. Ambas exigem confirmação, oferecem exportação e preservam histórico concluído e uma cópia da campanha no acervo. Cancelar não inicia reinício. O salvamento é transacional; conflito ou falta de espaço impede a gravação.
+
+A IA agora reserva um aliado por dispositivo em neutralização e Pulso distingue deslocamento de ações interrompíveis. Duração, proteção, dano, custos, mapas e atributos não foram alterados. O equilíbrio seguirá em ajustes durante o Beta 2.0 por decisão de Yask em 13/11/2026. A fragilidade ofensiva observada com Lurker no lugar de Second continua documentada para acompanhamento.
+
+As artes aprovadas dos oito agentes estão integradas: cards completos e key arts no catálogo, imagens da escalação na preparação e imagens do foco no treinamento. As imagens mantêm a composição completa e possuem links para ampliação. O motor/saves permanecem em 0.5.1/schema 6. A conferência técnica da candidata é executada pelo workflow `beta20-candidate.yml`, sem deploy. Os limites da revisão visual e a situação do lançamento devem ser consultados no relatório da candidata.
+
+## Referência da versão publicada
 
 **Beta 1.3 experimental publicada em 29/10/2026.** Histórico de partidas com exportação JSON/CSV, sementes automáticas, análise pós-partida e treino individual/coletivo. [Escopo, testes e pendências](docs/BETA_1_3_RC1.md).
 
@@ -87,7 +102,7 @@ O primeiro executa 384 mapas; o segundo, 192 com novas seeds. Os JSON em `valida
 - Esta entrega testa partida, treino e agentes. Calendário, campeonato de carreira, folha salarial em operação e autenticação não estão conectados.
 - A escolha do IGL participa das chamadas de controle; Main OP define a preparação interna de precisão. Entry/Second/Support/Anchor/Lurker têm tendências de decisão implementadas, ainda em calibração. As aptidões do catálogo exibidas como referência inicial não são uma previsão de estatística individual. Classes e habilidades dos agentes já participam da simulação.
 - Potencial regula XP por sessão e o teto da média dos atributos; não aumenta por treino nem concede força direta adicional na rodada. Mental exibido vem dos atributos; as condições de teste começam com moral 70, fadiga 10 e familiaridade de mapa 50.
-- A navegação tem cinco setores abstratos. Não modela coordenadas/ângulos/cobertura física; a ordenação tática usa situação, agente e seed; não o ID como preferência. Não há mapa visual ou apresentação de armas individuais.
+- A navegação tem cinco setores abstratos. Não modela coordenadas/ângulos/cobertura física; a ordenação tática usa situação, agente e seed; não o ID como preferência. Doca/Cume têm artes e indicadores por setor; não há apresentação de armas individuais.
 - Relatório mostra acontecimentos, sem atribuir uma causa que não possa ser demonstrada. Uma primeira eliminação não mede sozinha a qualidade de uma entrada.
 - Equilíbrio entre mapas/planos e agentes permanece em avaliação; Horizonte ainda favoreceu a defesa. Execução concluída não significa balanceamento competitivo aprovado.
 - Banco local pode ser apagado ao limpar dados do navegador; navegação privada, outro navegador ou outro domínio podem usar armazenamento diferente. Exporte o progresso antes de mudar de dispositivo ou origem.
@@ -101,4 +116,4 @@ O primeiro executa 384 mapas; o segundo, 192 com novas seeds. Os JSON em `valida
 
 O motor deve continuar independente da interface. Supabase/Vercel continuam como direção futura aprovada; não estão ativos no Beta 1.0 e não foram incluídos automaticamente no Beta 1.1. A futura integração deverá substituir o adaptador local pelo servidor e salvar resultados autorizados em transação; não confiar nos dados enviados pelo navegador.
 
-A série Beta 1.x concentra estes sistemas. Beta 2.0 é a direção futura para novos conteúdos; não há catálogo de adições aprovado.
+O escopo aprovado do Beta 2.0 e as evidências desta branch constam na documentação atual. Registros das versões 1.x acima permanecem como histórico, sem autorizar lançamento automático da versão de desenvolvimento.

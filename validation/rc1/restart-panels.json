@@ -1,0 +1,11 @@
+{
+  "method": "React static rendering; no CSS layout, browser, click, focus, Escape, native download or IndexedDB-in-browser validation.",
+  "checks": [
+    "career reset explicitly lists what clears and preserves, with export and cancel",
+    "organization reset explicitly also clears identity",
+    "save in progress disables duplicate actions and exposes save errors",
+    "new eight-agent catalog has both approved cards and precise rules",
+    "interrupted campaign appears in read-only acervo with original export"
+  ],
+  "passed": 5
+}

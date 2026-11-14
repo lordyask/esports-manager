@@ -1,14 +1,15 @@
+// Frozen 0.4.1 regression: these mechanics are read-only in the current product.
 import 'fake-indexeddb/auto';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {createSession,defaultDraft,suggestAssignments,advanceSession,automaticBuys,decodeSave,encodeSave,beginMatch,randomSeed,nextMatch,prepareImport} from '../lib/game.ts';
-import type {Workspace} from '../lib/game.ts';
-import {initializeHistory,archiveResult,deleteHistory,addHistory,historyJSON,readHistory,mergeHistory,playersCSV,roundsCSV,HISTORY_LIMIT} from '../lib/history.ts';
-import {newDevelopment,previewTraining,growthFor,xpPerSession,sessionsToGain,validateDevelopment} from '../lib/development.ts';
-import {trainingPreparation,trainingChoice} from '../lib/training-preparation.ts';
-import {reviewRound} from '../lib/insights.ts';
-import {matchAnalysis} from '../lib/match-analysis.ts';
-import {commitWorkspace,loadWorkspace} from '../lib/storage.ts';
+import {createSession,defaultDraft,suggestAssignments,advanceSession,automaticBuys,decodeSave,encodeSave,beginMatch,randomSeed,nextMatch,prepareImport} from '../legacy/v0_4_1/lib/game.ts';
+import type {Workspace} from '../legacy/v0_4_1/lib/game.ts';
+import {initializeHistory,archiveResult,deleteHistory,addHistory,historyJSON,readHistory,mergeHistory,playersCSV,roundsCSV,HISTORY_LIMIT} from '../legacy/v0_4_1/lib/history.ts';
+import {newDevelopment,previewTraining,growthFor,xpPerSession,sessionsToGain,validateDevelopment} from '../legacy/v0_4_1/lib/development.ts';
+import {trainingPreparation,trainingChoice} from '../legacy/v0_4_1/lib/training-preparation.ts';
+import {reviewRound} from '../legacy/v0_4_1/lib/insights.ts';
+import {matchAnalysis} from '../legacy/v0_4_1/lib/match-analysis.ts';
+import {commitWorkspace,loadWorkspace} from '../legacy/v0_4_1/lib/storage.ts';
 const ids=['J02','J24','J22','J05','J03'];
 const draft=suggestAssignments({...defaultDraft(),selected:ids});
 function finished(){let s=createSession(draft,'synthetic-history');while(s.state.phase!=='finished')s=advanceSession(s,{id:'r'+s.state.rounds,revision:s.state.rounds,plans:{A:draft.plan,B:draft.plan},buys:automaticBuys(s)});return s;}

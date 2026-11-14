@@ -1,0 +1,4 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> esports-manager-engine@0.5.1 typecheck
+> tsc --noEmit

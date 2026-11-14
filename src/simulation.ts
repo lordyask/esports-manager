@@ -1,10 +1,13 @@
-import {AGENTS,ABILITIES} from './abilities.ts';
+import {AGENTS,ABILITIES,REWORK_KINDS} from './abilities.ts';
 import type {Slot} from './abilities.ts';
 import {damage,professionalScore,probability} from './combat.ts';
 import {randomStreams} from './random.ts';
 import {mapEdges,edgeKey,shortestPath,mobilityTime,compareIds,clamp,integer,finite,WEAPONS,CADENCE_PRECISION,RANGE_SCORE,ROUND_MS,PLANT_MS,DEFUSE_MS,DETONATION_MS} from './rules.ts';
 import type {Sector,Team} from './rules.ts';
 import {decide} from './ai.ts';
+import {activeEffect,presentEffect,validLink,visionBlocked,opticalPenalty,protectHits} from './rework-effects.ts';
+import type {ReworkEffect} from './rework-effects.ts';
+import type {ReworkKind} from './abilities.ts';
 import {validateStrategy} from './strategies.ts';
 import type {Area,Buff,Decision,Observation,Profile,PublicSelf,Sighting,SimEvent,SimulationOptions,SimulationResult,Unit} from './tactical-types.ts';
 import {rangeFor} from './tactical-types.ts';
@@ -21,6 +24,8 @@ export class TacticalRound {
   readonly units:Unit[];
   readonly events:SimEvent[]=[];
   readonly areas:Area[]=[];
+  readonly effects:ReworkEffect[]=[];
+  #penalties=new Map<string,number>();
   readonly kills:Record<string,number>={};
   readonly abilityUses:Record<string,number>={};
   readonly rng:ReturnType<typeof randomStreams>;
@@ -93,12 +98,12 @@ export class TacticalRound {
       const m=a.movement??b.movement!,observer=a.movement?b:a;
       const observerMove=observer.movement;
       if(observerMove?edgeKey(observerMove.from,observerMove.to)!==edgeKey(m.from,m.to):observer.sector!==m.from&&observer.sector!==m.to)return false;
-      return !this.areas.some(x=>this.#active(x)&&x.edges.includes(edgeKey(m.from,m.to))&&(x.kind==='smoke'||x.kind==='barrier'));
+      return !visionBlocked(this.effects,this.now,a.team,edgeKey(m.from,m.to))&&!this.areas.some(x=>this.#active(x)&&x.edges.includes(edgeKey(m.from,m.to))&&(x.kind==='smoke'||x.kind==='barrier'));
     }
     if(a.sector===b.sector)return true;
     if(!this.#adjacent(a.sector,b.sector))return false;
     const edge=edgeKey(a.sector,b.sector);
-    return !this.areas.some(x=>this.#active(x)&&x.edges.includes(edge)&&(x.kind==='smoke'||x.kind==='barrier'));
+    return !visionBlocked(this.effects,this.now,a.team,edge)&&!this.areas.some(x=>this.#active(x)&&x.edges.includes(edge)&&(x.kind==='smoke'||x.kind==='barrier'));
   }
   #known(team:Team,id:string){return (this.#knowledge[team].get(id)?.until??0)>this.now;}
   #reveal(team:Team,u:Unit,ms:number,source:string,tracking=false){
@@ -107,6 +112,8 @@ export class TacticalRound {
     this.#emit({kind:'revealed',actor:u.id,sector:u.sector,team,detail:source});
   }
   #observeAll(){
+    this.#syncEffects();
+    for(const u of this.alive()){const penalty=opticalPenalty(this.effects,this.now,u);if(penalty!==(this.#penalties.get(u.id)??0)){this.#penalties.set(u.id,penalty);this.#emit({kind:penalty?'optical_penalty':'optical_restored',actor:u.id,amount:penalty,detail:'basis points'});}}
     for(const u of this.alive())for(const e of this.alive(other(u.team)))if(this.#visible(u,e)){
       if(!this.#contactShown[u.team]){this.#contactShown[u.team]=true;this.#emit({kind:'first_contact',team:u.team,actor:u.id,target:e.id,sector:e.sector});}
       const prior=this.#knowledge[u.team].get(e.id);
@@ -116,7 +123,7 @@ export class TacticalRound {
       const u=this.get(sighting.id);if(u&&(sighting.trackingUntil??0)>this.now)sighting.sector=u.sector;
     }
   }
-  #public(u:Unit):PublicSelf{return {id:u.id,team:u.team,agent:u.agent,sector:u.sector,life:u.vital.life,shield:u.vital.shield,
+  #public(u:Unit):PublicSelf{return {id:u.id,team:u.team,agent:u.agent,sector:u.sector,neutralizing:u.action?.kind==='destroy'?u.action.device:undefined,movement:u.movement?{from:u.movement.from,to:u.movement.to}:null,life:u.vital.life,shield:u.vital.shield,
     charges:[...u.charges],ult:u.ult,usedUlt:u.usedUlt,ready:u.readyAt<=this.now,busy:!!u.action||!!u.movement,action:u.action?.kind??(u.movement?'move':null),
     role:u.role,slot:AGENTS.indexOf(u.agent),tactical:{entry:this.#collectiveScore(u,[0,0,25,20,30,25,0,0]),retake:this.#collectiveScore(u,[0,0,0,30,25,25,20,0]),reading:u.attrs[3],communication:u.attrs[5],discipline:u.attrs[6]}};}
   #collectiveScore(u:Unit,weights:number[]){
@@ -128,10 +135,11 @@ export class TacticalRound {
   observeFor(id:string):Observation{
     const u=this.get(id);if(!u)throw new Error('Unknown observer');
     return {now:this.now,self:this.#public(u),allies:this.units.filter(x=>x.team===u.team&&x.id!==id).map(x=>this.#public(x)),
-      visible:this.alive(other(u.team)).filter(x=>this.#visible(u,x)).map(x=>({id:x.id,sector:x.sector,action:x.action?.kind??null})),
+      visible:this.alive(other(u.team)).filter(x=>this.#visible(u,x)).map(x=>({id:x.id,sector:x.sector,action:x.action?.kind??(x.movement?'move':null)})),
       known:[...this.#knowledge[u.team].values()].filter(x=>x.until>this.now).map(x=>({id:x.id,sector:x.sector})),
       presence:[...this.#presence[u.team].entries()].filter(([,x])=>x.until>this.now).map(([sector,x])=>({sector,present:x.present})),
-      devices:this.areas.filter(x=>this.#active(x)&&x.team!==u.team&&x.sector===u.sector&&['alarm','trap','barrier'].includes(x.kind)).map(x=>({id:x.id,kind:x.kind,sector:x.sector})),
+      devices:[...this.areas.filter(x=>this.#active(x)&&x.team!==u.team&&x.sector===u.sector&&['alarm','trap','barrier'].includes(x.kind)).map(x=>({id:x.id,kind:x.kind,sector:x.sector})),...this.effects.filter(x=>presentEffect(x,this.now)&&x.neutralizeMs&&x.team!==u.team&&x.sector===u.sector).map(x=>({id:x.id,kind:x.kind,sector:x.sector}))],
+      effects:this.effects.filter(e=>presentEffect(e,this.now)&&e.team===u.team).map(e=>({id:e.id,kind:e.kind,sector:e.sector,edges:e.edges.map(([a,b])=>edgeKey(a,b)),target:e.target,capacity:e.capacity,until:e.until})),
       blocked:this.areas.filter(x=>this.#active(x)&&x.kind==='barrier'&&(x.team===u.team||this.alive(u.team).some(ally=>x.edges.some(edge=>edge.split(':').includes(ally.sector))))).flatMap(x=>x.edges),planted:structuredClone(this.planted),
       attacking:this.options.attacking,map:this.options.map,plan:structuredClone(this.options.plans[u.team]),attackTarget:this.#targets[u.team]};
   }
@@ -139,6 +147,20 @@ export class TacticalRound {
   // Proposed Beta 1.1 traversal rule: fire at half cadence, while actions still block it.
   #canShoot(u:Unit){return u.vital.life>0&&!u.action;}
   #canAct(u:Unit){return u.vital.life>0&&!u.action&&!u.movement;}
+  #endEffect(e:ReworkEffect,reason:string){if(!e.active)return;e.active=false;this.#emit({kind:'effect_ended',actor:e.owner,ability:e.ability,sector:e.sector,detail:JSON.stringify({effect:e.id,reason,remaining:e.capacity})});}
+  #syncEffects(){for(const e of this.effects)if(e.active){if(e.until<=this.now)this.#endEffect(e,'expired');else if(e.kind==='interposition'&&!validLink(e,this.units))this.#endEffect(e,'link_broken');}}
+  #deployEffect(u:Unit,slot:Slot,sector:Sector,target?:string,edge?:[Sector,Sector],edges?:[Sector,Sector][]){
+    const skill=ABILITIES[u.agent][slot],kind=skill.kind as ReworkKind;
+    const neutralize:Partial<Record<ReworkKind,number>>={optical_wall:1000,optical_filter:1000,refraction:1500,cover:1000,route_cover:1000,redoubt:2000};
+    const capacities:Partial<Record<ReworkKind,number>>={cover:6000,interposition:3000,route_cover:4000,redoubt:10000};
+    const anchor=kind==='optical_filter'?edge!.find(s=>s!==u.sector)!:kind==='distortion'?sector:u.sector;
+    const chosenEdges=kind==='refraction'||kind==='redoubt'?edges!:['optical_wall','optical_filter','cover','route_cover'].includes(kind)&&edge?[edge]:[];
+    const effect:ReworkEffect={id:`effect:${this.#token()}`,kind,ability:skill.name,owner:u.id,team:u.team,sector:anchor,edges:structuredClone(chosenEdges),target,activeAt:this.now+skill.warning,until:this.now+skill.warning+skill.duration,active:true,value:skill.value,capacity:capacities[kind],neutralizeMs:neutralize[kind]};
+    this.effects.push(effect);this.#emit({kind:'effect_deployed',actor:u.id,ability:skill.name,sector:anchor,detail:JSON.stringify({id:effect.id,edges:effect.edges,activeAt:effect.activeAt,until:effect.until,capacity:effect.capacity,target})});
+    if(skill.warning){this.#emit({kind:'ability_warning',actor:u.id,ability:skill.name,sector:anchor,amount:skill.warning});this.#schedule({at:effect.activeAt,phase:1,kind:'reworkActivate',id:effect.id});}
+    else this.#emit({kind:'effect_activated',actor:u.id,ability:skill.name,sector:anchor,detail:effect.id});
+    this.#schedule({at:effect.until,phase:1,kind:'reworkExpire',id:effect.id});
+  }
   #buff(u:Unit,kind:Buff['kind'],duration:number,value:number){
     // Strongest reduction only; identical shields replace rather than add.
     u.buffs.push({kind,until:this.now+duration,value});
@@ -178,7 +200,7 @@ export class TacticalRound {
     const token=this.#token(),factor=this.#travelFactor(u);this.#stopShot(u);
     u.movement={from:u.sector,to,remaining:base,updated:this.now,factor,token,delay};
     this.#schedule({at:this.now+Math.ceil(base*factor/10000)+delay,phase:1,kind:'arrive',actor:u.id,token});
-    this.#emit({kind:'move_start',actor:u.id,sector:to,detail:kind??'normal'});return true;
+    this.#syncEffects();this.#emit({kind:'move_start',actor:u.id,sector:to,detail:kind??'normal'});return true;
   }
   #arrive(u:Unit,to:Sector,step=false){
     u.sector=to;u.movement=null;u.action=null;
@@ -211,6 +233,10 @@ export class TacticalRound {
     }
   }
   #applyHits(hits:Hit[]){
+    this.#syncEffects();const protectedBatch=protectHits(hits,this.effects,this.units,this.now,(a,b)=>this.#compareActors(a,b));
+    for(const a of protectedBatch.absorbed)this.#emit({kind:'damage_prevented',actor:a.effect.owner,target:a.target,ability:a.effect.ability,amount:a.amount,detail:JSON.stringify({effect:a.effect.id,source:a.actor,raw:a.raw,remaining:a.effect.capacity,unit:'centipoints'})});
+    for(const e of this.effects)if(e.active&&e.capacity===0)this.#endEffect(e,'capacity_exhausted');
+    hits=protectedBatch.hits;
     // Apply all damage from this timestamp before checking objective completions.
     for(const target of this.alive()){
       const incoming=hits.filter(h=>h.target===target.id);if(!incoming.length)continue;
@@ -227,6 +253,7 @@ export class TacticalRound {
   }
   #finish(winner:Team,reason:string){
     if(this.result)return;
+    for(const e of this.effects)if(e.active)this.#endEffect(e,'round_end');
     this.#emit({kind:'round_end',team:winner,detail:reason});
     const actors=structuredClone(this.units).map(u=>{u.vital.temporary=0;u.vital.reduction=0;u.buffs=[];u.action=null;u.movement=null;return u;});
     this.result={winner,reason,at:this.now,actors,events:structuredClone(this.events),kills:{...this.kills},rng:{combat:this.rng.combat.state,decisions:this.rng.decisions.state},processed:this.processed,abilityUses:{...this.abilityUses}};
@@ -240,10 +267,17 @@ export class TacticalRound {
   #targetsIn(owner:Unit,sector:Sector,maximum:number,visual=false){
     return this.alive(other(owner.team)).filter(u=>!u.movement&&u.sector===sector&&(!visual||this.#visible(owner,u))).sort((a,b)=>this.#compareActors(a.id,b.id)).slice(0,maximum);
   }
-  #validCast(u:Unit,slot:Slot,sector:Sector,target?:string,edge?:[Sector,Sector]){
+  #validCast(u:Unit,slot:Slot,sector:Sector,target?:string,edge?:[Sector,Sector],edges?:[Sector,Sector][]){
     const s=ABILITIES[u.agent][slot],adjacent=this.#adjacent(u.sector,sector),local=sector===u.sector;
     const t=target?this.get(target):undefined;
     if(slot===3?(u.ult<8||u.usedUlt):!u.charges[slot])return false;
+    if(REWORK_KINDS.includes(s.kind)){
+      if(s.kind==='interposition')return !!t&&t.id!==u.id&&t.team===u.team&&t.vital.life>0&&!t.movement&&t.sector===u.sector;
+      if(s.kind==='distortion')return local||adjacent;
+      const valid=(e:[Sector,Sector])=>e.length===2&&this.#adjacent(e[0],e[1])&&e.includes(u.sector);
+      if(s.kind==='refraction'||s.kind==='redoubt')return local&&!!edges&&edges.length===2&&edges.every(valid)&&edgeKey(...edges[0])!==edgeKey(...edges[1]);
+      return local&&!!edge&&valid(edge);
+    }
     if(s.kind==='teleport')return !!t&&t.vital.life>0&&t.team===u.team&&t.sector===sector;
     if(s.kind==='fortress'||s.kind==='speed'||s.kind==='position'||s.kind==='sweep')return true;
     if(s.kind==='guard')return !!t&&t.team===u.team&&t.vital.life>0&&t.sector===u.sector;
@@ -260,6 +294,7 @@ export class TacticalRound {
   }
   issue(id:string,d:Decision):boolean{
     if(this.result)return false;const u=this.get(id);if(!u)return false;
+    if(d.kind==='move'&&u.action?.kind==='destroy'&&this.#adjacent(u.sector,d.to)){const device=u.action.device;u.action=null;this.#emit({kind:'destroy_cancelled',actor:id,detail:device});}
     if(u.movement&&d.kind==='move'&&d.to!==u.movement.to){
       if(!this.#adjacent(u.sector,d.to))return false;
       u.movement=null;this.#emit({kind:'move_cancelled',actor:id,sector:u.sector});
@@ -270,8 +305,8 @@ export class TacticalRound {
     if(d.kind==='cast'){
       if(![0,1,2,3].includes(d.slot))return false;
       const sector=d.sector??u.sector;
-      if(!this.#validCast(u,d.slot,sector,d.target,d.edge))return false;
-      this.#stopShot(u);const token=this.#token();u.action={kind:'cast',token,slot:d.slot,sector,target:d.target,edge:d.edge};
+      if(!this.#validCast(u,d.slot,sector,d.target,d.edge,d.edges))return false;
+      this.#stopShot(u);const token=this.#token();u.action={kind:'cast',token,slot:d.slot,sector,target:d.target,edge:d.edge?structuredClone(d.edge):undefined,edges:d.edges?structuredClone(d.edges):undefined};
       this.#schedule({at:this.now+ABILITIES[u.agent][d.slot].cast,phase:2,kind:'complete',actor:id,token});
       this.#emit({kind:'cast_start',actor:id,ability:ABILITIES[u.agent][d.slot].name,sector});return true;
     }
@@ -281,17 +316,20 @@ export class TacticalRound {
       if(u.team===this.options.attacking||!this.planted||u.sector!==this.planted.sector||this.now+DEFUSE_MS>this.planted.deadline||this.units.some(x=>x.action?.kind==='defuse'))return false;
     }else if(d.kind==='destroy'){
       const device=this.areas.find(a=>a.id===d.device&&this.#active(a)&&a.team!==u.team&&(a.sector===u.sector||a.kind==='barrier'&&a.edges.some(e=>e.split(':').includes(u.sector))));
-      if(!device||!['alarm','trap','barrier'].includes(device.kind))return false;
+      const effect=this.effects.find(e=>e.id===d.device&&presentEffect(e,this.now)&&e.neutralizeMs&&e.team!==u.team&&e.sector===u.sector);
+      if(!effect&&(!device||!['alarm','trap','barrier'].includes(device.kind)))return false;
     }else return false;
     this.#stopShot(u);const token=this.#token();u.action={kind:d.kind,token,device:d.kind==='destroy'?d.device:undefined};
-    const duration=d.kind==='plant'?PLANT_MS:d.kind==='defuse'?DEFUSE_MS:this.areas.find(a=>a.id===(d as {device:string}).device)?.kind==='barrier'?2000:1000;
+    const duration=d.kind==='plant'?PLANT_MS:d.kind==='defuse'?DEFUSE_MS:this.effects.find(a=>a.id===(d as {device:string}).device)?.neutralizeMs??(this.areas.find(a=>a.id===(d as {device:string}).device)?.kind==='barrier'?2000:1000);
     this.#schedule({at:this.now+duration,phase:3,kind:'complete',actor:id,token});this.#emit({kind:`${d.kind}_start`,actor:id});return true;
   }
-  #resolveAbility(u:Unit,slot:Slot,sector:Sector,target?:string,edge?:[Sector,Sector]){
+  #resolveAbility(u:Unit,slot:Slot,sector:Sector,target?:string,edge?:[Sector,Sector],edges?:[Sector,Sector][]){
     const s=ABILITIES[u.agent][slot];
+    if(REWORK_KINDS.includes(s.kind)&&!this.#validCast(u,slot,sector,target,edge,edges)){this.#emit({kind:'cast_cancelled',actor:u.id,ability:s.name,detail:'Alvo ou posição deixou de ser elegível; recurso preservado.'});return;}
     if(slot===3){u.ult-=8;u.usedUlt=true;}else u.charges[slot]=false;
     this.abilityUses[s.name]=(this.abilityUses[s.name]??0)+1;this.#emit({kind:'cast_complete',actor:u.id,ability:s.name,sector});
     const t=target?this.get(target):undefined;
+    if(REWORK_KINDS.includes(s.kind)){this.#deployEffect(u,slot,sector,target,edge,edges);return;}
     switch(s.kind){
       case 'blind':case 'disorient':
         for(const e of this.#targetsIn(u,sector,s.targets,s.kind==='blind'))this.#buff(e,s.kind,s.duration,s.value);break;
@@ -363,7 +401,7 @@ export class TacticalRound {
         const u=this.get(e.actor!),t=this.get(e.target!);
         if(!u||!t||e.token!==u.shotToken||!this.#canShoot(u)||u.readyAt>this.now||!this.#visible(u,t)){if(u&&e.token===u.shotToken)this.#stopShot(u);continue;}
         const range=this.#range(u,t),a=this.#score(u)+(u.weapon==='precision'?RANGE_SCORE[range]:0),b=this.#score(t)+(t.weapon==='precision'?RANGE_SCORE[range]:0);
-        const hit=this.rng.combat.chance(probability(a,b));this.#emit({kind:'shot',actor:u.id,target:t.id,detail:hit?'hit':'miss'});
+        const hit=this.rng.combat.chance(clamp(probability(a,b)-opticalPenalty(this.effects,this.now,u),1000,9000));this.#emit({kind:'shot',actor:u.id,target:t.id,detail:hit?'hit':'miss'});
         if(hit)hits.push({actor:u.id,target:t.id,raw:WEAPONS[u.weapon].damage*100,kind:'weapon_damage'});
         const cadence=(u.weapon==='precision'?CADENCE_PRECISION[range]:WEAPONS[u.weapon].cadence)*(u.movement?2:1);
         this.#schedule({at:this.now+cadence,phase:0,kind:'shot',actor:u.id,target:t.id,token:u.shotToken});
@@ -381,6 +419,8 @@ export class TacticalRound {
     this.#applyHits(hits);
   }
   #process(e:Scheduled){
+    if(e.kind==='reworkActivate'){const effect=this.effects.find(x=>x.id===e.id);if(effect&&presentEffect(effect,this.now))this.#emit({kind:'effect_activated',actor:effect.owner,ability:effect.ability,sector:effect.sector,detail:effect.id});return;}
+    if(e.kind==='reworkExpire'){const effect=this.effects.find(x=>x.id===e.id);if(effect&&effect.active)this.#endEffect(effect,'expired');return;}
     if(e.kind==='think'){this.#think();return;}
     if(e.kind==='script'){this.issue(e.actor!,e.decision!);return;}
     if(e.kind==='timeout'){if(!this.planted)this.#finish(other(this.options.attacking),'time_expired');return;}
@@ -398,11 +438,12 @@ export class TacticalRound {
     }
     if(e.kind==='complete'){
       const action=u.action;if(!action||action.token!==e.token)return;u.action=null;
-      if(action.kind==='cast')this.#resolveAbility(u,action.slot!,action.sector!,action.target,action.edge);
+      if(action.kind==='cast')this.#resolveAbility(u,action.slot!,action.sector!,action.target,action.edge,action.edges);
       else if(action.kind==='plant'&&!this.planted){
         this.planted={sector:u.sector,deadline:this.now+DETONATION_MS};this.#emit({kind:'planted',actor:u.id,sector:u.sector});this.#schedule({at:this.planted.deadline,phase:5,kind:'detonate'});
       }else if(action.kind==='defuse'&&this.planted){this.#emit({kind:'defused',actor:u.id});this.#finish(other(this.options.attacking),'defused');}
       else if(action.kind==='destroy'){
+        const effect=this.effects.find(e=>e.id===action.device);if(effect&&presentEffect(effect,this.now)&&effect.sector===u.sector){this.#endEffect(effect,'neutralized');this.#emit({kind:'destroyed',actor:u.id,detail:effect.id});}
         const device=this.areas.find(a=>a.id===action.device);if(device&&this.#active(device)){device.active=false;this.#emit({kind:'destroyed',actor:u.id,detail:device.id});}
       }
     }
@@ -429,7 +470,7 @@ export class TacticalRound {
           // Resolve interruptions and visual blockers before other casts. Damage created
           // by completed casts is applied after this group and before objective completion.
           const priority=(e:Scheduled)=>{const u=e.actor?this.get(e.actor):null,slot=u?.action?.slot;
-            const kind=u&&slot!==undefined?ABILITIES[u.agent][slot].kind:'';return kind==='interrupt'?0:kind==='smoke'||kind==='barrier'?1:2;};
+            const kind=u&&slot!==undefined?ABILITIES[u.agent][slot].kind:'';return kind==='interrupt'?0:['smoke','barrier','optical_wall','optical_filter'].includes(kind)?1:2;};
           batch.sort((a,b)=>priority(a)-priority(b)||this.#compareActors(a.actor??'',b.actor??''));
           for(const e of batch)this.#process(e);
         }else this.#process(first);

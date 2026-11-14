@@ -1,0 +1,18 @@
+{
+  "method": "scripts/check-export.ts after each completed build",
+  "root": {
+    "passed": true,
+    "jsBundles": 21
+  },
+  "/esports-manager": {
+    "passed": true,
+    "jsBundles": 21
+  },
+  "checks": [
+    "manifest URLs and files",
+    "brand assets",
+    "worker bundle",
+    "static export references"
+  ],
+  "browserQA": false
+}

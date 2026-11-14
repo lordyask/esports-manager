@@ -1,0 +1,218 @@
+{
+  "scope": "Mirrored same-roster profiles, equal attributes 60, roles, same attack/defense plan on both teams, paired starting sides and seeds; four attack plans; defense subset and kit masks explicitly recorded below. Masking a kit disables only its charges/ultimate for both teams without replacing agent/profile. This is an ablation experiment, not an alternate playable mode or causal proof of a particular coefficient.",
+  "mechanics": {
+    "engine": "0.5.1",
+    "rules": "nexus-2.0-reworks-r1",
+    "contentHash": "2927c8d9307e13990592a893fc71a3e35a17d7f1bea92a11bf0a2af0cdd447e8"
+  },
+  "engine": "after",
+  "formation": "grouped",
+  "defenses": [
+    "balanced",
+    "reading",
+    "aggressive",
+    "retake"
+  ],
+  "masks": [
+    "both"
+  ],
+  "npcHash": "b80cfcd8a2e52cbffc41e3eb1807846e3027c658bd07c2d2c6ed461cd07b130f",
+  "npcUnchanged": true,
+  "seedsPerCell": 3,
+  "offset": 2000003,
+  "rows": 1536,
+  "diagnosticRounds": 48,
+  "summary": [
+    {
+      "kit": "eco",
+      "mask": "none",
+      "rounds": 0,
+      "attackWins": 0,
+      "plants": 0,
+      "defenseWins": 0,
+      "meanSeconds": null,
+      "protection": 0
+    },
+    {
+      "kit": "eco",
+      "mask": "prisma",
+      "rounds": 0,
+      "attackWins": 0,
+      "plants": 0,
+      "defenseWins": 0,
+      "meanSeconds": null,
+      "protection": 0
+    },
+    {
+      "kit": "eco",
+      "mask": "bastiao",
+      "rounds": 0,
+      "attackWins": 0,
+      "plants": 0,
+      "defenseWins": 0,
+      "meanSeconds": null,
+      "protection": 0
+    },
+    {
+      "kit": "eco",
+      "mask": "both",
+      "rounds": 384,
+      "attackWins": 194,
+      "plants": 110,
+      "defenseWins": 190,
+      "meanSeconds": 23.638,
+      "protection": 1614000
+    },
+    {
+      "kit": "semi",
+      "mask": "none",
+      "rounds": 0,
+      "attackWins": 0,
+      "plants": 0,
+      "defenseWins": 0,
+      "meanSeconds": null,
+      "protection": 0
+    },
+    {
+      "kit": "semi",
+      "mask": "prisma",
+      "rounds": 0,
+      "attackWins": 0,
+      "plants": 0,
+      "defenseWins": 0,
+      "meanSeconds": null,
+      "protection": 0
+    },
+    {
+      "kit": "semi",
+      "mask": "bastiao",
+      "rounds": 0,
+      "attackWins": 0,
+      "plants": 0,
+      "defenseWins": 0,
+      "meanSeconds": null,
+      "protection": 0
+    },
+    {
+      "kit": "semi",
+      "mask": "both",
+      "rounds": 384,
+      "attackWins": 192,
+      "plants": 127,
+      "defenseWins": 192,
+      "meanSeconds": 23.242,
+      "protection": 1441680
+    },
+    {
+      "kit": "full",
+      "mask": "none",
+      "rounds": 0,
+      "attackWins": 0,
+      "plants": 0,
+      "defenseWins": 0,
+      "meanSeconds": null,
+      "protection": 0
+    },
+    {
+      "kit": "full",
+      "mask": "prisma",
+      "rounds": 0,
+      "attackWins": 0,
+      "plants": 0,
+      "defenseWins": 0,
+      "meanSeconds": null,
+      "protection": 0
+    },
+    {
+      "kit": "full",
+      "mask": "bastiao",
+      "rounds": 0,
+      "attackWins": 0,
+      "plants": 0,
+      "defenseWins": 0,
+      "meanSeconds": null,
+      "protection": 0
+    },
+    {
+      "kit": "full",
+      "mask": "both",
+      "rounds": 384,
+      "attackWins": 184,
+      "plants": 128,
+      "defenseWins": 200,
+      "meanSeconds": 24.557,
+      "protection": 1458850
+    },
+    {
+      "kit": "ultimate",
+      "mask": "none",
+      "rounds": 0,
+      "attackWins": 0,
+      "plants": 0,
+      "defenseWins": 0,
+      "meanSeconds": null,
+      "protection": 0
+    },
+    {
+      "kit": "ultimate",
+      "mask": "prisma",
+      "rounds": 0,
+      "attackWins": 0,
+      "plants": 0,
+      "defenseWins": 0,
+      "meanSeconds": null,
+      "protection": 0
+    },
+    {
+      "kit": "ultimate",
+      "mask": "bastiao",
+      "rounds": 0,
+      "attackWins": 0,
+      "plants": 0,
+      "defenseWins": 0,
+      "meanSeconds": null,
+      "protection": 0
+    },
+    {
+      "kit": "ultimate",
+      "mask": "both",
+      "rounds": 384,
+      "attackWins": 173,
+      "plants": 156,
+      "defenseWins": 211,
+      "meanSeconds": 27.704,
+      "protection": 340600
+    }
+  ],
+  "roleSummary": [
+    {
+      "roles": false,
+      "kit": "full",
+      "rounds": 12,
+      "attackWins": 8,
+      "plants": 0
+    },
+    {
+      "roles": false,
+      "kit": "ultimate",
+      "rounds": 12,
+      "attackWins": 4,
+      "plants": 0
+    },
+    {
+      "roles": true,
+      "kit": "full",
+      "rounds": 12,
+      "attackWins": 6,
+      "plants": 0
+    },
+    {
+      "roles": true,
+      "kit": "ultimate",
+      "rounds": 12,
+      "attackWins": 0,
+      "plants": 0
+    }
+  ],
+  "elapsedMs": 18548
+}

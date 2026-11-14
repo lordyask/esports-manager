@@ -1,0 +1,39 @@
+name: Validar calendário e treino diário (sem publicar)
+on:
+  push:
+    branches: [development/beta-2.0-calendar-training]
+permissions:
+  contents: read
+jobs:
+  calendar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+      - run: node scripts/calendar-validation.ts
+      - run: npm run build
+        env:
+          PAGES_BASE_PATH: /esports-manager
+      - run: node scripts/check-export.ts
+        env:
+          PAGES_BASE_PATH: /esports-manager
+      - run: npm install --prefix /tmp/esports-browser --no-save playwright@1.62.1
+      - run: /tmp/esports-browser/node_modules/.bin/playwright install --with-deps chromium
+      - run: |
+          mkdir -p /tmp/nexus-calendar-site
+          ln -s "$GITHUB_WORKSPACE/out" /tmp/nexus-calendar-site/esports-manager
+          node scripts/calendar-browser-fixtures.ts
+          node scripts/calendar-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: calendar-development-validation
+          path: validation/calendar/
+          retention-days: 14

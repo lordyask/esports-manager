@@ -1,0 +1,25 @@
+'use client';
+import type {Workspace} from '../lib/game';
+import {MAP_NAMES,PLAYERS,ATTRS} from '../lib/game';
+import {dayClosed,nextFixture,currentFixture} from '../lib/career-state';
+import {opponentFor} from '../lib/opponents';
+import {CircuitEntry} from './circuit-panel';
+import {pendingNpc} from '../lib/circuit-state';
+
+export function CalendarPanel({workspace,busy,onStart,onAdvance,onTrain,onPrepare,onProcessNpc}:{workspace:Workspace;busy:boolean;onStart:()=>void;onAdvance:(mode:'day'|'event')=>void;onTrain:()=>void;onPrepare:()=>void;onProcessNpc:()=>void}){
+ const c=workspace.career;
+ if(!c)return <CircuitEntry workspace={workspace} busy={busy} onStart={onStart}/>;
+ const next=nextFixture(c),today=currentFixture(c),used=dayClosed(c),completed=c.fixtures.filter(f=>f.result).length,blocked=busy||!!pendingNpc(c)||workspace.session?.state.phase==='buy'||!!today||c.day>=28||c.agendaCompleted;
+ const status=c.days.find(d=>d.day===c.day)?.status;
+ return <><div className="section-heading"><span className="eyebrow">PREPARAÇÃO E EVOLUÇÃO</span><h1>Dia {c.day} de 28</h1><p>O tempo avança pelas suas decisões. {completed} de 7 confrontos concluídos.</p></div>
+ {!c.circuit&&<div className="notice">Agenda de teste anterior, sem campeonato completo ou finanças. Exporte este progresso antes de reiniciar a organização para disputar um novo circuito.</div>}
+ {pendingNpc(c)&&<section className="panel"><h2>Resultados pendentes da rodada</h2><p>Seu confronto está salvo. Conclua os jogos adversários para liberar o avanço.</p><button className="primary" disabled={busy} onClick={onProcessNpc}>Processar jogos restantes</button></section>}
+ <section className="panel" aria-label="Controle do calendário"><div className="calendar-summary"><div><h2>{c.agendaCompleted?'Agenda concluída':next?`Próximo adversário: ${opponentFor(next.opponentId).name}`:'Último dia do ciclo'}</h2>{next&&<p>Dia {next.day} · {MAP_NAMES[next.map]} · Início: {next.initialAttack==='A'?'ataque':'defesa'}</p>}<p data-testid="daily-status">Treino de hoje: <b>{status==='trained'?'realizado':used?'encerrado':'disponível'}</b></p></div><span className="pill">{c.day} / 28 DIAS</span></div><progress className="calendar-progress" max={28} value={c.day} aria-label="Progresso do calendário"/>
+ <div className="button-row"><button className="secondary" disabled={busy||used||!!workspace.session||c.agendaCompleted} onClick={onTrain}>Treinar hoje</button><button className="primary" disabled={busy||!today||!!workspace.session} onClick={onPrepare}>Preparar confronto de hoje</button><button className="secondary" disabled={blocked} onClick={()=>onAdvance('day')}>Avançar um dia</button><button className="secondary" disabled={blocked} onClick={()=>onAdvance('event')}>Avançar até o próximo jogo</button></div>
+ {today&&<p className="small">O confronto de hoje precisa ser concluído antes de avançar. Você pode treinar antes de iniciá-lo, se a oportunidade ainda estiver disponível.</p>}
+ {workspace.session?.state.phase==='finished'&&!c.agendaCompleted&&<p className="small">Seu resultado está salvo. Avançar o calendário preserva a partida no histórico e libera o treino do novo dia.</p>}
+ {c.agendaCompleted&&<div className="notice">Os sete confrontos e a evolução estão salvos. {c.circuit?'Classificação, premiação e fechamento financeiro estão disponíveis nas abas Circuito e Finanças.':'A classificação e as finanças não fazem parte desta agenda antiga.'} Exporte seu progresso antes de reiniciar.</div>}
+ <p className="small muted">Pular dias não realiza treinos. Oportunidades perdidas não acumulam. Adversários não treinam nem recebem aumentos automáticos de atributos.</p></section>
+ <section className="panel"><h2>Agenda dos confrontos</h2><div className="calendar-grid">{c.fixtures.map((f,i)=><article className={`calendar-fixture ${f.day===c.day?'today':''}`} key={f.day}><span className="eyebrow">RODADA {i+1} · DIA {f.day}</span><h3>{opponentFor(f.opponentId).name}</h3><p>{MAP_NAMES[f.map]} · Início: {f.initialAttack==='A'?'ataque':'defesa'}</p><b>{f.result?`${f.result.score.A} × ${f.result.score.B}`:f.sessionId?'Em andamento':f.day===c.day?'Hoje':'Programado'}</b></article>)}</div></section>
+ <section className="panel"><h2>Treinos registrados no ciclo</h2><p>{c.days.filter(d=>d.status==='trained').length} sessões realizadas. Até 28 oportunidades, compartilhadas entre coletivo e individual.</p><div className="calendar-log">{c.days.filter(d=>d.receipt).map(d=><details key={d.day}><summary>Dia {d.day} · {d.receipt!.choice.mode==='individual'?'individual':'coletivo'} · {d.receipt!.choice.kind==='attribute'?ATTRS[d.receipt!.choice.attribute!]:'familiaridade de agentes'}</summary>{d.receipt!.gains.map(g=><p className="small" key={g.id}>{PLAYERS.find(p=>p.id===g.id)?.name} · {d.receipt!.choice.kind==='attribute'?ATTRS[Number(g.target)]:g.target}: {g.before} → {g.after} · +{g.gainedXP} XP · {g.xpAfter} XP restantes</p>)}</details>)}</div></section></>;
+}

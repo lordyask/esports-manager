@@ -1,0 +1,44 @@
+name: Validar integração das artes (sem publicar)
+on:
+  push:
+    branches: [development/beta-2.0-agent-art]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+      - run: node scripts/check-agent-art.ts
+      - run: node validation/agent-art/check-panels.mjs
+      - run: NEXT_PUBLIC_BASE_PATH=/esports-manager node validation/agent-art/check-panels.mjs
+      - run: node validation/reworks/check-panels.mjs
+      - run: npm run build
+      - run: node scripts/check-export.ts
+      - run: node scripts/check-agent-art.ts --export
+      - run: npm run build
+        env:
+          PAGES_BASE_PATH: /esports-manager
+      - run: node scripts/check-export.ts
+        env:
+          PAGES_BASE_PATH: /esports-manager
+      - run: node scripts/check-agent-art.ts --export
+        env:
+          PAGES_BASE_PATH: /esports-manager
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: agent-art-integration-validation
+          path: validation/agent-art/
+          retention-days: 14

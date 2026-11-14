@@ -1,0 +1,96 @@
+{
+  "date": "2026-11-13",
+  "candidate": "2.0.0-rc.1",
+  "environment": "Chrome desktop1363x936; iframe390x844 CSS px, not physical Android or Safari",
+  "checks": [
+    {
+      "check": "RC1 resumes development checkpoint and completes automatic match 13:2 with halftime pause",
+      "passed": true
+    },
+    {
+      "check": "Reset cancel and Escape preserve career; confirmed reset archives 4 games and keeps NQA; exported backup imports back to 13:2 history",
+      "passed": true
+    },
+    {
+      "check": "390px responsive layout, menu closing, local table scrolling, preferences and reset sizing, keyboard outline and Escape",
+      "passed": true,
+      "measurements": [
+        {
+          "panel": "Calendário",
+          "documentWidth": 375,
+          "tables": [],
+          "width": 390
+        },
+        {
+          "panel": "Circuito",
+          "documentWidth": 375,
+          "tables": [
+            {
+              "overflow": "auto",
+              "scrollWidth": 479,
+              "width": 297
+            },
+            {
+              "overflow": "auto",
+              "scrollWidth": 574,
+              "width": 271
+            },
+            {
+              "overflow": "auto",
+              "scrollWidth": 585,
+              "width": 271
+            },
+            {
+              "overflow": "auto",
+              "scrollWidth": 567,
+              "width": 271
+            },
+            {
+              "overflow": "auto",
+              "scrollWidth": 555,
+              "width": 271
+            }
+          ],
+          "width": 390
+        },
+        {
+          "panel": "Finanças",
+          "documentWidth": 375,
+          "tables": [
+            {
+              "overflow": "auto",
+              "scrollWidth": 307,
+              "width": 297
+            },
+            {
+              "overflow": "auto",
+              "scrollWidth": 522,
+              "width": 297
+            }
+          ],
+          "width": 390
+        },
+        {
+          "panel": "Agentes",
+          "documentWidth": 375,
+          "tables": [],
+          "width": 390
+        }
+      ]
+    },
+    {
+      "check": "Post-fix preparation reachable before training, CTA opens Training, IGL label visible, flex identity confirmed",
+      "passed": true
+    },
+    {
+      "check": "All eight cards load after expansion, Bruma1672x941 and Trava1086x1448 preserve contain fitting; Bruma enlargement opens image tab",
+      "passed": true
+    }
+  ],
+  "applicationErrors": [],
+  "limitations": [
+    "Mobile screenshot clip initially timed out; standard capture works.",
+    "Day28 closure and Cume full matches exercised in technical circuit matrix, not played end-to-end through browser.",
+    "No public production deployment performed."
+  ]
+}

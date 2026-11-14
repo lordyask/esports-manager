@@ -1,0 +1,233 @@
+{
+  "source": "f7c7b0840613afabf2737076bde2223fd7b8fd81",
+  "files": [
+    {
+      "path": "data/catalog.json",
+      "originalSha256": "6c88b36b036c37cd7f7846e6944c561aa9f882740683d7ade56e4edb37460c47",
+      "snapshotSha256": "6c88b36b036c37cd7f7846e6944c561aa9f882740683d7ade56e4edb37460c47",
+      "importRelocation": false
+    },
+    {
+      "path": "data/opponents.json",
+      "originalSha256": "3ef14ac4e8c872b752061e450f99012dafa246cff0c36885530e2f2ab74cca5c",
+      "snapshotSha256": "3ef14ac4e8c872b752061e450f99012dafa246cff0c36885530e2f2ab74cca5c",
+      "importRelocation": false
+    },
+    {
+      "path": "lib/archive.ts",
+      "originalSha256": "4254abf1011e85924383e855007cac7aa19a5243344fda16667e704fe9baa725",
+      "snapshotSha256": "6e352c50881675b9b02e74bc73ba947e62f673142fb9fc37fee5bcb936a70066",
+      "importRelocation": true
+    },
+    {
+      "path": "lib/career-state.ts",
+      "originalSha256": "a1903924471a3f567ff51f2ffdf0de1f8c376424b7e033d67ebe6d1a6acfdb39",
+      "snapshotSha256": "a1903924471a3f567ff51f2ffdf0de1f8c376424b7e033d67ebe6d1a6acfdb39",
+      "importRelocation": false
+    },
+    {
+      "path": "lib/career.ts",
+      "originalSha256": "2e2576dccd7acc67b0f5466d35da16579b95d70ad42e4e026bbed5736bbbb84f",
+      "snapshotSha256": "2e2576dccd7acc67b0f5466d35da16579b95d70ad42e4e026bbed5736bbbb84f",
+      "importRelocation": false
+    },
+    {
+      "path": "lib/circuit-state.ts",
+      "originalSha256": "5b61f5f6e6eb43ce32ca68a0faa0d635c90c8e5d75a0c49e6c453010ee1aa519",
+      "snapshotSha256": "5b61f5f6e6eb43ce32ca68a0faa0d635c90c8e5d75a0c49e6c453010ee1aa519",
+      "importRelocation": false
+    },
+    {
+      "path": "lib/circuit.ts",
+      "originalSha256": "bc6dc7f0b1e1ab212099ef42c4015dd0474a81e57bda23e983d444d4ccd2e79c",
+      "snapshotSha256": "bc6dc7f0b1e1ab212099ef42c4015dd0474a81e57bda23e983d444d4ccd2e79c",
+      "importRelocation": false
+    },
+    {
+      "path": "lib/club-finance.ts",
+      "originalSha256": "028981ee7ea891d15282edc6908249b8c0a6e7695db387cf66fe9f53161247e8",
+      "snapshotSha256": "028981ee7ea891d15282edc6908249b8c0a6e7695db387cf66fe9f53161247e8",
+      "importRelocation": false
+    },
+    {
+      "path": "lib/club-policy.ts",
+      "originalSha256": "df5b1e78c275957be3b33a10dd606cf939bbc65f2fe0d3dbc88ccad9baaa7f26",
+      "snapshotSha256": "df5b1e78c275957be3b33a10dd606cf939bbc65f2fe0d3dbc88ccad9baaa7f26",
+      "importRelocation": false
+    },
+    {
+      "path": "lib/countries.ts",
+      "originalSha256": "2786b9ccfe924181c69797c438845d2d668a4245e2f68c217a28faa578be8d9e",
+      "snapshotSha256": "2786b9ccfe924181c69797c438845d2d668a4245e2f68c217a28faa578be8d9e",
+      "importRelocation": false
+    },
+    {
+      "path": "lib/development.ts",
+      "originalSha256": "1987dab6ba745d3dadffbb802324bb076ee3c7a4b7ae2c6794787c5834bc160f",
+      "snapshotSha256": "1987dab6ba745d3dadffbb802324bb076ee3c7a4b7ae2c6794787c5834bc160f",
+      "importRelocation": false
+    },
+    {
+      "path": "lib/game.ts",
+      "originalSha256": "5ab473a024b56b3fb6478e7cdd9b3aebb6e77818bdbaea17c014a7fabf4543bd",
+      "snapshotSha256": "5ab473a024b56b3fb6478e7cdd9b3aebb6e77818bdbaea17c014a7fabf4543bd",
+      "importRelocation": false
+    },
+    {
+      "path": "lib/history.ts",
+      "originalSha256": "b4159ac9a4e570b78956542431aef9c748602fe530e8ef44e2d0fbe31df285b5",
+      "snapshotSha256": "b4159ac9a4e570b78956542431aef9c748602fe530e8ef44e2d0fbe31df285b5",
+      "importRelocation": false
+    },
+    {
+      "path": "lib/insights.ts",
+      "originalSha256": "596f1e942027def9da68034827a3d922f839a3ffea6f487db199b486f03c9132",
+      "snapshotSha256": "596f1e942027def9da68034827a3d922f839a3ffea6f487db199b486f03c9132",
+      "importRelocation": false
+    },
+    {
+      "path": "lib/match-analysis.ts",
+      "originalSha256": "1bcefe35687c2b2ebfc34d723f3416ff4389041efb157e4cf24225973f2e0cc4",
+      "snapshotSha256": "1bcefe35687c2b2ebfc34d723f3416ff4389041efb157e4cf24225973f2e0cc4",
+      "importRelocation": false
+    },
+    {
+      "path": "lib/opponents.ts",
+      "originalSha256": "c779d5316f301cd86fcf0c0c799ea5fd9bfff17c4ad1231ca42240eadcc2bbee",
+      "snapshotSha256": "c779d5316f301cd86fcf0c0c799ea5fd9bfff17c4ad1231ca42240eadcc2bbee",
+      "importRelocation": false
+    },
+    {
+      "path": "lib/storage.ts",
+      "originalSha256": "08ed365a7a8f352398651c02ff1cf6740810302df65e833519d7e590eb3149d7",
+      "snapshotSha256": "08ed365a7a8f352398651c02ff1cf6740810302df65e833519d7e590eb3149d7",
+      "importRelocation": false
+    },
+    {
+      "path": "lib/training-preparation.ts",
+      "originalSha256": "005fd1dabf6e9eb5d2300046db9d31401ac4812a8db2e0033361d6e3003d9221",
+      "snapshotSha256": "005fd1dabf6e9eb5d2300046db9d31401ac4812a8db2e0033361d6e3003d9221",
+      "importRelocation": false
+    },
+    {
+      "path": "lib/worker.ts",
+      "originalSha256": "dd58986a9119d1a5da620de2786ddaec78f38bb67d432e1300f71076e322bcfd",
+      "snapshotSha256": "dd58986a9119d1a5da620de2786ddaec78f38bb67d432e1300f71076e322bcfd",
+      "importRelocation": false
+    },
+    {
+      "path": "src/abilities.ts",
+      "originalSha256": "b951354616fb2e37fba14268ad1e5450c8d52274c5c4e546ecee983d295baea3",
+      "snapshotSha256": "b951354616fb2e37fba14268ad1e5450c8d52274c5c4e546ecee983d295baea3",
+      "importRelocation": false
+    },
+    {
+      "path": "src/ai.ts",
+      "originalSha256": "a46f8f3ef7a7f2aa6596bd04949207f4b31c5d39cbf9fadc9cd57c010e4e1aed",
+      "snapshotSha256": "a46f8f3ef7a7f2aa6596bd04949207f4b31c5d39cbf9fadc9cd57c010e4e1aed",
+      "importRelocation": false
+    },
+    {
+      "path": "src/autonomous.ts",
+      "originalSha256": "eb4a862563306b7b804cbe345d94cfcd825703fc022d47935ddbcdab3cc67e75",
+      "snapshotSha256": "eb4a862563306b7b804cbe345d94cfcd825703fc022d47935ddbcdab3cc67e75",
+      "importRelocation": false
+    },
+    {
+      "path": "src/career.ts",
+      "originalSha256": "351295b1f18e294446e8b1c9e6dd84bcf62c6d068b7d17248d8cc911ab12f928",
+      "snapshotSha256": "351295b1f18e294446e8b1c9e6dd84bcf62c6d068b7d17248d8cc911ab12f928",
+      "importRelocation": false
+    },
+    {
+      "path": "src/combat.ts",
+      "originalSha256": "f6f64956d4ccee09932ca360adabe32b107056495a829feabe3a1991887feafc",
+      "snapshotSha256": "f6f64956d4ccee09932ca360adabe32b107056495a829feabe3a1991887feafc",
+      "importRelocation": false
+    },
+    {
+      "path": "src/commands.ts",
+      "originalSha256": "dbc1c07712c1980993d67ca1175403b57e5bc59b1591c5ef52622209521405cd",
+      "snapshotSha256": "dbc1c07712c1980993d67ca1175403b57e5bc59b1591c5ef52622209521405cd",
+      "importRelocation": false
+    },
+    {
+      "path": "src/content.ts",
+      "originalSha256": "6606d57f179a780193f5e3c7c192eba6186e1503cac5a6750285eb92a8e298dc",
+      "snapshotSha256": "6606d57f179a780193f5e3c7c192eba6186e1503cac5a6750285eb92a8e298dc",
+      "importRelocation": false
+    },
+    {
+      "path": "src/economy.ts",
+      "originalSha256": "9cda9ce926df912d13a0248398901f68b4ebd2a65cf01f09f661b6aab0463b16",
+      "snapshotSha256": "9cda9ce926df912d13a0248398901f68b4ebd2a65cf01f09f661b6aab0463b16",
+      "importRelocation": false
+    },
+    {
+      "path": "src/hash.ts",
+      "originalSha256": "892c5aa3126d53cce9789a150238a30e72074a66e90868b037a915ffa4b1fbbc",
+      "snapshotSha256": "892c5aa3126d53cce9789a150238a30e72074a66e90868b037a915ffa4b1fbbc",
+      "importRelocation": false
+    },
+    {
+      "path": "src/index.ts",
+      "originalSha256": "2736f6d658e0515dbb042dd8e34f5b8585adc953244af72e57be0940e8498a16",
+      "snapshotSha256": "2736f6d658e0515dbb042dd8e34f5b8585adc953244af72e57be0940e8498a16",
+      "importRelocation": false
+    },
+    {
+      "path": "src/map.ts",
+      "originalSha256": "d08b662191e205daa7744c67e396ab8c7e03ee9140c3ac92575fd25f34f9f87b",
+      "snapshotSha256": "d08b662191e205daa7744c67e396ab8c7e03ee9140c3ac92575fd25f34f9f87b",
+      "importRelocation": false
+    },
+    {
+      "path": "src/maps.ts",
+      "originalSha256": "581f91c8bc8c07b956270fec108550c6fe0fa8410f6b008ec20080c7a4b303d1",
+      "snapshotSha256": "581f91c8bc8c07b956270fec108550c6fe0fa8410f6b008ec20080c7a4b303d1",
+      "importRelocation": false
+    },
+    {
+      "path": "src/random.ts",
+      "originalSha256": "8541c1403c6f334ebd8c65b8615225eb4b0568fd97d0941bb507904c7cf1ec69",
+      "snapshotSha256": "8541c1403c6f334ebd8c65b8615225eb4b0568fd97d0941bb507904c7cf1ec69",
+      "importRelocation": false
+    },
+    {
+      "path": "src/rework-effects.ts",
+      "originalSha256": "daadca7ea903ad1dae9d02205b8aa58050db5402dfe59e26a568dce3fbcaccf3",
+      "snapshotSha256": "daadca7ea903ad1dae9d02205b8aa58050db5402dfe59e26a568dce3fbcaccf3",
+      "importRelocation": false
+    },
+    {
+      "path": "src/round.ts",
+      "originalSha256": "8b0fe647abb2d5978f19bae4cdd3df964ea430e2f29cb06559d9ef2088ff50bc",
+      "snapshotSha256": "8b0fe647abb2d5978f19bae4cdd3df964ea430e2f29cb06559d9ef2088ff50bc",
+      "importRelocation": false
+    },
+    {
+      "path": "src/rules.ts",
+      "originalSha256": "1dd2cd0a079a6ee72cbb8dabb1cb16004907d66c306631bfa3c3a13a163f1fab",
+      "snapshotSha256": "1dd2cd0a079a6ee72cbb8dabb1cb16004907d66c306631bfa3c3a13a163f1fab",
+      "importRelocation": false
+    },
+    {
+      "path": "src/simulation.ts",
+      "originalSha256": "13d7afb80a43a847214ae8dfaffc4fdfa2724b6aaa763c061ab26ed1e1db4edb",
+      "snapshotSha256": "13d7afb80a43a847214ae8dfaffc4fdfa2724b6aaa763c061ab26ed1e1db4edb",
+      "importRelocation": false
+    },
+    {
+      "path": "src/strategies.ts",
+      "originalSha256": "132b86e502a99cc56373380eb0a2263d97f8f6f89502c4b6605210d5f0b468aa",
+      "snapshotSha256": "132b86e502a99cc56373380eb0a2263d97f8f6f89502c4b6605210d5f0b468aa",
+      "importRelocation": false
+    },
+    {
+      "path": "src/tactical-types.ts",
+      "originalSha256": "b129bbbdc93729956da5781361ba5cd47a2cb69881c90ba199b075c2c0134806",
+      "snapshotSha256": "b129bbbdc93729956da5781361ba5cd47a2cb69881c90ba199b075c2c0134806",
+      "importRelocation": false
+    }
+  ]
+}

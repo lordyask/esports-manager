@@ -47,15 +47,6 @@ test('finishing a match unlocks a new opportunity without rewriting the historic
  w.development=previewTraining(w.development!,ids,{kind:'attribute',attribute:0}).development;assert.deepEqual(w.previous!.profiles,snapshot);
  assert.deepEqual(decodeSave(encodeSave(w)),w);
 });
-test('explicit legacy import preserves read-only results, starts XP at zero and rejects corruption',()=>{
- const d=draft(),session=createSession(d,'legacy');const data={draft:d,session};
- const envelope={format:'esports-manager-beta',schema:1,beta:'1.0.0',engine:'0.3.0',rules:'gdd-1.3',digest:sha256(JSON.stringify(data)),data};
- const text=JSON.stringify(envelope);assert.throws(()=>decodeSave(text),/incompatível/);
- const migrated=prepareImport(text);assert.equal(migrated.data.session,null);assert.equal(migrated.data.development!.used,false);assert.deepEqual(migrated.data.legacyReport!.session,session);assert.match(migrated.notice,/não continuará/);
- assert.deepEqual(decodeSave(encodeSave(migrated.data)),migrated.data);
- envelope.data.draft.seed++;assert.throws(()=>prepareImport(JSON.stringify(envelope)),/modificado/);
- assert.equal(freshWorkspace().development!.used,false);
-});
 test('new plans and valid complements are accepted; contradictory instructions are rejected',()=>{
  assert.doesNotThrow(()=>validateStrategy({attack:'feint',defense:'reading',site:'B',attackInstruction:'trade',defenseInstruction:'cautious'}));
  assert.throws(()=>validateStrategy({...plans.A,attack:'fast',attackInstruction:'preserve'}),/Execução/);

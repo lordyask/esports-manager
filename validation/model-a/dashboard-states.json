@@ -1,0 +1,41 @@
+{
+  "method": "React server render; no browser/CSS verification",
+  "states": [
+    {
+      "state": "new organization",
+      "passed": true
+    },
+    {
+      "state": "five selected players",
+      "passed": true
+    },
+    {
+      "state": "career day 1",
+      "passed": true
+    },
+    {
+      "state": "trained day",
+      "passed": true
+    },
+    {
+      "state": "match day",
+      "passed": true
+    },
+    {
+      "state": "busy match day",
+      "passed": true
+    },
+    {
+      "state": "active match",
+      "passed": true
+    },
+    {
+      "state": "finished match",
+      "passed": true
+    },
+    {
+      "state": "completed cycle",
+      "passed": true
+    }
+  ]
+}

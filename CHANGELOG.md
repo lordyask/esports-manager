@@ -1,5 +1,15 @@
 # Histórico de alterações — Esports Manager
 
+## 12/11/2026 — Circuito e finanças em desenvolvimento
+
+- Circuito de oito equipes, 28 jogos, classificação, desempates e encerramento.
+- Vinte e um confrontos NPC com o motor real, políticas por clube e retomada pelos resultados pendentes.
+- Caixa, inscrição, contratos anuais, salários proporcionais, operação, extrato e prêmio único.
+- Schema 5 para novos circuitos; agendas anteriores preservadas sem cobrança retroativa.
+- Nacionalidades dos 24 atletas iniciais e filtro por país; apresentação pré-jogo e resumo do circuito.
+- Histórico comum cheio não bloqueia o registro competitivo. Sem push ou deploy nesta entrega.
+- [Documentação e evidências](docs/BETA_2_0_CIRCUITO_FINANCAS.md).
+
 ## 29/10/2026 — Beta 1.3 publicado
 
 - Autor aprovou o lançamento; rótulos oficiais Beta 1.3 e identificação de exportação 1.3.0. [Publicação concluída](https://github.com/lordyask/esports-manager/actions/runs/40809888123) e site público conferido.

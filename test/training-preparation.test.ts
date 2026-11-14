@@ -20,14 +20,14 @@ test('an unconfirmed attribute choice survives durable reload without consuming 
  assert.equal(restored.data.trainingPreparation!.attribute,6);assert.equal(restored.data.trainingPreparation!.agents.J02,'Farol');
 });
 test('agent training is independent of the assigned match agent and retains individual choices',()=>{
- const w=workspace(),assignments=structuredClone(w.draft.assignments),p=trainingPreparation(w.draft);p.kind='agent';p.agents.J02='Bastião';p.agents.J24='Véu';
- const choice=trainingChoice(w.draft,p);assert.equal(choice.agents!.J02,'Bastião');assert.equal(choice.agents!.J24,'Véu');
+ const w=workspace(),assignments=structuredClone(w.draft.assignments),p=trainingPreparation(w.draft);p.kind='agent';p.agents.J02='Bastião';p.agents.J24='Prisma';
+ const choice=trainingChoice(w.draft,p);assert.equal(choice.agents!.J02,'Bastião');assert.equal(choice.agents!.J24,'Prisma');
  const trained=previewTraining(w.development!,ids,choice).development;
  assert.deepEqual(w.draft.assignments,assignments);assert.deepEqual(growthFor(trained,'J02').attrs,growthFor(w.development,'J02').attrs);
  assert.equal(decodeSave(encodeSave({...w,development:trained})).development!.receipt!.choice.agents!.J02,'Bastião');
 });
 test('changing the roster drops only departed players and defaults the replacement by its own identity',()=>{
- const w=workspace(),p=trainingPreparation(w.draft);p.kind='agent';p.attribute=4;p.agents.J02='Véu';p.agents.J24='Pulso';
+ const w=workspace(),p=trainingPreparation(w.draft);p.kind='agent';p.attribute=4;p.agents.J02='Prisma';p.agents.J24='Pulso';
  const draft={...w.draft,selected:['J01',...ids.slice(1)]},next=trainingPreparation(draft,p);
  assert.equal(next.agents.J02,undefined);assert.equal(next.agents.J24,'Pulso');assert.equal(next.attribute,4);assert.equal(Object.keys(next.agents).length,5);
  assert.equal(next.agents.J01,trainingPreparation(draft).agents.J01);

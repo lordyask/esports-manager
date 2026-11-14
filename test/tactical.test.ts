@@ -1,10 +1,11 @@
+// Frozen 0.4.1 regression: these mechanics are read-only in the current product.
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {ABILITIES,AGENTS} from '../src/abilities.ts';
-import type {Slot} from '../src/abilities.ts';
-import {TacticalRound,simulateRound} from '../src/simulation.ts';
-import {simulateMap} from '../src/autonomous.ts';
-import {profiles,scenario,plans} from './fixtures.ts';
+import {ABILITIES,AGENTS} from '../legacy/v0_4_1/src/abilities.ts';
+import type {Slot} from '../legacy/v0_4_1/src/abilities.ts';
+import {TacticalRound,simulateRound} from '../legacy/v0_4_1/src/simulation.ts';
+import {simulateMap} from '../legacy/v0_4_1/src/autonomous.ts';
+import {profiles,scenario,plans} from '../legacy/v0_4_1/test/fixtures.ts';
 
 test('all 32 abilities resolve and consume exactly their own resource',()=>{
   let count=0;

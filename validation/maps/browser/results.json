@@ -1,0 +1,66 @@
+[
+  {
+    "map": "doca",
+    "width": 1280,
+    "status": "passed",
+    "checks": [
+      "art loaded under Pages base path",
+      "keyboard sector selection",
+      "ten final-sector markers",
+      "manual round",
+      "checkpoint reload",
+      "automatic match and phase pauses",
+      "history export and reload",
+      "no overflow",
+      "no JS errors or missing assets"
+    ]
+  },
+  {
+    "map": "doca",
+    "width": 390,
+    "status": "passed",
+    "checks": [
+      "art loaded under Pages base path",
+      "keyboard sector selection",
+      "ten final-sector markers",
+      "manual round",
+      "checkpoint reload",
+      "automatic match and phase pauses",
+      "history export and reload",
+      "no overflow",
+      "no JS errors or missing assets"
+    ]
+  },
+  {
+    "map": "cume",
+    "width": 1280,
+    "status": "passed",
+    "checks": [
+      "art loaded under Pages base path",
+      "keyboard sector selection",
+      "ten final-sector markers",
+      "manual round",
+      "checkpoint reload",
+      "automatic match and phase pauses",
+      "history export and reload",
+      "no overflow",
+      "no JS errors or missing assets"
+    ]
+  },
+  {
+    "map": "cume",
+    "width": 390,
+    "status": "passed",
+    "checks": [
+      "art loaded under Pages base path",
+      "keyboard sector selection",
+      "ten final-sector markers",
+      "manual round",
+      "checkpoint reload",
+      "automatic match and phase pauses",
+      "history export and reload",
+      "no overflow",
+      "no JS errors or missing assets"
+    ]
+  }
+]

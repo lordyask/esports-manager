@@ -1,0 +1,36 @@
+name: Validar circuito e finanças Beta 2.0 (sem publicar)
+on:
+  push:
+    branches: [development/beta-2.0-circuit-finance]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+      - run: node scripts/validate-circuit.ts
+      - run: node validation/circuit/check-panels.mjs
+      - run: npm run build
+      - run: node scripts/check-export.ts
+      - run: npm run build
+        env:
+          PAGES_BASE_PATH: /esports-manager
+      - run: node scripts/check-export.ts
+        env:
+          PAGES_BASE_PATH: /esports-manager
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: circuit-finance-validation
+          path: validation/circuit/
+          retention-days: 14

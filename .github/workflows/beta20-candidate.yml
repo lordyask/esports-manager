@@ -1,0 +1,80 @@
+name: Beta 2.0 RC1 — validar sem publicar
+on:
+  push:
+    branches: [release/beta-2.0-rc1]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: beta20-candidate-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  integration:
+    name: Testes, saves e circuito completo
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXUS_VALIDATION_DIRECTORY: validation/rc1/circuit
+      NEXUS_CIRCUIT_FIXTURES: /tmp/nexus-rc1-circuit
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: mkdir -p validation/rc1
+      - run: npm test > validation/rc1/tests.tap 2>&1
+      - run: npm run typecheck
+      - run: node scripts/validate-reworks.ts
+      - run: node scripts/validate-circuit.ts
+      - run: node validation/reworks/check-panels.mjs
+      - run: node validation/circuit/check-panels.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: beta20-rc1-integration
+          path: |
+            validation/rc1/
+            validation/reworks/round-matrix.json
+            validation/reworks/panels-results.json
+            validation/circuit/panels-results.json
+          retention-days: 30
+  export:
+    name: Exportação ${{ matrix.label }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - label: raiz
+            base: ''
+          - label: github-pages
+            base: /esports-manager
+    env:
+      PAGES_BASE_PATH: ${{ matrix.base }}
+      NEXT_PUBLIC_BASE_PATH: ${{ matrix.base }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: node scripts/check-agent-art.ts
+      - run: node validation/agent-art/check-panels.mjs
+      - run: npm run build
+      - run: node scripts/check-export.ts
+      - run: node scripts/check-agent-art.ts --export
+      - run: node scripts/check-candidate-export.ts
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: beta20-rc1-export-${{ matrix.label }}
+          path: |
+            validation/agent-art/assets-*.json
+            validation/agent-art/panels-*.json
+          retention-days: 30

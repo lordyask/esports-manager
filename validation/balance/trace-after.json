@@ -1,0 +1,7639 @@
+{
+  "result": "defenders_eliminated",
+  "records": [
+    {
+      "at": 0,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B3",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B3",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B3",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B3",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B3",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": [
+        {
+          "at": 0,
+          "kind": "cast_start",
+          "actor": "A0",
+          "ability": "Clarão",
+          "sector": "B"
+        },
+        {
+          "at": 0,
+          "kind": "cast_start",
+          "actor": "A1",
+          "ability": "Marca",
+          "sector": "attack"
+        },
+        {
+          "at": 0,
+          "kind": "cast_start",
+          "actor": "A3",
+          "ability": "Plano Prismático",
+          "sector": "attack"
+        },
+        {
+          "at": 0,
+          "kind": "cast_start",
+          "actor": "A2",
+          "ability": "Bloqueio",
+          "sector": "attack"
+        },
+        {
+          "at": 0,
+          "kind": "cast_start",
+          "actor": "A4",
+          "ability": "Anteparo",
+          "sector": "attack"
+        },
+        {
+          "at": 0,
+          "kind": "cast_start",
+          "actor": "B0",
+          "ability": "Clarão",
+          "sector": "attack"
+        },
+        {
+          "at": 0,
+          "kind": "cast_start",
+          "actor": "B1",
+          "ability": "Marca",
+          "sector": "A"
+        },
+        {
+          "at": 0,
+          "kind": "cast_start",
+          "actor": "B3",
+          "ability": "Plano Prismático",
+          "sector": "B"
+        },
+        {
+          "at": 0,
+          "kind": "cast_start",
+          "actor": "B2",
+          "ability": "Alarme",
+          "sector": "mid"
+        },
+        {
+          "at": 0,
+          "kind": "cast_start",
+          "actor": "B4",
+          "ability": "Anteparo",
+          "sector": "A"
+        }
+      ]
+    },
+    {
+      "at": 250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B3",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B3",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B3",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B3",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B3",
+              "sector": "B",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": [
+        {
+          "at": 500,
+          "kind": "cast_complete",
+          "actor": "B3",
+          "ability": "Plano Prismático",
+          "sector": "B"
+        },
+        {
+          "at": 500,
+          "kind": "cast_complete",
+          "actor": "A3",
+          "ability": "Plano Prismático",
+          "sector": "attack"
+        },
+        {
+          "at": 500,
+          "kind": "cast_complete",
+          "actor": "A0",
+          "ability": "Clarão",
+          "sector": "B"
+        },
+        {
+          "at": 500,
+          "kind": "cast_complete",
+          "actor": "A1",
+          "ability": "Marca",
+          "sector": "attack"
+        },
+        {
+          "at": 500,
+          "kind": "cast_complete",
+          "actor": "A4",
+          "ability": "Anteparo",
+          "sector": "attack"
+        },
+        {
+          "at": 500,
+          "kind": "cast_complete",
+          "actor": "B0",
+          "ability": "Clarão",
+          "sector": "attack"
+        },
+        {
+          "at": 500,
+          "kind": "cast_complete",
+          "actor": "A2",
+          "ability": "Bloqueio",
+          "sector": "attack"
+        },
+        {
+          "at": 500,
+          "kind": "cast_complete",
+          "actor": "B4",
+          "ability": "Anteparo",
+          "sector": "A"
+        },
+        {
+          "at": 500,
+          "kind": "cast_complete",
+          "actor": "B1",
+          "ability": "Marca",
+          "sector": "A"
+        },
+        {
+          "at": 500,
+          "kind": "cast_complete",
+          "actor": "B2",
+          "ability": "Alarme",
+          "sector": "mid"
+        },
+        {
+          "at": 500,
+          "kind": "cast_start",
+          "actor": "A1",
+          "ability": "Luz de abertura",
+          "sector": "A"
+        },
+        {
+          "at": 500,
+          "kind": "cast_start",
+          "actor": "A3",
+          "ability": "Desvio",
+          "sector": "A"
+        },
+        {
+          "at": 500,
+          "kind": "cast_start",
+          "actor": "A4",
+          "ability": "Interposição",
+          "sector": "attack"
+        },
+        {
+          "at": 500,
+          "kind": "cast_start",
+          "actor": "B0",
+          "ability": "Carga de ruptura",
+          "sector": "attack"
+        },
+        {
+          "at": 500,
+          "kind": "cast_start",
+          "actor": "B1",
+          "ability": "Luz de abertura",
+          "sector": "attack"
+        },
+        {
+          "at": 500,
+          "kind": "cast_start",
+          "actor": "B3",
+          "ability": "Desvio",
+          "sector": "attack"
+        },
+        {
+          "at": 500,
+          "kind": "cast_start",
+          "actor": "B2",
+          "ability": "Laço",
+          "sector": "mid"
+        },
+        {
+          "at": 500,
+          "kind": "cast_start",
+          "actor": "B4",
+          "ability": "Interposição",
+          "sector": "A"
+        }
+      ]
+    },
+    {
+      "at": 750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "cast"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": "cast"
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 1000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": [
+        {
+          "at": 1000,
+          "kind": "cast_complete",
+          "actor": "B4",
+          "ability": "Interposição",
+          "sector": "A"
+        },
+        {
+          "at": 1000,
+          "kind": "cast_complete",
+          "actor": "B2",
+          "ability": "Laço",
+          "sector": "mid"
+        },
+        {
+          "at": 1000,
+          "kind": "cast_complete",
+          "actor": "B1",
+          "ability": "Luz de abertura",
+          "sector": "attack"
+        },
+        {
+          "at": 1000,
+          "kind": "cast_complete",
+          "actor": "B3",
+          "ability": "Desvio",
+          "sector": "attack"
+        },
+        {
+          "at": 1000,
+          "kind": "cast_complete",
+          "actor": "A1",
+          "ability": "Luz de abertura",
+          "sector": "A"
+        },
+        {
+          "at": 1000,
+          "kind": "cast_complete",
+          "actor": "A4",
+          "ability": "Interposição",
+          "sector": "attack"
+        },
+        {
+          "at": 1000,
+          "kind": "cast_complete",
+          "actor": "A3",
+          "ability": "Desvio",
+          "sector": "A"
+        },
+        {
+          "at": 1000,
+          "kind": "cast_complete",
+          "actor": "B0",
+          "ability": "Carga de ruptura",
+          "sector": "attack"
+        },
+        {
+          "at": 1000,
+          "kind": "cast_start",
+          "actor": "A3",
+          "ability": "Ângulo Morto",
+          "sector": "attack"
+        },
+        {
+          "at": 1000,
+          "kind": "cast_start",
+          "actor": "B3",
+          "ability": "Ângulo Morto",
+          "sector": "B"
+        },
+        {
+          "at": 1000,
+          "kind": "cast_start",
+          "actor": "B2",
+          "ability": "Bloqueio",
+          "sector": "mid"
+        }
+      ]
+    },
+    {
+      "at": 1250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": "cast"
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 1500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "destroy",
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "at": 1500,
+          "kind": "cast_complete",
+          "actor": "B3",
+          "ability": "Ângulo Morto",
+          "sector": "B"
+        },
+        {
+          "at": 1500,
+          "kind": "cast_complete",
+          "actor": "A3",
+          "ability": "Ângulo Morto",
+          "sector": "attack"
+        },
+        {
+          "at": 1500,
+          "kind": "cast_complete",
+          "actor": "B2",
+          "ability": "Bloqueio",
+          "sector": "mid"
+        },
+        {
+          "at": 1500,
+          "kind": "destroy_start",
+          "actor": "A0"
+        },
+        {
+          "at": 1500,
+          "kind": "destroy_start",
+          "actor": "B1"
+        }
+      ]
+    },
+    {
+      "at": 1750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "destroy",
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 2000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "destroy",
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 2250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "destroy",
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": "destroy"
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            },
+            {
+              "id": "B4",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": [
+            {
+              "id": "effect:34",
+              "kind": "optical_filter",
+              "sector": "attack"
+            }
+          ]
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 2500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": [
+        {
+          "at": 2500,
+          "kind": "eliminated",
+          "actor": "B4",
+          "target": "A1",
+          "team": "B"
+        },
+        {
+          "at": 2500,
+          "kind": "destroyed",
+          "actor": "B1",
+          "detail": "effect:35"
+        },
+        {
+          "at": 2500,
+          "kind": "destroyed",
+          "actor": "A0",
+          "detail": "effect:34"
+        },
+        {
+          "at": 2500,
+          "kind": "cast_start",
+          "actor": "A0",
+          "ability": "Carga de ruptura",
+          "sector": "A"
+        },
+        {
+          "at": 2500,
+          "kind": "cast_start",
+          "actor": "A4",
+          "ability": "Rota Segura",
+          "sector": "attack"
+        }
+      ]
+    },
+    {
+      "at": 2750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 3000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 7000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": [
+        {
+          "at": 3000,
+          "kind": "cast_complete",
+          "actor": "A0",
+          "ability": "Carga de ruptura",
+          "sector": "A"
+        },
+        {
+          "at": 3000,
+          "kind": "cast_complete",
+          "actor": "A4",
+          "ability": "Rota Segura",
+          "sector": "attack"
+        }
+      ]
+    },
+    {
+      "at": 3250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 7000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 3500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": [
+        {
+          "at": 3500,
+          "kind": "eliminated",
+          "actor": "A1",
+          "target": "B2",
+          "team": "A"
+        }
+      ]
+    },
+    {
+      "at": 3750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            },
+            {
+              "id": "B2",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 4000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": [
+        {
+          "at": 4000,
+          "kind": "eliminated",
+          "actor": "B2",
+          "target": "A0",
+          "team": "B"
+        }
+      ]
+    },
+    {
+      "at": 4250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 4500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 4750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B1",
+              "sector": "A",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 5000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": [
+        {
+          "at": 5000,
+          "kind": "eliminated",
+          "actor": "B1",
+          "target": "A0",
+          "team": "B"
+        },
+        {
+          "at": 5000,
+          "kind": "cast_start",
+          "actor": "A0",
+          "ability": "Arranque",
+          "sector": "A"
+        },
+        {
+          "at": 5000,
+          "kind": "move_start",
+          "actor": "A4",
+          "sector": "A",
+          "detail": "normal"
+        }
+      ]
+    },
+    {
+      "at": 5250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "action": "cast",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 5500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": [
+        {
+          "at": 5500,
+          "kind": "cast_complete",
+          "actor": "A0",
+          "ability": "Arranque",
+          "sector": "A"
+        },
+        {
+          "at": 5500,
+          "kind": "move_start",
+          "actor": "A0",
+          "sector": "A",
+          "detail": "dash"
+        },
+        {
+          "at": 5500,
+          "kind": "move_start",
+          "actor": "A3",
+          "sector": "A",
+          "detail": "normal"
+        },
+        {
+          "at": 5500,
+          "kind": "move_start",
+          "actor": "A2",
+          "sector": "A",
+          "detail": "normal"
+        }
+      ]
+    },
+    {
+      "at": 5750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 6000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 6250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 6500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 6750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 7000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 7250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 7500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 7750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 8000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 8250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 8500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 8750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 9000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 9250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 9500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 9750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 10000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 10250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 10500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 10750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 11000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 11250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 11500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 11750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 12000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 12250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 12500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 12750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 13000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 13250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 13500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 13750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 14000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 14250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 14500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": [
+        {
+          "at": 14500,
+          "kind": "arrived",
+          "actor": "A0",
+          "sector": "A"
+        }
+      ]
+    },
+    {
+      "at": 14750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 15000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 15250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 15500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "action": "plant",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 15750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "action": "plant",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 16000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "action": "plant",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 16250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "action": "plant",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 16500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "action": "plant",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 16750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "action": "plant",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 17000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "action": "plant",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": [
+        {
+          "at": 17000,
+          "kind": "arrived",
+          "actor": "A4",
+          "sector": "A"
+        }
+      ]
+    },
+    {
+      "at": 17250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "action": "plant",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "attack",
+          "life": 10000,
+          "move": "attack→A",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 17500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "action": "plant",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": [
+        {
+          "at": 17500,
+          "kind": "arrived",
+          "actor": "A2",
+          "sector": "A"
+        },
+        {
+          "at": 17500,
+          "kind": "arrived",
+          "actor": "A3",
+          "sector": "A"
+        }
+      ]
+    },
+    {
+      "at": 17750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "action": "plant",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 18000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "action": "plant",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 18250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "action": "plant",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 18500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "action": "plant",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 18750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "action": "plant",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 19000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "action": "plant",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 19250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "action": "plant",
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 19500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": [
+        {
+          "at": 19500,
+          "kind": "cast_start",
+          "actor": "B0",
+          "ability": "Arranque",
+          "sector": "mid"
+        },
+        {
+          "at": 19500,
+          "kind": "move_start",
+          "actor": "B3",
+          "sector": "mid",
+          "detail": "normal"
+        }
+      ]
+    },
+    {
+      "at": 19750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 20000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": [
+        {
+          "at": 20000,
+          "kind": "cast_complete",
+          "actor": "B0",
+          "ability": "Arranque",
+          "sector": "mid"
+        },
+        {
+          "at": 20000,
+          "kind": "move_start",
+          "actor": "B0",
+          "sector": "mid",
+          "detail": "dash"
+        }
+      ]
+    },
+    {
+      "at": 20250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 20500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 20750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 21000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 21250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 21500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 21750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 22000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 22250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 22500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 22750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 23000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": [
+        {
+          "at": 23000,
+          "kind": "arrived",
+          "actor": "B0",
+          "sector": "mid"
+        }
+      ]
+    },
+    {
+      "at": 23250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 23500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 23750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B0",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 24000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": [
+        {
+          "at": 24000,
+          "kind": "eliminated",
+          "actor": "B0",
+          "target": "A4",
+          "team": "B"
+        }
+      ]
+    },
+    {
+      "at": 24250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 24500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 24750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 25000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 25250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 25500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B3",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B3",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B3",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B3",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": [
+        {
+          "at": 25500,
+          "kind": "arrived",
+          "actor": "B3",
+          "sector": "mid"
+        }
+      ]
+    },
+    {
+      "at": 25750,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B3",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B3",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B3",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B3",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 26000,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B3",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B3",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B3",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B3",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 26250,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B3",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B3",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B3",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [
+            {
+              "id": "B3",
+              "sector": "mid",
+              "action": null
+            }
+          ],
+          "devices": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "at": 26500,
+      "units": [
+        {
+          "id": "A0",
+          "role": "Entry",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A1",
+          "role": "Support",
+          "sector": "attack",
+          "life": 0,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A3",
+          "role": "Support",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A2",
+          "role": "Second",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        },
+        {
+          "id": "A4",
+          "role": "Anchor",
+          "sector": "A",
+          "life": 10000,
+          "move": null,
+          "visible": [],
+          "devices": []
+        }
+      ],
+      "events": [
+        {
+          "at": 26500,
+          "kind": "eliminated",
+          "actor": "B3",
+          "target": "A0",
+          "team": "B"
+        },
+        {
+          "at": 26500,
+          "kind": "round_end",
+          "team": "A",
+          "detail": "defenders_eliminated"
+        }
+      ]
+    }
+  ]
+}

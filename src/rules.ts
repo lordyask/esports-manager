@@ -1,10 +1,11 @@
-export const ENGINE_VERSION = '0.4.1';
-export const RULES_VERSION = 'gdd-1.3+b11-rc1';
+import {MAP_CATALOG} from './maps.ts';
+export const ENGINE_VERSION = '0.5.1';
+export const RULES_VERSION = 'nexus-2.0-reworks-r1';
 export type Weapon = 'basic' | 'intermediate' | 'main' | 'precision';
 export type Range = 'short' | 'medium' | 'long';
 export type Team = 'A' | 'B';
 export type Sector = 'attack' | 'defense' | 'A' | 'B' | 'mid';
-export type MapId = 'patio' | 'horizonte' | 'enlace';
+export type MapId = 'patio' | 'horizonte' | 'enlace' | 'doca' | 'cume';
 export type Attributes = [number, number, number, number, number, number, number, number];
 export const WEAPONS: Record<Weapon, {price: number; damage: number; cadence: number}> = {
   basic: {price: 0, damage: 30, cadence: 500},
@@ -30,7 +31,7 @@ export const PLANT_MS = 4000;
 export const DETONATION_MS = 40000;
 export const DEFUSE_MS = 7000;
 export function mapEdges(id: MapId): [Sector, Sector, number][] {
-  const t = {patio: [12, 8, 6, 7, 9], horizonte: [18, 12, 10, 10, 12], enlace: [16, 8, 6, 9, 8]}[id];
+  const t = Object.hasOwn(MAP_CATALOG,id) ? MAP_CATALOG[id].travel : undefined;
   if (!t) throw new Error('Invalid map');
   return [ ['attack','A',t[0]*1000], ['attack','B',t[0]*1000], ['attack','mid',t[1]*1000],
     ['mid','A',t[2]*1000], ['mid','B',t[2]*1000], ['defense','A',t[3]*1000],

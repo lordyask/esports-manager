@@ -1,0 +1,14 @@
+node:fs:483
+    return binding.readFileUtf8(path, stringToFlags(options.flag));
+                   ^
+
+Error: ENOENT: no such file or directory, open '/tmp/nexus-circuit-validation/pending.json'
+    at readFileSync (node:fs:483:20)
+    at file:///workspace/scratch/98c15ad89f50/nexus-dev/validation/circuit/check-panels.mjs:34:26 {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/tmp/nexus-circuit-validation/pending.json'
+}
+
+Node.js v24.22.1

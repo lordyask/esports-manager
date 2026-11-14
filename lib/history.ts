@@ -1,3 +1,5 @@
+import {BETA_VERSION} from './release.ts';
+import {opponentFor} from './opponents.ts';
 import type {Session,Workspace} from './game.ts';
 import {validateSession,stats} from './game.ts';
 import {sha256} from '../src/hash.ts';
@@ -5,9 +7,10 @@ import {ENGINE_VERSION,RULES_VERSION} from '../src/rules.ts';
 import {attackingTeam} from '../src/map.ts';
 export const HISTORY_LIMIT=20;
 export const SAVE_LIMIT=64*1024*1024;
-export interface MatchMetadata {startedAt:string;finishedAt?:string;organization:string;opponent:'development'|'balanced'|'experienced';}
+export interface MatchMetadata {startedAt:string;finishedAt?:string;organization:string;opponent:'development'|'balanced'|'experienced';careerId?:string;careerDay?:number;opponentId?:string;}
 export function validateMetadata(m:MatchMetadata){
  if(!m||typeof m.organization!=='string'||m.organization.length>40||!['development','balanced','experienced'].includes(m.opponent)||typeof m.startedAt!=='string'||!Number.isFinite(Date.parse(m.startedAt))||m.finishedAt!==undefined&&(typeof m.finishedAt!=='string'||!Number.isFinite(Date.parse(m.finishedAt))||Date.parse(m.finishedAt)<Date.parse(m.startedAt)))throw new Error('Identificação histórica inválida.');
+ if(m.careerId!==undefined||m.careerDay!==undefined||m.opponentId!==undefined){if(typeof m.careerId!=='string'||!m.careerId||!Number.isInteger(m.careerDay)||m.careerDay!<1||m.careerDay!>28||typeof m.opponentId!=='string')throw new Error('Identificação de calendário inválida.');opponentFor(m.opponentId);}
 }
 export function validateHistory(history:Session[]){
  if(!Array.isArray(history)||history.length>HISTORY_LIMIT||new Set(history.map(s=>s?.id)).size!==history.length)throw new Error('Histórico inválido ou acima de 20 partidas.');
@@ -36,6 +39,7 @@ export function deleteHistory(w:Workspace,id:string):Workspace {
  return {...next,history:next.history!.filter(s=>s.id!==id),...(next.previous?.id===id?{previous:undefined}:{})};
 }
 export function difficultyLabel(s:Session){
+ if(s.metadata?.opponentId)return opponentFor(s.metadata.opponentId).name+' · atributos fixos';
  const labels={development:'Desenvolvimento',balanced:'Referência (médio)',experienced:'Experiente'};
  if(s.metadata)return labels[s.metadata.opponent];
  const enemy=s.profiles.filter(p=>p.team==='B');
@@ -44,7 +48,7 @@ export function difficultyLabel(s:Session){
 }
 export function historyJSON(sessions:Session[]):string {
  validateHistory(sessions);const data=structuredClone(sessions);
- return JSON.stringify({format:'esports-manager-history',schema:1,engine:ENGINE_VERSION,rules:RULES_VERSION,digest:sha256(JSON.stringify(data)),data});
+ return JSON.stringify({format:'esports-manager-history',schema:1,beta:BETA_VERSION,engine:ENGINE_VERSION,rules:RULES_VERSION,digest:sha256(JSON.stringify(data)),data});
 }
 export function readHistory(text:string):Session[]{
  if(new TextEncoder().encode(text).length>SAVE_LIMIT)throw new Error('Arquivo maior que 64 MB.');
@@ -55,7 +59,7 @@ export function readHistory(text:string):Session[]{
 export function mergeHistory(w:Workspace,sessions:Session[]):Workspace {
  validateHistory(sessions);const next=initializeHistory(w);let history=next.history!;
  for(const s of sessions)history=addHistory(history,s);
- if(next.session&&next.session.state.phase!=='finished'&&history.length>=HISTORY_LIMIT)throw new Error('Reserve uma vaga no histórico para a partida em andamento.');
+ if(next.session&&next.session.state.phase!=='finished'&&history.length>=HISTORY_LIMIT&&next.career?.version!==2)throw new Error('Reserve uma vaga no histórico para a partida em andamento.');
  return {...next,history};
 }
 const cell=(v:unknown)=>'"'+String(v??'').replace(/^[=+@\-\t\r]/,"'$&").replaceAll('"','""')+'"';

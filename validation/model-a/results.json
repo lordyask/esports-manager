@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-12",
+  "base_commit": "0bfe6f76ffd988eb3581684c1ef9db04768e8a72",
+  "branch": "development/beta-2.0-model-a-finish",
+  "scope": "Tactical Premium UI Model A finish; presentation only",
+  "checks": {
+    "unit_integration_tests": {
+      "passed": 137,
+      "failed": 0,
+      "log": "tests.tap"
+    },
+    "typecheck": "passed",
+    "static_export_root": "passed",
+    "static_export_github_pages_subpath": "passed: /esports-manager",
+    "export_assets_manifest_worker_and_hero": "passed at both paths",
+    "dashboard_server_render": {
+      "passed_states": 9,
+      "log": "dashboard-states.json",
+      "does_not_verify": "CSS, viewport rendering, event dispatch or browser interaction"
+    },
+    "game_engine_calendar_save_logic_diff": "unchanged",
+    "official_monogram_bytes": "unchanged"
+  },
+  "hero_asset": {
+    "path": "public/brand/tactical-stage.webp",
+    "format": "WEBP",
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 51108,
+    "sha256": "b31d810322ef4fce79dfdb59f1d4801afc8d3e0316bcb1c6c402cb0a1dc548e0",
+    "role": "generated decorative arena; official N is a separate original asset"
+  },
+  "browser_visual_qa": {
+    "status": "unverified",
+    "reason": "Previous preview access restriction and automated rejection of port-switch attempt. No bypass attempted in this delivery.",
+    "remaining": [
+      "desktop and mobile rendering",
+      "keyboard focus and navigation rendering",
+      "comparison against approved board"
+    ]
+  },
+  "publication": {
+    "push": false,
+    "merge": false,
+    "deploy": false
+  },
+  "next_gate": "Visual inspection in a permitted preview before the circuit/classification/finance package"
+}

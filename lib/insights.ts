@@ -1,11 +1,13 @@
+import {MAP_CATALOG} from '../src/maps.ts';
+import type {MapId,Sector} from '../src/rules.ts';
 import type {Session,RoundRecord} from './game.ts';
 import {attackingTeam} from '../src/map.ts';
 import type {SimEvent} from '../src/tactical-types.ts';
 import {ATTACKS,DEFENSES,ATTACK_INSTRUCTIONS,DEFENSE_INSTRUCTIONS} from '../src/strategies.ts';
 export const reasonText=(r:string)=>({defenders_eliminated:'defesa eliminada',attackers_eliminated:'ataque eliminado',mutual_elimination:'eliminação simultânea',defused:'dispositivo desarmado',detonation:'dispositivo detonado',time_expired:'tempo esgotado'}[r]??r);
-const sector=(s:string|undefined)=>({attack:'base de ataque',defense:'base de defesa',mid:'meio',A:'ponto A',B:'ponto B'}[s??'']??s??'');
-const location=(s:string|undefined)=>(s==='attack'||s==='defense'?'na ':'no ')+sector(s);
-export function eventText(e:SimEvent,names:Record<string,string>){
+export function eventText(e:SimEvent,names:Record<string,string>,map?:MapId){
+ const sector=(s:string|undefined)=>map&&s&&Object.hasOwn(MAP_CATALOG[map].sectors,s)?MAP_CATALOG[map].sectors[s as Sector]:({attack:'base de ataque',defense:'base de defesa',mid:'meio',A:'ponto A',B:'ponto B'}[s??'']??s??'');
+ const location=(s:string|undefined)=>'em '+sector(s);
  const who=names[e.actor??'']??'Equipe',target=names[e.target??'']??'adversário';
  switch(e.kind){
   case 'first_contact':return `${who} observou ${target} ${location(e.sector)}: primeiro contato registrado da equipe.`;
@@ -15,6 +17,17 @@ export function eventText(e:SimEvent,names:Record<string,string>){
   case 'defuse_start':return `${who} iniciou o desarme.`;
   case 'defused':return `${who} concluiu o desarme.`;
   case 'cast_complete':return `${who} concluiu ${e.ability}.`;
+  case 'effect_deployed':return `${who} implantou ${e.ability} ${location(e.sector)}.`;
+  case 'ability_warning':return `${e.ability}: aviso de ${(e.amount??0)/1000} s antes da ativação.`;
+  case 'effect_activated':return `${e.ability} está ativo ${location(e.sector)}.`;
+  case 'effect_ended':{let reason='encerrado';try{reason=({expired:'duração encerrada',neutralized:'dispositivo neutralizado',capacity_exhausted:'reserva esgotada',link_broken:'vínculo interrompido',round_end:'fim da rodada'} as Record<string,string>)[JSON.parse(e.detail??'{}').reason]??reason;}catch{}return `${e.ability}: ${reason}.`;}
+  case 'optical_penalty':return `${who} sofreu penalidade óptica de ${(e.amount??0)/100} pontos percentuais na chance de acerto.`;
+  case 'optical_restored':return `Penalidade óptica removida de ${who}.`;
+  case 'damage_prevented':return `${e.ability} de ${who} interceptou ${((e.amount??0)/100).toLocaleString('pt-BR')} pontos de dano em ${target}.`;
+  case 'destroy_start':return `${who} começou a neutralizar um dispositivo; disparos suspensos durante a ação.`;
+  case 'destroy_cancelled':return `${who} cancelou a neutralização.`;
+  case 'destroyed':return `${who} neutralizou o dispositivo.`;
+  case 'cast_cancelled':return `${who}: ${e.ability} cancelado antes da implantação; recurso preservado.`;
   case 'cast_start':return `${who} preparou ${e.ability}.`;
   case 'igl_call':return `${who} chamou o ${sector(e.sector)} com base na informação observada.`;
   case 'strategy_shift':return `Ordem de rotação para o ${sector(e.sector)} após a finta.`;
@@ -48,7 +61,7 @@ export function reviewRound(s:Session,r:RoundRecord){
  const total=(t:'A'|'B')=>r.purchases[t].reduce((n,p)=>n+p.cost,0);
  facts.push(`Gasto confirmado: sua equipe ${total('A').toLocaleString('pt-BR')} cr.; adversário ${total('B').toLocaleString('pt-BR')} cr.`);
  const ours=r.command.plans.A;
- const timeline=r.result.events.map(e=>({event:e,text:eventText(e,s.names)})).filter(x=>x.text&&x.event.kind!=='plan_start');
+ const timeline=r.result.events.map(e=>({event:e,text:eventText(e,s.names,s.map)})).filter(x=>x.text&&x.event.kind!=='plan_start');
  for(let i=0;i<deaths.length;i++){const e=deaths[i],killer=s.profiles.find(p=>p.id===e.target);if(killer&&deaths.slice(0,i).some(d=>d.target===e.actor&&s.profiles.find(p=>p.id===d.actor)?.team===killer.team&&e.at-d.at<=5000))timeline.push({event:{...e,kind:'trade'},text:`${s.names[e.target!]} realizou o trade sobre ${s.names[e.actor!]}.`});}
  timeline.sort((a,b)=>a.event.at-b.event.at);
  const instruction=attacking==='A'?ATTACK_INSTRUCTIONS[ours.attackInstruction??'none']:DEFENSE_INSTRUCTIONS[ours.defenseInstruction??'none'];

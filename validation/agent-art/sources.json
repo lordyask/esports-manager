@@ -1,0 +1,399 @@
+{
+  "originals": [
+    {
+      "agent": "Estalo",
+      "slug": "estalo",
+      "kind": "keyart",
+      "bytes": 2576173,
+      "id": "19dsI_7V3RH_pUqdxwdyIJ8F4G-ctlQkr",
+      "title": "ESTALO_03_Key_Art_Cinematografica.png",
+      "source": "https://drive.google.com/file/d/19dsI_7V3RH_pUqdxwdyIJ8F4G-ctlQkr/view?usp=drivesdk",
+      "sha256": "917bea71b2915ab409a3ee2f561461986c7089b701296326c04d95bac832c432",
+      "sourceWidth": 1122,
+      "sourceHeight": 1402,
+      "deployed": [
+        {
+          "path": "public/agents/estalo-keyart.webp",
+          "bytes": 317366,
+          "sha256": "4c89723082e2851d9f4944fd2d87d1ab82c370987edd69301ac02e19cf486d39",
+          "width": 1122,
+          "height": 1402
+        },
+        {
+          "path": "public/agents/estalo-preview.webp",
+          "bytes": 73856,
+          "sha256": "7d36fcff76c7220ed1df77193f66e8cf993cbc4fa97850ef23e7ed6d46779106",
+          "width": 480,
+          "height": 600
+        }
+      ]
+    },
+    {
+      "agent": "Estalo",
+      "slug": "estalo",
+      "kind": "card",
+      "bytes": 2344049,
+      "id": "1XE-CJ-hOtaz86W9Irree3eVl-CmpXBEA",
+      "title": "ESTALO_02_Agent_Card_Oficial.png",
+      "source": "https://drive.google.com/file/d/1XE-CJ-hOtaz86W9Irree3eVl-CmpXBEA/view?usp=drivesdk",
+      "sha256": "9af6e86f41bc24618ef31c1bf550fc4a258affdbd57c3f97904209c97d7dd4af",
+      "sourceWidth": 1122,
+      "sourceHeight": 1402,
+      "deployed": [
+        {
+          "path": "public/agents/estalo-card.webp",
+          "bytes": 260894,
+          "sha256": "b6c2ff4c951fd50dbc9b61707dea6378492e969f563fbf0bdef2f6d0cd7a3a1e",
+          "width": 1122,
+          "height": 1402
+        }
+      ]
+    },
+    {
+      "agent": "Ímpeto",
+      "slug": "impeto",
+      "kind": "keyart",
+      "bytes": 2475279,
+      "id": "1wsBZtyQN0yhoi8oTFGukWgJb5dFohG9k",
+      "title": "IMPETO_03_Key_Art_Cinematografica_Aprovada.png",
+      "source": "https://drive.google.com/file/d/1wsBZtyQN0yhoi8oTFGukWgJb5dFohG9k/view?usp=drivesdk",
+      "sha256": "b17dc73d37ce6d0ff40ce2bf37e4a0280f5f02929d8fe91ed663b2722ff44917",
+      "sourceWidth": 1122,
+      "sourceHeight": 1402,
+      "deployed": [
+        {
+          "path": "public/agents/impeto-keyart.webp",
+          "bytes": 317912,
+          "sha256": "bbd8f97a09b81bf234960c17464ad07e4848859d3dc3cf2f124066ea3a966d0a",
+          "width": 1122,
+          "height": 1402
+        },
+        {
+          "path": "public/agents/impeto-preview.webp",
+          "bytes": 78460,
+          "sha256": "1e4222e947e89606644e79b55d4315c5bed606afc1194f9b9d7c27c6d73340cf",
+          "width": 480,
+          "height": 600
+        }
+      ]
+    },
+    {
+      "agent": "Ímpeto",
+      "slug": "impeto",
+      "kind": "card",
+      "bytes": 2260227,
+      "id": "1OjtzxDQO7KypZjziEA-FEiTNwCb3Qc7-",
+      "title": "IMPETO_02_Agent_Card_Oficial.png",
+      "source": "https://drive.google.com/file/d/1OjtzxDQO7KypZjziEA-FEiTNwCb3Qc7-/view?usp=drivesdk",
+      "sha256": "4ad0be4aea672982e0bfbd4d420e5948054890ee51f7b6a7c3b47e504f6bbfb8",
+      "sourceWidth": 1122,
+      "sourceHeight": 1402,
+      "deployed": [
+        {
+          "path": "public/agents/impeto-card.webp",
+          "bytes": 254794,
+          "sha256": "56acd379e26d5b38e74ecbf1f7b0045c1d2d791a1d7db915ba2e97da44c3e77f",
+          "width": 1122,
+          "height": 1402
+        }
+      ]
+    },
+    {
+      "agent": "Farol",
+      "slug": "farol",
+      "kind": "keyart",
+      "bytes": 2516244,
+      "id": "1BoFQ0vp-VTDMtSLdWDkhwlg_s6agXU7s",
+      "title": "FAROL_03_Key_Art_Cinematografica_Aprovada.png",
+      "source": "https://drive.google.com/file/d/1BoFQ0vp-VTDMtSLdWDkhwlg_s6agXU7s/view?usp=drivesdk",
+      "sha256": "ebbdf067f6145e156575343b6ec5736307369be7f2dac49dd5e30797a46f5b93",
+      "sourceWidth": 1122,
+      "sourceHeight": 1402,
+      "deployed": [
+        {
+          "path": "public/agents/farol-keyart.webp",
+          "bytes": 298294,
+          "sha256": "b47d15f1bdce5a5a2ceb036b5c0dbae631fdb24f7b221fb161fdfb7b19de5cb9",
+          "width": 1122,
+          "height": 1402
+        },
+        {
+          "path": "public/agents/farol-preview.webp",
+          "bytes": 65694,
+          "sha256": "000bfa732e5ea41858382c5a1a3d38cdc926b1956395b653648053899cb22259",
+          "width": 480,
+          "height": 600
+        }
+      ]
+    },
+    {
+      "agent": "Farol",
+      "slug": "farol",
+      "kind": "card",
+      "bytes": 2315136,
+      "id": "1ocJRkd_76j71pDrY5c2U8G_YDvs8oIC8",
+      "title": "FAROL_02_Agent_Card_Oficial.png",
+      "source": "https://drive.google.com/file/d/1ocJRkd_76j71pDrY5c2U8G_YDvs8oIC8/view?usp=drivesdk",
+      "sha256": "05c99f386634dc1370e940440dd5b4dd656342dc50253e4e685cd103fea7af6d",
+      "sourceWidth": 1122,
+      "sourceHeight": 1402,
+      "deployed": [
+        {
+          "path": "public/agents/farol-card.webp",
+          "bytes": 258290,
+          "sha256": "bda5a08e125e21849c0de43ab2b858124d8963e3eb715932e71791ed236024ae",
+          "width": 1122,
+          "height": 1402
+        }
+      ]
+    },
+    {
+      "agent": "Pulso",
+      "slug": "pulso",
+      "kind": "keyart",
+      "bytes": 2461933,
+      "id": "1QS98zBJPiUl9e3yoe4adkxPEQG1canRi",
+      "title": "PULSO_03_Key_Art_Cinematografica_Aprovada.png",
+      "source": "https://drive.google.com/file/d/1QS98zBJPiUl9e3yoe4adkxPEQG1canRi/view?usp=drivesdk",
+      "sha256": "1f02b115df76db3c73b2dda45c7315e41ee9a534f57426764418ba06182d2360",
+      "sourceWidth": 1190,
+      "sourceHeight": 1322,
+      "deployed": [
+        {
+          "path": "public/agents/pulso-keyart.webp",
+          "bytes": 336232,
+          "sha256": "c20afae3189b61d9fef193ab9b2f83e6bee475ad5922cae4d1e3f16b34b55ed1",
+          "width": 1190,
+          "height": 1322
+        },
+        {
+          "path": "public/agents/pulso-preview.webp",
+          "bytes": 66634,
+          "sha256": "009bf666069a9cda4091131f82bd5c27d776b1ae9665e6c135c3e72235b7bc07",
+          "width": 480,
+          "height": 533
+        }
+      ]
+    },
+    {
+      "agent": "Pulso",
+      "slug": "pulso",
+      "kind": "card",
+      "bytes": 2364799,
+      "id": "1FxeDYLFaD0-efxSd2-7wW_0Ywfbh4SR5",
+      "title": "PULSO_02_Agent_Card_Oficial_NX-UI01.png",
+      "source": "https://drive.google.com/file/d/1FxeDYLFaD0-efxSd2-7wW_0Ywfbh4SR5/view?usp=drivesdk",
+      "sha256": "f682e4bab7270a95cde0c59b8c09f05101b0d324acbe1c6d8b067da853e82f12",
+      "sourceWidth": 1122,
+      "sourceHeight": 1402,
+      "deployed": [
+        {
+          "path": "public/agents/pulso-card.webp",
+          "bytes": 290760,
+          "sha256": "3b50a118b18244bed6b5539dff8415ce253a4756b8165a2d562b14da09ee2dd4",
+          "width": 1122,
+          "height": 1402
+        }
+      ]
+    },
+    {
+      "agent": "Bruma",
+      "slug": "bruma",
+      "kind": "keyart",
+      "bytes": 2852128,
+      "id": "14Mciol78Mpiig5yOpvX1skmDz81CKIiu",
+      "title": "BRUMA_03_Key_Art_Cinematografica_Aprovada.png",
+      "source": "https://drive.google.com/file/d/14Mciol78Mpiig5yOpvX1skmDz81CKIiu/view?usp=drivesdk",
+      "sha256": "5405adfa6db861483617150e8a014789c8de843d4fb9bdca49c84cf432b98e84",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "deployed": [
+        {
+          "path": "public/agents/bruma-keyart.webp",
+          "bytes": 353796,
+          "sha256": "8441baeed9d87196cbb713bfaf1973aff339b99314ffa87b49fbc46b0ff3b9bf",
+          "width": 1024,
+          "height": 1536
+        },
+        {
+          "path": "public/agents/bruma-preview.webp",
+          "bytes": 70584,
+          "sha256": "ce9884419157316668053e99d4c2754e5a0f4d5892c4485325d1d2a84c424464",
+          "width": 427,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "agent": "Bruma",
+      "slug": "bruma",
+      "kind": "card",
+      "bytes": 2498150,
+      "id": "1wTpZWqAfqHkHAJ0dHppoU_VojtXSgUv1",
+      "title": "BRUMA_02_Agent_Card_Aprovado_NX-UI01.png",
+      "source": "https://drive.google.com/file/d/1wTpZWqAfqHkHAJ0dHppoU_VojtXSgUv1/view?usp=drivesdk",
+      "sha256": "a797a0d373fb4411a3f15e1ef5ee7e098b68d0e51d45e1c141a9e4af5d9ef1ac",
+      "sourceWidth": 1672,
+      "sourceHeight": 941,
+      "deployed": [
+        {
+          "path": "public/agents/bruma-card.webp",
+          "bytes": 301476,
+          "sha256": "a95615b594072c4df3436c03fad5a689e611d4d46ffa25aa9a46a0309784492b",
+          "width": 1672,
+          "height": 941
+        }
+      ]
+    },
+    {
+      "agent": "Trava",
+      "slug": "trava",
+      "kind": "keyart",
+      "bytes": 3044310,
+      "id": "1rOHoReVKRdlR07RURRRW-eQ8abhRV-7X",
+      "title": "TRAVA_03_Key_Art_NX-UI02_Aprovada.png",
+      "source": "https://drive.google.com/file/d/1rOHoReVKRdlR07RURRRW-eQ8abhRV-7X/view?usp=drivesdk",
+      "sha256": "8d1745bd9c6a8e6a366366d38c4956114882158acc4454b804c8135a144d0333",
+      "sourceWidth": 2172,
+      "sourceHeight": 2715,
+      "deployed": [
+        {
+          "path": "public/agents/trava-keyart.webp",
+          "bytes": 148840,
+          "sha256": "482eeb7f27a2e6dde3d0f81fc32740b2b8c44b5847e971fa956dc56cb00431f7",
+          "width": 1200,
+          "height": 1500
+        },
+        {
+          "path": "public/agents/trava-preview.webp",
+          "bytes": 34350,
+          "sha256": "d0a5981c2b76b9ef28a89bf58cc34763ba6d1a67b3af2b76cc08b0ae676cd2e0",
+          "width": 480,
+          "height": 600
+        }
+      ]
+    },
+    {
+      "agent": "Trava",
+      "slug": "trava",
+      "kind": "card",
+      "bytes": 2067016,
+      "id": "1iqWOqhsJ4vn3HHLOukwZSqVj0vhznHSH",
+      "title": "TRAVA_02_Agent_Card_NX-UI01.png",
+      "source": "https://drive.google.com/file/d/1iqWOqhsJ4vn3HHLOukwZSqVj0vhznHSH/view?usp=drivesdk",
+      "sha256": "7ec296ebaa9992a36c9e2cbfd1e4f358f7cb9633205c6eee54170ad3a962e9a0",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "deployed": [
+        {
+          "path": "public/agents/trava-card.webp",
+          "bytes": 236480,
+          "sha256": "c8575c4263f40a857b67cb8f7c4bb957803970058a8e176e49cb73384c094c1a",
+          "width": 1086,
+          "height": 1448
+        }
+      ]
+    },
+    {
+      "agent": "Prisma",
+      "slug": "prisma",
+      "kind": "keyart",
+      "bytes": 2200644,
+      "id": "1Lc4SXniTINbo4v5aa7IBxaUcMw5rG6lj",
+      "title": "PRISMA_03_Key_Art_NX-UI02.png",
+      "source": "https://drive.google.com/file/d/1Lc4SXniTINbo4v5aa7IBxaUcMw5rG6lj/view?usp=drivesdk",
+      "sha256": "da44ff3e7530f5f32fea0430add1eb57b16fc771d6cefbfffc6210a07b085dc9",
+      "sourceWidth": 1122,
+      "sourceHeight": 1402,
+      "deployed": [
+        {
+          "path": "public/agents/prisma-keyart.webp",
+          "bytes": 261586,
+          "sha256": "125239e8bbdd1402bb95173d6d792ce2551858a8c63e809786b34d9c5fae8025",
+          "width": 1122,
+          "height": 1402
+        },
+        {
+          "path": "public/agents/prisma-preview.webp",
+          "bytes": 59636,
+          "sha256": "94b71bd8066f738f65203c8082733884c8c53f05b89bd2d5a5424806ecce795f",
+          "width": 480,
+          "height": 600
+        }
+      ]
+    },
+    {
+      "agent": "Bastião",
+      "slug": "bastiao",
+      "kind": "keyart",
+      "bytes": 1967634,
+      "id": "12LXxBKQits_hfCQihKgUMoAWOQjQOdpc",
+      "title": "BASTIAO_03_Key_Art_NX-UI02_Aprovada.png",
+      "source": "https://drive.google.com/file/d/12LXxBKQits_hfCQihKgUMoAWOQjQOdpc/view?usp=drivesdk",
+      "sha256": "6d9a10b61e37a93e6368069da388c193073e47e9728523f2fcadb5e98a597a20",
+      "sourceWidth": 1448,
+      "sourceHeight": 1810,
+      "deployed": [
+        {
+          "path": "public/agents/bastiao-keyart.webp",
+          "bytes": 191052,
+          "sha256": "4ac74afab9dfdb8750ebb4d98ad5372db197d05d6326bc2d0949346e7a289467",
+          "width": 1200,
+          "height": 1500
+        },
+        {
+          "path": "public/agents/bastiao-preview.webp",
+          "bytes": 43462,
+          "sha256": "81f8a101101bf8d3c2439bc08b22cd43b67448e2afa5eea51b2d47fc3b236791",
+          "width": 480,
+          "height": 600
+        }
+      ]
+    },
+    {
+      "agent": "Prisma",
+      "slug": "prisma",
+      "kind": "card",
+      "bytes": 2459198,
+      "id": "1OwBkr2rBW2Ltlde1G_abhtgXKzrLandp",
+      "title": "PRISMA_02_Agent_Card_NX-UI01.png",
+      "source": "https://drive.google.com/file/d/1OwBkr2rBW2Ltlde1G_abhtgXKzrLandp/view",
+      "sha256": "b7aa7cc6d398548fd3b57717015771107f9239d83beb6bf7c77c3c103d7415f3",
+      "sourceWidth": 1122,
+      "sourceHeight": 1402,
+      "deployed": [
+        {
+          "path": "public/agents/prisma-card.webp",
+          "bytes": 322126,
+          "sha256": "52c3a75c26c8313df504a1cd2db8a9dbfb7c1ba7e24bb2ac0c90541c0e6b0fd7",
+          "width": 1122,
+          "height": 1402
+        }
+      ]
+    },
+    {
+      "agent": "Bastião",
+      "slug": "bastiao",
+      "kind": "card",
+      "bytes": 1970290,
+      "id": "1xhZIUYhmlHrvm1V8TnNY8IxmJgjPQSCS",
+      "title": "BASTIAO_02_Agent_Card_NX-UI01.png",
+      "source": "https://drive.google.com/file/d/1xhZIUYhmlHrvm1V8TnNY8IxmJgjPQSCS/view",
+      "sha256": "d715ac1aa57542dc05ec4c64c4d21e70f97908531b64280e9e46308d85615558",
+      "sourceWidth": 1122,
+      "sourceHeight": 1402,
+      "deployed": [
+        {
+          "path": "public/agents/bastiao-card.webp",
+          "bytes": 221330,
+          "sha256": "46a9e525f9aa54c920d23c2e446aa0ae5c933c9d268d44800f3edd390e3c3990",
+          "width": 1122,
+          "height": 1402
+        }
+      ]
+    }
+  ],
+  "sourceBytes": 38373210,
+  "deployedBytes": 4863904,
+  "method": "Approved source images; WebP conversion and proportional downsampling only. Existing Prisma/Bastiao cards retained byte-for-byte. No cropping, repainting or color redesign."
+}
