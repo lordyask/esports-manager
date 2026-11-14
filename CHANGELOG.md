@@ -1,5 +1,13 @@
 # Histórico de alterações — Esports Manager
 
+## 14/11/2026 — NEXUS Beta 2.0
+
+- Identificação do produto `2.0.0`, com motor 0.5.1, revisão mecânica `nexus-2.0-reworks-r1` e save schema 6.
+- Identidade NEXUS e artes dos oito agentes; mapas Doca e Cume.
+- Calendário de 28 dias, treinamento, circuito de oito equipes, classificação, contratos, finanças e premiação.
+- Reworks de Prisma e Bastião, reinício de carreira e Acervo para arquivos de versões anteriores.
+- [Notas da versão](docs/BETA_2_0_NOTAS.md), [orientações para saves](docs/BETA_2_0_SAVES.md) e [validação da candidata](docs/BETA_2_0_RC1_VALIDACAO.md).
+
 ## 12/11/2026 — Circuito e finanças em desenvolvimento
 
 - Circuito de oito equipes, 28 jogos, classificação, desempates e encerramento.

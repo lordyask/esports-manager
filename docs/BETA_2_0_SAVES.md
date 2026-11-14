@@ -8,12 +8,12 @@
 
 ## O que acontece com cada arquivo
 
-| Arquivo | Comportamento no Beta 2.0 · RC1 |
+| Arquivo | Comportamento no Beta 2.0 |
 | --- | --- |
 | Beta 1.0 / motor 0.3.0 | Preservado no Acervo para consulta e exportação; partida antiga não continua nas regras novas |
 | Beta 1.1 a 1.3 / motor 0.4.1 | Save validado e preservado no Acervo; sem transferência de XP, caixa, contratos ou resultados para a carreira atual |
 | Desenvolvimento anterior / motor 0.5.0 | Campanha e acervo anterior preservados para consulta; sem continuação ativa sob 0.5.1 |
-| Desenvolvimento 0.5.1, schema 6 e mesma revisão mecânica | Progresso compatível: mantém campanha, rodada, XP e resultados. Exportações novas recebem o identificador `2.0.0-rc.1` |
+| Desenvolvimento 0.5.1, incluindo RC1, schema 6 e mesma revisão mecânica | Progresso compatível: mantém campanha, rodada, XP e resultados. Exportações novas recebem o identificador `2.0.0` |
 | Histórico JSON do motor atual | Importa partidas concluídas sem substituir a campanha ou o treino atual; limite de 20 registros e deduplicação por partida |
 | Arquivo incompatível, incompleto ou alterado | Importação recusada. Guarde o original; não há conversão genérica ou correção automática de arquivos |
 
@@ -37,4 +37,4 @@ O Acervo permite consultar e exportar o arquivo original. Ele não avança parti
 - O limite é de 64 MB para o save completo, incluindo o Acervo. Para liberar espaço, exporte e remova somente os registros escolhidos; não há exclusão automática de backups arquivados.
 - O resgate automático do banco muito antigo do Beta 1.0 depende do suporte do navegador. Caso não apareça, importe o backup JSON que você guardou.
 
-Versão do produto e versão do save têm funções distintas: a marcação RC1 identifica a candidata; motor, regras e hash mecânico determinam se uma campanha pode continuar. Não houve mudança de schema ou balanceamento neste fechamento.
+Versão do produto e versão do save têm funções distintas: motor, regras e hash mecânico determinam se uma campanha pode continuar. A identificação oficial 2.0.0 não altera o schema nem o balanceamento da candidata RC1.

@@ -1,5 +1,7 @@
 # Beta 2.0 · RC1 — Candidata e validação
 
+**Registro histórico:** a situação remota descrita abaixo é a de 13/11/2026. Em 14/11, a candidata do ZIP foi enviada no commit [`be1d525`](https://github.com/lordyask/esports-manager/commit/be1d5251c6f71c21b4fce6115a2bbbe06721258e), com [validação concluída com sucesso no GitHub Actions](https://github.com/lordyask/esports-manager/actions/runs/43633150076).
+
 Preparada em 13/11/2026, identificador `2.0.0-rc.1`. Branch de destino: `release/beta-2.0-rc1`, sem merge em `main` ou deploy público. Os resultados do GitHub Actions devem ser conferidos no commit exato dessa branch; executar localmente não equivale a aprovação remota.
 
 ## Fechamento local

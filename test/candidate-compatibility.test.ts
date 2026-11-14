@@ -23,3 +23,7 @@ test('Beta 1.3 save is archived with its exact bytes and never becomes an active
 test('history remains compatible when the optional product version is absent',()=>{
  const e=JSON.parse(historyJSON([]));assert.equal(e.beta,BETA_VERSION);delete e.beta;assert.deepEqual(readHistory(JSON.stringify(e)),[]);
 });
+test('RC1 saves and history remain readable after the official product version changes',()=>{
+ const workspace=freshWorkspace(),save=JSON.parse(encodeSave(workspace));save.beta='2.0.0-rc.1';assert.deepEqual(decodeSave(JSON.stringify(save)),workspace);
+ const history=JSON.parse(historyJSON([]));history.beta='2.0.0-rc.1';assert.deepEqual(readHistory(JSON.stringify(history)),[]);
+});

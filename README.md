@@ -1,67 +1,28 @@
-# NEXUS — Beta 2.0 · RC1
+# NEXUS — Beta 2.0
 
-Candidata `2.0.0-rc.1` para validação, sem lançamento automático. [Notas da versão](docs/BETA_2_0_NOTAS.md) · [Saves antigos e backups](docs/BETA_2_0_SAVES.md).
+NEXUS é um jogo de gerenciamento de equipe de FPS tático, com simulação de partidas, treinamento e circuito competitivo. Esta versão usa a identificação `2.0.0`, motor **0.5.1**, regras `nexus-2.0-reworks-r1` e saves de **schema 6**.
 
+[Abrir o jogo](https://lordyask.github.io/esports-manager/) · [Notas da versão](docs/BETA_2_0_NOTAS.md) · [Backup e saves antigos](docs/BETA_2_0_SAVES.md) · [Validação da candidata](docs/BETA_2_0_RC1_VALIDACAO.md) · [Histórico](CHANGELOG.md)
 
-Esta branch contém Doca/Cume, calendário de 28 dias, treino diário, circuito completo, os reworks aprovados de Prisma/Bastião e a opção **Reiniciar carreira**. Adversários mantêm atributos fixos. **Sem lançamento público nesta etapa.** [Integração visual e situação atual](docs/BETA_2_0_ARTES_AGENTES.md).
+## Novidades
 
-Novas campanhas usam motor **0.5.1**, regras `nexus-2.0-reworks-r1` e save **schema 6**, com identificação mecânica no arquivo, partidas e resultados do circuito. Prisma ocupa o lugar de Véu. Arquivos anteriores ficam no **Acervo**, em consulta e exportação com as regras originais; não continuam sob o motor novo nem recebem XP/finanças retroativos.
+- Identidade visual NEXUS, catálogo e artes dos oito agentes, e mapas Doca e Cume.
+- Calendário de 28 dias com uma oportunidade diária de treino individual ou coletivo.
+- Circuito de oito equipes e 28 partidas, com classificação, contratos, finanças e premiação.
+- Prisma substitui Véu em campanhas novas; Prisma e Bastião têm habilidades revisadas.
+- Reinício de carreira, histórico, análises e Acervo de versões anteriores.
 
-**Preferências e dados → Reiniciar carreira** zera campeonato, elenco e evolução, mantendo nome/sigla/cor/escudo. **Reiniciar organização** também redefine esses quatro campos. Ambas exigem confirmação, oferecem exportação e preservam histórico concluído e uma cópia da campanha no acervo. Cancelar não inicia reinício. O salvamento é transacional; conflito ou falta de espaço impede a gravação.
+Os adversários mantêm atributos fixos neste beta. A simulação opera por setores; coberturas desenhadas nos mapas são visuais. O equilíbrio continua em acompanhamento.
 
-A IA agora reserva um aliado por dispositivo em neutralização e Pulso distingue deslocamento de ações interrompíveis. Duração, proteção, dano, custos, mapas e atributos não foram alterados. O equilíbrio seguirá em ajustes durante o Beta 2.0 por decisão de Yask em 13/11/2026. A fragilidade ofensiva observada com Lurker no lugar de Second continua documentada para acompanhamento.
+## Seus saves
 
-As artes aprovadas dos oito agentes estão integradas: cards completos e key arts no catálogo, imagens da escalação na preparação e imagens do foco no treinamento. As imagens mantêm a composição completa e possuem links para ampliação. O motor/saves permanecem em 0.5.1/schema 6. A conferência técnica da candidata é executada pelo workflow `beta20-candidate.yml`, sem deploy. Os limites da revisão visual e a situação do lançamento devem ser consultados no relatório da candidata.
+**Antes de atualizar, exporte seu progresso no navegador antigo e guarde o arquivo JSON original.** Saves do Beta 1.x e do motor 0.5.0 ficam no Acervo para consulta e exportação; eles não continuam uma campanha ativa com as regras novas. Saves 0.5.1/schema 6 com a mesma revisão mecânica, incluindo a RC1, são compatíveis. Consulte as [instruções completas](docs/BETA_2_0_SAVES.md).
 
-## Referência da versão publicada
+O progresso é salvo localmente no navegador e depende da origem do site. Não há conta nem sincronização entre dispositivos. O histórico ativo comporta até 20 partidas; o circuito preserva os próprios resultados.
 
-**Beta 1.3 experimental publicada em 29/10/2026.** Histórico de partidas com exportação JSON/CSV, sementes automáticas, análise pós-partida e treino individual/coletivo. [Escopo, testes e pendências](docs/BETA_1_3_RC1.md).
+## Executar localmente
 
-Motor **0.4.1**, regras `gdd-1.3+b11-rc1`, save schema **3**, com leitura do schema 2. O banco local é preservado; saves exportados pelo 1.3 não devem ser reimportados no 1.1.1.
-
-[Abrir o jogo](https://lordyask.github.io/esports-manager/) · [Registro do projeto](docs/REGISTRO_PROJETO.md) · [Validação 1.3](docs/BETA_1_3_RC1.md) · [Histórico](CHANGELOG.md).
-
-[Build e deploy concluídos](https://github.com/lordyask/esports-manager/actions/runs/40809888123); título Beta 1.3 e aba Histórico conferidos no site público.
-
-Validação da candidata: 113 testes, 9.159 sessões sintéticas de treino, 72 partidas sintéticas e fluxos Chromium desktop/móvel aprovados no [workflow de revisão](https://github.com/lordyask/esports-manager/actions/runs/40720519242). Android físico, Safari/iOS, acessibilidade completa e equilíbrio global permanecem sem homologação.
-
-Interface em português, Next.js/React/TypeScript com exportação estática. Projeto independente, com agentes e coeficientes fictícios. Preços e rendimentos permanecem os aprovados no GDD FPS Web 1.3, com o [adendo aprovado do Beta 1.1](docs/BETA_1_1_PROPOSTA.md).
-
-## Histórico: correção Beta 1.1.1
-
-T01–T05 aprovados: escolhas de atributo e agentes salvas automaticamente, preservadas ao trocar de aba e recarregar. A tela mostra função, IGL, agente escalado, atributos atuais e familiaridades. Treinar um agente não muda a escalação. O rascunho não consome a sessão. Veja [validação e lançamento 1.1.1](docs/BETA_1_1_1.md).
-
-Motor 0.4.1, regras e schema 2 preservados: o save 1.1 continua compatível. Sem ajuste de XP ou de balanceamento.
-
-## Histórico: novidades do Beta 1.1
-
-- Uma rodada por confirmação; sequência opcional que pausa na troca de lados e na entrada da prorrogação.
-- Quatro estratégias de ataque, quatro de defesa e complementos compatíveis, com objetivo, força e vulnerabilidade explicados.
-- Responsabilidades participam da movimentação; desempates táticos não usam o nome/ID do jogador como preferência.
-- Compras Eco/Semi/Forte individuais sempre editáveis na preparação normal, sugestão editável e aplicação aos cinco. Saldos, gasto próprio, ajuda e equipamento preservado visíveis.
-- Análise pós-rodada com condição de encerramento, fatos observados e cronologia consultável. Sem apresentar correlação como causa comprovada.
-- Uma sessão coletiva opcional por partida completa: atributo dos cinco ou agentes escolhidos individualmente. XP separado, excedente preservado, potencial e limites aprovados.
-- Catálogo dos oito agentes, classes, habilidades, limitações e familiaridades dos titulares.
-- Nova partida preserva o elenco e o desenvolvimento. Reiniciar organização é uma ação distinta, com confirmação.
-- Importação explícita de organização do motor 0.3.0 com XP zero; relatório antigo somente para consulta. A partida antiga não continua no novo motor. Preserve o arquivo original.
-- Workflow de verificação da branch sem tarefa de deploy. A publicação ocorre pelo workflow de `main`.
-
-## O que foi implementado
-
-- Elenco: 24 candidatos aprovados; exatamente cinco; teto salarial mensal de 12.000; saldo inicial informativo de 30.000. Salários não são descontados no modo isolado de partida.
-- Organização: nome, sigla, cor e três escudos predefinidos.
-- Composição: cinco agentes diferentes, familiaridades 85/65/45/10, atribuição de responsabilidades e IGL escolhido pelo treinador.
-- Simulação: o mesmo motor determinístico roda em Web Worker; cada rodada possui um código e usa seed estável. Velocidade de exibição não muda o cálculo.
-- Compras: Eco/Semi/Forte por jogador, equipamento preservado, ajuda entre jogadores após reservar as compras próprias, custo e saldo; valores aprovados preservados.
-- Partida: cenário, adversários sintéticos de atributos 45/60/75, planos de ataque/defesa, acompanhamento por rodada, sequência automática e pausa.
-- Salvamento: IndexedDB transacional com revisão global, conferência de versões, exportação/importação JSON e diagnóstico. Um progresso ativo por navegador/origem.
-- Relatório: eliminações, mortes, primeira eliminação/morte registrada, trades, habilidades concluídas, plants, desarmes e gastos reais registrados.
-- GitHub Actions: testes e TypeScript antes do build; a branch de revisão valida sem publicar; `main` executa o deploy autorizado.
-- Identidade visual: marca EM aprovada, assinaturas SVG para fundos claros/escuros, aplicação no menu e rodapé, favicon e ícones Android/iOS com manifesto de atalho. Sem funcionamento offline.
-
-## Executar no computador
-
-Requer Node.js 24 LTS e npm. Na pasta extraída:
+Requer Node.js 24 LTS e npm:
 
 ```bash
 npm ci
@@ -70,50 +31,10 @@ npm run typecheck
 npm run dev
 ```
 
-Abra o endereço que o comando informar. O script de desenvolvimento usa a porta 4173. Não abra `index.html` com duplo clique: o worker exige uma página servida por HTTP(S).
+Abra o endereço informado pelo servidor. Para gerar a exportação estática em `out/`, execute `npm run build`. Para testar o subcaminho do GitHub Pages, use `PAGES_BASE_PATH=/esports-manager npm run build`. O worker exige uma página servida por HTTP(S).
 
-Para gerar o site:
+## Validação e publicação
 
-```bash
-npm run build
-```
+O workflow `beta20-candidate.yml` verifica testes, saves, reworks, circuito e exportações na raiz e no subcaminho. O workflow `pages.yml` publica a partir de `main`; o procedimento está em [docs/PUBLICAR_GITHUB.md](docs/PUBLICAR_GITHUB.md). Resultados de testes locais e do GitHub Actions devem ser associados ao commit efetivamente verificado.
 
-Os arquivos estáticos ficam em `out/`. Para um caminho de projeto do GitHub, o build recebe `PAGES_BASE_PATH=/nome-do-repositorio`; no GitHub Actions isso é automático. O pacote de código não depende de Supabase nem Vercel nesta etapa.
-
-## Publicação
-
-O repositório é `lordyask/esports-manager`. `main` publica pelo GitHub Actions; o autor autorizou expressamente o lançamento do Beta 1.3 após o parecer de validação. A candidata foi preparada em `review/beta-1.3`. O procedimento de manutenção e a referência para novas instalações estão em [docs/PUBLICAR_GITHUB.md](docs/PUBLICAR_GITHUB.md).
-
-## Avaliação
-
-Os resultados atuais estão em [docs/BETA_1_3_RC1.md](docs/BETA_1_3_RC1.md). As validações anteriores permanecem como histórico. Para reproduzir os lotes de planos do Beta 1.1:
-
-```bash
-node scripts/beta11-validation.ts
-node scripts/beta11-validation.ts --holdout
-```
-
-O primeiro executa 384 mapas; o segundo, 192 com novas seeds. Os JSON em `validation/beta11/rc1/` preservam composição, plano, lado e resultado. Não abrangem exaustivamente complementos nem todos os níveis de atributos.
-
-`npm run benchmark:controlled` e `npm run benchmark` continuam como ferramentas históricas de regressão. Seus desenhos diferem do lote 1.1; não comparar taxas agregadas como se isolassem o efeito desta alteração.
-
-## Limites atuais
-
-- Esta entrega testa partida, treino e agentes. Calendário, campeonato de carreira, folha salarial em operação e autenticação não estão conectados.
-- A escolha do IGL participa das chamadas de controle; Main OP define a preparação interna de precisão. Entry/Second/Support/Anchor/Lurker têm tendências de decisão implementadas, ainda em calibração. As aptidões do catálogo exibidas como referência inicial não são uma previsão de estatística individual. Classes e habilidades dos agentes já participam da simulação.
-- Potencial regula XP por sessão e o teto da média dos atributos; não aumenta por treino nem concede força direta adicional na rodada. Mental exibido vem dos atributos; as condições de teste começam com moral 70, fadiga 10 e familiaridade de mapa 50.
-- A navegação tem cinco setores abstratos. Não modela coordenadas/ângulos/cobertura física; a ordenação tática usa situação, agente e seed; não o ID como preferência. Doca/Cume têm artes e indicadores por setor; não há apresentação de armas individuais.
-- Relatório mostra acontecimentos, sem atribuir uma causa que não possa ser demonstrada. Uma primeira eliminação não mede sozinha a qualidade de uma entrada.
-- Equilíbrio entre mapas/planos e agentes permanece em avaliação; Horizonte ainda favoreceu a defesa. Execução concluída não significa balanceamento competitivo aprovado.
-- Banco local pode ser apagado ao limpar dados do navegador; navegação privada, outro navegador ou outro domínio podem usar armazenamento diferente. Exporte o progresso antes de mudar de dispositivo ou origem.
-- Arquivos identificam versão e integridade. Isso não autentica resultados: o usuário controla o próprio navegador e pode alterar dados locais. A produção deverá voltar a um servidor autoritativo.
-- O banco local 1.1 é separado do 1.0. A importação do formato 0.3.0 é explícita e preserva apenas a organização e um relatório histórico; não retoma nem recalcula a partida antiga. Arquivos inválidos são rejeitados antes da gravação.
-- O Beta 1.1 admite até três pares de prorrogação, com empate se a igualdade persistir na rodada 30. L02 foi aprovada em 26/10/2026; resultados antigos não são recalculados.
-
-## Organização do código
-
-`src/`: motor; `lib/game.ts`: sessão portátil, compras, checkpoints e estatísticas; `lib/worker.ts`: protocolo de cálculo; `lib/storage.ts`: persistência IndexedDB; `app/`: telas e estilo; `test/`: regressões; `validation/`: evidências; `docs/`: publicação e avaliação.
-
-O motor deve continuar independente da interface. Supabase/Vercel continuam como direção futura aprovada; não estão ativos no Beta 1.0 e não foram incluídos automaticamente no Beta 1.1. A futura integração deverá substituir o adaptador local pelo servidor e salvar resultados autorizados em transação; não confiar nos dados enviados pelo navegador.
-
-O escopo aprovado do Beta 2.0 e as evidências desta branch constam na documentação atual. Registros das versões 1.x acima permanecem como histórico, sem autorizar lançamento automático da versão de desenvolvimento.
+A revisão visual em largura móvel não substitui testes em Android físico ou Safari. A amostra de integração não certifica o equilíbrio global, e o navegador controla seus dados locais. O projeto é independente, com agentes e coeficientes fictícios.

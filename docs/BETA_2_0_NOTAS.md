@@ -1,6 +1,6 @@
-# NEXUS — Beta 2.0 · RC1
+# NEXUS — Beta 2.0
 
-Versão candidata preparada em 13/11/2026. Identificador de distribuição: `2.0.0-rc.1`. Motor: `0.5.1`. Regras: `nexus-2.0-reworks-r1`. Saves: schema 6. A identificação do produto é independente da versão do motor.
+Identificador de distribuição: `2.0.0`. Motor: `0.5.1`. Regras: `nexus-2.0-reworks-r1`. Saves: schema 6. A identificação do produto é independente da versão do motor. A candidata foi preparada em 13/11/2026; seu histórico de validação está em [BETA_2_0_RC1_VALIDACAO.md](BETA_2_0_RC1_VALIDACAO.md).
 
 ## Novidades
 
@@ -20,7 +20,7 @@ Versão candidata preparada em 13/11/2026. Identificador de distribuição: `2.0
 - Navegação e importação aguardam a leitura inicial do salvamento.
 - O laboratório direciona para treinar ou pular o treino antes de iniciar uma partida; a carreira preserva a confirmação para encerrar a oportunidade do dia.
 - Miniatura e identificação do agente voltam à disposição correta no campo de escalação.
-- Cabeçalho, rodapé, título da página, manifesto, exportações e diagnóstico identificam a mesma candidata Beta 2.0 · RC1.
+- Cabeçalho, rodapé, título da página, manifesto, exportações e diagnóstico identificam a mesma versão Beta 2.0.
 
 ## Saves e limites
 
@@ -30,4 +30,4 @@ O progresso é local ao navegador e ao endereço de origem; não existe conta ou
 
 O equilíbrio será ajustado gradualmente durante o Beta 2.0. A limitação ofensiva observada em composições com Lurker no lugar de Second continua em acompanhamento. Uma amostra de integração não certifica equilíbrio global.
 
-Esta candidata não publica o jogo. O workflow `beta20-candidate.yml` valida testes, saves, circuito e exportações na raiz e no caminho do GitHub Pages. O workflow público `pages.yml` continua separado, acionado por `main` ou manualmente. Android físico, Safari e sincronização entre dispositivos não são certificados por esses testes.
+O workflow `beta20-candidate.yml` valida testes, saves, circuito e exportações na raiz e no caminho do GitHub Pages. O workflow público `pages.yml` é separado, acionado por `main` ou manualmente. Android físico, Safari e sincronização entre dispositivos não são certificados por esses testes.
