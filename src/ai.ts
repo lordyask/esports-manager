@@ -24,10 +24,14 @@ export function decide(view:Observation,random:Random):Decision {
   const contact=visible[0]??known[0];
   const localEnemies=visible.filter(x=>x.sector===self.sector);
   const localAllies=[self,...view.allies.filter(a=>a.life>0&&a.sector===self.sector)];
+  const objectiveClear=view.map==='doca-v2'?visible.length===0:localEnemies.length===0;
   if(view.planted&&self.team!==view.attacking&&self.sector===view.planted.sector&&!view.allies.some(a=>a.action==='defuse')) {
-    if(localEnemies.length===0||view.planted.deadline-view.now<=9000)return {kind:'defuse'};
+    if(objectiveClear||view.planted.deadline-view.now<=9000)return {kind:'defuse'};
   }
-  if(!view.planted&&self.team===view.attacking&&self.sector===view.attackTarget&&localEnemies.length===0&&!view.allies.some(a=>a.action==='plant'))return {kind:'plant'};
+  if(!view.planted&&self.team===view.attacking&&self.sector===view.attackTarget&&objectiveClear&&!view.allies.some(a=>a.action==='plant'))return {kind:'plant'};
+  // An isolated player under direct observation can keep firing rather than
+  // repeatedly interrupting their weapon to cast while outnumbered.
+  if(view.map==='doca-v2'&&visible.length>localAllies.length)return {kind:'wait'};
   // One ally per observed device; the others keep fighting or following their plan.
   const device=view.devices.find(d=>!aliveAllies.some(a=>a.neutralizing===d.id));
   if(device&&localEnemies.length===0)return {kind:'destroy',device:device.id};

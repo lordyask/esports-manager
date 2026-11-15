@@ -1,5 +1,5 @@
 /** Doca V2: abstract tactical areas, not coordinates in metres. */
-export const DOCA_V2_REVISION='doca-v2-central-1';
+export const DOCA_V2_REVISION='doca-v2-central-2';
 export const DOCA_V2_AREAS={
  attack:{name:'Base atacante',x:50,y:91},
  attack_west:{name:'Base atacante · saída A',x:40,y:91},
@@ -34,7 +34,7 @@ export const DOCA_V2_MOVEMENT:readonly DocaEdge[]=[
  ['attack_east','maintenance',3700],['maintenance','corridor_b',2500],['corridor_b','B',3500],['B','cover_b',1500],
  ['attack','triage',3000],['triage','bend_south',2500],['bend_south','bend_north',2500],['bend_north','mid',2500],
  ['mid','link_a',2500],['link_a','A',2500],['mid','link_b',2500],['link_b','B',2500],
- ['defense','gallery',2000],['gallery','gallery_a',3000],['gallery_a','A',3000],['gallery','gallery_b',3000],['gallery_b','B',3000],
+ ['defense','gallery',1500],['gallery','gallery_a',2500],['gallery_a','A',2500],['gallery','gallery_b',2500],['gallery_b','B',2500],
 ];
 const key=(a:string,b:string)=>a<b?`${a}:${b}`:`${b}:${a}`;
 const movementTimes=new Map(DOCA_V2_MOVEMENT.map(([a,b,ms])=>[key(a,b),ms]));

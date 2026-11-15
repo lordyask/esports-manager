@@ -10,7 +10,7 @@ export function decideDocaV2(view:Observation):Decision {
  if(!isDocaArea(self.sector))return {kind:'wait'};
  const roster=[self,...view.allies].sort((a,b)=>(a.slot??0)-(b.slot??0)),alive=roster.filter(a=>a.life>0);
  const index=roster.findIndex(a=>a.id===self.id),otherSite=view.attackTarget==='A'?'B':'A';
- let destination:'A'|'B'|'mid'|'gallery'|'link_a'|'link_b'|'corridor_a'|'corridor_b';
+ let destination:'A'|'B'|'mid'|'gallery'|'link_a'|'link_b'|'corridor_a'|'corridor_b'|'cover_a'|'cover_b';
  if(view.planted){
   if(attacking)return {kind:'wait'};
   destination=view.planted.sector==='A'?'A':'B';
@@ -37,6 +37,13 @@ export function decideDocaV2(view:Observation):Decision {
   const observed=countA>countB?'A':countB>countA?'B':null;
   const patient=view.plan.defense==='reading'||view.plan.defenseInstruction==='cautious';
   if(observed&&(!patient||known.length>=2||view.now>=30000))destination=observed;
+  // When two or more defenders are assigned to the same site, the second can
+  // hold its actual cover position until the team observes an opponent.
+  // This changes movement and visibility, never the assigned site or combat stats.
+  if(!observed&&(destination==='A'||destination==='B')){
+   const assigned=roster.filter((a,i)=>(view.plan.defenseAssignments?.[a.id]??defaults[i])===destination);
+   if(assigned[1]?.id===self.id)destination=destination==='A'?'cover_a':'cover_b';
+  }
   if(self.sector===destination)return {kind:'wait'};
  }
  const path=shortestPath('doca-v2',self.sector,destination,view.blocked);if(!path||path.path.length<2)return {kind:'wait'};

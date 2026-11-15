@@ -27,6 +27,15 @@ test('preparation does not consume the action clock',()=>{
  const sim=new TacticalRound(profiles(),{map:'doca-v2',attacking:'A',seed:17,plans,ai:false,autoFire:false});
  const result=sim.run();assert.equal(result.reason,'time_expired');assert.equal(result.at,PREPARATION_MS+ROUND_MS);
 });
+test('automatic preparation for either attacking side consumes no combat resources',()=>{
+ for(const attacking of ['A','B'] as const){
+  const sim=new TacticalRound(profiles(),{map:'doca-v2',attacking,seed:16,plans}),before=sim.units.map(u=>({id:u.id,vital:structuredClone(u.vital),charges:[...u.charges],ult:u.ult}));
+  sim.advance(PREPARATION_MS-1);
+  for(const p of before){const u=sim.get(p.id)!;assert.deepEqual(u.vital,p.vital);assert.deepEqual(u.charges,p.charges);assert.equal(u.ult,p.ult);
+   assert.ok((u.team===attacking?['attack','attack_west','attack_east']:['defense','defense_west','defense_east']).includes(u.sector));}
+  assert.equal(sim.events.some(e=>['shot','cast_start','cast_complete','effect_deployed','first_contact','planted','defused'].includes(e.kind)),false);
+ }
+});
 test('cover blocks observation, shots and a projectile cast while exposed entrance permits contact',()=>{
  const ps=profiles(),initial=Object.fromEntries(ps.map(p=>[p.id,{sector:p.id==='A0'?'A':p.id==='B0'?'cover_a':p.team==='A'?'attack':'defense'}]));
  const sim=new TacticalRound(ps,{map:'doca-v2',attacking:'A',seed:19,plans,ai:false,initial});
@@ -54,7 +63,14 @@ test('five explicit B assignments do not create an automatic defender at A',()=>
  const attack={...plans.A,attack:'control' as const,site:'B' as const};
  const sim=new TacticalRound(ps,{map:'doca-v2',attacking:'A',seed:31,plans:{A:attack,B:defend},autoFire:false});sim.advance(16000);
  assert.equal(sim.events.some(e=>e.kind==='arrived'&&e.actor?.startsWith('B')&&e.sector==='A'),false);
- assert.ok(sim.units.filter(u=>u.team==='B').every(u=>['defense','gallery','gallery_b','B'].includes(u.sector)));
+ assert.ok(sim.units.filter(u=>u.team==='B').every(u=>['defense','gallery','gallery_b','B','cover_b'].includes(u.sector)));
+});
+test('a second defender assigned to the same point can occupy its cover',()=>{
+ const ps=profiles().map(p=>({...p,charges:[false,false,false] as [boolean,boolean,boolean],ult:0}));
+ const assignments=Object.fromEntries(ps.filter(p=>p.team==='B').map(p=>[p.id,'B' as const]));
+ const sim=new TacticalRound(ps,{map:'doca-v2',attacking:'A',seed:32,plans:{A:{...plans.A,attack:'control',site:'A'},B:{...plans.B,defenseAssignments:assignments}},autoFire:false});
+ sim.advance(18000);assert.ok(sim.events.some(e=>e.kind==='arrived'&&e.actor?.startsWith('B')&&e.sector==='cover_b'));
+ assert.equal(sim.events.some(e=>e.kind==='arrived'&&e.actor?.startsWith('B')&&e.sector==='A'),false);
 });
 test('plant and defuse work after preparation at either point with either attacking team',()=>{
  for(const site of ['A','B'] as const)for(const attacking of ['A','B'] as const){
@@ -100,6 +116,11 @@ test('AI does not repeatedly select an impossible scan or track through a wall',
  const view=second.observeFor('A2');assert.ok(view.known.some(e=>e.id==='B0'));assert.equal(view.visible.length,0);
  const action=decide(view,new Random(1));assert.ok(action.kind!=='cast'||action.slot!==1);
 });
+test('an isolated player seeing two opponents keeps the weapon ready instead of planting or casting',()=>{
+ const ps=profiles(),initial=Object.fromEntries(ps.map(p=>[p.id,{sector:p.id==='A0'?'A':p.id==='B0'||p.id==='B1'?'corridor_a':p.team==='A'?'attack':'defense'}]));
+ const sim=new TacticalRound(ps,{map:'doca-v2',attacking:'A',seed:48,plans:{A:{...plans.A,site:'A'},B:plans.B},ai:false,autoFire:false,initial});sim.advance(PREPARATION_MS);
+ const view=sim.observeFor('A0');assert.equal(view.visible.length,2);assert.deepEqual(decide(view,new Random(1)),{kind:'wait'});
+});
 test('feint reaches the false route before changing direction',()=>{
  const ps=profiles().map(p=>({...p,charges:[false,false,false] as [boolean,boolean,boolean],ult:0}));
  const attack={...plans.A,attack:'feint' as const,site:'A' as const};
@@ -107,5 +128,5 @@ test('feint reaches the false route before changing direction',()=>{
  const sim=new TacticalRound(ps,{map:'doca-v2',attacking:'A',seed:51,plans:{A:attack,B:defense},autoFire:false});sim.advance(40000);
  const pressure=sim.events.find(e=>e.kind==='feint_pressure'),shift=sim.events.find(e=>e.kind==='strategy_shift');
  assert.equal(pressure?.sector,'B');assert.equal(shift?.sector,'A');assert.ok(pressure!.at<shift!.at);
- assert.ok(sim.events.some(e=>e.at>shift!.at&&e.kind==='arrived'&&e.actor?.startsWith('A')&&['link_b','mid','link_a','A'].includes(e.sector??'')));
+ assert.ok(sim.events.some(e=>e.at>shift!.at&&e.kind==='arrived'&&e.actor?.startsWith('A')&&['gallery_b','gallery','link_b','mid','link_a','A'].includes(e.sector??'')));
 });
