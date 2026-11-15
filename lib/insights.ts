@@ -10,6 +10,8 @@ export function eventText(e:SimEvent,names:Record<string,string>,map?:MapId){
  const location=(s:string|undefined)=>'em '+sector(s);
  const who=names[e.actor??'']??'Equipe',target=names[e.target??'']??'adversário';
  switch(e.kind){
+  case 'preparation_start':return 'Preparação de 5 segundos: organização dentro das bases.';
+  case 'action_start':return 'Preparação encerrada: as duas equipes foram liberadas.';
   case 'first_contact':return `${who} observou ${target} ${location(e.sector)}: primeiro contato registrado da equipe.`;
   case 'eliminated':return `${who} foi eliminado por ${target}.`;
   case 'planted':return `${who} plantou o dispositivo no ${sector(e.sector)}.`;
@@ -30,6 +32,7 @@ export function eventText(e:SimEvent,names:Record<string,string>,map?:MapId){
   case 'cast_cancelled':return `${who}: ${e.ability} cancelado antes da implantação; recurso preservado.`;
   case 'cast_start':return `${who} preparou ${e.ability}.`;
   case 'igl_call':return `${who} chamou o ${sector(e.sector)} com base na informação observada.`;
+  case 'feint_pressure':return `A equipe atacante alcançou o acesso falso do ${sector(e.sector)}.`;
   case 'strategy_shift':return `Ordem de rotação para o ${sector(e.sector)} após a finta.`;
   case 'role_notice':return e.detail??'Composição sem função designada.';
   case 'move_start':return `${who} iniciou deslocamento ${e.sector==='attack'||e.sector==='defense'?'para a':'para o'} ${sector(e.sector)}.`;
@@ -46,15 +49,15 @@ export function eventText(e:SimEvent,names:Record<string,string>,map?:MapId){
  }
 }
 export function reviewRound(s:Session,r:RoundRecord){
- const index=r.command.revision,attacking=attackingTeam({...s.state,initialAttack:s.state?.initialAttack??'A',rounds:index});
+ const index=r.command.revision,attacking=attackingTeam({...s.state,initialAttack:s.state?.initialAttack??'A',rounds:index}),actionSeconds=(at:number)=>(Math.max(0,at-(s.map==='doca-v2'?5000:0))/1000).toFixed(1);
  const deaths=r.result.events.filter(e=>e.kind==='eliminated'),facts:string[]=[];
- const first=deaths[0];if(first)facts.push(`Primeira eliminação: ${s.names[first.target??'']??'adversário'} sobre ${s.names[first.actor??'']??'jogador'}, aos ${(first.at/1000).toFixed(1)} s.`);
+ const first=deaths[0];if(first)facts.push(`Primeira eliminação: ${s.names[first.target??'']??'adversário'} sobre ${s.names[first.actor??'']??'jogador'}, aos ${actionSeconds(first.at)} s de ação.`);
  const ownDeaths=deaths.filter(e=>e.actor?.startsWith('A:'));
  const untraded=ownDeaths.filter(e=>!deaths.some(d=>d.actor===e.target&&d.target?.startsWith('A:')&&d.at>=e.at&&d.at-e.at<=5000));
  if(untraded.length)facts.push(`${untraded.length} eliminação(ões) da sua equipe sem trade registrado em até 5 s.`);
  for(const e of r.result.events.filter(e=>e.kind==='planted'||e.kind==='defused')){
   const past=deaths.filter(d=>d.at<=e.at),count=(t:string)=>5-past.filter(d=>d.actor?.startsWith(t+':')).length;
-  facts.push(`${e.kind==='planted'?'Plant':'Desarme'} aos ${(e.at/1000).toFixed(1)} s; situação após os eventos desse instante: ${count('A')} × ${count('B')}.`);
+  facts.push(`${e.kind==='planted'?'Plant':'Desarme'} aos ${actionSeconds(e.at)} s de ação; situação após os eventos desse instante: ${count('A')} × ${count('B')}.`);
  }
  if(attacking==='A'&&!r.result.events.some(e=>e.kind==='planted'))facts.push('Sua equipe não concluiu o plant nesta rodada.');
  if(index===12)facts.push('Primeira rodada após a troca de lados: economia e equipamento reiniciados.');

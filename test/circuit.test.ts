@@ -46,7 +46,7 @@ test('interrupted round preserves finished NPCs; classification waits for four s
 test('club policies vary inside known repertoires and share the same seed/round inputs',()=>{
  for(const t of OPPONENTS){const plans=Array.from({length:30},(_,n)=>clubPlan(t.id,73,n));assert.ok(new Set(plans.map(p=>p.attack)).size>1);assert.deepEqual(plans[3],clubPlan(t.id,73,3));}
 });
-function mock(a:string,b:string,x:number,y:number):CircuitMatch{return {id:a+b,day:4,map:'doca',a,b,initialAttack:'A',seed:1,result:{score:{A:x,B:y},rounds:x+y,winner:x===y?null:x>y?'A':'B'} as CircuitResult};}
+function mock(a:string,b:string,x:number,y:number):CircuitMatch{return {id:a+b,day:4,map:'doca-v2',a,b,initialAttack:'A',seed:1,result:{score:{A:x,B:y},rounds:x+y,winner:x===y?null:x>y?'A':'B'} as CircuitResult};}
 test('standings applies points, wins, whole-group head-to-head then global round difference',()=>{
  const two=[mock('user','pzr',13,11),mock('frv','user',13,0),mock('pzr','frv',13,0)];const rows=standings(two).filter(r=>['user','pzr','frv'].includes(r.id));assert.ok(rows.every(r=>r.points===3&&r.head===3));assert.equal(rows[0].id,'pzr');
  const head=[mock('user','pzr',13,0),mock('user','frv',0,13),mock('pzr','mra',13,0)];assert.ok(standings(head).findIndex(r=>r.id==='user')<standings(head).findIndex(r=>r.id==='pzr'));
@@ -64,7 +64,7 @@ test('complete circuit closes 28 games, expenses and one prize; export/import is
 });
 test('campaign with individual training keeps opponents fixed and records complete results',()=>{const w=campaign(993,'individual');assert.equal(w.career!.circuit!.closed,true);assert.equal(w.career!.days.filter(d=>d.status==='trained').length,28);});
 test('new circuit saves identify schema 6 and explicit mechanics',()=>{
- const save=JSON.parse(encodeSave(start()));assert.equal(save.schema,6);assert.equal(save.mechanics.engine,'0.5.1');assert.equal(decodeSave(JSON.stringify(save)).career!.version,2);
+ const save=JSON.parse(encodeSave(start()));assert.equal(save.schema,6);assert.equal(save.mechanics.engine,'0.6.0');assert.equal(decodeSave(JSON.stringify(save)).career!.version,2);
 });
 test('a full 20-match common history does not block or erase competitive results',()=>{
  const prior=ownGame(advanceCareer(start(),'event')).session!;const w=startCircuitCareer({...base(),history:Array.from({length:20},(_,i)=>({...structuredClone(prior),id:`previous:${i}`}))},'full-history',21);

@@ -1,5 +1,5 @@
 import {BETA_VERSION} from './release.ts';
-import {archiveFromText,archivesFromText,validateArchives,legacyWorkspace} from './archive.ts';
+import {archiveFromText,archivesFromText,validateArchives} from './archive.ts';
 import type {Archive} from './archive.ts';
 import {MECHANICS,mechanicsMatch} from '../src/content.ts';
 import {validateCareer} from './career-state.ts';
@@ -130,8 +130,7 @@ export function encodeSave(input:Workspace):string {
 export function decodeSave(text:string):Workspace {
  if(new TextEncoder().encode(text).length>SAVE_LIMIT)throw new Error('Arquivo maior que o limite de 64 MB.');
  let e:any;try{e=JSON.parse(text);}catch{throw new Error('O arquivo não contém um salvamento JSON válido.');}
- if(e?.format==='esports-manager-beta'&&e.engine==='0.5.1')throw new Error('Progresso anterior preservado. Exporte o original e escolha explicitamente arquivar antes de iniciar a Doca V2; a partida antiga não será substituída nem continuada automaticamente.');
- if(e?.format==='esports-manager-beta'&&['0.5.0','0.4.1','0.3.0'].includes(e.engine))return legacyWorkspace(text);
+ if(e?.format==='esports-manager-beta'&&['0.5.1','0.5.0','0.4.1','0.3.0'].includes(e.engine))throw new Error('Progresso anterior preservado. Exporte o original e escolha explicitamente arquivar antes de iniciar a Doca V2; a partida antiga não será substituída nem continuada automaticamente.');
  if(e?.format!=='esports-manager-beta'||e.schema!==6||!mechanicsMatch(e.mechanics)||e.engine!==ENGINE_VERSION||e.rules!==RULES_VERSION)throw new Error('Versão incompatível. Preserve o arquivo original para uma futura migração.');
  if(e.digest!==sha256(JSON.stringify(e.data)))throw new Error('O arquivo está incompleto ou foi modificado.');
  const w=e.data as Workspace;

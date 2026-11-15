@@ -1,4 +1,5 @@
 'use client';
+import {DocaV2Map} from './doca-v2-map';
 import {useState} from 'react';
 import type {CSSProperties} from 'react';
 import type {MapId,Sector} from '../src/rules';
@@ -13,6 +14,7 @@ const order:Sector[]=['defense','A','mid','B','attack'];
 /** Slots group actors by their recorded sector; never infer physical coordinates from artwork. */
 export function TacticalMap({map,session,record}:{map:MapId;session?:Session;record?:RoundRecord}){
  const [selected,setSelected]=useState<Sector>('mid');
+ if(map==='doca-v2')return <DocaV2Map session={session} record={record}/>;
  const definition=MAP_CATALOG[map];if(!definition.image)return null;
  const actors=record?.result.actors??[];
  const label=(sector:Sector)=>`${sector==='A'||sector==='B'?sector+' · ':''}${definition.sectors[sector]}`;
