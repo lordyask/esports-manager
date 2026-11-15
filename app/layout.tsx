@@ -5,6 +5,7 @@ import './style.css';
 import './nexus.css';
 import './tactical-premium.css';
 import './category-menu.css';
+import './command-home.css';
 const exo=localFont({src:[{path:'./fonts/exo-2-400.ttf',weight:'400'},{path:'./fonts/exo-2-500.ttf',weight:'500'},{path:'./fonts/exo-2-600.ttf',weight:'600'},{path:'./fonts/exo-2-700.ttf',weight:'700'}],variable:'--font-exo',display:'swap'});
 const orbitron=localFont({src:[{path:'./fonts/orbitron-500.ttf',weight:'500'},{path:'./fonts/orbitron-600.ttf',weight:'600'},{path:'./fonts/orbitron-700.ttf',weight:'700'}],variable:'--font-orbitron',display:'swap'});
 const base=process.env.PAGES_BASE_PATH??'';

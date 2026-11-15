@@ -26,6 +26,7 @@ import ProductLogo from './product-logo';
 import {HomeDashboard} from './home-dashboard';
 import {UiIcon} from './ui-icons';
 import {CategoryMenu,CategoryTabs,MENU_GROUPS,MENU_LABELS as tabs,groupForTab} from './category-menu';
+import {CommandHome} from './command-home';
 import {StrategyEditor,TrainingPanel,AgentsPanel,RoundReview,EconomyPanel,PastReport} from './beta-panels';
 import {freshWorkspace,beginMatch,nextMatch,prepareImport} from '../lib/game';
 import {growthFor,newDevelopment,previewTraining} from '../lib/development';
@@ -143,7 +144,7 @@ export default function Beta(){
  {menuLevel==='page'&&tab===0&&legacyExport&&<section className="notice"><div><b>Seu progresso do Beta 1.0 continua preservado.</b><p>Baixe o arquivo original. Para guardar e consultar os registros antigos no acervo, use Importar progresso.</p></div><button className="secondary" onClick={()=>download('esports-manager-beta-1.0-original.json',legacyExport)}>Baixar backup do Beta 1.0</button></section>}
  {menuLevel==='page'&&!!data.archives?.length&&!data.career&&<div className="notice">Há registros preservados no acervo. Eles não concedem XP ou caixa à nova carreira. <button className="text-button" onClick={()=>setTab(11)}>Abrir acervo</button></div>}
  {recovery&&<section className="panel"><h1>Seu arquivo foi preservado.</h1><p>Este progresso não pode ser aberto nesta versão. Exporte o arquivo original antes de importar outro ou reiniciar a organização.</p><div className="button-row"><button className="primary" onClick={exportProgress}>Exportar arquivo preservado</button><button className="secondary" disabled={busy} onClick={()=>file.current?.click()}>Importar outro arquivo</button><button className="secondary" disabled={busy} onClick={reset}>Reiniciar com esta versão</button></div></section>}
- {!loaded?<div className="panel loading">Abrindo seu centro de comando…</div>:recovery?null:menuLevel!=='page'?<CategoryMenu group={menuLevel==='category'?category:null} onChooseGroup={chooseCategory} onOpenTab={nav} disabled={busy} unavailable={unavailableTab}/>:<>
+ {!loaded?<div className="panel loading">Abrindo seu centro de comando…</div>:recovery?null:menuLevel==='main'?<CommandHome workspace={data} busy={busy} onCategory={chooseCategory} onOpen={nav}/>:menuLevel==='category'?<CategoryMenu group={category} onChooseGroup={chooseCategory} onOpenTab={nav} disabled={busy} unavailable={unavailableTab}/>:<>
  <CategoryTabs group={category} tab={tab} onOpenTab={nav} disabled={busy} unavailable={unavailableTab}/>
  {tab===11&&<ArchivePanel workspace={data} busy={busy} onExport={text=>download('nexus-arquivo-original.json',text)} onRemove={deleteArchive}/>}
  {tab===9&&<CircuitPanel workspace={data} busy={busy} onProcess={processRound}/>}
