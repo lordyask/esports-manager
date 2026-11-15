@@ -20,3 +20,10 @@ test('walls and cover separate sight from travel, including exposure on a curved
  assert.equal(docaSight(moving,{sector:'reception'}).visible,true);assert.equal(docaSight({sector:'reception'},moving).visible,true);
  assert.equal(docaCanFire({sector:'attack_west'},{sector:'reception'}),false);
 });
+test('players on different approaches become visible at the shared junction, not at departure',()=>{
+ const approach=(from:'corridor_a'|'gallery_a',fraction:number)=>({sector:from,movement:{from,to:'A' as const,initial:4000,remaining:4000*(1-fraction)}});
+ assert.equal(docaSight(approach('corridor_a',.25),approach('gallery_a',.25)).visible,false);
+ assert.equal(docaSight(approach('corridor_a',.8),approach('gallery_a',.8)).visible,true);
+ assert.equal(docaSight(approach('corridor_a',.5),{sector:'A'}).visible,true);
+ assert.equal(docaSight({sector:'A'},approach('corridor_a',.5)).visible,true);
+});

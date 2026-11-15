@@ -4,6 +4,8 @@ import {TacticalRound} from '../src/simulation.ts';
 import {PREPARATION_MS,ROUND_MS,shortestPath} from '../src/rules.ts';
 import {docaDistance,docaRange} from '../src/doca-v2.ts';
 import {profiles,plans} from './fixtures.ts';
+import {decide} from '../src/ai.ts';
+import {Random} from '../src/random.ts';
 
 test('both teams start in their bases and preparation allows only internal movement',()=>{
  const sim=new TacticalRound(profiles(),{map:'doca-v2',attacking:'A',seed:13,plans,ai:false});
@@ -53,4 +55,57 @@ test('five explicit B assignments do not create an automatic defender at A',()=>
  const sim=new TacticalRound(ps,{map:'doca-v2',attacking:'A',seed:31,plans:{A:attack,B:defend},autoFire:false});sim.advance(16000);
  assert.equal(sim.events.some(e=>e.kind==='arrived'&&e.actor?.startsWith('B')&&e.sector==='A'),false);
  assert.ok(sim.units.filter(u=>u.team==='B').every(u=>['defense','gallery','gallery_b','B'].includes(u.sector)));
+});
+test('plant and defuse work after preparation at either point with either attacking team',()=>{
+ for(const site of ['A','B'] as const)for(const attacking of ['A','B'] as const){
+  const ps=profiles(),attacker=ps.find(p=>p.team===attacking)!,defender=ps.find(p=>p.team!==attacking)!;
+  const initial=Object.fromEntries(ps.map(p=>[p.id,{sector:p===attacker||p===defender?site:p.team===attacking?'attack':'defense'}]));
+  const sim=new TacticalRound(ps,{map:'doca-v2',attacking,seed:41,plans,ai:false,autoFire:false,initial});
+  assert.equal(sim.issue(attacker.id,{kind:'plant'}),false);sim.advance(PREPARATION_MS);
+  assert.equal(sim.issue(attacker.id,{kind:'plant'}),true);sim.advance(PREPARATION_MS+4000);
+  assert.equal(sim.planted?.sector,site);assert.equal(sim.issue(defender.id,{kind:'defuse'}),true);
+  assert.equal(sim.run().reason,'defused');assert.equal(sim.result!.at,PREPARATION_MS+11000);
+ }
+});
+test('defenders can retake both sites from the gallery and from the middle links',()=>{
+ for(const site of ['A','B'] as const)for(const approach of [site==='A'?'gallery_a':'gallery_b',site==='A'?'link_a':'link_b'] as const){
+  const ps=profiles(),initial=Object.fromEntries(ps.map(p=>[p.id,{sector:p.id==='A0'?site:p.id==='B0'?approach:p.team==='A'?'attack':'defense'}]));
+  const sim=new TacticalRound(ps,{map:'doca-v2',attacking:'A',seed:42,plans,ai:false,autoFire:false,initial});sim.advance(PREPARATION_MS);
+  assert.equal(sim.issue('A0',{kind:'plant'}),true);assert.equal(sim.issue('B0',{kind:'move',to:site}),true);
+  sim.advance(PREPARATION_MS+4000);assert.equal(sim.get('B0')!.sector,site);assert.equal(sim.issue('B0',{kind:'defuse'}),true);assert.equal(sim.run().reason,'defused');
+ }
+});
+test('mobility can traverse a valid corner but cannot cross a wall as a shortcut',()=>{
+ const ps=profiles(),initial=Object.fromEntries(ps.map(p=>[p.id,{sector:p.id==='A0'?'triage':p.team==='A'?'attack':'defense'}]));
+ const sim=new TacticalRound(ps,{map:'doca-v2',attacking:'A',seed:47,plans,ai:false,autoFire:false,initial});sim.advance(PREPARATION_MS);
+ assert.equal(sim.issue('A0',{kind:'cast',slot:1,sector:'mid'}),false);
+ assert.equal(sim.issue('A0',{kind:'cast',slot:1,sector:'bend_south'}),true);sim.advance(PREPARATION_MS+1500);
+ assert.equal(sim.get('A0')!.sector,'bend_south');
+});
+test('tracking needs a visible target and cannot update its location through a wall',()=>{
+ const ps=profiles(),initial=Object.fromEntries(ps.map(p=>[p.id,{sector:p.id==='A2'?'A':p.id==='B0'?'corridor_a':p.team==='A'?'attack':'defense'}]));
+ const sim=new TacticalRound(ps,{map:'doca-v2',attacking:'A',seed:43,plans,ai:false,autoFire:false,initial});sim.advance(PREPARATION_MS);
+ assert.equal(sim.issue('A2',{kind:'cast',slot:1,target:'B0'}),true);sim.advance(PREPARATION_MS+500);
+ assert.equal(sim.issue('B0',{kind:'move',to:'reception'}),true);sim.advance(PREPARATION_MS+3000);
+ assert.equal(sim.get('B0')!.sector,'reception');assert.equal(sim.observeFor('A2').visible.some(e=>e.id==='B0'),false);
+ assert.notEqual(sim.observeFor('A2').known.find(e=>e.id==='B0')?.sector,'reception');
+});
+test('AI does not repeatedly select an impossible scan or track through a wall',()=>{
+ const ps=profiles(),initial=Object.fromEntries(ps.map(p=>[p.id,{sector:p.id==='A2'?'bend_north':p.team==='A'?'attack':'defense'}]));
+ const first=new TacticalRound(ps,{map:'doca-v2',attacking:'A',seed:45,plans,ai:false,autoFire:false,initial});first.advance(PREPARATION_MS);
+ assert.notEqual(decide(first.observeFor('A2'),new Random(1)).kind,'cast');
+ const secondInitial=Object.fromEntries(ps.map(p=>[p.id,{sector:p.id==='A2'?'A':p.id==='B0'?'corridor_a':p.team==='A'?'attack':'defense'}]));
+ const second=new TacticalRound(ps,{map:'doca-v2',attacking:'A',seed:46,plans,ai:false,autoFire:false,initial:secondInitial});second.advance(PREPARATION_MS);
+ second.get('B0')!.sector='cover_a';second.advance(PREPARATION_MS+100);
+ const view=second.observeFor('A2');assert.ok(view.known.some(e=>e.id==='B0'));assert.equal(view.visible.length,0);
+ const action=decide(view,new Random(1));assert.ok(action.kind!=='cast'||action.slot!==1);
+});
+test('feint reaches the false route before changing direction',()=>{
+ const ps=profiles().map(p=>({...p,charges:[false,false,false] as [boolean,boolean,boolean],ult:0}));
+ const attack={...plans.A,attack:'feint' as const,site:'A' as const};
+ const defense={...plans.B,defenseAssignments:Object.fromEntries(ps.filter(p=>p.team==='B').map(p=>[p.id,'A' as const]))};
+ const sim=new TacticalRound(ps,{map:'doca-v2',attacking:'A',seed:51,plans:{A:attack,B:defense},autoFire:false});sim.advance(40000);
+ const pressure=sim.events.find(e=>e.kind==='feint_pressure'),shift=sim.events.find(e=>e.kind==='strategy_shift');
+ assert.equal(pressure?.sector,'B');assert.equal(shift?.sector,'A');assert.ok(pressure!.at<shift!.at);
+ assert.ok(sim.events.some(e=>e.at>shift!.at&&e.kind==='arrived'&&e.actor?.startsWith('A')&&['link_b','mid','link_a','A'].includes(e.sector??'')));
 });

@@ -42,6 +42,7 @@ export class TacticalRound {
   #targets:Record<Team,'A'|'B'>;
   #targetChosen:Record<Team,boolean>={A:false,B:false};
   #feintShown=false;
+  #feintPressureShown=false;
   #contactShown:Record<Team,boolean>={A:false,B:false};
   constructor(profiles:Profile[],options:SimulationOptions){
     if(profiles.length!==10||new Set(profiles.map(p=>p.id)).size!==10)throw new Error('Ten unique profiles required');
@@ -115,9 +116,9 @@ export class TacticalRound {
     return !visionBlocked(this.effects,this.now,a.team,edge)&&!this.areas.some(x=>this.#active(x)&&x.edges.includes(edge)&&(x.kind==='smoke'||x.kind==='barrier'));
   }
   #known(team:Team,id:string){return (this.#knowledge[team].get(id)?.until??0)>this.now;}
-  #reveal(team:Team,u:Unit,ms:number,source:string,tracking=false){
+  #reveal(team:Team,u:Unit,ms:number,source:string,tracking=false,tracker?:string){
     const prior=this.#knowledge[team].get(u.id);
-    this.#knowledge[team].set(u.id,{id:u.id,sector:u.sector,until:Math.max(prior?.until??0,this.now+ms),trackingUntil:tracking?this.now+ms:prior?.trackingUntil,source});
+    this.#knowledge[team].set(u.id,{id:u.id,sector:u.sector,until:Math.max(prior?.until??0,this.now+ms),trackingUntil:tracking?this.now+ms:prior?.trackingUntil,tracker:tracking?tracker:prior?.tracker,source});
     this.#emit({kind:'revealed',actor:u.id,sector:u.sector,team,detail:source});
   }
   #observeAll(){
@@ -126,10 +127,11 @@ export class TacticalRound {
     for(const u of this.alive())for(const e of this.alive(other(u.team)))if(this.#visible(u,e)){
       if(!this.#contactShown[u.team]){this.#contactShown[u.team]=true;this.#emit({kind:'first_contact',team:u.team,actor:u.id,target:e.id,sector:e.sector});}
       const prior=this.#knowledge[u.team].get(e.id);
-      this.#knowledge[u.team].set(e.id,{id:e.id,sector:e.sector,until:Math.max(this.now+1000,prior?.until??0),trackingUntil:prior?.trackingUntil,source:'vision'});
+      this.#knowledge[u.team].set(e.id,{id:e.id,sector:e.sector,until:Math.max(this.now+1000,prior?.until??0),trackingUntil:prior?.trackingUntil,tracker:prior?.tracker,source:'vision'});
     }
     for(const t of ['A','B'] as const)for(const sighting of this.#knowledge[t].values()){
-      const u=this.get(sighting.id);if(u&&(sighting.trackingUntil??0)>this.now)sighting.sector=u.sector;
+      const u=this.get(sighting.id),tracker=sighting.tracker?this.get(sighting.tracker):undefined;
+      if(u&&(sighting.trackingUntil??0)>this.now&&(this.options.map!=='doca-v2'||tracker&&this.#visible(tracker,u)))sighting.sector=u.sector;
     }
   }
   #public(u:Unit):PublicSelf{return {id:u.id,team:u.team,agent:u.agent,sector:u.sector,neutralizing:u.action?.kind==='destroy'?u.action.device:undefined,movement:u.movement?{from:u.movement.from,to:u.movement.to}:null,life:u.vital.life,shield:u.vital.shield,
@@ -294,7 +296,7 @@ export class TacticalRound {
     if(s.kind==='teleport')return !!t&&t.vital.life>0&&t.team===u.team&&t.sector===sector&&(this.options.map!=='doca-v2'||local||adjacent&&isDocaArea(u.sector)&&isDocaArea(sector)&&docaSightLink(u.sector,sector)&&!this.areas.some(a=>this.#active(a)&&a.kind==='barrier'&&a.edges.includes(edgeKey(u.sector,sector))));
     if(s.kind==='fortress'||s.kind==='speed'||s.kind==='position'||s.kind==='sweep')return true;
     if(s.kind==='guard')return !!t&&t.team===u.team&&t.vital.life>0&&t.sector===u.sector;
-    if(s.kind==='track')return !!t&&t.team!==u.team&&t.vital.life>0&&this.#known(u.team,t.id);
+    if(s.kind==='track')return !!t&&t.team!==u.team&&t.vital.life>0&&this.#known(u.team,t.id)&&(this.options.map!=='doca-v2'||this.#visible(u,t));
     if(s.kind==='interrupt')return !!t&&t.team!==u.team&&t.vital.life>0&&t.sector===u.sector&&this.#known(u.team,t.id)&&!!t.action;
     if(['alarm','trap','safe'].includes(s.kind))return local;
     if(['dash','step','scan'].includes(s.kind))return adjacent;
@@ -365,7 +367,7 @@ export class TacticalRound {
       case 'scan':{
         const area=this.#area(u,'scan',sector,s.duration);this.#schedule({at:this.now,phase:4,kind:'scanTick',id:area.id});break;
       }
-      case 'track':if(t&&t.vital.life>0)this.#reveal(u.team,t,s.duration,'track',true);break;
+      case 'track':if(t&&t.vital.life>0)this.#reveal(u.team,t,s.duration,'track',true,u.id);break;
       case 'sweep':{
         const area=this.#area(u,'scan',u.sector,s.duration);area.value=1;this.#schedule({at:this.now,phase:4,kind:'scanTick',id:area.id});break;
       }
@@ -396,7 +398,8 @@ export class TacticalRound {
     const actionTime=this.now-(this.options.map==='doca-v2'?PREPARATION_MS:0);
     const falseSite=this.#targets[this.options.attacking]==='A'?'B':'A';
     const pressure=this.options.map!=='doca-v2'||this.alive(this.options.attacking).some(u=>u.sector===falseSite||u.sector===(falseSite==='A'?'corridor_a':'corridor_b'));
-    if(!this.#feintShown&&actionTime>=18000&&pressure&&this.options.plans[this.options.attacking].attack==='feint'){this.#feintShown=true;this.#emit({kind:'strategy_shift',team:this.options.attacking,sector:this.#targets[this.options.attacking],detail:'Fim da finta; rotação para o foco confirmado.'});}
+    if(this.options.map==='doca-v2'&&!this.#feintPressureShown&&pressure&&this.options.plans[this.options.attacking].attack==='feint'){this.#feintPressureShown=true;this.#emit({kind:'feint_pressure',team:this.options.attacking,sector:falseSite,detail:'Atacantes alcançaram o corredor ou ponto da finta.'});}
+    if(!this.#feintShown&&actionTime>=18000&&(this.options.map==='doca-v2'?this.#feintPressureShown:pressure)&&this.options.plans[this.options.attacking].attack==='feint'){this.#feintShown=true;this.#emit({kind:'strategy_shift',team:this.options.attacking,sector:this.#targets[this.options.attacking],detail:'Fim da finta; rotação para o foco confirmado.'});}
     for(const team of ['A','B'] as const)if(team===this.options.attacking&&!this.#targetChosen[team]&&actionTime>=10000&&this.options.plans[team].attack==='control'){
       const ranked=this.alive(team).sort((a,b)=>(b.attrs[3]*.35+b.attrs[5]*.30+b.attrs[6]*.20+b.attrs[7]*.15)-(a.attrs[3]*.35+a.attrs[5]*.30+a.attrs[6]*.20+a.attrs[7]*.15));
       const igl=ranked.find(p=>p.igl)??ranked[0];

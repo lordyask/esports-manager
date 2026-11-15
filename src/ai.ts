@@ -5,7 +5,7 @@ import type {Sector} from './rules.ts';
 import type {Observation,Decision} from './tactical-types.ts';
 import type {Random} from './random.ts';
 import {decideDocaV2} from './doca-v2-ai.ts';
-import {DEFENSE_BASE,isDocaArea} from './doca-v2.ts';
+import {DEFENSE_BASE,docaSightLink,isDocaArea} from './doca-v2.ts';
 
 // Only an Observation enters this module. No access to hidden positions or future events.
 export function decide(view:Observation,random:Random):Decision {
@@ -55,7 +55,9 @@ export function decide(view:Observation,random:Random):Decision {
       if(next&&adjacent(next)&&!owned.some(e=>e.kind==='route_cover'&&e.edges.includes([self.sector,next].sort().join(':'))))return {kind:'cast',slot,sector:self.sector,edge:[self.sector,next]};
     }
     const inRange=sector===self.sector||adjacent(sector);
-    if(['blind','disorient','blast','zone','slow','confinement'].includes(skill.kind)&&contact&&inRange){
+    const spatialTarget=view.map!=='doca-v2'||isDocaArea(self.sector)&&isDocaArea(sector)&&docaSightLink(self.sector,sector);
+    if(['blind','disorient','blast','zone','slow','confinement'].includes(skill.kind)&&contact&&inRange&&spatialTarget){
+      if(view.map==='doca-v2'&&['blind','disorient'].includes(skill.kind)&&!visible.some(e=>e.sector===sector))continue;
       if((self.agent==='Estalo'&&slot===3||self.agent==='Pulso'&&slot===3||self.agent==='Farol'&&slot===2)&&!adjacent(sector))continue;
       // Utility is a decision, not a second success/failure roll after a valid cast.
       const quality=view.planted&&self.team!==view.attacking?self.tactical.retake:self.tactical.entry;
@@ -70,9 +72,9 @@ export function decide(view:Observation,random:Random):Decision {
     if(skill.kind==='safe'&&visible.length>0)return {kind:'cast',slot};
     if(skill.kind==='position'&&visible.length>0)return {kind:'cast',slot};
     if(skill.kind==='sweep'&&view.now>8000&&view.now<80000)return {kind:'cast',slot};
-    if(skill.kind==='track'&&contact)return {kind:'cast',slot,target:contact.id};
+    if(skill.kind==='track'&&contact&&(view.map!=='doca-v2'||visible.some(e=>e.id===contact.id)))return {kind:'cast',slot,target:contact.id};
     if(skill.kind==='scan'&&view.now<35000&&!contact){
-      const to=adjacent(view.attackTarget)?view.attackTarget:'mid';if(adjacent(to))return {kind:'cast',slot,sector:to};
+      const to=adjacent(view.attackTarget)?view.attackTarget:'mid';if(adjacent(to)&&(view.map!=='doca-v2'||isDocaArea(self.sector)&&isDocaArea(to)&&docaSightLink(self.sector,to)))return {kind:'cast',slot,sector:to};
     }
     if(['alarm','trap','sensor'].includes(skill.kind)&&self.team!==view.attacking&&view.now<10000&&!(view.map==='doca-v2'&&isDocaArea(self.sector)&&DEFENSE_BASE.includes(self.sector)))return {kind:'cast',slot,sector:self.sector};
     if(['smoke','barrier','delay'].includes(skill.kind)&&visible.length>0&&contact&&adjacent(contact.sector))return {kind:'cast',slot,sector:self.sector,edge:[self.sector,contact.sector]};

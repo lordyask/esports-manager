@@ -36,7 +36,8 @@ export const DOCA_V2_MOVEMENT:readonly DocaEdge[]=[
  ['mid','link_a',2500],['link_a','A',2500],['mid','link_b',2500],['link_b','B',2500],
  ['defense','gallery',2000],['gallery','gallery_a',3000],['gallery_a','A',3000],['gallery','gallery_b',3000],['gallery_b','B',3000],
 ];
-const key=(a:string,b:string)=>[a,b].sort().join(':');
+const key=(a:string,b:string)=>a<b?`${a}:${b}`:`${b}:${a}`;
+const movementTimes=new Map(DOCA_V2_MOVEMENT.map(([a,b,ms])=>[key(a,b),ms]));
 /** Explicit unobstructed sight lines between area positions. Other adjacent areas have a turn, wall or cover. */
 export const DOCA_V2_SIGHT:readonly (readonly [DocaArea,DocaArea])[]=[
  ['reception','corridor_a'],['corridor_a','A'],['maintenance','corridor_b'],['corridor_b','B'],
@@ -52,25 +53,31 @@ export const DOCA_V2_FIRE:readonly (readonly [DocaArea,DocaArea])[]=[
 export const isDocaArea=(v:unknown):v is DocaArea=>typeof v==='string'&&Object.hasOwn(DOCA_V2_AREAS,v);
 export const ATTACK_BASE:readonly DocaArea[]=['attack','attack_west','attack_east'];
 export const DEFENSE_BASE:readonly DocaArea[]=['defense','defense_west','defense_east'];
-export const docaAdjacent=(a:DocaArea,b:DocaArea)=>DOCA_V2_MOVEMENT.some(([x,y])=>x===a&&y===b||x===b&&y===a);
-export const docaSightLink=(a:DocaArea,b:DocaArea)=>a===b||DOCA_V2_SIGHT.some(([x,y])=>key(x,y)===key(a,b));
-export const docaFireLink=(a:DocaArea,b:DocaArea)=>a===b||DOCA_V2_FIRE.some(([x,y])=>key(x,y)===key(a,b));
+const sightLinks=new Set(DOCA_V2_SIGHT.map(([a,b])=>key(a,b)));
+const fireLinks=new Set(DOCA_V2_FIRE.map(([a,b])=>key(a,b)));
+export const docaAdjacent=(a:DocaArea,b:DocaArea)=>movementTimes.has(key(a,b));
+export const docaSightLink=(a:DocaArea,b:DocaArea)=>a===b||sightLinks.has(key(a,b));
+export const docaFireLink=(a:DocaArea,b:DocaArea)=>a===b||fireLinks.has(key(a,b));
 /** The caller advances `remaining` as simulated time passes. */
 export interface DocaPosition {sector:DocaArea;movement?:{from:DocaArea;to:DocaArea;remaining:number;initial?:number}|null;}
-const progress=(m:NonNullable<DocaPosition['movement']>)=>Math.max(0,Math.min(1,1-m.remaining/(m.initial??DOCA_V2_MOVEMENT.find(([a,b])=>key(a,b)===key(m.from,m.to))?.[2]??1)));
+const progress=(m:NonNullable<DocaPosition['movement']>)=>Math.max(0,Math.min(1,1-m.remaining/(m.initial??movementTimes.get(key(m.from,m.to))??1)));
 const exposed=(p:DocaPosition):DocaArea[]=>{
  if(!p.movement)return [p.sector];
  const m=p.movement,t=progress(m);
- if(docaSightLink(m.from,m.to))return [m.from,m.to];
  return t<=0.25?[m.from]:t>=0.75?[m.to]:[];
 };
 /** Visibility yields the links whose smoke/barriers must also be checked by the engine. */
 export function docaSight(a:DocaPosition,b:DocaPosition):{visible:boolean;edges:string[]} {
  const am=a.movement,bm=b.movement;
+ if(!am&&!bm){if(a.sector===b.sector)return {visible:true,edges:[]};const edge=key(a.sector,b.sector);return sightLinks.has(edge)?{visible:true,edges:[edge]}:{visible:false,edges:[]};}
  if(am&&bm&&key(am.from,am.to)===key(bm.from,bm.to)){
   const p=progress(am),q=am.from===bm.from?progress(bm):1-progress(bm);
-  if(Math.abs(p-q)<=0.25)return {visible:true,edges:[key(am.from,am.to)]};
+  if(docaSightLink(am.from,am.to)||Math.abs(p-q)<=0.25)return {visible:true,edges:[key(am.from,am.to)]};
  }
+ // An observer at an endpoint can see along a straight connection. Two players
+ // on different connections only share a view when exposed near the junction.
+ if(am&&!bm&&docaSightLink(am.from,am.to)&&(b.sector===am.from||b.sector===am.to))return {visible:true,edges:[key(am.from,am.to)]};
+ if(bm&&!am&&docaSightLink(bm.from,bm.to)&&(a.sector===bm.from||a.sector===bm.to))return {visible:true,edges:[key(bm.from,bm.to)]};
  for(const x of exposed(a))for(const y of exposed(b))if(docaSightLink(x,y)){
   const edges=[...(am?[key(am.from,am.to)]:[]),...(bm?[key(bm.from,bm.to)]:[]),...(x===y?[]:[key(x,y)])];
   return {visible:true,edges:[...new Set(edges)]};
@@ -90,14 +97,14 @@ for(const [a,b,ms] of DOCA_V2_MOVEMENT)distances.set(key(a,b),ms);
 for(const k of areas)for(const a of areas)for(const b of areas)distances.set(key(a,b),Math.min(distances.get(key(a,b))!,distances.get(key(a,k))!+distances.get(key(k,b))!));
 const endpoints=(p:DocaPosition):[DocaArea,number][]=>{
  if(!p.movement)return [[p.sector,0]];
- const m=p.movement,t=progress(m),length=DOCA_V2_MOVEMENT.find(([a,b])=>key(a,b)===key(m.from,m.to))?.[2]??0;
+ const m=p.movement,t=progress(m),length=movementTimes.get(key(m.from,m.to))??0;
  return [[m.from,t*length],[m.to,(1-t)*length]];
 };
 /** Approximate symmetric distance along corridors, in equivalent travel milliseconds. */
 export function docaDistance(a:DocaPosition,b:DocaPosition):number {
  let best=Infinity;for(const [x,dx] of endpoints(a))for(const [y,dy] of endpoints(b))best=Math.min(best,dx+distances.get(key(x,y))!+dy);
  if(a.movement&&b.movement&&key(a.movement.from,a.movement.to)===key(b.movement.from,b.movement.to)){
-  const length=DOCA_V2_MOVEMENT.find(([x,y])=>key(x,y)===key(a.movement!.from,a.movement!.to))?.[2]??0;
+  const length=movementTimes.get(key(a.movement.from,a.movement.to))??0;
   const x=progress(a.movement),y=a.movement.from===b.movement.from?progress(b.movement):1-progress(b.movement);
   best=Math.min(best,Math.abs(x-y)*length);
  }
