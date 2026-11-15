@@ -4,6 +4,8 @@ import {mapEdges,shortestPath,clamp} from './rules.ts';
 import type {Sector} from './rules.ts';
 import type {Observation,Decision} from './tactical-types.ts';
 import type {Random} from './random.ts';
+import {decideDocaV2} from './doca-v2-ai.ts';
+import {DEFENSE_BASE,isDocaArea} from './doca-v2.ts';
 
 // Only an Observation enters this module. No access to hidden positions or future events.
 export function decide(view:Observation,random:Random):Decision {
@@ -72,9 +74,10 @@ export function decide(view:Observation,random:Random):Decision {
     if(skill.kind==='scan'&&view.now<35000&&!contact){
       const to=adjacent(view.attackTarget)?view.attackTarget:'mid';if(adjacent(to))return {kind:'cast',slot,sector:to};
     }
-    if(['alarm','trap','sensor'].includes(skill.kind)&&self.team!==view.attacking&&view.now<10000)return {kind:'cast',slot,sector:self.sector};
+    if(['alarm','trap','sensor'].includes(skill.kind)&&self.team!==view.attacking&&view.now<10000&&!(view.map==='doca-v2'&&isDocaArea(self.sector)&&DEFENSE_BASE.includes(self.sector)))return {kind:'cast',slot,sector:self.sector};
     if(['smoke','barrier','delay'].includes(skill.kind)&&visible.length>0&&contact&&adjacent(contact.sector))return {kind:'cast',slot,sector:self.sector,edge:[self.sector,contact.sector]};
   }
+  if(view.map==='doca-v2')return decideDocaV2(view);
   // A retake must reach the planted device rather than duel forever from an adjacent sector.
   // Hold a threatened route rather than crossing helplessly under observed fire.
   // Contact on a different route must not pin an attack with a clear next step.

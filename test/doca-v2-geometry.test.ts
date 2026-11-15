@@ -15,8 +15,8 @@ test('Doca V2 preserves the approved three independent exits, sites and continuo
 test('walls and cover separate sight from travel, including exposure on a curved route',()=>{
  assert.equal(docaSight({sector:'attack'},{sector:'defense'}).visible,false);
  assert.equal(docaSight({sector:'A'},{sector:'cover_a'}).visible,false);assert.ok(route('A','cover_a'));
- assert.equal(docaSight({sector:'attack'},{sector:'reception'}).visible,false);
- const moving={sector:'attack' as const,movement:{from:'attack' as const,to:'reception' as const,initial:4500,remaining:500}};
+ assert.equal(docaSight({sector:'attack_west'},{sector:'reception'}).visible,false);
+ const moving={sector:'attack_west' as const,movement:{from:'attack_west' as const,to:'reception' as const,initial:3700,remaining:500}};
  assert.equal(docaSight(moving,{sector:'reception'}).visible,true);assert.equal(docaSight({sector:'reception'},moving).visible,true);
- assert.equal(docaCanFire({sector:'attack'},{sector:'reception'}),false);
+ assert.equal(docaCanFire({sector:'attack_west'},{sector:'reception'}),false);
 });

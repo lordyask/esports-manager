@@ -15,6 +15,7 @@ export const ATTACK_INSTRUCTIONS={none:'Sem complemento',trade:'Priorizar trades
 export const DEFENSE_INSTRUCTIONS={none:'Sem complemento',trade:'Priorizar trades',cautious:'Rotacionar com cautela',resources:'Preservar recursos para a retomada'} as const;
 export function validateStrategy(p:TeamPlan){
  if(!p||!(p.attack in ATTACKS)||!(p.defense in DEFENSES)||!['A','B'].includes(p.site))throw new Error('Plano tático inválido.');
+ if(p.defenseAssignments!==undefined&&(!p.defenseAssignments||typeof p.defenseAssignments!=='object'||Array.isArray(p.defenseAssignments)||Object.entries(p.defenseAssignments).some(([id,area])=>!id||!['A','B','mid','gallery'].includes(area))))throw new Error('Distribuição defensiva inválida.');
  if(p.attackInstruction!==undefined&&!(p.attackInstruction in ATTACK_INSTRUCTIONS)||p.defenseInstruction!==undefined&&!(p.defenseInstruction in DEFENSE_INSTRUCTIONS))throw new Error('Instrução tática inválida.');
  if(p.attack==='fast'&&p.attackInstruction==='preserve')throw new Error('Execução rápida exige entrada coordenada; escolha trades ou utilitários.');
  if(p.defense==='aggressive'&&p.defenseInstruction==='resources')throw new Error('Pressão avançada e reserva para retomada são ordens incompatíveis.');

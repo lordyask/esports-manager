@@ -2,6 +2,8 @@
 export const DOCA_V2_REVISION='doca-v2-central-1';
 export const DOCA_V2_AREAS={
  attack:{name:'Base atacante',x:50,y:91},
+ attack_west:{name:'Base atacante · saída A',x:40,y:91},
+ attack_east:{name:'Base atacante · saída B',x:60,y:91},
  reception:{name:'Recepção',x:18,y:66},
  corridor_a:{name:'Corredor A',x:18,y:48},
  A:{name:'Armazém · ponto A',x:22,y:30},
@@ -20,13 +22,16 @@ export const DOCA_V2_AREAS={
  gallery:{name:'Galeria de Serviço · centro',x:50,y:22},
  gallery_b:{name:'Galeria · acesso B',x:78,y:20},
  defense:{name:'Base defensora',x:50,y:9},
+ defense_west:{name:'Base defensora · lado A',x:44,y:9},
+ defense_east:{name:'Base defensora · lado B',x:56,y:9},
 } as const;
 export type DocaArea=keyof typeof DOCA_V2_AREAS;
 export type DocaEdge=readonly [DocaArea,DocaArea,number];
 /** Traversal is bidirectional. Milliseconds exclude a one-second post-arrival recovery. */
 export const DOCA_V2_MOVEMENT:readonly DocaEdge[]=[
- ['attack','reception',4500],['reception','corridor_a',2500],['corridor_a','A',3500],['A','cover_a',1500],
- ['attack','maintenance',4500],['maintenance','corridor_b',2500],['corridor_b','B',3500],['B','cover_b',1500],
+ ['attack','attack_west',800],['attack','attack_east',800],['defense','defense_west',800],['defense','defense_east',800],
+ ['attack_west','reception',3700],['reception','corridor_a',2500],['corridor_a','A',3500],['A','cover_a',1500],
+ ['attack_east','maintenance',3700],['maintenance','corridor_b',2500],['corridor_b','B',3500],['B','cover_b',1500],
  ['attack','triage',3000],['triage','bend_south',2500],['bend_south','bend_north',2500],['bend_north','mid',2500],
  ['mid','link_a',2500],['link_a','A',2500],['mid','link_b',2500],['link_b','B',2500],
  ['defense','gallery',2000],['gallery','gallery_a',3000],['gallery_a','A',3000],['gallery','gallery_b',3000],['gallery_b','B',3000],
@@ -45,6 +50,8 @@ export const DOCA_V2_FIRE:readonly (readonly [DocaArea,DocaArea])[]=[
  ['gallery','gallery_a'],['gallery_a','A'],['gallery','gallery_b'],['gallery_b','B'],
 ];
 export const isDocaArea=(v:unknown):v is DocaArea=>typeof v==='string'&&Object.hasOwn(DOCA_V2_AREAS,v);
+export const ATTACK_BASE:readonly DocaArea[]=['attack','attack_west','attack_east'];
+export const DEFENSE_BASE:readonly DocaArea[]=['defense','defense_west','defense_east'];
 export const docaAdjacent=(a:DocaArea,b:DocaArea)=>DOCA_V2_MOVEMENT.some(([x,y])=>x===a&&y===b||x===b&&y===a);
 export const docaSightLink=(a:DocaArea,b:DocaArea)=>a===b||DOCA_V2_SIGHT.some(([x,y])=>key(x,y)===key(a,b));
 export const docaFireLink=(a:DocaArea,b:DocaArea)=>a===b||DOCA_V2_FIRE.some(([x,y])=>key(x,y)===key(a,b));
@@ -76,3 +83,24 @@ export function docaCanFire(a:DocaPosition,b:DocaPosition):boolean {
  if(a.movement||b.movement)return true;
  return docaFireLink(a.sector,b.sector);
 }
+const areas=Object.keys(DOCA_V2_AREAS) as DocaArea[];
+const distances=new Map<string,number>();
+for(const a of areas)for(const b of areas)distances.set(key(a,b),a===b?0:Infinity);
+for(const [a,b,ms] of DOCA_V2_MOVEMENT)distances.set(key(a,b),ms);
+for(const k of areas)for(const a of areas)for(const b of areas)distances.set(key(a,b),Math.min(distances.get(key(a,b))!,distances.get(key(a,k))!+distances.get(key(k,b))!));
+const endpoints=(p:DocaPosition):[DocaArea,number][]=>{
+ if(!p.movement)return [[p.sector,0]];
+ const m=p.movement,t=progress(m),length=DOCA_V2_MOVEMENT.find(([a,b])=>key(a,b)===key(m.from,m.to))?.[2]??0;
+ return [[m.from,t*length],[m.to,(1-t)*length]];
+};
+/** Approximate symmetric distance along corridors, in equivalent travel milliseconds. */
+export function docaDistance(a:DocaPosition,b:DocaPosition):number {
+ let best=Infinity;for(const [x,dx] of endpoints(a))for(const [y,dy] of endpoints(b))best=Math.min(best,dx+distances.get(key(x,y))!+dy);
+ if(a.movement&&b.movement&&key(a.movement.from,a.movement.to)===key(b.movement.from,b.movement.to)){
+  const length=DOCA_V2_MOVEMENT.find(([x,y])=>key(x,y)===key(a.movement!.from,a.movement!.to))?.[2]??0;
+  const x=progress(a.movement),y=a.movement.from===b.movement.from?progress(b.movement):1-progress(b.movement);
+  best=Math.min(best,Math.abs(x-y)*length);
+ }
+ return best;
+}
+export function docaRange(a:DocaPosition,b:DocaPosition):'short'|'medium'|'long'{const d=docaDistance(a,b);return d<=2500?'short':d<=6000?'medium':'long';}
