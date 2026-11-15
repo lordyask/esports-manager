@@ -1,8 +1,8 @@
 import {MAP_CATALOG} from './maps.ts';
 import {DOCA_V2_AREAS,DOCA_V2_MOVEMENT} from './doca-v2.ts';
 import type {DocaArea} from './doca-v2.ts';
-export const ENGINE_VERSION = '0.5.1';
-export const RULES_VERSION = 'nexus-2.0-reworks-r1';
+export const ENGINE_VERSION = '0.6.0';
+export const RULES_VERSION = 'nexus-2.0-doca-v2-r1';
 export type Weapon = 'basic' | 'intermediate' | 'main' | 'precision';
 export type Range = 'short' | 'medium' | 'long';
 export type Team = 'A' | 'B';

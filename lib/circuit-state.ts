@@ -6,6 +6,7 @@ import type {Career} from './career-state.ts';
 import type {Profile,TeamPlan} from '../src/tactical-types.ts';
 import type {Purchase} from '../src/economy.ts';
 import {sha256} from '../src/hash.ts';
+import {matchSeed,roundSeed} from '../src/seed.ts';
 import {integer} from '../src/rules.ts';
 import {clubPlan} from './club-policy.ts';
 import {validateStrategy} from '../src/strategies.ts';
@@ -23,10 +24,10 @@ const PAIRS=[
 export interface CircuitRound {seed:number;winner:'A'|'B';reason:string;plans:{A:TeamPlan;B:TeamPlan};purchases:{A:Purchase[];B:Purchase[]};}
 export interface CircuitStat {id:string;team:'A'|'B';name:string;agent:string;kills:number;deaths:number;firstKills:number;firstDeaths:number;trades:number;utility:number;plants:number;defuses:number;spent:number;}
 export interface CircuitResult {mechanics:typeof MECHANICS;score:{A:number;B:number};winner:'A'|'B'|null;seed:number;rounds:number;profiles:Profile[];stats:CircuitStat[];receipts:CircuitRound[];}
-export interface CircuitMatch {id:string;day:number;map:'doca'|'cume';a:string;b:string;initialAttack:'A'|'B';seed:number;result?:CircuitResult;}
+export interface CircuitMatch {id:string;day:number;map:'doca-v2';a:string;b:string;initialAttack:'A'|'B';seed:number;result?:CircuitResult;}
 export interface TieDraw {teams:string[];order:string[];seed:number;}
 export interface Circuit {version:1;matches:CircuitMatch[];draws:TieDraw[];closed:boolean;finance:ClubFinance;}
-export function circuitSchedule(id:string,seed:number):CircuitMatch[]{return PAIRS.flatMap((pairs,i)=>pairs.map(([attack,defense],slot)=>{const own=slot===0;return {id:own?`${id}:jogo:${i+1}`:`${id}:npc:${i+1}:${slot}`,day:(i+1)*4,map:i%2?'cume':'doca',a:own?'user':attack,b:own?(attack==='user'?defense:attack):defense,initialAttack:own?(attack==='user'?'A':'B'):'A',seed:((seed+Math.imul(own?i+1:100+i*3+slot,0x9e3779b9))>>>0)||1};}));}
+export function circuitSchedule(id:string,seed:number):CircuitMatch[]{return PAIRS.flatMap((pairs,i)=>pairs.map(([attack,defense],slot)=>{const own=slot===0,matchId=own?`${id}:jogo:${i+1}`:`${id}:npc:${i+1}:${slot}`;return {id:matchId,day:(i+1)*4,map:'doca-v2',a:own?'user':attack,b:own?(attack==='user'?defense:attack):defense,initialAttack:own?(attack==='user'?'A':'B'):'A',seed:matchSeed(id,seed,matchId)};}));}
 export function newCircuit(id:string,seed:number,roster:string[]):Circuit{return {version:1,matches:circuitSchedule(id,seed),draws:[],closed:false,finance:clubFinance(roster,0)};}
 export const completedDay=(c:Circuit)=>{let day=0;for(const d of [4,8,12,16,20,24,28]){if(c.matches.filter(m=>m.day===d).every(m=>m.result))day=d;else break;}return day;};
 export const pendingNpc=(c:Career)=>c.circuit?.matches.find(m=>m.day===c.day&&m.a!=='user'&&!m.result&&c.fixtures.find(f=>f.day===c.day)?.result);
@@ -56,7 +57,7 @@ export function validateCircuit(c:Career){
   integer(r.rounds,13,30,'circuit rounds');if(r.seed!==m.seed||!Array.isArray(r.receipts)||r.receipts.length!==r.rounds||!Array.isArray(r.profiles)||r.profiles.length!==10||!Array.isArray(r.stats)||r.stats.length!==10)throw new Error('Evidência do circuito incompleta.');
   integer(r.score.A,0,30,'circuit score');integer(r.score.B,0,30,'circuit score');
   const totals={A:0,B:0},spent:Record<string,number>={};
-  for(let n=0;n<r.receipts.length;n++){const receipt=r.receipts[n];if(!receipt||!['A','B'].includes(receipt.winner)||receipt.seed!==(((m.seed+Math.imul(n+1,0x9e3779b9))>>>0)||1)||typeof receipt.reason!=='string')throw new Error('Rodada do circuito inválida.');totals[receipt.winner]++;
+  for(let n=0;n<r.receipts.length;n++){const receipt=r.receipts[n];if(!receipt||!['A','B'].includes(receipt.winner)||receipt.seed!==roundSeed(m.id,m.seed,n)||typeof receipt.reason!=='string')throw new Error('Rodada do circuito inválida.');totals[receipt.winner]++;
    for(const team of ['A','B'] as const){validateStrategy(receipt.plans[team]);if((m.a!=='user'||team==='B')&&JSON.stringify(receipt.plans[team])!==JSON.stringify(clubPlan(team==='A'?m.a:m.b,m.seed,n)))throw new Error('Plano NPC diverge da política registrada.');if(!Array.isArray(receipt.purchases[team]))throw new Error('Compras de circuito ausentes.');for(const p of receipt.purchases[team]){integer(p.cost,0,12000,'purchase');if(!r.profiles.some(a=>a.id===p.from&&a.team===team)||!r.profiles.some(a=>a.id===p.to&&a.team===team))throw new Error('Compra fora do elenco.');spent[p.from]=(spent[p.from]??0)+p.cost;}}
   }
   const high=Math.max(r.score.A,r.score.B),low=Math.min(r.score.A,r.score.B),validWin=high===13&&low<=11||high>=14&&high-low===2&&r.rounds%2===0;
