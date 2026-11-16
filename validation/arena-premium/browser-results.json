@@ -1,0 +1,398 @@
+{
+  "scope": "Synthetic local fixtures, Chromium; no user save or public deployment.",
+  "basePath": "/esports-manager",
+  "results": [
+    {
+      "viewport": "1920x1080",
+      "fixture": "career",
+      "layout": {
+        "width": 1920,
+        "scrollWidth": 1920,
+        "panels": [
+          {
+            "label": "Próximo jogo",
+            "stage": true,
+            "clientWidth": 1118,
+            "scrollWidth": 1129,
+            "clientHeight": 330,
+            "scrollHeight": 330
+          },
+          {
+            "label": "Rotina da equipe",
+            "stage": false,
+            "clientWidth": 525,
+            "scrollWidth": 525,
+            "clientHeight": 285,
+            "scrollHeight": 285
+          },
+          {
+            "label": "Últimos confrontos",
+            "stage": false,
+            "clientWidth": 577,
+            "scrollWidth": 577,
+            "clientHeight": 285,
+            "scrollHeight": 285
+          },
+          {
+            "label": "Estado da equipe",
+            "stage": false,
+            "clientWidth": 525,
+            "scrollWidth": 525,
+            "clientHeight": 193,
+            "scrollHeight": 193
+          },
+          {
+            "label": "Finanças",
+            "stage": false,
+            "clientWidth": 577,
+            "scrollWidth": 577,
+            "clientHeight": 193,
+            "scrollHeight": 193
+          },
+          {
+            "label": "Agente",
+            "stage": false,
+            "clientWidth": 398,
+            "scrollWidth": 398,
+            "clientHeight": 424,
+            "scrollHeight": 424
+          },
+          {
+            "label": "Atleta · Norte",
+            "stage": false,
+            "clientWidth": 398,
+            "scrollWidth": 398,
+            "clientHeight": 404,
+            "scrollHeight": 404
+          }
+        ]
+      },
+      "realData": "matched synthetic save",
+      "assets": "loaded",
+      "save": "unchanged"
+    },
+    {
+      "viewport": "1280x900",
+      "fixture": "career",
+      "layout": {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "panels": [
+          {
+            "label": "Próximo jogo",
+            "stage": true,
+            "clientWidth": 652,
+            "scrollWidth": 660,
+            "clientHeight": 283,
+            "scrollHeight": 283
+          },
+          {
+            "label": "Rotina da equipe",
+            "stage": false,
+            "clientWidth": 303,
+            "scrollWidth": 303,
+            "clientHeight": 244,
+            "scrollHeight": 244
+          },
+          {
+            "label": "Últimos confrontos",
+            "stage": false,
+            "clientWidth": 333,
+            "scrollWidth": 333,
+            "clientHeight": 244,
+            "scrollHeight": 244
+          },
+          {
+            "label": "Estado da equipe",
+            "stage": false,
+            "clientWidth": 303,
+            "scrollWidth": 303,
+            "clientHeight": 165,
+            "scrollHeight": 165
+          },
+          {
+            "label": "Finanças",
+            "stage": false,
+            "clientWidth": 333,
+            "scrollWidth": 333,
+            "clientHeight": 165,
+            "scrollHeight": 165
+          },
+          {
+            "label": "Agente",
+            "stage": false,
+            "clientWidth": 318,
+            "scrollWidth": 318,
+            "clientHeight": 363,
+            "scrollHeight": 363
+          },
+          {
+            "label": "Atleta · Norte",
+            "stage": false,
+            "clientWidth": 318,
+            "scrollWidth": 318,
+            "clientHeight": 345,
+            "scrollHeight": 345
+          }
+        ]
+      },
+      "realData": "matched synthetic save",
+      "assets": "loaded",
+      "save": "unchanged"
+    },
+    {
+      "viewport": "768x900",
+      "fixture": "career",
+      "layout": {
+        "width": 768,
+        "scrollWidth": 768,
+        "panels": [
+          {
+            "label": "Próximo jogo",
+            "stage": true,
+            "clientWidth": 528,
+            "scrollWidth": 531,
+            "clientHeight": 228,
+            "scrollHeight": 228
+          },
+          {
+            "label": "Rotina da equipe",
+            "stage": false,
+            "clientWidth": 246,
+            "scrollWidth": 246,
+            "clientHeight": 208,
+            "scrollHeight": 208
+          },
+          {
+            "label": "Últimos confrontos",
+            "stage": false,
+            "clientWidth": 270,
+            "scrollWidth": 270,
+            "clientHeight": 208,
+            "scrollHeight": 208
+          },
+          {
+            "label": "Estado da equipe",
+            "stage": false,
+            "clientWidth": 246,
+            "scrollWidth": 246,
+            "clientHeight": 148,
+            "scrollHeight": 148
+          },
+          {
+            "label": "Finanças",
+            "stage": false,
+            "clientWidth": 270,
+            "scrollWidth": 270,
+            "clientHeight": 148,
+            "scrollHeight": 148
+          },
+          {
+            "label": "Agente",
+            "stage": false,
+            "clientWidth": 347,
+            "scrollWidth": 347,
+            "clientHeight": 328,
+            "scrollHeight": 328
+          },
+          {
+            "label": "Atleta · Norte",
+            "stage": false,
+            "clientWidth": 347,
+            "scrollWidth": 347,
+            "clientHeight": 328,
+            "scrollHeight": 328
+          }
+        ]
+      },
+      "realData": "matched synthetic save",
+      "assets": "loaded",
+      "save": "unchanged"
+    },
+    {
+      "viewport": "390x844",
+      "fixture": "career",
+      "layout": {
+        "width": 390,
+        "scrollWidth": 390,
+        "panels": [
+          {
+            "label": "Próximo jogo",
+            "stage": true,
+            "clientWidth": 356,
+            "scrollWidth": 360,
+            "clientHeight": 238,
+            "scrollHeight": 238
+          },
+          {
+            "label": "Rotina da equipe",
+            "stage": false,
+            "clientWidth": 356,
+            "scrollWidth": 356,
+            "clientHeight": 171,
+            "scrollHeight": 171
+          },
+          {
+            "label": "Últimos confrontos",
+            "stage": false,
+            "clientWidth": 356,
+            "scrollWidth": 356,
+            "clientHeight": 225,
+            "scrollHeight": 225
+          },
+          {
+            "label": "Estado da equipe",
+            "stage": false,
+            "clientWidth": 172,
+            "scrollWidth": 172,
+            "clientHeight": 158,
+            "scrollHeight": 158
+          },
+          {
+            "label": "Finanças",
+            "stage": false,
+            "clientWidth": 172,
+            "scrollWidth": 172,
+            "clientHeight": 158,
+            "scrollHeight": 158
+          },
+          {
+            "label": "Agente",
+            "stage": false,
+            "clientWidth": 356,
+            "scrollWidth": 356,
+            "clientHeight": 318,
+            "scrollHeight": 318
+          },
+          {
+            "label": "Atleta · Norte",
+            "stage": false,
+            "clientWidth": 356,
+            "scrollWidth": 356,
+            "clientHeight": 298,
+            "scrollHeight": 298
+          }
+        ]
+      },
+      "realData": "matched synthetic save",
+      "assets": "loaded",
+      "save": "unchanged"
+    },
+    {
+      "viewport": "360x800",
+      "fixture": "career",
+      "layout": {
+        "width": 360,
+        "scrollWidth": 360,
+        "panels": [
+          {
+            "label": "Próximo jogo",
+            "stage": true,
+            "clientWidth": 326,
+            "scrollWidth": 330,
+            "clientHeight": 238,
+            "scrollHeight": 238
+          },
+          {
+            "label": "Rotina da equipe",
+            "stage": false,
+            "clientWidth": 326,
+            "scrollWidth": 326,
+            "clientHeight": 178,
+            "scrollHeight": 178
+          },
+          {
+            "label": "Últimos confrontos",
+            "stage": false,
+            "clientWidth": 326,
+            "scrollWidth": 326,
+            "clientHeight": 218,
+            "scrollHeight": 218
+          },
+          {
+            "label": "Estado da equipe",
+            "stage": false,
+            "clientWidth": 157,
+            "scrollWidth": 157,
+            "clientHeight": 158,
+            "scrollHeight": 158
+          },
+          {
+            "label": "Finanças",
+            "stage": false,
+            "clientWidth": 157,
+            "scrollWidth": 157,
+            "clientHeight": 158,
+            "scrollHeight": 158
+          },
+          {
+            "label": "Agente",
+            "stage": false,
+            "clientWidth": 326,
+            "scrollWidth": 326,
+            "clientHeight": 318,
+            "scrollHeight": 318
+          },
+          {
+            "label": "Atleta · Norte",
+            "stage": false,
+            "clientWidth": 326,
+            "scrollWidth": 326,
+            "clientHeight": 298,
+            "scrollHeight": 298
+          }
+        ]
+      },
+      "realData": "matched synthetic save",
+      "assets": "loaded",
+      "save": "unchanged"
+    },
+    {
+      "viewport": "390x844",
+      "fixture": "empty",
+      "agent": "empty",
+      "chart": "empty",
+      "training": "disabled",
+      "primary": "roster"
+    },
+    {
+      "viewport": "390x844",
+      "fixture": "long-name",
+      "overflow": "none"
+    },
+    {
+      "fixture": "history-without-career",
+      "results": "read from saved history",
+      "save": "unchanged"
+    },
+    {
+      "fixture": "partial-roster",
+      "agent": "actual main agent identified as such",
+      "training": "disabled"
+    },
+    {
+      "fixture": "career",
+      "keyboard": "Enter and Escape; focus restored",
+      "dialogs": "official abilities and eight trained attributes",
+      "categories": "team and return",
+      "reducedMotion": "respected",
+      "save": "unchanged"
+    },
+    {
+      "fixtures": [
+        "career",
+        "trained",
+        "active",
+        "processing"
+      ],
+      "navigation": [
+        "training",
+        "finances",
+        "preparation",
+        "match",
+        "calendar processing"
+      ],
+      "locks": "preserved"
+    }
+  ]
+}

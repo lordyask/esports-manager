@@ -26,7 +26,7 @@ import ProductLogo from './product-logo';
 import {HomeDashboard} from './home-dashboard';
 import {UiIcon} from './ui-icons';
 import {CategoryMenu,CategoryTabs,MENU_GROUPS,MENU_LABELS as tabs,groupForTab} from './category-menu';
-import {CommandHome} from './command-home';
+import {CommandHome} from './arena-home';
 import {StrategyEditor,TrainingPanel,AgentsPanel,RoundReview,EconomyPanel,PastReport} from './beta-panels';
 import {freshWorkspace,beginMatch,nextMatch,prepareImport} from '../lib/game';
 import {growthFor,newDevelopment,previewTraining} from '../lib/development';
