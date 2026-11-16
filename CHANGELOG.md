@@ -1,5 +1,10 @@
 # Histórico de alterações — Esports Manager
 
+## 16/11/2026 — Ocupação defensiva pré-plantio
+
+- A política r5 mantém o defensor no ponto atribuído quando a cobertura não permite observar suas entradas. A distribuição e o pós-plantio foram preservados.
+- Carreiras 0.6.1 e históricos continuam ativos; partidas em andamento mantêm a política r4 até o fim. Diagnóstico e amostras em [ocupação defensiva](docs/OCUPACAO_DEFENSIVA.md).
+
 ## 16/11/2026 — Troca de lados a cada seis rodadas
 
 - Motor 0.6.1: lados alternam antes das rodadas 7, 13 e 19; o reset econômico continua somente na rodada 13 e a prorrogação mantém as regras anteriores.

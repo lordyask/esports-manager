@@ -48,6 +48,7 @@ export class TacticalRound {
     if(profiles.length!==10||new Set(profiles.map(p=>p.id)).size!==10)throw new Error('Ten unique profiles required');
     mapEdges(options.map);integer(options.seed,1,0xffffffff,'seed');
     if(!['A','B'].includes(options.attacking))throw new Error('Invalid attack team');
+    if(options.tacticalPolicy!==undefined&&!['doca-v2-tactical-r4','doca-v2-tactical-r5'].includes(options.tacticalPolicy))throw new Error('Invalid tactical policy');
     for(const t of ['A','B'] as const){
       const group=profiles.filter(p=>p.team===t);
       if(group.length!==5||new Set(group.map(p=>p.agent)).size!==5)throw new Error('Five unique agents per team required');
@@ -412,7 +413,7 @@ export class TacticalRound {
     }
     for(const u of this.alive()){
       if(u.nextDecision>this.now||!this.#canAct(u))continue;
-      const decision=decide(this.observeFor(u.id),this.rng.decisions);this.issue(u.id,decision);
+      const decision=decide(this.observeFor(u.id),this.rng.decisions,this.options.tacticalPolicy);this.issue(u.id,decision);
       // Professional discipline affects execution timing; no hidden attribute bonuses.
       u.nextDecision=this.now+Math.round(300+(100-u.attrs[6])*3+(100-u.attrs[5])*2);
     }

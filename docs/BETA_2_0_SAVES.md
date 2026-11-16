@@ -17,6 +17,7 @@ Este documento descreve a candidata de desenvolvimento com motor 0.6.1, ainda n�
 | Desenvolvimento anterior / motor 0.5.0 | Campanha e acervo anterior preservados para consulta; sem continuação ativa sob 0.6.1 |
 | Desenvolvimento 0.5.1, incluindo RC1 e Beta 2.0/schema 6 | Preservado no Acervo para consulta e exportação, sem continuar partida ou circuito no motor novo |
 | Doca V2 anterior / motor 0.6.0 | Preservado no Acervo com os resultados e a regra de lados da época; partidas e circuitos em andamento não continuam automaticamente no motor novo |
+| Doca V2 / motor 0.6.1 e política r4 ou r5 | Carreira, resultados e histórico continuam ativos. Uma partida iniciada em r4 termina em r4; partidas novas começam em r5 |
 | Histórico JSON do motor atual | Importa partidas concluídas sem substituir a campanha ou o treino atual; limite de 20 registros e deduplicação por partida |
 | Arquivo incompatível, incompleto ou alterado | Importação recusada. Guarde o original; não há conversão genérica ou correção automática de arquivos |
 

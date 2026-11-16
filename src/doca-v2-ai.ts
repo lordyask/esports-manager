@@ -1,11 +1,11 @@
 import {ABILITIES} from './abilities.ts';
 import type {Slot} from './abilities.ts';
 import {shortestPath} from './rules.ts';
-import {ATTACK_BASE,DEFENSE_BASE,isDocaArea} from './doca-v2.ts';
-import type {Decision,Observation} from './tactical-types.ts';
+import {ATTACK_BASE,DEFENSE_BASE,docaSightLink,isDocaArea} from './doca-v2.ts';
+import type {Decision,Observation,TacticalPolicy} from './tactical-types.ts';
 
 /** Route decisions use only the team's public observations and its own orders. */
-export function decideDocaV2(view:Observation):Decision {
+export function decideDocaV2(view:Observation,policy:TacticalPolicy='doca-v2-tactical-r5'):Decision {
  const {self}=view,attacking=self.team===view.attacking;
  if(!isDocaArea(self.sector))return {kind:'wait'};
  const roster=[self,...view.allies].sort((a,b)=>(a.slot??0)-(b.slot??0)),alive=roster.filter(a=>a.life>0);
@@ -37,12 +37,13 @@ export function decideDocaV2(view:Observation):Decision {
   const observed=countA>countB?'A':countB>countA?'B':null;
   const patient=view.plan.defense==='reading'||view.plan.defenseInstruction==='cautious';
   if(observed&&(!patient||known.length>=2||view.now>=30000))destination=observed;
-  // When two or more defenders are assigned to the same site, the second can
-  // hold its actual cover position until the team observes an opponent.
-  // This changes movement and visibility, never the assigned site or combat stats.
+  // A defender should leave its assigned site for cover only if that position
+  // can observe at least one of its entrances. Older matches retain their policy.
   if(!observed&&(destination==='A'||destination==='B')){
    const assigned=roster.filter((a,i)=>(view.plan.defenseAssignments?.[a.id]??defaults[i])===destination);
-   if(assigned[1]?.id===self.id)destination=destination==='A'?'cover_a':'cover_b';
+   const cover=destination==='A'?'cover_a':'cover_b';
+   const entrances=destination==='A'?['corridor_a','link_a','gallery_a'] as const:['corridor_b','link_b','gallery_b'] as const;
+   if(assigned[1]?.id===self.id&&(policy==='doca-v2-tactical-r4'||entrances.some(entry=>docaSightLink(cover,entry))))destination=cover;
   }
   if(self.sector===destination)return {kind:'wait'};
  }

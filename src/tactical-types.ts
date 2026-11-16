@@ -4,6 +4,7 @@ import type {Agent,Slot} from './abilities.ts';
 import {MAP_CATALOG} from './maps.ts';
 export type AttackPlan='fast'|'control'|'split'|'feint';
 export type DefensePlan='aggressive'|'balanced'|'retake'|'reading';
+export type TacticalPolicy='doca-v2-tactical-r4'|'doca-v2-tactical-r5';
 export type TacticalRole='Entry'|'Second'|'Support'|'Anchor'|'Lurker'|'Main OP';
 export interface TeamPlan {attack:AttackPlan;defense:DefensePlan;site:'A'|'B';attackInstruction?:'none'|'trade'|'utility'|'preserve';defenseInstruction?:'none'|'trade'|'cautious'|'resources';defenseAssignments?:Record<string,'A'|'B'|'mid'|'gallery'>;}
 export interface Profile {id:string;team:Team;agent:Agent;attrs:Attributes;agentFamiliarity:number;mapFamiliarity:number;morale:number;fatigue:number;weapon:Weapon;shield:number;charges:[boolean,boolean,boolean];ult:number;igl?:boolean;role?:TacticalRole;}
@@ -18,5 +19,5 @@ export interface Observation {effects?:{id:string;kind:string;sector:Sector;edge
 export type Decision={kind:'wait'}|{kind:'move';to:Sector}|{kind:'plant'|'defuse'}|{kind:'destroy';device:string}|{kind:'cast';slot:Slot;sector?:Sector;target?:string;edge?:[Sector,Sector];edges?:[Sector,Sector][]};
 export interface SimEvent extends RoundEvent {sector?:Sector;ability?:string;amount?:number;team?:Team;}
 export interface SimulationResult extends RoundResult {events:SimEvent[];kills:Record<string,number>;rng:{combat:number;decisions:number};processed:number;abilityUses:Record<string,number>;}
-export interface SimulationOptions {map:MapId;attacking:Team;seed:number;plans:Record<Team,TeamPlan>;teamwork?:Partial<Record<Team,number>>;ai?:boolean;autoFire?:boolean;initial?:Partial<Record<string,{sector?:Sector;life?:number}>>;script?:{at:number;actor:string;decision:Decision}[];}
+export interface SimulationOptions {map:MapId;attacking:Team;seed:number;plans:Record<Team,TeamPlan>;tacticalPolicy?:TacticalPolicy;teamwork?:Partial<Record<Team,number>>;ai?:boolean;autoFire?:boolean;initial?:Partial<Record<string,{sector?:Sector;life?:number}>>;script?:{at:number;actor:string;decision:Decision}[];}
 export const rangeFor=(map:MapId,sector:Sector):Range=>sector==='mid'?'medium':MAP_CATALOG[map].range;

@@ -90,7 +90,8 @@ test('user matches resume across every change with correct side, bases, plans an
  const draft=suggestAssignments({...defaultDraft(),seed:7331,selected:ids});
  const plans={A:{...draft.plan,attack:'fast' as const,defense:'reading' as const,site:'A' as const},B:{...draft.plan,attack:'control' as const,defense:'retake' as const,site:'B' as const}};
  for(const initial of ['A','B'] as const){
-  let session=createSession(draft,`six-side-${initial}-0`);session.state.initialAttack=initial;
+  // Use deterministic matches long enough to reach the third switch under r5.
+  let session=createSession(draft,`six-side-${initial}-${initial==='A'?2:0}`);session.state.initialAttack=initial;
   while(session.state.rounds<19&&session.state.phase==='buy'){
    const index=session.state.rounds,side=expected(initial,index),command={id:`r${index}`,revision:index,buys:automaticBuys(session),plans};
    assert.equal(attackingTeam(session.state),side);assert.equal(nextSide(session),side==='A'?'Ataque':'Defesa');
@@ -105,8 +106,8 @@ test('user matches resume across every change with correct side, bases, plans an
 });
 
 test('NPC matches use the same side and club plans at all regulation switches',()=>{
- const fixture=circuitSchedule('six-npc',71).find(m=>m.a!=='user'&&m.b!=='user')!;
  for(const initial of ['A','B'] as const){
+  const fixture=circuitSchedule('six-npc',initial==='A'?73:71).find(m=>m.a!=='user'&&m.b!=='user')!;
   const match={...fixture,initialAttack:initial};let session=createNpcSession(match);
   while(session.state.rounds<19&&session.state.phase==='buy'){
    const index=session.state.rounds,command=npcCommand(match,session),side=expected(initial,index);

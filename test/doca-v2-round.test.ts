@@ -65,11 +65,12 @@ test('five explicit B assignments do not create an automatic defender at A',()=>
  assert.equal(sim.events.some(e=>e.kind==='arrived'&&e.actor?.startsWith('B')&&e.sector==='A'),false);
  assert.ok(sim.units.filter(u=>u.team==='B').every(u=>['defense','gallery','gallery_b','B','cover_b'].includes(u.sector)));
 });
-test('a second defender assigned to the same point can occupy its cover',()=>{
+test('defenders keep their assigned point when its cover has no view of the entrances',()=>{
  const ps=profiles().map(p=>({...p,charges:[false,false,false] as [boolean,boolean,boolean],ult:0}));
  const assignments=Object.fromEntries(ps.filter(p=>p.team==='B').map(p=>[p.id,'B' as const]));
  const sim=new TacticalRound(ps,{map:'doca-v2',attacking:'A',seed:32,plans:{A:{...plans.A,attack:'control',site:'A'},B:{...plans.B,defenseAssignments:assignments}},autoFire:false});
- sim.advance(18000);assert.ok(sim.events.some(e=>e.kind==='arrived'&&e.actor?.startsWith('B')&&e.sector==='cover_b'));
+ sim.advance(18000);assert.equal(sim.events.some(e=>e.kind==='arrived'&&e.actor?.startsWith('B')&&e.sector==='cover_b'),false);
+ assert.equal(new Set(sim.events.filter(e=>e.kind==='arrived'&&e.actor?.startsWith('B')&&e.sector==='B').map(e=>e.actor)).size,5);
  assert.equal(sim.events.some(e=>e.kind==='arrived'&&e.actor?.startsWith('B')&&e.sector==='A'),false);
 });
 test('plant and defuse work after preparation at either point with either attacking team',()=>{
