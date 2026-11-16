@@ -12,7 +12,7 @@ Exemplo reproduzível, semente 7, equipe A atacando, controle com alvo inicial A
 - O primeiro contato acontece aos 18 s. A primeira eliminação acontece aos 21 s: o defensor do meio é eliminado pelo ataque. Um dos defensores de A na cobertura não dispara até o plantio; na candidata, o mesmo defensor permanece no ponto e começa a disparar aos 23,5 s. O IGL do ataque pode mudar o destino durante a rodada; neste exemplo, o plantio ocorre em B.
 - O tempo inclui os 5 s de preparação. Com a correção, os defensores continuam chegando aos pontos em 13,5 s, mas nenhum dos dois faz a saída cega inicial para a cobertura.
 
-Na execução rápida desta amostra, o primeiro contato ocorre aos 13 s, antes da chegada dos defensores ao ponto aos 13,5 s. Os dois defensores do ponto visado observam adversários durante a recuperação depois da chegada. Isso merece estudo separado sobre tempos, posição e recuperação; não prova por si só uma falha, sobretudo quando dois defensores enfrentam cinco atacantes. Nenhum desses mecanismos foi alterado neste pacote.
+Na execução rápida desta amostra, o primeiro contato ocorre aos 13 s, antes da chegada dos defensores ao ponto aos 13,5 s. A [análise pontual do contato e da recuperação](RECUPERACAO_EXECUCAO_RAPIDA.md) identifica a exposição, a janela de disparo e uma inconsistência independente em comandos diretos. Nenhum desses mecanismos foi alterado neste pacote.
 
 ## Correção
 
@@ -54,6 +54,6 @@ NEXUS_DEFENSE_OUTPUT=/tmp/nexus-r5-extra.json node scripts/validate-defensive-oc
 
 Saves e históricos 0.6.1 das duas políticas continuam aceitos. Uma partida 0.6.1 em andamento mantém a r4 até terminar, inclusive após salvar e recarregar, para preservar sua reprodução por semente. A próxima partida, do usuário ou entre NPCs, começa na r5. Carreira, treinos, caixa, resultados e histórico não são reiniciados ou recalculados. Saves de versões anteriores mantêm o tratamento já existente de consulta e exportação; recomenda-se guardar o JSON original antes de experimentar a candidata.
 
-A avaliação futura deve investigar separadamente chegada e recuperação diante de execução rápida e a capacidade do modelo de representar coberturas e ângulos distintos. Qualquer mudança em travessia, recuperação, mapa, habilidades, dano, economia ou retomada exige outro pacote e evidência própria.
+A capacidade do modelo de representar coberturas e ângulos distintos continua pendente de avaliação. Qualquer mudança em travessia, recuperação, mapa, habilidades, dano, economia ou retomada exige outro pacote e evidência própria.
 
 A [verificação focada dos atributos](ATRIBUTOS_OCUPACAO_DEFENSIVA.md) examina separadamente o cálculo de disparos, decisões da IA e comparações pareadas, sem alterar as fórmulas.
