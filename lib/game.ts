@@ -20,6 +20,8 @@ import type {Plan,BuyPlan,Purchase,Account} from '../src/economy.ts';
 import {halfReset,validateAccount} from '../src/economy.ts';
 import {sha256} from '../src/hash.ts';
 import {validateStrategy} from '../src/strategies.ts';
+import {snapshotEquipment,validateEquipment} from './equipment.ts';
+import type {EquipmentByTeam} from './equipment.ts';
 import {newDevelopment,growthFor,validateDevelopment} from './development.ts';
 import type {Development} from './development.ts';
 import {validateTrainingPreparation} from './training-preparation.ts';
@@ -43,7 +45,7 @@ export type Role=typeof ROLES[number];
 export type Player=typeof PLAYERS[number];
 export interface Assignment {agent:Agent;role:Role;}
 export interface Draft {org:string;tag:string;color:string;crest:number;selected:string[];assignments:Record<string,Assignment>;igl:string;map:MapId;opponent:'development'|'balanced'|'experienced';seed:number;plan:TeamPlan;}
-export interface RoundRecord {command:RoundCommand;seed:number;result:SimulationResult;purchases:Record<Team,Purchase[]>;}
+export interface RoundRecord {command:RoundCommand;seed:number;result:SimulationResult;purchases:Record<Team,Purchase[]>;equipment:EquipmentByTeam;}
 export interface Session {mechanics:typeof MECHANICS;metadata?:MatchMetadata;id:string;map:MapId;seed:number;profiles:Profile[];names:Record<string,string>;state:MapState;records:RoundRecord[];}
 export interface RoundCommand {id:string;revision:number;plans:Record<Team,TeamPlan>;buys:BuyPlan;}
 export interface Workspace {archives?:Archive[];career?:Career;history?:Session[];autoBuy?:boolean;trainingPreparation?:TrainingPreparation;draft:Draft;session:Session|null;development?:Development;buyPreparation?:Record<string,Plan>;previous?:Session;legacyReport?:{engine:string;session:Session};}
@@ -94,7 +96,7 @@ export function advanceSession(input:Session,command:RoundCommand):Session {
  const ps=input.profiles.map(p=>{const a=ready.state.teams[p.team].find(a=>a.id===p.id)!;return {...p,weapon:a.weapon,shield:a.shield,charges:a.charges,ult:a.ult};});
  const seed=roundSeed(input.id,input.seed,input.state.rounds);
  const result=simulateRound(ps,{map:input.map,attacking:ready.attacking,seed,plans:command.plans});
- return {...input,state:completeRound(ready.state,result,result.kills),records:[...input.records,{command:structuredClone(command),seed,result,purchases:ready.purchases}]};
+ return {...input,state:completeRound(ready.state,result,result.kills),records:[...input.records,{command:structuredClone(command),seed,result,purchases:ready.purchases,equipment:snapshotEquipment(ps)}]};
 }
 export function validateSession(s:Session){
  if(!mechanicsMatch(s?.mechanics))throw new Error('Revisão mecânica da partida incompatível.');
@@ -114,6 +116,7 @@ export function validateSession(s:Session){
   commands.add(r.command.id);validatePlan(r.command.plans.A);validatePlan(r.command.plans.B);score[r.result.winner]++;
   integer(r.result.at,0,145001,'round time');
   for(const a of r.result.actors){integer(a.vital.life,0,10000,'life');integer(a.vital.shield,0,5000,'shield');}
+  validateEquipment(r.equipment,s.profiles);
   for(const team of ['A','B'] as const)if(!Array.isArray(r.purchases?.[team])||r.purchases[team].some(p=>!ids.includes(p.from)||!ids.includes(p.to)||!Number.isSafeInteger(p.cost)||p.cost<0))throw new Error('Compras salvas inválidas.');
  }
  if(score.A!==s.state.score.A||score.B!==s.state.score.B)throw new Error('Histórico e placar não correspondem.');

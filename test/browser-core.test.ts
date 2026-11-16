@@ -35,7 +35,7 @@ test('round checkpoints resume exactly and duplicate commands never consume anot
  const bytes=encodeSave({draft:d,session:a}),b=decodeSave(bytes).session!;
  const c=command(a);assert.deepEqual(advanceSession(a,c),advanceSession(b,c));
  const next=advanceSession(a,c);assert.deepEqual(advanceSession(next,c),next);
- assert.throws(()=>advanceSession(next,{...c,buys:'full'}));assert.throws(()=>advanceSession(next,{...c,id:'different'}));
+ assert.throws(()=>advanceSession(next,{...c,buys:c.buys==='full'?'eco':'full'}));assert.throws(()=>advanceSession(next,{...c,id:'different'}));
 });
 test('save detects incompatible versions and damaged content',()=>{
  const d=draft(),session=createSession(d,'import'),raw=encodeSave({draft:d,session});

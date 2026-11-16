@@ -1,4 +1,6 @@
 import {MECHANICS,mechanicsMatch} from '../src/content.ts';
+import {validateEquipment} from './equipment.ts';
+import type {EquipmentByTeam} from './equipment.ts';
 import {OPPONENTS,opponentProfiles} from './opponents.ts';
 import {clubFinance} from './club-finance.ts';
 import type {ClubFinance} from './club-finance.ts';
@@ -21,7 +23,7 @@ const PAIRS=[
  [['blt','user'],['fsk','crn'],['vrt','pzr'],['mra','frv']],
  [['user','crn'],['pzr','blt'],['fsk','frv'],['vrt','mra']],
 ];
-export interface CircuitRound {seed:number;winner:'A'|'B';reason:string;plans:{A:TeamPlan;B:TeamPlan};purchases:{A:Purchase[];B:Purchase[]};}
+export interface CircuitRound {seed:number;winner:'A'|'B';reason:string;plans:{A:TeamPlan;B:TeamPlan};purchases:{A:Purchase[];B:Purchase[]};equipment:EquipmentByTeam;}
 export interface CircuitStat {id:string;team:'A'|'B';name:string;agent:string;kills:number;deaths:number;firstKills:number;firstDeaths:number;trades:number;utility:number;plants:number;defuses:number;spent:number;}
 export interface CircuitResult {mechanics:typeof MECHANICS;score:{A:number;B:number};winner:'A'|'B'|null;seed:number;rounds:number;profiles:Profile[];stats:CircuitStat[];receipts:CircuitRound[];}
 export interface CircuitMatch {id:string;day:number;map:'doca-v2';a:string;b:string;initialAttack:'A'|'B';seed:number;result?:CircuitResult;}
@@ -57,7 +59,7 @@ export function validateCircuit(c:Career){
   integer(r.rounds,13,30,'circuit rounds');if(r.seed!==m.seed||!Array.isArray(r.receipts)||r.receipts.length!==r.rounds||!Array.isArray(r.profiles)||r.profiles.length!==10||!Array.isArray(r.stats)||r.stats.length!==10)throw new Error('Evidência do circuito incompleta.');
   integer(r.score.A,0,30,'circuit score');integer(r.score.B,0,30,'circuit score');
   const totals={A:0,B:0},spent:Record<string,number>={};
-  for(let n=0;n<r.receipts.length;n++){const receipt=r.receipts[n];if(!receipt||!['A','B'].includes(receipt.winner)||receipt.seed!==roundSeed(m.id,m.seed,n)||typeof receipt.reason!=='string')throw new Error('Rodada do circuito inválida.');totals[receipt.winner]++;
+  for(let n=0;n<r.receipts.length;n++){const receipt=r.receipts[n];if(!receipt||!['A','B'].includes(receipt.winner)||receipt.seed!==roundSeed(m.id,m.seed,n)||typeof receipt.reason!=='string')throw new Error('Rodada do circuito inválida.');totals[receipt.winner]++;validateEquipment(receipt.equipment,r.profiles);
    for(const team of ['A','B'] as const){validateStrategy(receipt.plans[team]);if((m.a!=='user'||team==='B')&&JSON.stringify(receipt.plans[team])!==JSON.stringify(clubPlan(team==='A'?m.a:m.b,m.seed,n)))throw new Error('Plano NPC diverge da política registrada.');if(!Array.isArray(receipt.purchases[team]))throw new Error('Compras de circuito ausentes.');for(const p of receipt.purchases[team]){integer(p.cost,0,12000,'purchase');if(!r.profiles.some(a=>a.id===p.from&&a.team===team)||!r.profiles.some(a=>a.id===p.to&&a.team===team))throw new Error('Compra fora do elenco.');spent[p.from]=(spent[p.from]??0)+p.cost;}}
   }
   const high=Math.max(r.score.A,r.score.B),low=Math.min(r.score.A,r.score.B),validWin=high===13&&low<=11||high>=14&&high-low===2&&r.rounds%2===0;

@@ -1,4 +1,4 @@
-import {decodeSave as decodePrior} from '../legacy/v0_5_0/lib/game.ts';
+import {decodeSave as decodePrior,freshWorkspace as freshPrior} from '../legacy/v0_5_0/lib/game.ts';
 import type {Workspace as PriorWorkspace} from '../legacy/v0_5_0/lib/game.ts';
 import {decodeSave as decodeOld,prepareImport as importOld,freshWorkspace as oldFresh} from '../legacy/v0_4_1/lib/game.ts';
 import type {Workspace as OldWorkspace} from '../legacy/v0_4_1/lib/game.ts';
@@ -23,7 +23,7 @@ export function readArchive(a:Archive):ArchiveView {
  const e=JSON.parse(a.text);if(e?.data?.archives!==undefined&&!['0.5.0','0.5.1'].includes(e.engine))throw new Error('Acervos não podem ser aninhados.');
  if(e.format==='esports-manager-history'){
   if(e.engine==='0.4.1')return {engine:e.engine,beta:'histórico 1.x / desenvolvimento anterior',data:{...oldFresh(),history:oldHistory(a.text)}};
-  if(e.engine==='0.5.0')return {engine:e.engine,beta:'histórico reworks anteriores',data:{...freshWorkspace(),history:readPriorHistory(a.text)}};
+  if(e.engine==='0.5.0')return {engine:e.engine,beta:'histórico reworks anteriores',data:{...freshPrior(),history:readPriorHistory(a.text)}};
   if(e.engine==='0.5.1')return {engine:e.engine,beta:'2.0 · mapa e regras anteriores',data:{...freshBeta51(),history:historyBeta51(a.text)}};
   if(e.engine===ENGINE_VERSION)return {engine:e.engine,beta:'histórico 2.0',data:{...freshWorkspace(),history:readHistory(a.text)}};
  }

@@ -10,7 +10,7 @@ import {createMap} from '../src/map.ts';
 
 export function circuitResult(s:Session):CircuitResult {
  validateSession(s);if(s.state.phase!=='finished')throw new Error('Partida incompleta.');
- return {mechanics:structuredClone(s.mechanics),score:structuredClone(s.state.score),winner:s.state.winner??null,seed:s.seed,rounds:s.state.rounds,profiles:structuredClone(s.profiles),stats:stats(s),receipts:s.records.map(r=>({seed:r.seed,winner:r.result.winner,reason:r.result.reason,plans:structuredClone(r.command.plans),purchases:structuredClone(r.purchases)}))};
+ return {mechanics:structuredClone(s.mechanics),score:structuredClone(s.state.score),winner:s.state.winner??null,seed:s.seed,rounds:s.state.rounds,profiles:structuredClone(s.profiles),stats:stats(s),receipts:s.records.map(r=>({seed:r.seed,winner:r.result.winner,reason:r.result.reason,plans:structuredClone(r.command.plans),purchases:structuredClone(r.purchases),equipment:structuredClone(r.equipment)}))};
 }
 export function createNpcSession(m:CircuitMatch):Session {
  if(m.a==='user'||m.b==='user')throw new Error('O confronto do usuário precisa de preparação.');
