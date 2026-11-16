@@ -75,5 +75,7 @@ test('all initial and opponent athletes have approved countries without gameplay
 test('recomputed checksum cannot hide duplicated entries, changed grade or extra NPC attributes',()=>{
  let w=start();w.career!.circuit!.finance.ledger.push({...w.career!.circuit!.finance.ledger[0]});assert.throws(()=>decodeSave(encodeSave(w)),/Extrato/);
  w=start();w.career!.circuit!.matches[1].a='user';assert.throws(()=>decodeSave(encodeSave(w)),/Grade/);
- w=closeRound(ownGame(advanceCareer(start(),'event')));const altered=structuredClone(w);altered.career!.circuit!.matches[1].result!.profiles[0].attrs[0]++;assert.throws(()=>decodeSave(encodeSave(altered)),/NPC alterados/);
+ w=closeRound(ownGame(advanceCareer(start(),'event')));const altered=structuredClone(w),result=altered.career!.circuit!.matches[1].result!,npc=result.profiles[0];npc.attrs[0]++;
+ for(const receipt of result.receipts)receipt.equipment[npc.team].find(p=>p.id===npc.id)!.attrs[0]++;
+ assert.throws(()=>decodeSave(encodeSave(altered)),/NPC alterados/);
 });

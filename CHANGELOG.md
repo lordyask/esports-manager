@@ -1,5 +1,12 @@
 # Histórico de alterações — Esports Manager
 
+## 15/11/2026 — Doca V2 em desenvolvimento
+
+- Candidata não publicada: motor 0.6.0, mapa Doca V2, preparação de cinco segundos simulados e regras espaciais de movimento, visão e combate.
+- Planos adaptados às rotas, distribuição defensiva configurável e Doca V2 em todas as partidas novas do circuito.
+- Saves anteriores preservados para consulta e exportação, sem continuidade automática no motor novo.
+- Preços e danos anteriores preservados. Amostras, limitações e experimento numérico não adotado em [Doca V2 e validação](docs/DOCA_V2_VALIDACAO.md).
+
 ## 14/11/2026 — NEXUS Beta 2.0
 
 - Identificação do produto `2.0.0`, com motor 0.5.1, revisão mecânica `nexus-2.0-reworks-r1` e save schema 6.

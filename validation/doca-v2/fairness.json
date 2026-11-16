@@ -1,0 +1,10 @@
+{
+  "scope": "2000 distinct hashed seeds, equal teams and equipment, stationary exposed 5v5, both sites and attacking sides. Reversed input is checked for every run.",
+  "rounds": 2000,
+  "teamAWins": 982,
+  "attackingWins": 956,
+  "mutualEliminations": 33,
+  "teamAWinsWhenAttacking": 469,
+  "teamAWinsWhenDefending": 513,
+  "reversedInputChecks": 2000
+}
