@@ -1,12 +1,13 @@
 # NEXUS — Beta 2.0
 
-NEXUS é um jogo de gerenciamento de equipe de FPS tático, com simulação de partidas, treinamento e circuito competitivo. Esta branch contém uma **candidata de desenvolvimento**, identificada como `2.0.0-doca-v2.dev.1`, com motor **0.6.0**, regras `nexus-2.0-doca-v2-r1` e saves de **schema 6**. Ela ainda não foi publicada.
+NEXUS é um jogo de gerenciamento de equipe de FPS tático, com simulação de partidas, treinamento e circuito competitivo. Esta branch contém uma **candidata de desenvolvimento**, identificada como `2.0.0-doca-v2.dev.2`, com motor **0.6.1**, regras `nexus-2.0-doca-v2-r2` e saves de **schema 6**. Ela ainda não foi publicada.
 
 [Jogo publicado (versão anterior)](https://lordyask.github.io/esports-manager/) · [Doca V2 e validação](docs/DOCA_V2_VALIDACAO.md) · [Backup e saves antigos](docs/BETA_2_0_SAVES.md) · [Histórico](CHANGELOG.md)
 
 ## Novidades
 
 - Doca V2 como único mapa ativo em partidas e no circuito, com bases centrais, rotas independentes, galeria contínua e preparação de cinco segundos simulados.
+- Troca de ataque e defesa a cada seis rodadas regulamentares; o reinício econômico permanece na rodada 13.
 - Calendário de 28 dias com uma oportunidade diária de treino individual ou coletivo.
 - Circuito de oito equipes e 28 partidas, com classificação, contratos, finanças e premiação.
 - Prisma substitui Véu em campanhas novas; Prisma e Bastião têm habilidades revisadas.
@@ -16,7 +17,7 @@ Os adversários mantêm atributos fixos neste beta. A simulação usa áreas tá
 
 ## Seus saves
 
-**Antes de experimentar, exporte seu progresso no navegador antigo e guarde o JSON original.** Saves dos motores 0.3.0, 0.4.1, 0.5.0 e 0.5.1 são preservados para consulta no Acervo mediante escolha explícita; partidas antigas não continuam no motor novo. Consulte as [instruções completas](docs/BETA_2_0_SAVES.md).
+**Antes de experimentar, exporte seu progresso no navegador antigo e guarde o JSON original.** Saves dos motores 0.3.0, 0.4.1, 0.5.0, 0.5.1 e 0.6.0 são preservados para consulta no Acervo mediante escolha explícita; partidas antigas não continuam no motor novo. Consulte as [instruções completas](docs/BETA_2_0_SAVES.md).
 
 O progresso é salvo localmente no navegador e depende da origem do site. Não há conta nem sincronização entre dispositivos. O histórico ativo comporta até 20 partidas; o circuito preserva os próprios resultados.
 

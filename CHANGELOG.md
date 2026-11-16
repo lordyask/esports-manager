@@ -1,5 +1,10 @@
 # Histórico de alterações — Esports Manager
 
+## 16/11/2026 — Troca de lados a cada seis rodadas
+
+- Motor 0.6.1: lados alternam antes das rodadas 7, 13 e 19; o reset econômico continua somente na rodada 13 e a prorrogação mantém as regras anteriores.
+- Saves e históricos 0.6.0 são preservados para consulta e exportação com o motor da época; partidas antigas não são convertidas automaticamente.
+
 ## 15/11/2026 — Doca V2 em desenvolvimento
 
 - Candidata não publicada: motor 0.6.0, mapa Doca V2, preparação de cinco segundos simulados e regras espaciais de movimento, visão e combate.

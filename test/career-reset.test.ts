@@ -38,7 +38,7 @@ test('legacy 1.0 imports remain read-only and checksum corruption is rejected',(
 });
 test('mechanics mismatch rejected at envelope and session even with a recomputed payload digest',()=>{
  const w=base();w.session=createSession(w.draft,'version');w.development!.used=true;w.development!.matchId='version';const a=JSON.parse(encodeSave(w));a.mechanics.contentHash='changed';assert.throws(()=>decodeSave(JSON.stringify(a)),/incompatível/);
- const b=JSON.parse(encodeSave(w));b.data.session.mechanics.contentHash='changed';b.digest=sha256(JSON.stringify(b.data));assert.throws(()=>decodeSave(JSON.stringify(b)),/versão|incompatível|mecânica/i);assert.equal(MECHANICS.engine,'0.6.0');assert.equal(PLAYERS.find(p=>p.id==='J11')!.name,'Prisma');assert.equal(PLAYERS.find(p=>p.id==='J11')!.main,'Farol');
+ const b=JSON.parse(encodeSave(w));b.data.session.mechanics.contentHash='changed';b.digest=sha256(JSON.stringify(b.data));assert.throws(()=>decodeSave(JSON.stringify(b)),/versão|incompatível|mecânica/i);assert.equal(MECHANICS.engine,'0.6.1');assert.equal(PLAYERS.find(p=>p.id==='J11')!.name,'Prisma');assert.equal(PLAYERS.find(p=>p.id==='J11')!.main,'Farol');
 });
 test('corrupted archives reject digest changes, unknown mode and nested acervos; rescue preserves bytes',()=>{
  const raw=oldEncode(oldBase()),a=archiveFromText(raw);assert.throws(()=>readArchive({...a,text:raw+' '}));assert.throws(()=>readArchive({...a,mode:'invalid'} as any));assert.throws(()=>archiveFromText(encodeSave({...freshWorkspace(),archives:[a]})),/aninhados/);const rescue=rescueArchive('{broken');assert.equal(rescue.text,'{broken');assert.equal(readArchive(rescue).engine,'não validado');assert.deepEqual(decodeSave(encodeSave(addArchive(freshWorkspace(),rescue))).archives,[rescue]);

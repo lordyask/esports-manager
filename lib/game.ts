@@ -133,7 +133,7 @@ export function encodeSave(input:Workspace):string {
 export function decodeSave(text:string):Workspace {
  if(new TextEncoder().encode(text).length>SAVE_LIMIT)throw new Error('Arquivo maior que o limite de 64 MB.');
  let e:any;try{e=JSON.parse(text);}catch{throw new Error('O arquivo não contém um salvamento JSON válido.');}
- if(e?.format==='esports-manager-beta'&&['0.5.1','0.5.0','0.4.1','0.3.0'].includes(e.engine))throw new Error('Progresso anterior preservado. Exporte o original e escolha explicitamente arquivar antes de iniciar a Doca V2; a partida antiga não será substituída nem continuada automaticamente.');
+ if(e?.format==='esports-manager-beta'&&['0.6.0','0.5.1','0.5.0','0.4.1','0.3.0'].includes(e.engine))throw new Error('Progresso anterior preservado. Exporte o original e escolha explicitamente arquivar antes de iniciar a versão atual; a partida antiga não será substituída nem continuada automaticamente.');
  if(e?.format!=='esports-manager-beta'||e.schema!==6||!mechanicsMatch(e.mechanics)||e.engine!==ENGINE_VERSION||e.rules!==RULES_VERSION)throw new Error('Versão incompatível. Preserve o arquivo original para uma futura migração.');
  if(e.digest!==sha256(JSON.stringify(e.data)))throw new Error('O arquivo está incompleto ou foi modificado.');
  const w=e.data as Workspace;
@@ -189,7 +189,7 @@ export function nextMatch(w:Workspace):Workspace {
 /** Explicit import; old results remain a read-only snapshot, never simulated by new rules. */
 export function prepareImport(text:string):{data:Workspace;notice:string;archiveOnly?:boolean}{
  let e:any;try{e=JSON.parse(text);}catch{throw new Error('O arquivo não contém um salvamento JSON válido.');}
- if(['0.5.1','0.5.0','0.4.1','0.3.0'].includes(e?.engine)){const archives=archivesFromText(text);return {data:{...freshWorkspace(),archives},archiveOnly:true,notice:'Arquivo antigo validado. Será adicionado ao acervo somente para consulta e exportação; a campanha atual será preservada.'};}
+ if(['0.6.0','0.5.1','0.5.0','0.4.1','0.3.0'].includes(e?.engine)){const archives=archivesFromText(text);return {data:{...freshWorkspace(),archives},archiveOnly:true,notice:'Arquivo antigo validado. Será adicionado ao acervo somente para consulta e exportação; a campanha atual será preservada.'};}
  if(e?.engine===ENGINE_VERSION)return {data:initializeHistory(decodeSave(text)),notice:'Salvamento compatível. O progresso e histórico atuais serão substituídos.'};
  throw new Error('Versão incompatível. Preserve o arquivo original.');
 }

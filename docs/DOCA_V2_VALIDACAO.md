@@ -1,5 +1,7 @@
 # Doca V2 — candidata de desenvolvimento
 
+> Registro da validação da candidata 0.6.0. A versão posterior 0.6.1 altera a troca de lados para cada seis rodadas regulamentares; os resultados abaixo continuam pertencendo à versão anterior e não foram recalculados.
+
 Esta branch parte da `main` em `61dc03d`. Ela não atualiza `main` nem publica o jogo. Identificadores: produto `2.0.0-doca-v2.dev.1`; motor `0.6.0`; regras `nexus-2.0-doca-v2-r1`; mapa `doca-v2`, revisão `doca-v2-central-2`; política `doca-v2-tactical-r4`; clubes `independent-repertoire-r2`; sementes `domain-separated-r1`; registro de equipamento `round-equipment-r1`. O save permanece schema 6, mas a versão mecânica é incompatível com a 0.5.1.
 
 ## Planta e modelo

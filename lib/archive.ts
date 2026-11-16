@@ -7,6 +7,9 @@ import {readHistory as oldHistory} from '../legacy/v0_4_1/lib/history.ts';
 import {decodeSave as decodeBeta51,freshWorkspace as freshBeta51} from '../legacy/v0_5_1/lib/game.ts';
 import type {Workspace as Beta51Workspace} from '../legacy/v0_5_1/lib/game.ts';
 import {readHistory as historyBeta51} from '../legacy/v0_5_1/lib/history.ts';
+import {decodeSave as decodeDoca60,freshWorkspace as freshDoca60} from '../legacy/v0_6_0/lib/game.ts';
+import type {Workspace as Doca60Workspace} from '../legacy/v0_6_0/lib/game.ts';
+import {readHistory as historyDoca60} from '../legacy/v0_6_0/lib/history.ts';
 import {decodeSave,encodeSave,freshWorkspace,defaultDraft} from './game.ts';
 import type {Workspace} from './game.ts';
 import {initializeHistory,readHistory} from './history.ts';
@@ -14,22 +17,24 @@ import {ENGINE_VERSION} from '../src/rules.ts';
 import {sha256} from '../src/hash.ts';
 const LIMIT=64*1024*1024;
 export interface Archive {id:string;text:string;mode?:'unverified';}
-export interface ArchiveView {engine:string;beta:string;data:Workspace|OldWorkspace|PriorWorkspace|Beta51Workspace;}
+export interface ArchiveView {engine:string;beta:string;data:Workspace|OldWorkspace|PriorWorkspace|Beta51Workspace|Doca60Workspace;}
 /** A separate decoder validates the frozen old catalog. No old match is advanced here. */
 export function readArchive(a:Archive):ArchiveView {
  if(!a||typeof a.text!=='string'||new TextEncoder().encode(a.text).length>LIMIT||a.id!==sha256(a.text))throw new Error('Arquivo de consulta inválido.');
  if(a.mode==='unverified')return {engine:'não validado',beta:'arquivo preservado',data:freshWorkspace()};
  if(a.mode!==undefined)throw new Error('Modo de acervo inválido.');
- const e=JSON.parse(a.text);if(e?.data?.archives!==undefined&&!['0.5.0','0.5.1'].includes(e.engine))throw new Error('Acervos não podem ser aninhados.');
+ const e=JSON.parse(a.text);if(e?.data?.archives!==undefined&&!['0.5.0','0.5.1','0.6.0'].includes(e.engine))throw new Error('Acervos não podem ser aninhados.');
  if(e.format==='esports-manager-history'){
   if(e.engine==='0.4.1')return {engine:e.engine,beta:'histórico 1.x / desenvolvimento anterior',data:{...oldFresh(),history:oldHistory(a.text)}};
   if(e.engine==='0.5.0')return {engine:e.engine,beta:'histórico reworks anteriores',data:{...freshPrior(),history:readPriorHistory(a.text)}};
   if(e.engine==='0.5.1')return {engine:e.engine,beta:'2.0 · mapa e regras anteriores',data:{...freshBeta51(),history:historyBeta51(a.text)}};
+  if(e.engine==='0.6.0')return {engine:e.engine,beta:'Doca V2 · lados a cada 12 rodadas',data:{...freshDoca60(),history:historyDoca60(a.text)}};
   if(e.engine===ENGINE_VERSION)return {engine:e.engine,beta:'histórico 2.0',data:{...freshWorkspace(),history:readHistory(a.text)}};
  }
  if(e.format!=='esports-manager-beta')throw new Error('Tipo de arquivo de consulta desconhecido.');
  if(e.engine==='0.5.0')return {engine:e.engine,beta:e.beta??'reworks anteriores',data:decodePrior(a.text)};
  if(e.engine==='0.5.1')return {engine:e.engine,beta:e.beta??'2.0 anterior à Doca V2',data:decodeBeta51(a.text)};
+ if(e.engine==='0.6.0')return {engine:e.engine,beta:e.beta??'Doca V2 anterior',data:decodeDoca60(a.text)};
  if(e.engine==='0.4.1')return {engine:e.engine,beta:e.beta??'legado',data:decodeOld(a.text)};
  if(e.engine==='0.3.0')return {engine:e.engine,beta:'1.0',data:importOld(a.text).data};
  if(e.engine===ENGINE_VERSION)return {engine:e.engine,beta:e.beta,data:decodeSave(a.text)};
@@ -72,4 +77,4 @@ export function legacyWorkspace(text:string):Workspace {
 }
 
 /** Flatten prior acervo entries for direct access, retaining the original whole-file bytes too. */
-export function archivesFromText(text:string):Archive[]{const a=archiveFromText(text),view=readArchive(a);return [...new Map([...(['0.5.0','0.5.1'].includes(view.engine)?(view.data as PriorWorkspace|Beta51Workspace).archives??[]:[]),a].map(x=>[x.id,x])).values()];}
+export function archivesFromText(text:string):Archive[]{const a=archiveFromText(text),view=readArchive(a);return [...new Map([...(['0.5.0','0.5.1','0.6.0'].includes(view.engine)?(view.data as PriorWorkspace|Beta51Workspace|Doca60Workspace).archives??[]:[]),a].map(x=>[x.id,x])).values()];}

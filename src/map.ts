@@ -12,9 +12,10 @@ export function createMap(A:Account[],B:Account[],initialAttack:Team='A',overtim
   return {teams:{A:A.map(reset),B:B.map(reset)},score:{A:0,B:0},rounds:0,loss:{A:0,B:0},initialAttack,phase:'buy',winner:null,...(overtimePairLimit===undefined?{}:{overtimePairLimit})};
 }
 export function attackingTeam(s:MapState):Team {
-  const swap=s.rounds>=24 ? (s.rounds-24)%2===1 : s.rounds>=12;
+  const swap=s.rounds>=24 ? (s.rounds-24)%2===1 : Math.floor(s.rounds/6)%2===1;
   return swap?(s.initialAttack==='A'?'B':'A'):s.initialAttack;
 }
+export const isRegulationSideSwitch=(rounds:number)=>rounds>0&&rounds<24&&rounds%6===0;
 export function beginRound(input:MapState,A:BuyPlan,B:BuyPlan,options:{precision?:Partial<Record<Team,string[]>>}={}) {
   if(input.phase!=='buy')throw new Error('Invalid map phase');
   const s=structuredClone(input);

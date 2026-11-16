@@ -1,6 +1,6 @@
 # Candidata Doca V2 — Como preservar e importar seu progresso
 
-Este documento descreve a candidata de desenvolvimento com motor 0.6.0, ainda não publicada. A versão publicada pode ter comportamento diferente.
+Este documento descreve a candidata de desenvolvimento com motor 0.6.1, ainda não publicada. A versão publicada pode ter comportamento diferente.
 
 ## Antes de atualizar
 
@@ -14,8 +14,9 @@ Este documento descreve a candidata de desenvolvimento com motor 0.6.0, ainda n�
 | --- | --- |
 | Beta 1.0 / motor 0.3.0 | Preservado no Acervo para consulta e exportação; partida antiga não continua nas regras novas |
 | Beta 1.1 a 1.3 / motor 0.4.1 | Save validado e preservado no Acervo; sem transferência de XP, caixa, contratos ou resultados para a carreira atual |
-| Desenvolvimento anterior / motor 0.5.0 | Campanha e acervo anterior preservados para consulta; sem continuação ativa sob 0.6.0 |
+| Desenvolvimento anterior / motor 0.5.0 | Campanha e acervo anterior preservados para consulta; sem continuação ativa sob 0.6.1 |
 | Desenvolvimento 0.5.1, incluindo RC1 e Beta 2.0/schema 6 | Preservado no Acervo para consulta e exportação, sem continuar partida ou circuito no motor novo |
+| Doca V2 anterior / motor 0.6.0 | Preservado no Acervo com os resultados e a regra de lados da época; partidas e circuitos em andamento não continuam automaticamente no motor novo |
 | Histórico JSON do motor atual | Importa partidas concluídas sem substituir a campanha ou o treino atual; limite de 20 registros e deduplicação por partida |
 | Arquivo incompatível, incompleto ou alterado | Importação recusada. Guarde o original; não há conversão genérica ou correção automática de arquivos |
 
@@ -39,4 +40,4 @@ O Acervo permite consultar e exportar o arquivo original. Ele não avança parti
 - O limite é de 64 MB para o save completo, incluindo o Acervo. Para liberar espaço, exporte e remova somente os registros escolhidos; não há exclusão automática de backups arquivados.
 - O resgate automático do banco muito antigo do Beta 1.0 depende do suporte do navegador. Caso não apareça, importe o backup JSON que você guardou.
 
-Versão do produto e versão do save têm funções distintas: motor, regras e hash mecânico determinam se uma campanha pode continuar. Mesmo com schema 6, 0.5.1 e 0.6.0 são mecânicas diferentes. As sementes e os resultados antigos não são recalculados.
+Versão do produto e versão do save têm funções distintas: motor, regras e hash mecânico determinam se uma campanha pode continuar. Mesmo com schema 6, 0.6.0 e 0.6.1 são mecânicas diferentes: a nova regra troca os lados após seis rodadas. As sementes e os resultados antigos não são recalculados.

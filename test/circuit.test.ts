@@ -65,7 +65,7 @@ test('complete circuit closes 28 games, expenses and one prize; export/import is
 });
 test('campaign with individual training keeps opponents fixed and records complete results',()=>{const w=campaign(993,'individual');assert.equal(w.career!.circuit!.closed,true);assert.equal(w.career!.days.filter(d=>d.status==='trained').length,28);});
 test('new circuit saves identify schema 6 and explicit mechanics',()=>{
- const save=JSON.parse(encodeSave(start()));assert.equal(save.schema,6);assert.equal(save.mechanics.engine,'0.6.0');assert.equal(decodeSave(JSON.stringify(save)).career!.version,2);
+ const save=JSON.parse(encodeSave(start()));assert.equal(save.schema,6);assert.equal(save.mechanics.engine,'0.6.1');assert.equal(decodeSave(JSON.stringify(save)).career!.version,2);
 });
 test('a full 20-match common history does not block or erase competitive results',()=>{
  const prior=ownGame(advanceCareer(start(),'event')).session!;const w=startCircuitCareer({...base(),history:Array.from({length:20},(_,i)=>({...structuredClone(prior),id:`previous:${i}`}))},'full-history',21);

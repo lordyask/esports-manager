@@ -60,7 +60,7 @@ export function reviewRound(s:Session,r:RoundRecord){
   facts.push(`${e.kind==='planted'?'Plant':'Desarme'} aos ${actionSeconds(e.at)} s de ação; situação após os eventos desse instante: ${count('A')} × ${count('B')}.`);
  }
  if(attacking==='A'&&!r.result.events.some(e=>e.kind==='planted'))facts.push('Sua equipe não concluiu o plant nesta rodada.');
- if(index===12)facts.push('Primeira rodada após a troca de lados: economia e equipamento reiniciados.');
+ if(index===12)facts.push('Rodada 13: economia e equipamento reiniciados.');
  const total=(t:'A'|'B')=>r.purchases[t].reduce((n,p)=>n+p.cost,0);
  facts.push(`Gasto confirmado: sua equipe ${total('A').toLocaleString('pt-BR')} cr.; adversário ${total('B').toLocaleString('pt-BR')} cr.`);
  const ours=r.command.plans.A;

@@ -160,7 +160,7 @@ test('round rejects friendly damage and invalid entities',()=>{
 test('checkpoint identifies engine, rules and content and preserves confirmed result',()=>{
   const r=runRound([actor('a','A'),actor('b','B')],'A',[]);
   const json=serializeCheckpoint(r,randomStreams(99).combat.state,[],'sha256:fixture');
-  const state=JSON.parse(json);assert.deepEqual(state.state,r);assert.equal(state.rulesVersion,'nexus-2.0-doca-v2-r1');
+  const state=JSON.parse(json);assert.deepEqual(state.state,r);assert.equal(state.rulesVersion,'nexus-2.0-doca-v2-r2');
 });
 test('duplicate command executes exactly once',async()=>{
   const repo=new MemoryCommands();repo.create('career','owner',{cash:100});let calls=0;
