@@ -1,6 +1,6 @@
 # NEXUS — Beta 2.0
 
-NEXUS é um jogo de gerenciamento de equipe de FPS tático, com simulação de partidas, treinamento e circuito competitivo. Esta branch contém uma **candidata de desenvolvimento**, identificada como `2.0.0-doca-v2.dev.3`, com motor **0.6.1**, regras `nexus-2.0-doca-v2-r2` e saves de **schema 6**. Ela ainda não foi publicada.
+NEXUS é um jogo de gerenciamento de equipe de FPS tático, com simulação de partidas, treinamento e circuito competitivo. Esta branch contém uma **candidata de desenvolvimento**, identificada como `2.0.0-doca-v2.dev.4`, com motor **0.6.1**, regras `nexus-2.0-doca-v2-r2` e saves de **schema 6**. Ela ainda não foi publicada.
 
 [Jogo publicado (versão anterior)](https://lordyask.github.io/esports-manager/) · [Doca V2 e validação](docs/DOCA_V2_VALIDACAO.md) · [Ocupação defensiva](docs/OCUPACAO_DEFENSIVA.md) · [Backup e saves antigos](docs/BETA_2_0_SAVES.md) · [Histórico](CHANGELOG.md)
 

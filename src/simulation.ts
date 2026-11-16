@@ -49,6 +49,7 @@ export class TacticalRound {
     mapEdges(options.map);integer(options.seed,1,0xffffffff,'seed');
     if(!['A','B'].includes(options.attacking))throw new Error('Invalid attack team');
     if(options.tacticalPolicy!==undefined&&!['doca-v2-tactical-r4','doca-v2-tactical-r5'].includes(options.tacticalPolicy))throw new Error('Invalid tactical policy');
+    if(options.movementPolicy!==undefined&&!['legacy-r1','require-ready-r2'].includes(options.movementPolicy))throw new Error('Invalid movement policy');
     for(const t of ['A','B'] as const){
       const group=profiles.filter(p=>p.team===t);
       if(group.length!==5||new Set(group.map(p=>p.agent)).size!==5)throw new Error('Five unique agents per team required');
@@ -310,6 +311,7 @@ export class TacticalRound {
   }
   issue(id:string,d:Decision):boolean{
     if(this.result)return false;const u=this.get(id);if(!u)return false;
+    if(d.kind==='move'&&this.options.map==='doca-v2'&&(this.options.movementPolicy??'require-ready-r2')==='require-ready-r2'&&this.now<u.readyAt)return false;
     if(this.options.map==='doca-v2'&&this.now<PREPARATION_MS){
       if(d.kind==='wait')return true;
       const base=u.team===this.options.attacking?ATTACK_BASE:DEFENSE_BASE;

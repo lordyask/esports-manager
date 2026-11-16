@@ -1,5 +1,10 @@
 # Histórico de alterações — Esports Manager
 
+## 16/11/2026 — Prontidão dos comandos de movimento
+
+- Na Doca V2, comandos diretos ou agendados não iniciam movimento antes de `readyAt`; espera e demais ações mantêm suas validações.
+- A revisão mecânica distingue a correção. Partidas 0.6.1 já iniciadas mantêm a regra anterior até o fim; carreiras e históricos continuam disponíveis.
+
 ## 16/11/2026 — Ocupação defensiva pré-plantio
 
 - A política r5 mantém o defensor no ponto atribuído quando a cobertura não permite observar suas entradas. A distribuição e o pós-plantio foram preservados.

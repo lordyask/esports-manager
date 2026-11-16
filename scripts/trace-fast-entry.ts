@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {mkdirSync,writeFileSync} from 'node:fs';
 import {AGENTS} from '../src/abilities.ts';
 import {decide} from '../src/ai.ts';
-import {MECHANICS} from '../src/content.ts';
+import {PREVIOUS_MOVEMENT_MECHANICS as MECHANICS} from '../src/content.ts';
 import {docaCanFire,docaSight} from '../src/doca-v2.ts';
 import type {DocaPosition} from '../src/doca-v2.ts';
 import {Random} from '../src/random.ts';
@@ -16,7 +16,7 @@ function setup(){
  const ps:Profile[]=profiles().map((p,n)=>({...p,agent:AGENTS[n%5],weapon:'main',shield:50,charges:[false,false,false],ult:0}));
  const assignments=Object.fromEntries(ps.filter(p=>p.team==='B').map((p,i)=>[p.id,(['A','B','A','B','mid'] as const)[i]]));
  const attack:TeamPlan={attack:'fast',defense:'balanced',site:'A'},defense:TeamPlan={attack:'fast',defense:'balanced',site:'A',defenseAssignments:assignments};
- return {sim:new TacticalRound(ps,{map:'doca-v2',attacking:'A',seed:7,plans:{A:attack,B:defense}}),assignments};
+ return {sim:new TacticalRound(ps,{map:'doca-v2',attacking:'A',seed:7,plans:{A:attack,B:defense},movementPolicy:'legacy-r1'}),assignments};
 }
 const {sim,assignments}=setup(),snapshots=[];
 for(const at of [13000,13250,13500,14250,14500,15000,16250]){

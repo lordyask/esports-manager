@@ -52,7 +52,7 @@ NEXUS_DEFENSE_OUTPUT=/tmp/nexus-r5-extra.json node scripts/validate-defensive-oc
 
 ## Compatibilidade e pendências
 
-Saves e históricos 0.6.1 das duas políticas continuam aceitos. Uma partida 0.6.1 em andamento mantém a r4 até terminar, inclusive após salvar e recarregar, para preservar sua reprodução por semente. A próxima partida, do usuário ou entre NPCs, começa na r5. Carreira, treinos, caixa, resultados e histórico não são reiniciados ou recalculados. Saves de versões anteriores mantêm o tratamento já existente de consulta e exportação; recomenda-se guardar o JSON original antes de experimentar a candidata.
+Saves e históricos 0.6.1 das revisões anteriores continuam aceitos. Uma partida 0.6.1 em andamento mantém suas políticas tática e de movimento até terminar, inclusive após salvar e recarregar, para preservar sua reprodução por semente. A próxima partida, do usuário ou entre NPCs, usa a tática r5 e a validação nova de prontidão do movimento. Carreira, treinos, caixa, resultados e histórico não são reiniciados ou recalculados. Saves de versões anteriores mantêm o tratamento já existente de consulta e exportação; recomenda-se guardar o JSON original antes de experimentar a candidata.
 
 A capacidade do modelo de representar coberturas e ângulos distintos continua pendente de avaliação. Qualquer mudança em travessia, recuperação, mapa, habilidades, dano, economia ou retomada exige outro pacote e evidência própria.
 

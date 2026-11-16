@@ -1,7 +1,7 @@
 import {BETA_VERSION} from './release.ts';
 import {archiveFromText,archivesFromText,validateArchives} from './archive.ts';
 import type {Archive} from './archive.ts';
-import {MECHANICS,mechanicsMatch,tacticalPolicyFor} from '../src/content.ts';
+import {MECHANICS,mechanicsMatch,movementPolicyFor,tacticalPolicyFor} from '../src/content.ts';
 import {validateCareer} from './career-state.ts';
 import type {Career} from './career-state.ts';
 import {MAP_CATALOG,isActiveMapId} from '../src/maps.ts';
@@ -95,7 +95,7 @@ export function advanceSession(input:Session,command:RoundCommand):Session {
  const ready=previewRound(input,command.buys);
  const ps=input.profiles.map(p=>{const a=ready.state.teams[p.team].find(a=>a.id===p.id)!;return {...p,weapon:a.weapon,shield:a.shield,charges:a.charges,ult:a.ult};});
  const seed=roundSeed(input.id,input.seed,input.state.rounds);
- const result=simulateRound(ps,{map:input.map,attacking:ready.attacking,seed,plans:command.plans,tacticalPolicy:tacticalPolicyFor(input.mechanics)});
+ const result=simulateRound(ps,{map:input.map,attacking:ready.attacking,seed,plans:command.plans,tacticalPolicy:tacticalPolicyFor(input.mechanics),movementPolicy:movementPolicyFor(input.mechanics)});
  return {...input,state:completeRound(ready.state,result,result.kills),records:[...input.records,{command:structuredClone(command),seed,result,purchases:ready.purchases,equipment:snapshotEquipment(ps)}]};
 }
 export function validateSession(s:Session){
