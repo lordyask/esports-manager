@@ -1,3 +1,4 @@
+import './doca-v2.css';
 import type {Metadata,Viewport} from 'next';
 import {APP_TITLE} from '../lib/release';
 import localFont from 'next/font/local';

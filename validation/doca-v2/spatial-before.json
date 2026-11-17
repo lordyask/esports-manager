@@ -1,0 +1,121 @@
+{
+  "scope": "8 hashed synthetic seeds, reused across all 16 strategy pairs, both attacking identities and both sites. Results within a seed are correlated; sample is diagnostic, not global balance.",
+  "mapRevision": "doca-v2-central-1",
+  "seeds": [
+    418900933,
+    4235959269,
+    580004398,
+    909680313,
+    3694964897,
+    1965149715,
+    3149528803,
+    1376324360
+  ],
+  "rounds": 512,
+  "attackingWins": 465,
+  "teamAWins": 259,
+  "plants": 399,
+  "defuses": 6,
+  "firstContactBeforeAction": 0,
+  "firstContactMinMs": 13500,
+  "firstContactMaxMs": 22000,
+  "abilityUses": 10273,
+  "cells": {
+    "fast/aggressive": {
+      "rounds": 32,
+      "attackingWins": 23,
+      "plants": 25,
+      "defuses": 2
+    },
+    "fast/balanced": {
+      "rounds": 32,
+      "attackingWins": 31,
+      "plants": 32,
+      "defuses": 1
+    },
+    "fast/reading": {
+      "rounds": 32,
+      "attackingWins": 31,
+      "plants": 32,
+      "defuses": 1
+    },
+    "fast/retake": {
+      "rounds": 32,
+      "attackingWins": 32,
+      "plants": 32,
+      "defuses": 0
+    },
+    "control/aggressive": {
+      "rounds": 32,
+      "attackingWins": 28,
+      "plants": 27,
+      "defuses": 2
+    },
+    "control/balanced": {
+      "rounds": 32,
+      "attackingWins": 32,
+      "plants": 32,
+      "defuses": 0
+    },
+    "control/reading": {
+      "rounds": 32,
+      "attackingWins": 32,
+      "plants": 32,
+      "defuses": 0
+    },
+    "control/retake": {
+      "rounds": 32,
+      "attackingWins": 32,
+      "plants": 32,
+      "defuses": 0
+    },
+    "split/aggressive": {
+      "rounds": 32,
+      "attackingWins": 32,
+      "plants": 32,
+      "defuses": 0
+    },
+    "split/balanced": {
+      "rounds": 32,
+      "attackingWins": 32,
+      "plants": 32,
+      "defuses": 0
+    },
+    "split/reading": {
+      "rounds": 32,
+      "attackingWins": 32,
+      "plants": 32,
+      "defuses": 0
+    },
+    "split/retake": {
+      "rounds": 32,
+      "attackingWins": 32,
+      "plants": 32,
+      "defuses": 0
+    },
+    "feint/aggressive": {
+      "rounds": 32,
+      "attackingWins": 20,
+      "plants": 13,
+      "defuses": 0
+    },
+    "feint/balanced": {
+      "rounds": 32,
+      "attackingWins": 22,
+      "plants": 1,
+      "defuses": 0
+    },
+    "feint/reading": {
+      "rounds": 32,
+      "attackingWins": 22,
+      "plants": 1,
+      "defuses": 0
+    },
+    "feint/retake": {
+      "rounds": 32,
+      "attackingWins": 32,
+      "plants": 12,
+      "defuses": 0
+    }
+  }
+}

@@ -52,8 +52,9 @@ for(const [map,legacy,times] of [['doca','patio',[12,12,8,6,6,7,7,9]],['cume','e
   const ps=profiles(),opts={map,seed:891,attacking:'B' as const,plans};const a=simulateRound(ps,opts);
   assert.deepEqual(a,simulateRound(ps,opts));assert.deepEqual(a,simulateRound([...ps].reverse(),opts));assert.deepEqual(a,simulateRound(ps,{...opts,map:legacy}));
  });
- test(`${map}: manual steps, automatic loop, reload checkpoints and history are identical`,async()=>{
-  const d=suggestAssignments({...defaultDraft(),map,selected:['J12','J09','J02','J05','J24']});let a=createSession(d,map),b=createSession(d,map);
+ test(`${map}: old map cannot start; Doca V2 checkpoints and history round-trip`,async()=>{
+  assert.throws(()=>createSession(suggestAssignments({...defaultDraft(),map,selected:['J12','J09','J02','J05','J24']}),map),/Cenário/);
+  const d=suggestAssignments({...defaultDraft(),map:'doca-v2',selected:['J12','J09','J02','J05','J24']});let a=createSession(d,map),b=createSession(d,map);
   const development=newDevelopment();development.used=true;development.matchId=map;
   while(a.state.phase!=='finished'){
    const c={id:`r${a.state.rounds}`,revision:a.state.rounds,plans,buys:automaticBuys(a)};
@@ -65,7 +66,7 @@ for(const [map,legacy,times] of [['doca','patio',[12,12,8,6,6,7,7,9]],['cume','e
  });
 }
 test('legacy map IDs and exports stay readable, new maps use development label, unknown IDs fail',()=>{
- for(const map of ['patio','horizonte','enlace','doca','cume'] as const){const w={draft:{...defaultDraft(),map},session:null,development:newDevelopment()};assert.deepEqual(decodeSave(encodeSave(w)),w);assert.equal(JSON.parse(encodeSave(w)).beta,BETA_VERSION);}
+ for(const map of ['patio','horizonte','enlace','doca','cume'] as const){const w={draft:{...defaultDraft(),map},session:null,development:newDevelopment()};assert.throws(()=>decodeSave(encodeSave(w)),/Configuração salva inválida/);}const current={draft:defaultDraft(),session:null,development:newDevelopment()};assert.deepEqual(decodeSave(encodeSave(current)),current);assert.equal(JSON.parse(encodeSave(current)).beta,BETA_VERSION);
  for(const id of ['constructor','__proto__','missing',null]){assert.equal(isMapId(id),false);assert.throws(()=>mapEdges(id as any));}
  assert.ok(MAP_CATALOG.doca.image);assert.ok(eventText({kind:'arrived',at:1,actor:'a',sector:'A'},{a:'Teste'},'cume')?.includes('Observatório'));
 });

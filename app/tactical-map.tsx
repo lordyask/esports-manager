@@ -1,4 +1,5 @@
 'use client';
+import {DocaV2Map} from './doca-v2-map';
 import {useState} from 'react';
 import type {CSSProperties} from 'react';
 import type {MapId,Sector} from '../src/rules';
@@ -6,13 +7,14 @@ import {mapEdges} from '../src/rules';
 import {MAP_CATALOG} from '../src/maps';
 import type {RoundRecord,Session} from '../lib/game';
 
-const regions:Record<Sector,[number,number,number,number]>={
+const regions:Partial<Record<Sector,[number,number,number,number]>>={
  defense:[32,17,35,13],attack:[32,74,35,12],A:[9,39,23,25],mid:[36,40,28,25],B:[68,39,22,25],
 };
 const order:Sector[]=['defense','A','mid','B','attack'];
 /** Slots group actors by their recorded sector; never infer physical coordinates from artwork. */
 export function TacticalMap({map,session,record}:{map:MapId;session?:Session;record?:RoundRecord}){
  const [selected,setSelected]=useState<Sector>('mid');
+ if(map==='doca-v2')return <DocaV2Map session={session} record={record}/>;
  const definition=MAP_CATALOG[map];if(!definition.image)return null;
  const actors=record?.result.actors??[];
  const label=(sector:Sector)=>`${sector==='A'||sector==='B'?sector+' · ':''}${definition.sectors[sector]}`;
@@ -22,7 +24,7 @@ export function TacticalMap({map,session,record}:{map:MapId;session?:Session;rec
   <div className="panel-title"><h3>{definition.name} · visão por setores</h3><span className="pill">{record?`FIM DA RODADA ${record.command.revision+1}`:'PRÉVIA DO MAPA'}</span></div>
   <div className="map-art">
    <img src={`${process.env.NEXT_PUBLIC_BASE_PATH??''}${definition.image}`} width="1672" height="941" alt={`Mapa ${definition.name}: Base Norte, ponto A, meio, ponto B e Base Sul.`}/>
-   {order.map(sector=>{const [x,y,w,h]=regions[sector];return <button type="button" key={sector} aria-label={`Setor ${label(sector)}`} aria-pressed={selected===sector} onClick={()=>setSelected(sector)} className={`map-region ${selected===sector?'active':''}`} style={{left:`${x}%`,top:`${y}%`,width:`${w}%`,height:`${h}%`} as CSSProperties}>
+   {order.map(sector=>{const [x,y,w,h]=regions[sector]!;return <button type="button" key={sector} aria-label={`Setor ${label(sector)}`} aria-pressed={selected===sector} onClick={()=>setSelected(sector)} className={`map-region ${selected===sector?'active':''}`} style={{left:`${x}%`,top:`${y}%`,width:`${w}%`,height:`${h}%`} as CSSProperties}>
     <span className="map-region-label">{sector==='attack'?'SUL':sector==='defense'?'NORTE':sector.toUpperCase()}</span>
     <span className="map-markers">{actors.filter(a=>a.sector===sector).map(a=><span key={a.id} title={`${session?.names[a.id]} · ${a.vital.life>0?'vivo':'eliminado'}`} className={`map-marker team-${a.team} ${a.vital.life<=0?'eliminated':''}`}>{number(a.id)}{a.vital.life<=0?'×':''}</span>)}</span>
    </button>;})}

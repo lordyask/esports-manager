@@ -19,9 +19,9 @@ test('13 regulation wins end map and invalid phases reject repeated settlement',
   assert.equal(s.winner,'A');assert.equal(s.phase,'finished');assert.throws(()=>beginRound(s,'eco','eco'));
   assert.throws(()=>completeRound(s,result(s,'A')));
 });
-test('side switch occurs after 12 rounds and preserves ultimate points',()=>{
+test('economic reset after 12 rounds preserves ultimate points',()=>{
   let s=createMap(team('a'),team('b'));for(let i=0;i<12;i++)s=next(s,i%2?'A':'B');
-  assert.equal(attackingTeam(s),'B');s.teams.A[0].ult=7;
+  assert.equal(attackingTeam(s),'A');s.teams.A[0].ult=7;
   const ready=beginRound(s,'eco','eco').state;assert.equal(ready.teams.A[0].ult,7);
   // Eco buys from the reset opening budget, not accumulated first-half money.
   assert.ok(ready.teams.A[0].credits<=1000);assert.equal(s.teams.A[0].ult,7);

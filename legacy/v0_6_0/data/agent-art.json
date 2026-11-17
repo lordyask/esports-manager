@@ -1,0 +1,146 @@
+{
+  "Estalo": {
+    "classLabel": "Duelista",
+    "keyart": {
+      "src": "/agents/estalo-keyart.webp",
+      "width": 1122,
+      "height": 1402
+    },
+    "preview": {
+      "src": "/agents/estalo-preview.webp",
+      "width": 480,
+      "height": 600
+    },
+    "card": {
+      "src": "/agents/estalo-card.webp",
+      "width": 1122,
+      "height": 1402
+    }
+  },
+  "Ímpeto": {
+    "classLabel": "Duelista",
+    "keyart": {
+      "src": "/agents/impeto-keyart.webp",
+      "width": 1122,
+      "height": 1402
+    },
+    "preview": {
+      "src": "/agents/impeto-preview.webp",
+      "width": 480,
+      "height": 600
+    },
+    "card": {
+      "src": "/agents/impeto-card.webp",
+      "width": 1122,
+      "height": 1402
+    }
+  },
+  "Farol": {
+    "classLabel": "Iniciadora",
+    "keyart": {
+      "src": "/agents/farol-keyart.webp",
+      "width": 1122,
+      "height": 1402
+    },
+    "preview": {
+      "src": "/agents/farol-preview.webp",
+      "width": 480,
+      "height": 600
+    },
+    "card": {
+      "src": "/agents/farol-card.webp",
+      "width": 1122,
+      "height": 1402
+    }
+  },
+  "Pulso": {
+    "classLabel": "Iniciador",
+    "keyart": {
+      "src": "/agents/pulso-keyart.webp",
+      "width": 1190,
+      "height": 1322
+    },
+    "preview": {
+      "src": "/agents/pulso-preview.webp",
+      "width": 480,
+      "height": 533
+    },
+    "card": {
+      "src": "/agents/pulso-card.webp",
+      "width": 1122,
+      "height": 1402
+    }
+  },
+  "Bruma": {
+    "classLabel": "Controladora",
+    "keyart": {
+      "src": "/agents/bruma-keyart.webp",
+      "width": 1024,
+      "height": 1536
+    },
+    "preview": {
+      "src": "/agents/bruma-preview.webp",
+      "width": 427,
+      "height": 640
+    },
+    "card": {
+      "src": "/agents/bruma-card.webp",
+      "width": 1672,
+      "height": 941
+    }
+  },
+  "Prisma": {
+    "classLabel": "Controladora",
+    "keyart": {
+      "src": "/agents/prisma-keyart.webp",
+      "width": 1122,
+      "height": 1402
+    },
+    "preview": {
+      "src": "/agents/prisma-preview.webp",
+      "width": 480,
+      "height": 600
+    },
+    "card": {
+      "src": "/agents/prisma-card.webp",
+      "width": 1122,
+      "height": 1402
+    }
+  },
+  "Trava": {
+    "classLabel": "Sentinela",
+    "keyart": {
+      "src": "/agents/trava-keyart.webp",
+      "width": 1200,
+      "height": 1500
+    },
+    "preview": {
+      "src": "/agents/trava-preview.webp",
+      "width": 480,
+      "height": 600
+    },
+    "card": {
+      "src": "/agents/trava-card.webp",
+      "width": 1086,
+      "height": 1448
+    }
+  },
+  "Bastião": {
+    "classLabel": "Sentinela",
+    "keyart": {
+      "src": "/agents/bastiao-keyart.webp",
+      "width": 1200,
+      "height": 1500
+    },
+    "preview": {
+      "src": "/agents/bastiao-preview.webp",
+      "width": 480,
+      "height": 600
+    },
+    "card": {
+      "src": "/agents/bastiao-card.webp",
+      "width": 1122,
+      "height": 1402
+    }
+  }
+}

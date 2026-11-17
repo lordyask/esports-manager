@@ -1,4 +1,6 @@
-# Beta 2.0 — Como preservar e importar seu progresso
+# Candidata Doca V2 — Como preservar e importar seu progresso
+
+Este documento descreve a candidata de desenvolvimento com motor 0.6.1, ainda não publicada. A versão publicada pode ter comportamento diferente.
 
 ## Antes de atualizar
 
@@ -8,16 +10,18 @@
 
 ## O que acontece com cada arquivo
 
-| Arquivo | Comportamento no Beta 2.0 |
+| Arquivo | Comportamento na candidata Doca V2 |
 | --- | --- |
 | Beta 1.0 / motor 0.3.0 | Preservado no Acervo para consulta e exportação; partida antiga não continua nas regras novas |
 | Beta 1.1 a 1.3 / motor 0.4.1 | Save validado e preservado no Acervo; sem transferência de XP, caixa, contratos ou resultados para a carreira atual |
-| Desenvolvimento anterior / motor 0.5.0 | Campanha e acervo anterior preservados para consulta; sem continuação ativa sob 0.5.1 |
-| Desenvolvimento 0.5.1, incluindo RC1, schema 6 e mesma revisão mecânica | Progresso compatível: mantém campanha, rodada, XP e resultados. Exportações novas recebem o identificador `2.0.0` |
+| Desenvolvimento anterior / motor 0.5.0 | Campanha e acervo anterior preservados para consulta; sem continuação ativa sob 0.6.1 |
+| Desenvolvimento 0.5.1, incluindo RC1 e Beta 2.0/schema 6 | Preservado no Acervo para consulta e exportação, sem continuar partida ou circuito no motor novo |
+| Doca V2 anterior / motor 0.6.0 | Preservado no Acervo com os resultados e a regra de lados da época; partidas e circuitos em andamento não continuam automaticamente no motor novo |
+| Doca V2 / motor 0.6.1, revisões táticas r4/r5 e de movimento | Carreira, resultados e histórico continuam ativos. Uma partida em andamento mantém sua revisão tática e a regra de movimento originais até terminar; partidas novas usam r5 e a validação de prontidão do movimento |
 | Histórico JSON do motor atual | Importa partidas concluídas sem substituir a campanha ou o treino atual; limite de 20 registros e deduplicação por partida |
 | Arquivo incompatível, incompleto ou alterado | Importação recusada. Guarde o original; não há conversão genérica ou correção automática de arquivos |
 
-Na leitura automática do salvamento local antigo, configurações da organização podem ser aproveitadas; o progresso conquistado permanece exclusivamente no Acervo. Véu é mapeado para Prisma apenas na configuração nova. O arquivo original conserva os agentes e resultados da época.
+Um salvamento local de motor anterior abre a tela de recuperação sem modificá-lo. Exporte o original; somente depois de confirmar a importação de outro save ou o reinício, o original é copiado para o Acervo, se o limite permitir. Não há transferência automática de elenco, identidade, XP, caixa ou contratos. O original conserva agentes, resultados e estado de partida da época.
 
 ## Importar explicitamente
 
@@ -37,4 +41,4 @@ O Acervo permite consultar e exportar o arquivo original. Ele não avança parti
 - O limite é de 64 MB para o save completo, incluindo o Acervo. Para liberar espaço, exporte e remova somente os registros escolhidos; não há exclusão automática de backups arquivados.
 - O resgate automático do banco muito antigo do Beta 1.0 depende do suporte do navegador. Caso não apareça, importe o backup JSON que você guardou.
 
-Versão do produto e versão do save têm funções distintas: motor, regras e hash mecânico determinam se uma campanha pode continuar. A identificação oficial 2.0.0 não altera o schema nem o balanceamento da candidata RC1.
+Versão do produto e versão do save têm funções distintas: motor, regras e hash mecânico determinam se uma campanha pode continuar. Mesmo com schema 6, 0.6.0 e 0.6.1 são mecânicas diferentes: a nova regra troca os lados após seis rodadas. As sementes e os resultados antigos não são recalculados.

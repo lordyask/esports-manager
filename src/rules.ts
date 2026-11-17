@@ -1,11 +1,13 @@
 import {MAP_CATALOG} from './maps.ts';
-export const ENGINE_VERSION = '0.5.1';
-export const RULES_VERSION = 'nexus-2.0-reworks-r1';
+import {DOCA_V2_AREAS,DOCA_V2_MOVEMENT} from './doca-v2.ts';
+import type {DocaArea} from './doca-v2.ts';
+export const ENGINE_VERSION = '0.6.1';
+export const RULES_VERSION = 'nexus-2.0-doca-v2-r2';
 export type Weapon = 'basic' | 'intermediate' | 'main' | 'precision';
 export type Range = 'short' | 'medium' | 'long';
 export type Team = 'A' | 'B';
-export type Sector = 'attack' | 'defense' | 'A' | 'B' | 'mid';
-export type MapId = 'patio' | 'horizonte' | 'enlace' | 'doca' | 'cume';
+export type Sector = 'attack' | 'defense' | 'A' | 'B' | 'mid' | DocaArea;
+export type MapId = 'patio' | 'horizonte' | 'enlace' | 'doca' | 'cume' | 'doca-v2';
 export type Attributes = [number, number, number, number, number, number, number, number];
 export const WEAPONS: Record<Weapon, {price: number; damage: number; cadence: number}> = {
   basic: {price: 0, damage: 30, cadence: 500},
@@ -27,10 +29,14 @@ export function finite(x: number, lo: number, hi: number, label: string): number
 }
 export const MONEY_CAP = 12000;
 export const ROUND_MS = 100000;
+export const PREPARATION_MS = 5000;
 export const PLANT_MS = 4000;
 export const DETONATION_MS = 40000;
 export const DEFUSE_MS = 7000;
+const docaEdges:[Sector,Sector,number][]=DOCA_V2_MOVEMENT.map(([a,b,ms])=>[a,b,ms]);
+const docaPaths=new Map<string,{path:Sector[];ms:number}|null>();
 export function mapEdges(id: MapId): [Sector, Sector, number][] {
+  if(id==='doca-v2')return docaEdges.slice();
   const t = Object.hasOwn(MAP_CATALOG,id) ? MAP_CATALOG[id].travel : undefined;
   if (!t) throw new Error('Invalid map');
   return [ ['attack','A',t[0]*1000], ['attack','B',t[0]*1000], ['attack','mid',t[1]*1000],
@@ -40,16 +46,18 @@ export function mapEdges(id: MapId): [Sector, Sector, number][] {
 export const edgeKey = (a: Sector, b: Sector) => [a,b].sort().join(':');
 export const compareIds = (a: string,b: string) => a<b?-1:a>b?1:0;
 export function shortestPath(id: MapId, from: Sector, to: Sector, blocked: string[] = []): {path: Sector[]; ms: number} | null {
-  const sectors: Sector[] = ['attack','defense','A','B','mid'];
+  const sectors: Sector[] = id==='doca-v2'?Object.keys(DOCA_V2_AREAS) as Sector[]:['attack','defense','A','B','mid'];
   if (!sectors.includes(from) || !sectors.includes(to)) throw new Error('Invalid sector');
+  const cacheKey=`${from}|${to}`;
+  if(id==='doca-v2'&&!blocked.length&&docaPaths.has(cacheKey)){const cached=docaPaths.get(cacheKey);return cached?{path:[...cached.path],ms:cached.ms}:null;}
   const distances = new Map<Sector, number>(sectors.map(s => [s, Infinity]));
   const paths = new Map<Sector, Sector[]>([[from,[from]]]);
   const remaining = new Set(sectors); distances.set(from,0);
   while (remaining.size) {
     const current = [...remaining].sort((a,b) => distances.get(a)!-distances.get(b)! || compareIds(a,b))[0];
     remaining.delete(current);
-    if (!Number.isFinite(distances.get(current)!)) return null;
-    if (current === to) return {path: paths.get(to)!, ms: distances.get(to)!};
+    if (!Number.isFinite(distances.get(current)!)) {if(id==='doca-v2'&&!blocked.length)docaPaths.set(cacheKey,null);return null;}
+    if (current === to) {const result={path:paths.get(to)!,ms:distances.get(to)!};if(id==='doca-v2'&&!blocked.length)docaPaths.set(cacheKey,result);return {path:[...result.path],ms:result.ms};}
     for (const [a,b,ms] of mapEdges(id)) {
       const next = a===current ? b : b===current ? a : null;
       if (!next || !remaining.has(next) || blocked.includes(edgeKey(a,b))) continue;

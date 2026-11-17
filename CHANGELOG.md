@@ -1,5 +1,27 @@
 # Histórico de alterações — Esports Manager
 
+## 16/11/2026 — Prontidão dos comandos de movimento
+
+- Na Doca V2, comandos diretos ou agendados não iniciam movimento antes de `readyAt`; espera e demais ações mantêm suas validações.
+- A revisão mecânica distingue a correção. Partidas 0.6.1 já iniciadas mantêm a regra anterior até o fim; carreiras e históricos continuam disponíveis.
+
+## 16/11/2026 — Ocupação defensiva pré-plantio
+
+- A política r5 mantém o defensor no ponto atribuído quando a cobertura não permite observar suas entradas. A distribuição e o pós-plantio foram preservados.
+- Carreiras 0.6.1 e históricos continuam ativos; partidas em andamento mantêm a política r4 até o fim. Diagnóstico e amostras em [ocupação defensiva](docs/OCUPACAO_DEFENSIVA.md).
+
+## 16/11/2026 — Troca de lados a cada seis rodadas
+
+- Motor 0.6.1: lados alternam antes das rodadas 7, 13 e 19; o reset econômico continua somente na rodada 13 e a prorrogação mantém as regras anteriores.
+- Saves e históricos 0.6.0 são preservados para consulta e exportação com o motor da época; partidas antigas não são convertidas automaticamente.
+
+## 15/11/2026 — Doca V2 em desenvolvimento
+
+- Candidata não publicada: motor 0.6.0, mapa Doca V2, preparação de cinco segundos simulados e regras espaciais de movimento, visão e combate.
+- Planos adaptados às rotas, distribuição defensiva configurável e Doca V2 em todas as partidas novas do circuito.
+- Saves anteriores preservados para consulta e exportação, sem continuidade automática no motor novo.
+- Preços e danos anteriores preservados. Amostras, limitações e experimento numérico não adotado em [Doca V2 e validação](docs/DOCA_V2_VALIDACAO.md).
+
 ## 14/11/2026 — NEXUS Beta 2.0
 
 - Identificação do produto `2.0.0`, com motor 0.5.1, revisão mecânica `nexus-2.0-reworks-r1` e save schema 6.

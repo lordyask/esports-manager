@@ -1,0 +1,37 @@
+[
+  {
+    "width": 1280,
+    "status": "passed",
+    "checks": [
+      "preparation controls",
+      "five B assignments saved",
+      "worker round",
+      "actual equipment for ten players",
+      "action begins at 5 s",
+      "keyboard map selection",
+      "no horizontal overflow",
+      "no page errors"
+    ]
+  },
+  {
+    "width": 390,
+    "status": "passed",
+    "checks": [
+      "preparation controls",
+      "five B assignments saved",
+      "worker round",
+      "actual equipment for ten players",
+      "action begins at 5 s",
+      "keyboard map selection",
+      "no horizontal overflow",
+      "no page errors"
+    ]
+  },
+  {
+    "status": "passed",
+    "checks": [
+      "legacy active save unchanged on load",
+      "explicit import preserves exact original in archive"
+    ]
+  }
+]

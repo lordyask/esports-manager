@@ -1,0 +1,1125 @@
+{
+  "scope": "Single previously recorded fast-A scenario, seed 7; 5 seconds preparation included. A0 contact and B0/B2/B4; two copies probe direct commands without altering the observed round. Not a balance sample.",
+  "mechanics": {
+    "engine": "0.6.1",
+    "rules": "nexus-2.0-doca-v2-r2",
+    "contentHash": "f3372a40a11023243d2937492914a551ad259b528b3e83707a4a7dcded371fb6"
+  },
+  "seed": 7,
+  "attacking": "A",
+  "site": "A",
+  "assignments": {
+    "B0": "A",
+    "B1": "B",
+    "B2": "A",
+    "B3": "B",
+    "B4": "mid"
+  },
+  "snapshots": [
+    {
+      "at": 13000,
+      "actors": {
+        "A0": {
+          "sector": "corridor_a",
+          "movement": null,
+          "readyAt": 13250,
+          "ready": false,
+          "busy": false,
+          "action": null,
+          "shotTarget": null,
+          "shotToken": 3,
+          "visible": [
+            "B0",
+            "B2",
+            "B4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        },
+        "B0": {
+          "sector": "gallery_a",
+          "movement": {
+            "from": "gallery_a",
+            "to": "A",
+            "remaining": 500,
+            "initial": 2500
+          },
+          "readyAt": 11000,
+          "ready": true,
+          "busy": true,
+          "action": "move",
+          "shotTarget": "A1",
+          "shotToken": 4,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        },
+        "B2": {
+          "sector": "gallery_a",
+          "movement": {
+            "from": "gallery_a",
+            "to": "A",
+            "remaining": 500,
+            "initial": 2500
+          },
+          "readyAt": 11000,
+          "ready": true,
+          "busy": true,
+          "action": "move",
+          "shotTarget": "A2",
+          "shotToken": 4,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        },
+        "B4": {
+          "sector": "gallery_a",
+          "movement": {
+            "from": "gallery_a",
+            "to": "A",
+            "remaining": 500,
+            "initial": 2500
+          },
+          "readyAt": 11000,
+          "ready": true,
+          "busy": true,
+          "action": "move",
+          "shotTarget": "A3",
+          "shotToken": 4,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        }
+      },
+      "pair": {
+        "sight": {
+          "visible": true,
+          "edges": [
+            "A:gallery_a",
+            "A:corridor_a"
+          ]
+        },
+        "fireLine": true
+      }
+    },
+    {
+      "at": 13250,
+      "actors": {
+        "A0": {
+          "sector": "corridor_a",
+          "movement": {
+            "from": "corridor_a",
+            "to": "A",
+            "remaining": 3500,
+            "initial": 3500
+          },
+          "readyAt": 13250,
+          "ready": true,
+          "busy": true,
+          "action": "move",
+          "shotTarget": "B0",
+          "shotToken": 6,
+          "visible": [
+            "B0",
+            "B2",
+            "B4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        },
+        "B0": {
+          "sector": "gallery_a",
+          "movement": {
+            "from": "gallery_a",
+            "to": "A",
+            "remaining": 250,
+            "initial": 2500
+          },
+          "readyAt": 11000,
+          "ready": true,
+          "busy": true,
+          "action": "move",
+          "shotTarget": "A1",
+          "shotToken": 4,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        },
+        "B2": {
+          "sector": "gallery_a",
+          "movement": {
+            "from": "gallery_a",
+            "to": "A",
+            "remaining": 250,
+            "initial": 2500
+          },
+          "readyAt": 11000,
+          "ready": true,
+          "busy": true,
+          "action": "move",
+          "shotTarget": "A2",
+          "shotToken": 4,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        },
+        "B4": {
+          "sector": "gallery_a",
+          "movement": {
+            "from": "gallery_a",
+            "to": "A",
+            "remaining": 250,
+            "initial": 2500
+          },
+          "readyAt": 11000,
+          "ready": true,
+          "busy": true,
+          "action": "move",
+          "shotTarget": "A3",
+          "shotToken": 4,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        }
+      },
+      "pair": {
+        "sight": {
+          "visible": true,
+          "edges": [
+            "A:corridor_a",
+            "A:gallery_a"
+          ]
+        },
+        "fireLine": true
+      }
+    },
+    {
+      "at": 13500,
+      "actors": {
+        "A0": {
+          "sector": "corridor_a",
+          "movement": {
+            "from": "corridor_a",
+            "to": "A",
+            "remaining": 3250,
+            "initial": 3500
+          },
+          "readyAt": 13250,
+          "ready": true,
+          "busy": true,
+          "action": "move",
+          "shotTarget": "B0",
+          "shotToken": 6,
+          "visible": [
+            "B0",
+            "B2",
+            "B4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        },
+        "B0": {
+          "sector": "A",
+          "movement": null,
+          "readyAt": 14500,
+          "ready": false,
+          "busy": false,
+          "action": null,
+          "shotTarget": null,
+          "shotToken": 5,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        },
+        "B2": {
+          "sector": "A",
+          "movement": null,
+          "readyAt": 14500,
+          "ready": false,
+          "busy": false,
+          "action": null,
+          "shotTarget": null,
+          "shotToken": 5,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        },
+        "B4": {
+          "sector": "A",
+          "movement": null,
+          "readyAt": 14500,
+          "ready": false,
+          "busy": false,
+          "action": null,
+          "shotTarget": null,
+          "shotToken": 5,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        }
+      },
+      "pair": {
+        "sight": {
+          "visible": true,
+          "edges": [
+            "A:corridor_a"
+          ]
+        },
+        "fireLine": true
+      }
+    },
+    {
+      "at": 14250,
+      "actors": {
+        "A0": {
+          "sector": "corridor_a",
+          "movement": {
+            "from": "corridor_a",
+            "to": "A",
+            "remaining": 2500,
+            "initial": 3500
+          },
+          "readyAt": 13250,
+          "ready": true,
+          "busy": true,
+          "action": "move",
+          "shotTarget": "B0",
+          "shotToken": 6,
+          "visible": [
+            "B0",
+            "B2",
+            "B4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        },
+        "B0": {
+          "sector": "A",
+          "movement": null,
+          "readyAt": 14500,
+          "ready": false,
+          "busy": false,
+          "action": null,
+          "shotTarget": null,
+          "shotToken": 5,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        },
+        "B2": {
+          "sector": "A",
+          "movement": null,
+          "readyAt": 14500,
+          "ready": false,
+          "busy": false,
+          "action": null,
+          "shotTarget": null,
+          "shotToken": 5,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 10000,
+          "shield": 1000
+        },
+        "B4": {
+          "sector": "A",
+          "movement": null,
+          "readyAt": 14500,
+          "ready": false,
+          "busy": false,
+          "action": null,
+          "shotTarget": null,
+          "shotToken": 5,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 10000,
+          "shield": 1000
+        }
+      },
+      "pair": {
+        "sight": {
+          "visible": true,
+          "edges": [
+            "A:corridor_a"
+          ]
+        },
+        "fireLine": true
+      }
+    },
+    {
+      "at": 14500,
+      "actors": {
+        "A0": {
+          "sector": "corridor_a",
+          "movement": {
+            "from": "corridor_a",
+            "to": "A",
+            "remaining": 2250,
+            "initial": 3500
+          },
+          "readyAt": 13250,
+          "ready": true,
+          "busy": true,
+          "action": "move",
+          "shotTarget": "B0",
+          "shotToken": 6,
+          "visible": [
+            "B0",
+            "B2",
+            "B4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        },
+        "B0": {
+          "sector": "A",
+          "movement": null,
+          "readyAt": 14500,
+          "ready": true,
+          "busy": false,
+          "action": null,
+          "shotTarget": "A2",
+          "shotToken": 6,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        },
+        "B2": {
+          "sector": "A",
+          "movement": null,
+          "readyAt": 14500,
+          "ready": true,
+          "busy": false,
+          "action": null,
+          "shotTarget": "A3",
+          "shotToken": 6,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 10000,
+          "shield": 1000
+        },
+        "B4": {
+          "sector": "A",
+          "movement": null,
+          "readyAt": 14500,
+          "ready": true,
+          "busy": false,
+          "action": null,
+          "shotTarget": "A4",
+          "shotToken": 6,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 10000,
+          "shield": 1000
+        }
+      },
+      "pair": {
+        "sight": {
+          "visible": true,
+          "edges": [
+            "A:corridor_a"
+          ]
+        },
+        "fireLine": true
+      }
+    },
+    {
+      "at": 15000,
+      "actors": {
+        "A0": {
+          "sector": "corridor_a",
+          "movement": {
+            "from": "corridor_a",
+            "to": "A",
+            "remaining": 1750,
+            "initial": 3500
+          },
+          "readyAt": 13250,
+          "ready": true,
+          "busy": true,
+          "action": "move",
+          "shotTarget": "B0",
+          "shotToken": 6,
+          "visible": [
+            "B0",
+            "B2",
+            "B4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        },
+        "B0": {
+          "sector": "A",
+          "movement": null,
+          "readyAt": 14500,
+          "ready": true,
+          "busy": false,
+          "action": null,
+          "shotTarget": "A2",
+          "shotToken": 6,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        },
+        "B2": {
+          "sector": "A",
+          "movement": null,
+          "readyAt": 14500,
+          "ready": true,
+          "busy": false,
+          "action": null,
+          "shotTarget": "A3",
+          "shotToken": 6,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 10000,
+          "shield": 1000
+        },
+        "B4": {
+          "sector": "A",
+          "movement": null,
+          "readyAt": 14500,
+          "ready": true,
+          "busy": false,
+          "action": null,
+          "shotTarget": "A4",
+          "shotToken": 6,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 10000,
+          "shield": 1000
+        }
+      },
+      "pair": {
+        "sight": {
+          "visible": true,
+          "edges": [
+            "A:corridor_a"
+          ]
+        },
+        "fireLine": true
+      }
+    },
+    {
+      "at": 16250,
+      "actors": {
+        "A0": {
+          "sector": "corridor_a",
+          "movement": {
+            "from": "corridor_a",
+            "to": "A",
+            "remaining": 500,
+            "initial": 3500
+          },
+          "readyAt": 13250,
+          "ready": true,
+          "busy": true,
+          "action": "move",
+          "shotTarget": "B0",
+          "shotToken": 6,
+          "visible": [
+            "B0",
+            "B4"
+          ],
+          "life": 10000,
+          "shield": 5000
+        },
+        "B0": {
+          "sector": "A",
+          "movement": null,
+          "readyAt": 14500,
+          "ready": true,
+          "busy": false,
+          "action": null,
+          "shotTarget": "A2",
+          "shotToken": 6,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 7000,
+          "shield": 0
+        },
+        "B2": {
+          "sector": "A",
+          "movement": null,
+          "readyAt": 14500,
+          "ready": true,
+          "busy": false,
+          "action": null,
+          "shotTarget": null,
+          "shotToken": 7,
+          "visible": [],
+          "life": 0,
+          "shield": 0
+        },
+        "B4": {
+          "sector": "A",
+          "movement": null,
+          "readyAt": 14500,
+          "ready": true,
+          "busy": false,
+          "action": null,
+          "shotTarget": "A4",
+          "shotToken": 6,
+          "visible": [
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "life": 7000,
+          "shield": 0
+        }
+      },
+      "pair": {
+        "sight": {
+          "visible": true,
+          "edges": [
+            "A:corridor_a"
+          ]
+        },
+        "fireLine": true
+      }
+    }
+  ],
+  "events": [
+    {
+      "at": 13000,
+      "kind": "first_contact",
+      "team": "A",
+      "actor": "A0",
+      "target": "B0",
+      "sector": "gallery_a"
+    },
+    {
+      "at": 13000,
+      "kind": "first_contact",
+      "team": "B",
+      "actor": "B0",
+      "target": "A0",
+      "sector": "corridor_a"
+    },
+    {
+      "at": 13250,
+      "kind": "move_start",
+      "actor": "A0",
+      "sector": "A",
+      "detail": "normal"
+    },
+    {
+      "at": 13250,
+      "kind": "move_start",
+      "actor": "A1",
+      "sector": "A",
+      "detail": "normal"
+    },
+    {
+      "at": 13250,
+      "kind": "move_start",
+      "actor": "A2",
+      "sector": "A",
+      "detail": "normal"
+    },
+    {
+      "at": 13250,
+      "kind": "move_start",
+      "actor": "A3",
+      "sector": "A",
+      "detail": "normal"
+    },
+    {
+      "at": 13250,
+      "kind": "move_start",
+      "actor": "A4",
+      "sector": "A",
+      "detail": "normal"
+    },
+    {
+      "at": 13500,
+      "kind": "arrived",
+      "actor": "B2",
+      "sector": "A"
+    },
+    {
+      "at": 13500,
+      "kind": "arrived",
+      "actor": "B3",
+      "sector": "B"
+    },
+    {
+      "at": 13500,
+      "kind": "arrived",
+      "actor": "B4",
+      "sector": "A"
+    },
+    {
+      "at": 13500,
+      "kind": "arrived",
+      "actor": "B0",
+      "sector": "A"
+    },
+    {
+      "at": 13500,
+      "kind": "arrived",
+      "actor": "B1",
+      "sector": "B"
+    },
+    {
+      "at": 14250,
+      "kind": "shot",
+      "actor": "A3",
+      "target": "B2",
+      "detail": "miss"
+    },
+    {
+      "at": 14250,
+      "kind": "shot",
+      "actor": "A0",
+      "target": "B0",
+      "detail": "miss"
+    },
+    {
+      "at": 14250,
+      "kind": "shot",
+      "actor": "A1",
+      "target": "B4",
+      "detail": "hit"
+    },
+    {
+      "at": 14250,
+      "kind": "shot",
+      "actor": "A2",
+      "target": "B2",
+      "detail": "miss"
+    },
+    {
+      "at": 14250,
+      "kind": "shot",
+      "actor": "A4",
+      "target": "B2",
+      "detail": "hit"
+    },
+    {
+      "at": 14250,
+      "kind": "weapon_damage",
+      "actor": "A4",
+      "target": "B2",
+      "amount": 4000,
+      "sector": "A"
+    },
+    {
+      "at": 14250,
+      "kind": "weapon_damage",
+      "actor": "A1",
+      "target": "B4",
+      "amount": 4000,
+      "sector": "A"
+    },
+    {
+      "at": 14500,
+      "kind": "move_start",
+      "actor": "B1",
+      "sector": "gallery_b",
+      "detail": "normal"
+    },
+    {
+      "at": 14500,
+      "kind": "move_start",
+      "actor": "B3",
+      "sector": "gallery_b",
+      "detail": "normal"
+    },
+    {
+      "at": 15000,
+      "kind": "shot",
+      "actor": "B0",
+      "target": "A2",
+      "detail": "hit"
+    },
+    {
+      "at": 15000,
+      "kind": "shot",
+      "actor": "B4",
+      "target": "A4",
+      "detail": "miss"
+    },
+    {
+      "at": 15000,
+      "kind": "shot",
+      "actor": "B2",
+      "target": "A3",
+      "detail": "hit"
+    },
+    {
+      "at": 15000,
+      "kind": "weapon_damage",
+      "actor": "B0",
+      "target": "A2",
+      "amount": 4000,
+      "sector": "corridor_a"
+    },
+    {
+      "at": 15000,
+      "kind": "weapon_damage",
+      "actor": "B2",
+      "target": "A3",
+      "amount": 4000,
+      "sector": "corridor_a"
+    },
+    {
+      "at": 15250,
+      "kind": "shot",
+      "actor": "A3",
+      "target": "B2",
+      "detail": "hit"
+    },
+    {
+      "at": 15250,
+      "kind": "shot",
+      "actor": "A0",
+      "target": "B0",
+      "detail": "hit"
+    },
+    {
+      "at": 15250,
+      "kind": "shot",
+      "actor": "A1",
+      "target": "B4",
+      "detail": "miss"
+    },
+    {
+      "at": 15250,
+      "kind": "shot",
+      "actor": "A2",
+      "target": "B2",
+      "detail": "hit"
+    },
+    {
+      "at": 15250,
+      "kind": "shot",
+      "actor": "A4",
+      "target": "B2",
+      "detail": "miss"
+    },
+    {
+      "at": 15250,
+      "kind": "weapon_damage",
+      "actor": "A0",
+      "target": "B0",
+      "amount": 4000,
+      "sector": "A"
+    },
+    {
+      "at": 15250,
+      "kind": "weapon_damage",
+      "actor": "A3",
+      "target": "B2",
+      "amount": 4000,
+      "sector": "A"
+    },
+    {
+      "at": 15250,
+      "kind": "weapon_damage",
+      "actor": "A2",
+      "target": "B2",
+      "amount": 4000,
+      "sector": "A"
+    },
+    {
+      "at": 15500,
+      "kind": "shot",
+      "actor": "B2",
+      "target": "A3",
+      "detail": "hit"
+    },
+    {
+      "at": 15500,
+      "kind": "shot",
+      "actor": "B0",
+      "target": "A2",
+      "detail": "hit"
+    },
+    {
+      "at": 15500,
+      "kind": "shot",
+      "actor": "B4",
+      "target": "A4",
+      "detail": "hit"
+    },
+    {
+      "at": 15500,
+      "kind": "weapon_damage",
+      "actor": "B0",
+      "target": "A2",
+      "amount": 4000,
+      "sector": "corridor_a"
+    },
+    {
+      "at": 15500,
+      "kind": "weapon_damage",
+      "actor": "B2",
+      "target": "A3",
+      "amount": 4000,
+      "sector": "corridor_a"
+    },
+    {
+      "at": 15500,
+      "kind": "weapon_damage",
+      "actor": "B4",
+      "target": "A4",
+      "amount": 4000,
+      "sector": "corridor_a"
+    },
+    {
+      "at": 16000,
+      "kind": "shot",
+      "actor": "B4",
+      "target": "A4",
+      "detail": "hit"
+    },
+    {
+      "at": 16000,
+      "kind": "shot",
+      "actor": "B2",
+      "target": "A3",
+      "detail": "hit"
+    },
+    {
+      "at": 16000,
+      "kind": "shot",
+      "actor": "B0",
+      "target": "A2",
+      "detail": "miss"
+    },
+    {
+      "at": 16000,
+      "kind": "weapon_damage",
+      "actor": "B2",
+      "target": "A3",
+      "amount": 4000,
+      "sector": "corridor_a"
+    },
+    {
+      "at": 16000,
+      "kind": "weapon_damage",
+      "actor": "B4",
+      "target": "A4",
+      "amount": 4000,
+      "sector": "corridor_a"
+    },
+    {
+      "at": 16250,
+      "kind": "shot",
+      "actor": "A3",
+      "target": "B2",
+      "detail": "hit"
+    },
+    {
+      "at": 16250,
+      "kind": "shot",
+      "actor": "A4",
+      "target": "B2",
+      "detail": "miss"
+    },
+    {
+      "at": 16250,
+      "kind": "shot",
+      "actor": "A1",
+      "target": "B4",
+      "detail": "hit"
+    },
+    {
+      "at": 16250,
+      "kind": "shot",
+      "actor": "A0",
+      "target": "B0",
+      "detail": "hit"
+    },
+    {
+      "at": 16250,
+      "kind": "shot",
+      "actor": "A2",
+      "target": "B2",
+      "detail": "hit"
+    },
+    {
+      "at": 16250,
+      "kind": "weapon_damage",
+      "actor": "A0",
+      "target": "B0",
+      "amount": 4000,
+      "sector": "A"
+    },
+    {
+      "at": 16250,
+      "kind": "weapon_damage",
+      "actor": "A3",
+      "target": "B2",
+      "amount": 4000,
+      "sector": "A"
+    },
+    {
+      "at": 16250,
+      "kind": "weapon_damage",
+      "actor": "A2",
+      "target": "B2",
+      "amount": 4000,
+      "sector": "A"
+    },
+    {
+      "at": 16250,
+      "kind": "eliminated",
+      "actor": "B2",
+      "target": "A3",
+      "team": "B"
+    },
+    {
+      "at": 16250,
+      "kind": "weapon_damage",
+      "actor": "A1",
+      "target": "B4",
+      "amount": 4000,
+      "sector": "A"
+    }
+  ],
+  "commandProbes": [
+    {
+      "at": 13000,
+      "actor": "A0",
+      "sector": "corridor_a",
+      "readyAt": 13250,
+      "ready": false,
+      "busy": false,
+      "decision": {
+        "kind": "wait"
+      },
+      "command": {
+        "kind": "move",
+        "to": "A"
+      },
+      "accepted": true
+    },
+    {
+      "at": 13500,
+      "actor": "B0",
+      "sector": "A",
+      "readyAt": 14500,
+      "ready": false,
+      "busy": false,
+      "decision": {
+        "kind": "wait"
+      },
+      "command": {
+        "kind": "move",
+        "to": "cover_a"
+      },
+      "accepted": true
+    }
+  ]
+}

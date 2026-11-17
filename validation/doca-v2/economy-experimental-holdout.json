@@ -1,0 +1,554 @@
+{
+  "scope": "Synthetic isolated 5v5 crossfire with fixed actual equipment, no movement, no abilities, 15 seeds per cell. The same seeds recur across paired conditions; outcomes are not independent. Full-map samples are functional smoke tests.",
+  "experimental": true,
+  "holdout": true,
+  "damage": {
+    "basic": 29,
+    "main": 42
+  },
+  "kits": {
+    "eco": {
+      "id": "p",
+      "credits": 8200,
+      "weapon": "basic",
+      "shield": 25,
+      "charges": [
+        true,
+        false,
+        false
+      ],
+      "ult": 0,
+      "spent": 800
+    },
+    "semi": {
+      "id": "p",
+      "credits": 6000,
+      "weapon": "intermediate",
+      "shield": 25,
+      "charges": [
+        true,
+        true,
+        false
+      ],
+      "ult": 0,
+      "spent": 3000
+    },
+    "full": {
+      "id": "p",
+      "credits": 3000,
+      "weapon": "main",
+      "shield": 50,
+      "charges": [
+        true,
+        true,
+        true
+      ],
+      "ult": 0,
+      "spent": 6000
+    }
+  },
+  "isolated": {
+    "0.5.1/equal/eco-eco": {
+      "n": 120,
+      "leftWins": 60,
+      "rightWins": 60,
+      "teamAWins": 76,
+      "attackingWins": 56,
+      "leftKills": 484,
+      "rightKills": 484,
+      "leftDamage": 81720,
+      "rightDamage": 81720,
+      "leftSurvivors": 116,
+      "rightSurvivors": 116,
+      "durationMs": 928000
+    },
+    "0.5.1/equal/eco-semi": {
+      "n": 120,
+      "leftWins": 32,
+      "rightWins": 88,
+      "teamAWins": 68,
+      "attackingWins": 56,
+      "leftKills": 404,
+      "rightKills": 564,
+      "leftDamage": 70440,
+      "rightDamage": 89624,
+      "leftSurvivors": 36,
+      "rightSurvivors": 196,
+      "durationMs": 892000
+    },
+    "0.5.1/equal/eco-full": {
+      "n": 120,
+      "leftWins": 32,
+      "rightWins": 88,
+      "teamAWins": 68,
+      "attackingWins": 56,
+      "leftKills": 404,
+      "rightKills": 564,
+      "leftDamage": 70440,
+      "rightDamage": 105440,
+      "leftSurvivors": 36,
+      "rightSurvivors": 196,
+      "durationMs": 892000
+    },
+    "0.5.1/equal/semi-semi": {
+      "n": 120,
+      "leftWins": 60,
+      "rightWins": 60,
+      "teamAWins": 56,
+      "attackingWins": 60,
+      "leftKills": 476,
+      "rightKills": 476,
+      "leftDamage": 77792,
+      "rightDamage": 77792,
+      "leftSurvivors": 124,
+      "rightSurvivors": 124,
+      "durationMs": 808000
+    },
+    "0.5.1/equal/semi-full": {
+      "n": 120,
+      "leftWins": 32,
+      "rightWins": 88,
+      "teamAWins": 68,
+      "attackingWins": 56,
+      "leftKills": 404,
+      "rightKills": 564,
+      "leftDamage": 79832,
+      "rightDamage": 105440,
+      "leftSurvivors": 36,
+      "rightSurvivors": 196,
+      "durationMs": 892000
+    },
+    "0.5.1/equal/full-full": {
+      "n": 120,
+      "leftWins": 60,
+      "rightWins": 60,
+      "teamAWins": 56,
+      "attackingWins": 60,
+      "leftKills": 476,
+      "rightKills": 476,
+      "leftDamage": 91520,
+      "rightDamage": 91520,
+      "leftSurvivors": 124,
+      "rightSurvivors": 124,
+      "durationMs": 808000
+    },
+    "0.5.1/left-plus-8/eco-eco": {
+      "n": 120,
+      "leftWins": 86,
+      "rightWins": 34,
+      "teamAWins": 82,
+      "attackingWins": 58,
+      "leftKills": 532,
+      "rightKills": 408,
+      "leftDamage": 91920,
+      "rightDamage": 73440,
+      "leftSurvivors": 192,
+      "rightSurvivors": 68,
+      "durationMs": 936000
+    },
+    "0.5.1/left-plus-8/eco-semi": {
+      "n": 120,
+      "leftWins": 46,
+      "rightWins": 74,
+      "teamAWins": 50,
+      "attackingWins": 58,
+      "leftKills": 460,
+      "rightKills": 524,
+      "leftDamage": 81480,
+      "rightDamage": 84864,
+      "leftSurvivors": 76,
+      "rightSurvivors": 140,
+      "durationMs": 940000
+    },
+    "0.5.1/left-plus-8/eco-full": {
+      "n": 120,
+      "leftWins": 46,
+      "rightWins": 74,
+      "teamAWins": 50,
+      "attackingWins": 58,
+      "leftKills": 460,
+      "rightKills": 524,
+      "leftDamage": 81480,
+      "rightDamage": 99840,
+      "leftSurvivors": 76,
+      "rightSurvivors": 140,
+      "durationMs": 940000
+    },
+    "0.5.1/left-plus-8/semi-semi": {
+      "n": 120,
+      "leftWins": 88,
+      "rightWins": 32,
+      "teamAWins": 60,
+      "attackingWins": 60,
+      "leftKills": 548,
+      "rightKills": 400,
+      "leftDamage": 87992,
+      "rightDamage": 67048,
+      "leftSurvivors": 200,
+      "rightSurvivors": 52,
+      "durationMs": 790000
+    },
+    "0.5.1/left-plus-8/semi-full": {
+      "n": 120,
+      "leftWins": 46,
+      "rightWins": 74,
+      "teamAWins": 50,
+      "attackingWins": 58,
+      "leftKills": 460,
+      "rightKills": 524,
+      "leftDamage": 92344,
+      "rightDamage": 99840,
+      "leftSurvivors": 76,
+      "rightSurvivors": 140,
+      "durationMs": 940000
+    },
+    "0.5.1/left-plus-8/full-full": {
+      "n": 120,
+      "leftWins": 88,
+      "rightWins": 32,
+      "teamAWins": 60,
+      "attackingWins": 60,
+      "leftKills": 548,
+      "rightKills": 400,
+      "leftDamage": 103520,
+      "rightDamage": 78880,
+      "leftSurvivors": 200,
+      "rightSurvivors": 52,
+      "durationMs": 790000
+    },
+    "0.6.0/equal/eco-eco": {
+      "n": 120,
+      "leftWins": 60,
+      "rightWins": 60,
+      "teamAWins": 80,
+      "attackingWins": 60,
+      "leftKills": 452,
+      "rightKills": 452,
+      "leftDamage": 77604,
+      "rightDamage": 77604,
+      "leftSurvivors": 148,
+      "rightSurvivors": 148,
+      "durationMs": 796000
+    },
+    "0.6.0/equal/eco-semi": {
+      "n": 120,
+      "leftWins": 20,
+      "rightWins": 100,
+      "teamAWins": 64,
+      "attackingWins": 60,
+      "leftKills": 292,
+      "rightKills": 556,
+      "leftDamage": 59856,
+      "rightDamage": 83504,
+      "leftSurvivors": 44,
+      "rightSurvivors": 308,
+      "durationMs": 636000
+    },
+    "0.6.0/equal/eco-full": {
+      "n": 120,
+      "leftWins": 0,
+      "rightWins": 120,
+      "teamAWins": 60,
+      "attackingWins": 60,
+      "leftKills": 104,
+      "rightKills": 600,
+      "leftDamage": 42572,
+      "rightDamage": 86520,
+      "leftSurvivors": 0,
+      "rightSurvivors": 496,
+      "durationMs": 460000
+    },
+    "0.6.0/equal/semi-semi": {
+      "n": 120,
+      "leftWins": 60,
+      "rightWins": 60,
+      "teamAWins": 104,
+      "attackingWins": 60,
+      "leftKills": 444,
+      "rightKills": 444,
+      "leftDamage": 72080,
+      "rightDamage": 72080,
+      "leftSurvivors": 156,
+      "rightSurvivors": 156,
+      "durationMs": 608000
+    },
+    "0.6.0/equal/semi-full": {
+      "n": 120,
+      "leftWins": 4,
+      "rightWins": 116,
+      "teamAWins": 64,
+      "attackingWins": 60,
+      "leftKills": 200,
+      "rightKills": 596,
+      "leftDamage": 56032,
+      "rightDamage": 84504,
+      "leftSurvivors": 4,
+      "rightSurvivors": 400,
+      "durationMs": 504000
+    },
+    "0.6.0/equal/full-full": {
+      "n": 120,
+      "leftWins": 60,
+      "rightWins": 60,
+      "teamAWins": 104,
+      "attackingWins": 60,
+      "leftKills": 444,
+      "rightKills": 444,
+      "leftDamage": 89040,
+      "rightDamage": 89040,
+      "leftSurvivors": 156,
+      "rightSurvivors": 156,
+      "durationMs": 608000
+    },
+    "0.6.0/left-plus-8/eco-eco": {
+      "n": 120,
+      "leftWins": 88,
+      "rightWins": 32,
+      "teamAWins": 76,
+      "attackingWins": 60,
+      "leftKills": 520,
+      "rightKills": 336,
+      "leftDamage": 85956,
+      "rightDamage": 66004,
+      "leftSurvivors": 264,
+      "rightSurvivors": 80,
+      "durationMs": 748000
+    },
+    "0.6.0/left-plus-8/eco-semi": {
+      "n": 120,
+      "leftWins": 36,
+      "rightWins": 84,
+      "teamAWins": 80,
+      "attackingWins": 60,
+      "leftKills": 372,
+      "rightKills": 500,
+      "leftDamage": 69600,
+      "rightDamage": 77656,
+      "leftSurvivors": 100,
+      "rightSurvivors": 228,
+      "durationMs": 680000
+    },
+    "0.6.0/left-plus-8/eco-full": {
+      "n": 120,
+      "leftWins": 4,
+      "rightWins": 116,
+      "teamAWins": 64,
+      "attackingWins": 60,
+      "leftKills": 140,
+      "rightKills": 584,
+      "leftDamage": 51040,
+      "rightDamage": 84000,
+      "leftSurvivors": 16,
+      "rightSurvivors": 460,
+      "durationMs": 500000
+    },
+    "0.6.0/left-plus-8/semi-semi": {
+      "n": 120,
+      "leftWins": 88,
+      "rightWins": 32,
+      "teamAWins": 76,
+      "attackingWins": 60,
+      "leftKills": 528,
+      "rightKills": 360,
+      "leftDamage": 81056,
+      "rightDamage": 63512,
+      "leftSurvivors": 240,
+      "rightSurvivors": 72,
+      "durationMs": 622000
+    },
+    "0.6.0/left-plus-8/semi-full": {
+      "n": 120,
+      "leftWins": 8,
+      "rightWins": 112,
+      "teamAWins": 68,
+      "attackingWins": 60,
+      "leftKills": 228,
+      "rightKills": 584,
+      "leftDamage": 62424,
+      "rightDamage": 82488,
+      "leftSurvivors": 16,
+      "rightSurvivors": 372,
+      "durationMs": 518000
+    },
+    "0.6.0/left-plus-8/full-full": {
+      "n": 120,
+      "leftWins": 88,
+      "rightWins": 32,
+      "teamAWins": 76,
+      "attackingWins": 60,
+      "leftKills": 528,
+      "rightKills": 360,
+      "leftDamage": 100128,
+      "rightDamage": 78456,
+      "leftSurvivors": 240,
+      "rightSurvivors": 72,
+      "durationMs": 622000
+    }
+  },
+  "components": {
+    "basic-intermediate": {
+      "n": 120,
+      "leftWins": 20,
+      "rightWins": 100,
+      "teamAWins": 48,
+      "attackingWins": 60,
+      "leftKills": 312,
+      "rightKills": 548,
+      "leftDamage": 64380,
+      "rightDamage": 83096,
+      "leftSurvivors": 52,
+      "rightSurvivors": 288,
+      "durationMs": 606000
+    },
+    "intermediate-main": {
+      "n": 120,
+      "leftWins": 6,
+      "rightWins": 114,
+      "teamAWins": 58,
+      "attackingWins": 58,
+      "leftKills": 252,
+      "rightKills": 596,
+      "leftDamage": 52360,
+      "rightDamage": 81984,
+      "leftSurvivors": 4,
+      "rightSurvivors": 348,
+      "durationMs": 440000
+    },
+    "shield-25-50": {
+      "n": 120,
+      "leftWins": 12,
+      "rightWins": 108,
+      "teamAWins": 56,
+      "attackingWins": 60,
+      "leftKills": 324,
+      "rightKills": 572,
+      "leftDamage": 79460,
+      "rightDamage": 88276,
+      "leftSurvivors": 28,
+      "rightSurvivors": 276,
+      "durationMs": 776000
+    }
+  },
+  "reverseInputChecks": 48,
+  "spatial": {
+    "rounds": 128,
+    "firstContactZero": 0,
+    "firstContactDuringPreparation": 0,
+    "plants": 97,
+    "defuses": 4,
+    "abilityUses": 2175,
+    "attackingWins": 107,
+    "durationMs": 4301750,
+    "firstContactMinMs": 12200,
+    "firstContactMaxMs": 22000,
+    "strategyCells": {
+      "fast/aggressive": {
+        "rounds": 8,
+        "attackingWins": 7,
+        "plants": 7,
+        "defuses": 0
+      },
+      "fast/balanced": {
+        "rounds": 8,
+        "attackingWins": 7,
+        "plants": 8,
+        "defuses": 1
+      },
+      "fast/reading": {
+        "rounds": 8,
+        "attackingWins": 7,
+        "plants": 8,
+        "defuses": 1
+      },
+      "fast/retake": {
+        "rounds": 8,
+        "attackingWins": 8,
+        "plants": 8,
+        "defuses": 0
+      },
+      "control/aggressive": {
+        "rounds": 8,
+        "attackingWins": 2,
+        "plants": 3,
+        "defuses": 1
+      },
+      "control/balanced": {
+        "rounds": 8,
+        "attackingWins": 8,
+        "plants": 8,
+        "defuses": 0
+      },
+      "control/reading": {
+        "rounds": 8,
+        "attackingWins": 8,
+        "plants": 8,
+        "defuses": 0
+      },
+      "control/retake": {
+        "rounds": 8,
+        "attackingWins": 8,
+        "plants": 8,
+        "defuses": 0
+      },
+      "split/aggressive": {
+        "rounds": 8,
+        "attackingWins": 8,
+        "plants": 8,
+        "defuses": 0
+      },
+      "split/balanced": {
+        "rounds": 8,
+        "attackingWins": 8,
+        "plants": 8,
+        "defuses": 0
+      },
+      "split/reading": {
+        "rounds": 8,
+        "attackingWins": 8,
+        "plants": 8,
+        "defuses": 0
+      },
+      "split/retake": {
+        "rounds": 8,
+        "attackingWins": 8,
+        "plants": 8,
+        "defuses": 0
+      },
+      "feint/aggressive": {
+        "rounds": 8,
+        "attackingWins": 2,
+        "plants": 3,
+        "defuses": 1
+      },
+      "feint/balanced": {
+        "rounds": 8,
+        "attackingWins": 5,
+        "plants": 0,
+        "defuses": 0
+      },
+      "feint/reading": {
+        "rounds": 8,
+        "attackingWins": 5,
+        "plants": 0,
+        "defuses": 0
+      },
+      "feint/retake": {
+        "rounds": 8,
+        "attackingWins": 8,
+        "plants": 4,
+        "defuses": 0
+      }
+    }
+  },
+  "skillSample": {
+    "rounds": 64,
+    "withSkillsWins": 32,
+    "withoutSkillsWins": 32,
+    "withSkillsUses": 473,
+    "withoutSkillsUses": 0,
+    "plants": 43,
+    "defuses": 0
+  },
+  "damageChanged": true,
+  "economyRulesChanged": false
+}

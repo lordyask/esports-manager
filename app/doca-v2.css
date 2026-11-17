@@ -1,0 +1,2 @@
+.doca-v2-map svg{display:block;width:100%;max-height:760px;margin:1rem auto;border-radius:10px;background:#101923}
+.doca-area{cursor:pointer;outline:none}.doca-area:focus-visible circle{stroke:#ffda85;stroke-width:1}.doca-area-label{fill:#f1fbf9;font-size:2px;font-weight:700;paint-order:stroke;stroke:#101923;stroke-width:.8px;stroke-linejoin:round;pointer-events:none}.doca-marker-a,.doca-marker-b{font-size:1.6px;font-weight:700;paint-order:stroke;stroke:#101923;stroke-width:.6px;pointer-events:none}.doca-marker-a{fill:#76e8bb}.doca-marker-b{fill:#ffd188}

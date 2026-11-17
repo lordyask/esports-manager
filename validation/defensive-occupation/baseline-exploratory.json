@@ -1,0 +1,3337 @@
+{
+  "scope": "Synthetic equal-equipped 5v5; 2-2-1 defensive assignments; 250 ms observation sampling; timestamps include 5 s preparation. Counts stop at first completed plant, round end or 60 s. Repeated seeds across sites and sides are paired, not independent. In an eliminated event actor is the victim and target is the killer.",
+  "mechanics": {
+    "engine": "0.6.1",
+    "rules": "nexus-2.0-doca-v2-r2",
+    "contentHash": "60821438f979c30d04fe17daf414ddd15ae01e1e74efafc2ef392f407c91a4e9"
+  },
+  "seeds": [
+    7,
+    19
+  ],
+  "lines": {
+    "A": {
+      "entrances": [
+        "corridor_a",
+        "link_a",
+        "gallery_a"
+      ],
+      "siteSees": [
+        "corridor_a",
+        "link_a",
+        "gallery_a"
+      ],
+      "coverSees": []
+    },
+    "B": {
+      "entrances": [
+        "corridor_b",
+        "link_b",
+        "gallery_b"
+      ],
+      "siteSees": [
+        "corridor_b",
+        "link_b",
+        "gallery_b"
+      ],
+      "coverSees": []
+    }
+  },
+  "cases": [
+    {
+      "seed": 7,
+      "attacking": "A",
+      "defending": "B",
+      "site": "A",
+      "strategy": "fast",
+      "assignments": {
+        "B0": "A",
+        "B1": "B",
+        "B2": "A",
+        "B3": "B",
+        "B4": "mid"
+      },
+      "defenders": [
+        {
+          "id": "B0",
+          "agent": "Estalo",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": 19250
+        },
+        {
+          "id": "B1",
+          "agent": "Ímpeto",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "A1",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "A2",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "A3",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "A4",
+                  "sector": "corridor_a"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "B2",
+          "agent": "Farol",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": 16250
+        },
+        {
+          "id": "B3",
+          "agent": "Pulso",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "A1",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "A2",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "A3",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "A4",
+                  "sector": "corridor_a"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "B4",
+          "agent": "Bruma",
+          "assigned": "mid",
+          "arrivedAt": null,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": 18750
+        }
+      ],
+      "firstContact": {
+        "at": 13000,
+        "kind": "first_contact",
+        "team": "A",
+        "actor": "A0",
+        "target": "B0",
+        "sector": "gallery_a"
+      },
+      "firstElimination": {
+        "at": 16250,
+        "kind": "eliminated",
+        "actor": "B2",
+        "target": "A3",
+        "team": "B"
+      },
+      "firstPlant": {
+        "at": 23250,
+        "kind": "planted",
+        "actor": "A0",
+        "sector": "A"
+      },
+      "stop": {
+        "at": 23250,
+        "reason": "plant",
+        "winner": null
+      },
+      "prePlantDefenderShots": 20,
+      "prePlantDefenderEliminations": 2
+    },
+    {
+      "seed": 7,
+      "attacking": "A",
+      "defending": "B",
+      "site": "A",
+      "strategy": "control",
+      "assignments": {
+        "B0": "A",
+        "B1": "B",
+        "B2": "A",
+        "B3": "B",
+        "B4": "mid"
+      },
+      "defenders": [
+        {
+          "id": "B0",
+          "agent": "Estalo",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 30500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "mid"
+                },
+                {
+                  "id": "A2",
+                  "sector": "mid"
+                },
+                {
+                  "id": "A4",
+                  "sector": "mid"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": 23500,
+          "eliminatedAt": null
+        },
+        {
+          "id": "B1",
+          "agent": "Ímpeto",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 23500,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "mid"
+                },
+                {
+                  "id": "A2",
+                  "sector": "mid"
+                },
+                {
+                  "id": "A4",
+                  "sector": "mid"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 30000,
+          "firstShotAt": 31000,
+          "eliminatedAt": 33500
+        },
+        {
+          "id": "B2",
+          "agent": "Farol",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": 16000,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "cover_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            },
+            {
+              "at": 26500,
+              "from": "A",
+              "to": "cover_a",
+              "knownBefore": [
+                {
+                  "id": "A1",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "A3",
+                  "sector": "link_a"
+                }
+              ],
+              "visibleBefore": []
+            },
+            {
+              "at": 33000,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "A2",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "A4",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "A1",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "A3",
+                  "sector": "link_b"
+                }
+              ],
+              "visibleBefore": []
+            },
+            {
+              "at": 40000,
+              "from": "A",
+              "to": "cover_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 25000,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "B3",
+          "agent": "Pulso",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": 16000,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "B",
+              "to": "cover_b",
+              "knownBefore": [],
+              "visibleBefore": []
+            },
+            {
+              "at": 26000,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "A2",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "A4",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "A1",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "A3",
+                  "sector": "link_a"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 32000,
+          "firstShotAt": null,
+          "eliminatedAt": 32500
+        },
+        {
+          "id": "B4",
+          "agent": "Bruma",
+          "assigned": "mid",
+          "arrivedAt": 20500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "link_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 20500,
+          "firstShotAt": 19000,
+          "eliminatedAt": 21000
+        }
+      ],
+      "firstContact": {
+        "at": 18000,
+        "kind": "first_contact",
+        "team": "A",
+        "actor": "A0",
+        "target": "B4",
+        "sector": "link_a"
+      },
+      "firstElimination": {
+        "at": 21000,
+        "kind": "eliminated",
+        "actor": "B4",
+        "target": "A4",
+        "team": "B"
+      },
+      "firstPlant": {
+        "at": 41000,
+        "kind": "planted",
+        "actor": "A0",
+        "sector": "B"
+      },
+      "stop": {
+        "at": 41000,
+        "reason": "plant",
+        "winner": null
+      },
+      "prePlantDefenderShots": 12,
+      "prePlantDefenderEliminations": 1
+    },
+    {
+      "seed": 7,
+      "attacking": "A",
+      "defending": "B",
+      "site": "B",
+      "strategy": "fast",
+      "assignments": {
+        "B0": "A",
+        "B1": "B",
+        "B2": "A",
+        "B3": "B",
+        "B4": "mid"
+      },
+      "defenders": [
+        {
+          "id": "B0",
+          "agent": "Estalo",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A1",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A2",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A3",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A4",
+                  "sector": "corridor_b"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "B1",
+          "agent": "Ímpeto",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": 15250
+        },
+        {
+          "id": "B2",
+          "agent": "Farol",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A1",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A2",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A3",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A4",
+                  "sector": "corridor_b"
+                }
+              ],
+              "visibleBefore": []
+            },
+            {
+              "at": 21500,
+              "from": "A",
+              "to": "cover_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "B3",
+          "agent": "Pulso",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": 16250
+        },
+        {
+          "id": "B4",
+          "agent": "Bruma",
+          "assigned": "mid",
+          "arrivedAt": null,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A1",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A2",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A3",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A4",
+                  "sector": "corridor_b"
+                }
+              ],
+              "visibleBefore": []
+            },
+            {
+              "at": 21500,
+              "from": "A",
+              "to": "link_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        }
+      ],
+      "firstContact": {
+        "at": 13000,
+        "kind": "first_contact",
+        "team": "A",
+        "actor": "A0",
+        "target": "B1",
+        "sector": "gallery_b"
+      },
+      "firstElimination": {
+        "at": 15250,
+        "kind": "eliminated",
+        "actor": "B1",
+        "target": "A3",
+        "team": "B"
+      },
+      "firstPlant": {
+        "at": 21750,
+        "kind": "planted",
+        "actor": "A0",
+        "sector": "B"
+      },
+      "stop": {
+        "at": 21750,
+        "reason": "plant",
+        "winner": null
+      },
+      "prePlantDefenderShots": 4,
+      "prePlantDefenderEliminations": 0
+    },
+    {
+      "seed": 7,
+      "attacking": "A",
+      "defending": "B",
+      "site": "B",
+      "strategy": "control",
+      "assignments": {
+        "B0": "A",
+        "B1": "B",
+        "B2": "A",
+        "B3": "B",
+        "B4": "mid"
+      },
+      "defenders": [
+        {
+          "id": "B0",
+          "agent": "Estalo",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 22500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "mid"
+                },
+                {
+                  "id": "A2",
+                  "sector": "mid"
+                },
+                {
+                  "id": "A4",
+                  "sector": "mid"
+                },
+                {
+                  "id": "A1",
+                  "sector": "mid"
+                },
+                {
+                  "id": "A3",
+                  "sector": "mid"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 28500,
+          "firstShotAt": 30000,
+          "eliminatedAt": 31500
+        },
+        {
+          "id": "B1",
+          "agent": "Ímpeto",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 25000,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "A2",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "A1",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "A3",
+                  "sector": "link_a"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 34500,
+          "firstShotAt": 22500,
+          "eliminatedAt": null
+        },
+        {
+          "id": "B2",
+          "agent": "Farol",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": 16000,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "cover_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 24000,
+          "firstShotAt": 25500,
+          "eliminatedAt": 27000
+        },
+        {
+          "id": "B3",
+          "agent": "Pulso",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": 16000,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "B",
+              "to": "cover_b",
+              "knownBefore": [],
+              "visibleBefore": []
+            },
+            {
+              "at": 25000,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "A2",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "A1",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "A3",
+                  "sector": "link_a"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 24000,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "B4",
+          "agent": "Bruma",
+          "assigned": "mid",
+          "arrivedAt": 20500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "link_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 20500,
+          "firstShotAt": 19000,
+          "eliminatedAt": 22000
+        }
+      ],
+      "firstContact": {
+        "at": 18000,
+        "kind": "first_contact",
+        "team": "A",
+        "actor": "A0",
+        "target": "B4",
+        "sector": "link_a"
+      },
+      "firstElimination": {
+        "at": 22000,
+        "kind": "eliminated",
+        "actor": "B4",
+        "target": "A4",
+        "team": "B"
+      },
+      "firstPlant": {
+        "at": 35500,
+        "kind": "planted",
+        "actor": "A1",
+        "sector": "A"
+      },
+      "stop": {
+        "at": 35500,
+        "reason": "plant",
+        "winner": null
+      },
+      "prePlantDefenderShots": 15,
+      "prePlantDefenderEliminations": 1
+    },
+    {
+      "seed": 7,
+      "attacking": "B",
+      "defending": "A",
+      "site": "A",
+      "strategy": "fast",
+      "assignments": {
+        "A0": "A",
+        "A1": "B",
+        "A2": "A",
+        "A3": "B",
+        "A4": "mid"
+      },
+      "defenders": [
+        {
+          "id": "A0",
+          "agent": "Estalo",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": 19250
+        },
+        {
+          "id": "A1",
+          "agent": "Ímpeto",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "B1",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "B2",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "B3",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "B4",
+                  "sector": "corridor_a"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "A2",
+          "agent": "Farol",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": 16250
+        },
+        {
+          "id": "A3",
+          "agent": "Pulso",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "B1",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "B2",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "B3",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "B4",
+                  "sector": "corridor_a"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "A4",
+          "agent": "Bruma",
+          "assigned": "mid",
+          "arrivedAt": null,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": 20750
+        }
+      ],
+      "firstContact": {
+        "at": 13000,
+        "kind": "first_contact",
+        "team": "A",
+        "actor": "A0",
+        "target": "B0",
+        "sector": "corridor_a"
+      },
+      "firstElimination": {
+        "at": 16250,
+        "kind": "eliminated",
+        "actor": "A2",
+        "target": "B3",
+        "team": "A"
+      },
+      "firstPlant": {
+        "at": 24750,
+        "kind": "planted",
+        "actor": "B0",
+        "sector": "A"
+      },
+      "stop": {
+        "at": 24750,
+        "reason": "plant",
+        "winner": null
+      },
+      "prePlantDefenderShots": 24,
+      "prePlantDefenderEliminations": 3
+    },
+    {
+      "seed": 7,
+      "attacking": "B",
+      "defending": "A",
+      "site": "A",
+      "strategy": "control",
+      "assignments": {
+        "A0": "A",
+        "A1": "B",
+        "A2": "A",
+        "A3": "B",
+        "A4": "mid"
+      },
+      "defenders": [
+        {
+          "id": "A0",
+          "agent": "Estalo",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 30000,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "mid"
+                },
+                {
+                  "id": "B2",
+                  "sector": "mid"
+                },
+                {
+                  "id": "B4",
+                  "sector": "mid"
+                }
+              ],
+              "visibleBefore": []
+            },
+            {
+              "at": 40000,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": 23000,
+          "eliminatedAt": null
+        },
+        {
+          "id": "A1",
+          "agent": "Ímpeto",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 23000,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "mid"
+                },
+                {
+                  "id": "B2",
+                  "sector": "mid"
+                },
+                {
+                  "id": "B4",
+                  "sector": "mid"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 29500,
+          "firstShotAt": 30500,
+          "eliminatedAt": 32500
+        },
+        {
+          "id": "A2",
+          "agent": "Farol",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": 16000,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "cover_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            },
+            {
+              "at": 26500,
+              "from": "A",
+              "to": "cover_a",
+              "knownBefore": [
+                {
+                  "id": "B1",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B3",
+                  "sector": "link_a"
+                }
+              ],
+              "visibleBefore": []
+            },
+            {
+              "at": 32500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "B2",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "B4",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "B1",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "B3",
+                  "sector": "link_b"
+                }
+              ],
+              "visibleBefore": []
+            },
+            {
+              "at": 39500,
+              "from": "A",
+              "to": "cover_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 24500,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "A3",
+          "agent": "Pulso",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": 16000,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "B",
+              "to": "cover_b",
+              "knownBefore": [],
+              "visibleBefore": []
+            },
+            {
+              "at": 25500,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B2",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B4",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B1",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B3",
+                  "sector": "link_a"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 31500,
+          "firstShotAt": null,
+          "eliminatedAt": 32500
+        },
+        {
+          "id": "A4",
+          "agent": "Bruma",
+          "assigned": "mid",
+          "arrivedAt": null,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "link_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": 19000,
+          "eliminatedAt": 20500
+        }
+      ],
+      "firstContact": {
+        "at": 18000,
+        "kind": "first_contact",
+        "team": "A",
+        "actor": "A4",
+        "target": "B0",
+        "sector": "bend_north"
+      },
+      "firstElimination": {
+        "at": 20500,
+        "kind": "eliminated",
+        "actor": "A4",
+        "target": "B4",
+        "team": "A"
+      },
+      "firstPlant": {
+        "at": 40000,
+        "kind": "planted",
+        "actor": "B0",
+        "sector": "B"
+      },
+      "stop": {
+        "at": 40000,
+        "reason": "plant",
+        "winner": null
+      },
+      "prePlantDefenderShots": 12,
+      "prePlantDefenderEliminations": 1
+    },
+    {
+      "seed": 7,
+      "attacking": "B",
+      "defending": "A",
+      "site": "B",
+      "strategy": "fast",
+      "assignments": {
+        "A0": "A",
+        "A1": "B",
+        "A2": "A",
+        "A3": "B",
+        "A4": "mid"
+      },
+      "defenders": [
+        {
+          "id": "A0",
+          "agent": "Estalo",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B1",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B2",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B3",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B4",
+                  "sector": "corridor_b"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "A1",
+          "agent": "Ímpeto",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": 15250
+        },
+        {
+          "id": "A2",
+          "agent": "Farol",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B1",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B2",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B3",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B4",
+                  "sector": "corridor_b"
+                }
+              ],
+              "visibleBefore": []
+            },
+            {
+              "at": 21500,
+              "from": "A",
+              "to": "cover_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "A3",
+          "agent": "Pulso",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": 16250
+        },
+        {
+          "id": "A4",
+          "agent": "Bruma",
+          "assigned": "mid",
+          "arrivedAt": null,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B1",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B2",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B3",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B4",
+                  "sector": "corridor_b"
+                }
+              ],
+              "visibleBefore": []
+            },
+            {
+              "at": 21500,
+              "from": "A",
+              "to": "link_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        }
+      ],
+      "firstContact": {
+        "at": 13000,
+        "kind": "first_contact",
+        "team": "A",
+        "actor": "A1",
+        "target": "B0",
+        "sector": "corridor_b"
+      },
+      "firstElimination": {
+        "at": 15250,
+        "kind": "eliminated",
+        "actor": "A1",
+        "target": "B0",
+        "team": "A"
+      },
+      "firstPlant": {
+        "at": 21750,
+        "kind": "planted",
+        "actor": "B0",
+        "sector": "B"
+      },
+      "stop": {
+        "at": 21750,
+        "reason": "plant",
+        "winner": null
+      },
+      "prePlantDefenderShots": 4,
+      "prePlantDefenderEliminations": 0
+    },
+    {
+      "seed": 7,
+      "attacking": "B",
+      "defending": "A",
+      "site": "B",
+      "strategy": "control",
+      "assignments": {
+        "A0": "A",
+        "A1": "B",
+        "A2": "A",
+        "A3": "B",
+        "A4": "mid"
+      },
+      "defenders": [
+        {
+          "id": "A0",
+          "agent": "Estalo",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 22500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "mid"
+                },
+                {
+                  "id": "B2",
+                  "sector": "mid"
+                },
+                {
+                  "id": "B4",
+                  "sector": "mid"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 32500,
+          "firstShotAt": 33500,
+          "eliminatedAt": 35000
+        },
+        {
+          "id": "A1",
+          "agent": "Ímpeto",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 30500,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": 22500,
+          "eliminatedAt": null
+        },
+        {
+          "id": "A2",
+          "agent": "Farol",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": 16000,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "cover_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            },
+            {
+              "at": 25000,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "B2",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "B4",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "B1",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "B3",
+                  "sector": "link_b"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 31000,
+          "firstShotAt": 32500,
+          "eliminatedAt": 32500
+        },
+        {
+          "id": "A3",
+          "agent": "Pulso",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": 16000,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "B",
+              "to": "cover_b",
+              "knownBefore": [],
+              "visibleBefore": []
+            },
+            {
+              "at": 26500,
+              "from": "B",
+              "to": "cover_b",
+              "knownBefore": [
+                {
+                  "id": "B1",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "B3",
+                  "sector": "link_b"
+                }
+              ],
+              "visibleBefore": []
+            },
+            {
+              "at": 33000,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B2",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B4",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B1",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B3",
+                  "sector": "link_a"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 24000,
+          "firstShotAt": 25500,
+          "eliminatedAt": null
+        },
+        {
+          "id": "A4",
+          "agent": "Bruma",
+          "assigned": "mid",
+          "arrivedAt": 20500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "link_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 20500,
+          "firstShotAt": 19000,
+          "eliminatedAt": 21000
+        }
+      ],
+      "firstContact": {
+        "at": 18000,
+        "kind": "first_contact",
+        "team": "A",
+        "actor": "A4",
+        "target": "B0",
+        "sector": "bend_north"
+      },
+      "firstElimination": {
+        "at": 21000,
+        "kind": "eliminated",
+        "actor": "A4",
+        "target": "B4",
+        "team": "A"
+      },
+      "firstPlant": {
+        "at": 39000,
+        "kind": "planted",
+        "actor": "B0",
+        "sector": "A"
+      },
+      "stop": {
+        "at": 39000,
+        "reason": "plant",
+        "winner": null
+      },
+      "prePlantDefenderShots": 14,
+      "prePlantDefenderEliminations": 0
+    },
+    {
+      "seed": 19,
+      "attacking": "A",
+      "defending": "B",
+      "site": "A",
+      "strategy": "fast",
+      "assignments": {
+        "B0": "A",
+        "B1": "B",
+        "B2": "A",
+        "B3": "B",
+        "B4": "mid"
+      },
+      "defenders": [
+        {
+          "id": "B0",
+          "agent": "Estalo",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": 18750
+        },
+        {
+          "id": "B1",
+          "agent": "Ímpeto",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "A1",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "A2",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "A3",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "A4",
+                  "sector": "corridor_a"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "B2",
+          "agent": "Farol",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": 19750
+        },
+        {
+          "id": "B3",
+          "agent": "Pulso",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "A1",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "A2",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "A3",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "A4",
+                  "sector": "corridor_a"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "B4",
+          "agent": "Bruma",
+          "assigned": "mid",
+          "arrivedAt": null,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": 19250
+        }
+      ],
+      "firstContact": {
+        "at": 13000,
+        "kind": "first_contact",
+        "team": "A",
+        "actor": "A0",
+        "target": "B0",
+        "sector": "gallery_a"
+      },
+      "firstElimination": {
+        "at": 16500,
+        "kind": "eliminated",
+        "actor": "A4",
+        "target": "B4",
+        "team": "A"
+      },
+      "firstPlant": {
+        "at": 23750,
+        "kind": "planted",
+        "actor": "A0",
+        "sector": "A"
+      },
+      "stop": {
+        "at": 23750,
+        "reason": "plant",
+        "winner": null
+      },
+      "prePlantDefenderShots": 27,
+      "prePlantDefenderEliminations": 3
+    },
+    {
+      "seed": 19,
+      "attacking": "A",
+      "defending": "B",
+      "site": "A",
+      "strategy": "control",
+      "assignments": {
+        "B0": "A",
+        "B1": "B",
+        "B2": "A",
+        "B3": "B",
+        "B4": "mid"
+      },
+      "defenders": [
+        {
+          "id": "B0",
+          "agent": "Estalo",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 30500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "mid"
+                },
+                {
+                  "id": "A2",
+                  "sector": "mid"
+                },
+                {
+                  "id": "A4",
+                  "sector": "mid"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": 23500,
+          "eliminatedAt": null
+        },
+        {
+          "id": "B1",
+          "agent": "Ímpeto",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 23500,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "mid"
+                },
+                {
+                  "id": "A2",
+                  "sector": "mid"
+                },
+                {
+                  "id": "A4",
+                  "sector": "mid"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 30000,
+          "firstShotAt": 31000,
+          "eliminatedAt": 33500
+        },
+        {
+          "id": "B2",
+          "agent": "Farol",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": 16000,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "cover_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            },
+            {
+              "at": 26500,
+              "from": "A",
+              "to": "cover_a",
+              "knownBefore": [
+                {
+                  "id": "A1",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "A3",
+                  "sector": "link_a"
+                }
+              ],
+              "visibleBefore": []
+            },
+            {
+              "at": 33000,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "A2",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "A4",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "A1",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "A3",
+                  "sector": "link_b"
+                }
+              ],
+              "visibleBefore": []
+            },
+            {
+              "at": 40000,
+              "from": "A",
+              "to": "cover_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 25000,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "B3",
+          "agent": "Pulso",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": 16000,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "B",
+              "to": "cover_b",
+              "knownBefore": [],
+              "visibleBefore": []
+            },
+            {
+              "at": 26000,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "A2",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "A4",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "A1",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "A3",
+                  "sector": "link_a"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 32000,
+          "firstShotAt": null,
+          "eliminatedAt": 32500
+        },
+        {
+          "id": "B4",
+          "agent": "Bruma",
+          "assigned": "mid",
+          "arrivedAt": 20500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "link_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 20500,
+          "firstShotAt": 19000,
+          "eliminatedAt": 21000
+        }
+      ],
+      "firstContact": {
+        "at": 18000,
+        "kind": "first_contact",
+        "team": "A",
+        "actor": "A0",
+        "target": "B4",
+        "sector": "link_a"
+      },
+      "firstElimination": {
+        "at": 21000,
+        "kind": "eliminated",
+        "actor": "B4",
+        "target": "A2",
+        "team": "B"
+      },
+      "firstPlant": {
+        "at": 41000,
+        "kind": "planted",
+        "actor": "A0",
+        "sector": "B"
+      },
+      "stop": {
+        "at": 41000,
+        "reason": "plant",
+        "winner": null
+      },
+      "prePlantDefenderShots": 12,
+      "prePlantDefenderEliminations": 0
+    },
+    {
+      "seed": 19,
+      "attacking": "A",
+      "defending": "B",
+      "site": "B",
+      "strategy": "fast",
+      "assignments": {
+        "B0": "A",
+        "B1": "B",
+        "B2": "A",
+        "B3": "B",
+        "B4": "mid"
+      },
+      "defenders": [
+        {
+          "id": "B0",
+          "agent": "Estalo",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A1",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A2",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A3",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A4",
+                  "sector": "corridor_b"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "B1",
+          "agent": "Ímpeto",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": 18250
+        },
+        {
+          "id": "B2",
+          "agent": "Farol",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A1",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A2",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A3",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A4",
+                  "sector": "corridor_b"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "B3",
+          "agent": "Pulso",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": 16250
+        },
+        {
+          "id": "B4",
+          "agent": "Bruma",
+          "assigned": "mid",
+          "arrivedAt": null,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A1",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A2",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A3",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "A4",
+                  "sector": "corridor_b"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        }
+      ],
+      "firstContact": {
+        "at": 13000,
+        "kind": "first_contact",
+        "team": "A",
+        "actor": "A0",
+        "target": "B1",
+        "sector": "gallery_b"
+      },
+      "firstElimination": {
+        "at": 16250,
+        "kind": "eliminated",
+        "actor": "B3",
+        "target": "A2",
+        "team": "B"
+      },
+      "firstPlant": {
+        "at": 22250,
+        "kind": "planted",
+        "actor": "A0",
+        "sector": "B"
+      },
+      "stop": {
+        "at": 22250,
+        "reason": "plant",
+        "winner": null
+      },
+      "prePlantDefenderShots": 10,
+      "prePlantDefenderEliminations": 0
+    },
+    {
+      "seed": 19,
+      "attacking": "A",
+      "defending": "B",
+      "site": "B",
+      "strategy": "control",
+      "assignments": {
+        "B0": "A",
+        "B1": "B",
+        "B2": "A",
+        "B3": "B",
+        "B4": "mid"
+      },
+      "defenders": [
+        {
+          "id": "B0",
+          "agent": "Estalo",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 22500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "mid"
+                },
+                {
+                  "id": "A2",
+                  "sector": "mid"
+                },
+                {
+                  "id": "A4",
+                  "sector": "mid"
+                },
+                {
+                  "id": "A1",
+                  "sector": "mid"
+                },
+                {
+                  "id": "A3",
+                  "sector": "mid"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 32500,
+          "firstShotAt": 33500,
+          "eliminatedAt": 35500
+        },
+        {
+          "id": "B1",
+          "agent": "Ímpeto",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 30500,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": 22500,
+          "eliminatedAt": null
+        },
+        {
+          "id": "B2",
+          "agent": "Farol",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": 16000,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "cover_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            },
+            {
+              "at": 25000,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "A2",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "A4",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "A1",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "A3",
+                  "sector": "link_b"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 31000,
+          "firstShotAt": 32500,
+          "eliminatedAt": 32500
+        },
+        {
+          "id": "B3",
+          "agent": "Pulso",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": 16000,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "B",
+              "to": "cover_b",
+              "knownBefore": [],
+              "visibleBefore": []
+            },
+            {
+              "at": 27000,
+              "from": "B",
+              "to": "cover_b",
+              "knownBefore": [
+                {
+                  "id": "A1",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "A3",
+                  "sector": "link_b"
+                }
+              ],
+              "visibleBefore": []
+            },
+            {
+              "at": 33000,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "A0",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "A2",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "A4",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "A1",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "A3",
+                  "sector": "link_a"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 24000,
+          "firstShotAt": 25500,
+          "eliminatedAt": null
+        },
+        {
+          "id": "B4",
+          "agent": "Bruma",
+          "assigned": "mid",
+          "arrivedAt": 20500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "link_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 20500,
+          "firstShotAt": 19000,
+          "eliminatedAt": 22000
+        }
+      ],
+      "firstContact": {
+        "at": 18000,
+        "kind": "first_contact",
+        "team": "A",
+        "actor": "A0",
+        "target": "B4",
+        "sector": "link_a"
+      },
+      "firstElimination": {
+        "at": 22000,
+        "kind": "eliminated",
+        "actor": "B4",
+        "target": "A2",
+        "team": "B"
+      },
+      "firstPlant": {
+        "at": 39500,
+        "kind": "planted",
+        "actor": "A0",
+        "sector": "A"
+      },
+      "stop": {
+        "at": 39500,
+        "reason": "plant",
+        "winner": null
+      },
+      "prePlantDefenderShots": 18,
+      "prePlantDefenderEliminations": 0
+    },
+    {
+      "seed": 19,
+      "attacking": "B",
+      "defending": "A",
+      "site": "A",
+      "strategy": "fast",
+      "assignments": {
+        "A0": "A",
+        "A1": "B",
+        "A2": "A",
+        "A3": "B",
+        "A4": "mid"
+      },
+      "defenders": [
+        {
+          "id": "A0",
+          "agent": "Estalo",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": null
+        },
+        {
+          "id": "A1",
+          "agent": "Ímpeto",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "B1",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "B2",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "B3",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "B4",
+                  "sector": "corridor_a"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "A2",
+          "agent": "Farol",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": 18250
+        },
+        {
+          "id": "A3",
+          "agent": "Pulso",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "B1",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "B2",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "B3",
+                  "sector": "corridor_a"
+                },
+                {
+                  "id": "B4",
+                  "sector": "corridor_a"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "A4",
+          "agent": "Bruma",
+          "assigned": "mid",
+          "arrivedAt": null,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": null
+        }
+      ],
+      "firstContact": {
+        "at": 13000,
+        "kind": "first_contact",
+        "team": "A",
+        "actor": "A0",
+        "target": "B0",
+        "sector": "corridor_a"
+      },
+      "firstElimination": {
+        "at": 16500,
+        "kind": "eliminated",
+        "actor": "B4",
+        "target": "A4",
+        "team": "B"
+      },
+      "firstPlant": null,
+      "stop": {
+        "at": 21000,
+        "reason": "round-ended",
+        "winner": "A"
+      },
+      "prePlantDefenderShots": 33,
+      "prePlantDefenderEliminations": 5
+    },
+    {
+      "seed": 19,
+      "attacking": "B",
+      "defending": "A",
+      "site": "A",
+      "strategy": "control",
+      "assignments": {
+        "A0": "A",
+        "A1": "B",
+        "A2": "A",
+        "A3": "B",
+        "A4": "mid"
+      },
+      "defenders": [
+        {
+          "id": "A0",
+          "agent": "Estalo",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 31000,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "mid"
+                },
+                {
+                  "id": "B2",
+                  "sector": "mid"
+                },
+                {
+                  "id": "B4",
+                  "sector": "mid"
+                },
+                {
+                  "id": "B1",
+                  "sector": "mid"
+                },
+                {
+                  "id": "B3",
+                  "sector": "mid"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": 24000,
+          "eliminatedAt": null
+        },
+        {
+          "id": "A1",
+          "agent": "Ímpeto",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 24000,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "mid"
+                },
+                {
+                  "id": "B2",
+                  "sector": "mid"
+                },
+                {
+                  "id": "B4",
+                  "sector": "mid"
+                },
+                {
+                  "id": "B1",
+                  "sector": "mid"
+                },
+                {
+                  "id": "B3",
+                  "sector": "mid"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 30500,
+          "firstShotAt": 31500,
+          "eliminatedAt": 33000
+        },
+        {
+          "id": "A2",
+          "agent": "Farol",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": 16000,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "cover_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            },
+            {
+              "at": 26500,
+              "from": "A",
+              "to": "cover_a",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B2",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B4",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B1",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B3",
+                  "sector": "link_a"
+                }
+              ],
+              "visibleBefore": []
+            },
+            {
+              "at": 33500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "B2",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "B4",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "B1",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "B3",
+                  "sector": "link_b"
+                }
+              ],
+              "visibleBefore": []
+            },
+            {
+              "at": 40500,
+              "from": "A",
+              "to": "cover_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 25500,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "A3",
+          "agent": "Pulso",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": 16000,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "B",
+              "to": "cover_b",
+              "knownBefore": [],
+              "visibleBefore": []
+            },
+            {
+              "at": 26500,
+              "from": "B",
+              "to": "cover_b",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B2",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B4",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B1",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B3",
+                  "sector": "link_a"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 32500,
+          "firstShotAt": 34000,
+          "eliminatedAt": 34000
+        },
+        {
+          "id": "A4",
+          "agent": "Bruma",
+          "assigned": "mid",
+          "arrivedAt": 20500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "link_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 20500,
+          "firstShotAt": 19000,
+          "eliminatedAt": 21500
+        }
+      ],
+      "firstContact": {
+        "at": 18000,
+        "kind": "first_contact",
+        "team": "A",
+        "actor": "A4",
+        "target": "B0",
+        "sector": "bend_north"
+      },
+      "firstElimination": {
+        "at": 21500,
+        "kind": "eliminated",
+        "actor": "A4",
+        "target": "B2",
+        "team": "A"
+      },
+      "firstPlant": {
+        "at": 41500,
+        "kind": "planted",
+        "actor": "B0",
+        "sector": "B"
+      },
+      "stop": {
+        "at": 41500,
+        "reason": "plant",
+        "winner": null
+      },
+      "prePlantDefenderShots": 11,
+      "prePlantDefenderEliminations": 1
+    },
+    {
+      "seed": 19,
+      "attacking": "B",
+      "defending": "A",
+      "site": "B",
+      "strategy": "fast",
+      "assignments": {
+        "A0": "A",
+        "A1": "B",
+        "A2": "A",
+        "A3": "B",
+        "A4": "mid"
+      },
+      "defenders": [
+        {
+          "id": "A0",
+          "agent": "Estalo",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B1",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B2",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B3",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B4",
+                  "sector": "corridor_b"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "A1",
+          "agent": "Ímpeto",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": 16250
+        },
+        {
+          "id": "A2",
+          "agent": "Farol",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B1",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B2",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B3",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B4",
+                  "sector": "corridor_b"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        },
+        {
+          "id": "A3",
+          "agent": "Pulso",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [],
+          "visibleWhileRecoveringAt": 13500,
+          "firstShotAt": 15000,
+          "eliminatedAt": 18250
+        },
+        {
+          "id": "A4",
+          "agent": "Bruma",
+          "assigned": "mid",
+          "arrivedAt": null,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B1",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B2",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B3",
+                  "sector": "corridor_b"
+                },
+                {
+                  "id": "B4",
+                  "sector": "corridor_b"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": null,
+          "eliminatedAt": null
+        }
+      ],
+      "firstContact": {
+        "at": 13000,
+        "kind": "first_contact",
+        "team": "A",
+        "actor": "A1",
+        "target": "B0",
+        "sector": "corridor_b"
+      },
+      "firstElimination": {
+        "at": 16250,
+        "kind": "eliminated",
+        "actor": "A1",
+        "target": "B0",
+        "team": "A"
+      },
+      "firstPlant": {
+        "at": 22250,
+        "kind": "planted",
+        "actor": "B0",
+        "sector": "B"
+      },
+      "stop": {
+        "at": 22250,
+        "reason": "plant",
+        "winner": null
+      },
+      "prePlantDefenderShots": 10,
+      "prePlantDefenderEliminations": 0
+    },
+    {
+      "seed": 19,
+      "attacking": "B",
+      "defending": "A",
+      "site": "B",
+      "strategy": "control",
+      "assignments": {
+        "A0": "A",
+        "A1": "B",
+        "A2": "A",
+        "A3": "B",
+        "A4": "mid"
+      },
+      "defenders": [
+        {
+          "id": "A0",
+          "agent": "Estalo",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 22500,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "mid"
+                },
+                {
+                  "id": "B2",
+                  "sector": "mid"
+                },
+                {
+                  "id": "B4",
+                  "sector": "mid"
+                },
+                {
+                  "id": "B1",
+                  "sector": "mid"
+                },
+                {
+                  "id": "B3",
+                  "sector": "mid"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 32500,
+          "firstShotAt": 33500,
+          "eliminatedAt": 35000
+        },
+        {
+          "id": "A1",
+          "agent": "Ímpeto",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 30500,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": null,
+          "firstShotAt": 22500,
+          "eliminatedAt": null
+        },
+        {
+          "id": "A2",
+          "agent": "Farol",
+          "assigned": "A",
+          "arrivedAt": 13500,
+          "coverAt": 16000,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "cover_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            },
+            {
+              "at": 25000,
+              "from": "A",
+              "to": "gallery_a",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "B2",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "B4",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "B1",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "B3",
+                  "sector": "link_b"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 31000,
+          "firstShotAt": 32500,
+          "eliminatedAt": 32500
+        },
+        {
+          "id": "A3",
+          "agent": "Pulso",
+          "assigned": "B",
+          "arrivedAt": 13500,
+          "coverAt": 16000,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "B",
+              "to": "cover_b",
+              "knownBefore": [],
+              "visibleBefore": []
+            },
+            {
+              "at": 27000,
+              "from": "B",
+              "to": "cover_b",
+              "knownBefore": [
+                {
+                  "id": "B1",
+                  "sector": "link_b"
+                },
+                {
+                  "id": "B3",
+                  "sector": "link_b"
+                }
+              ],
+              "visibleBefore": []
+            },
+            {
+              "at": 33000,
+              "from": "B",
+              "to": "gallery_b",
+              "knownBefore": [
+                {
+                  "id": "B0",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B2",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B4",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B1",
+                  "sector": "link_a"
+                },
+                {
+                  "id": "B3",
+                  "sector": "link_a"
+                }
+              ],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 24000,
+          "firstShotAt": 25500,
+          "eliminatedAt": null
+        },
+        {
+          "id": "A4",
+          "agent": "Bruma",
+          "assigned": "mid",
+          "arrivedAt": 20500,
+          "coverAt": null,
+          "leftSite": [
+            {
+              "at": 14500,
+              "from": "A",
+              "to": "link_a",
+              "knownBefore": [],
+              "visibleBefore": []
+            }
+          ],
+          "visibleWhileRecoveringAt": 20500,
+          "firstShotAt": 19000,
+          "eliminatedAt": 22000
+        }
+      ],
+      "firstContact": {
+        "at": 18000,
+        "kind": "first_contact",
+        "team": "A",
+        "actor": "A4",
+        "target": "B0",
+        "sector": "bend_north"
+      },
+      "firstElimination": {
+        "at": 22000,
+        "kind": "eliminated",
+        "actor": "A4",
+        "target": "B4",
+        "team": "A"
+      },
+      "firstPlant": {
+        "at": 39000,
+        "kind": "planted",
+        "actor": "B0",
+        "sector": "A"
+      },
+      "stop": {
+        "at": 39000,
+        "reason": "plant",
+        "winner": null
+      },
+      "prePlantDefenderShots": 17,
+      "prePlantDefenderEliminations": 0
+    }
+  ]
+}

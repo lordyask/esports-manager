@@ -8,9 +8,9 @@ import type {Circuit} from './circuit-state.ts';
 import {payroll} from './club-finance.ts';
 
 export interface CareerDay {day:number;status:'trained'|'skipped'|'forfeited'|'match';receipt?:{choice:TrainingChoice;gains:TrainingGain[]};}
-export interface CareerFixture {day:number;map:'doca'|'cume';opponentId:string;initialAttack:'A'|'B';sessionId:string|null;result?:{score:{A:number;B:number};winner:'A'|'B'|null;seed:number;rounds:number};}
+export interface CareerFixture {day:number;map:'doca-v2';opponentId:string;initialAttack:'A'|'B';sessionId:string|null;result?:{score:{A:number;B:number};winner:'A'|'B'|null;seed:number;rounds:number};}
 export interface Career {version:1|2;circuit?:Circuit;id:string;seed:number;day:number;roster:string[];days:CareerDay[];fixtures:CareerFixture[];agendaCompleted:boolean;}
-export const fixtureSchedule=():CareerFixture[]=>OPPONENTS.map((team,i)=>({day:(i+1)*4,map:i%2?'cume':'doca',opponentId:team.id,initialAttack:i%2?'B':'A',sessionId:null}));
+export const fixtureSchedule=():CareerFixture[]=>OPPONENTS.map((team,i)=>({day:(i+1)*4,map:'doca-v2' as const,opponentId:team.id,initialAttack:i%2?'B':'A',sessionId:null}));
 export const currentFixture=(c:Career)=>c.fixtures.find(f=>f.day===c.day&&!f.result);
 export const nextFixture=(c:Career)=>c.fixtures.find(f=>!f.result);
 export const dayClosed=(c:Career)=>c.days.some(d=>d.day===c.day);

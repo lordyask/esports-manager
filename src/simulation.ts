@@ -2,7 +2,7 @@ import {AGENTS,ABILITIES,REWORK_KINDS} from './abilities.ts';
 import type {Slot} from './abilities.ts';
 import {damage,professionalScore,probability} from './combat.ts';
 import {randomStreams} from './random.ts';
-import {mapEdges,edgeKey,shortestPath,mobilityTime,compareIds,clamp,integer,finite,WEAPONS,CADENCE_PRECISION,RANGE_SCORE,ROUND_MS,PLANT_MS,DEFUSE_MS,DETONATION_MS} from './rules.ts';
+import {mapEdges,edgeKey,shortestPath,mobilityTime,compareIds,clamp,integer,finite,WEAPONS,CADENCE_PRECISION,RANGE_SCORE,ROUND_MS,PREPARATION_MS,PLANT_MS,DEFUSE_MS,DETONATION_MS} from './rules.ts';
 import type {Sector,Team} from './rules.ts';
 import {decide} from './ai.ts';
 import {activeEffect,presentEffect,validLink,visionBlocked,opticalPenalty,protectHits} from './rework-effects.ts';
@@ -11,6 +11,8 @@ import type {ReworkKind} from './abilities.ts';
 import {validateStrategy} from './strategies.ts';
 import type {Area,Buff,Decision,Observation,Profile,PublicSelf,Sighting,SimEvent,SimulationOptions,SimulationResult,Unit} from './tactical-types.ts';
 import {rangeFor} from './tactical-types.ts';
+import {ATTACK_BASE,DEFENSE_BASE,docaCanFire,docaRange,docaSight,docaSightLink,isDocaArea} from './doca-v2.ts';
+import type {DocaPosition} from './doca-v2.ts';
 
 interface Scheduled {at:number;phase:number;kind:string;actor?:string;target?:string;token?:number;id?:string;decision?:Decision;}
 interface Hit {actor:string;target:string;raw:number;kind:string;}
@@ -40,11 +42,14 @@ export class TacticalRound {
   #targets:Record<Team,'A'|'B'>;
   #targetChosen:Record<Team,boolean>={A:false,B:false};
   #feintShown=false;
+  #feintPressureShown=false;
   #contactShown:Record<Team,boolean>={A:false,B:false};
   constructor(profiles:Profile[],options:SimulationOptions){
     if(profiles.length!==10||new Set(profiles.map(p=>p.id)).size!==10)throw new Error('Ten unique profiles required');
     mapEdges(options.map);integer(options.seed,1,0xffffffff,'seed');
     if(!['A','B'].includes(options.attacking))throw new Error('Invalid attack team');
+    if(options.tacticalPolicy!==undefined&&!['doca-v2-tactical-r4','doca-v2-tactical-r5'].includes(options.tacticalPolicy))throw new Error('Invalid tactical policy');
+    if(options.movementPolicy!==undefined&&!['legacy-r1','require-ready-r2'].includes(options.movementPolicy))throw new Error('Invalid movement policy');
     for(const t of ['A','B'] as const){
       const group=profiles.filter(p=>p.team===t);
       if(group.length!==5||new Set(group.map(p=>p.agent)).size!==5)throw new Error('Five unique agents per team required');
@@ -63,16 +68,18 @@ export class TacticalRound {
       // Retake keeps a reserve in mid and one anchor at each site, instead of
       // stacking all five in spawn and forcing an exposed full-team rotation.
       const retake=options.plans[p.team].defense==='retake';
-      let sector:Sector=attacking?'attack':retake?(index===0?'A':index===1?'B':'mid'):index<2?'A':index<4?'B':'mid';
+      let sector:Sector=options.map==='doca-v2'?(attacking?'attack':'defense'):attacking?'attack':retake?(index===0?'A':index===1?'B':'mid'):index<2?'A':index<4?'B':'mid';
       sector=options.initial?.[p.id]?.sector??sector;
-      if(!['attack','defense','A','B','mid'].includes(sector))throw new Error('Invalid initial sector');
+      if(options.map==='doca-v2'?!isDocaArea(sector):!['attack','defense','A','B','mid'].includes(sector))throw new Error('Invalid initial sector');
       const life=options.initial?.[p.id]?.life??10000;integer(life,1,10000,'life');
       return {...p,sector,vital:{life,shield:Math.round(p.shield*100),temporary:0,reduction:0},usedUlt:false,
         buffs:[],readyAt:0,action:null,movement:null,shotToken:0,shotTarget:null,nextDecision:0};
     });
-    this.#schedule({at:ROUND_MS,phase:5,kind:'timeout'});
-    if(options.ai!==false)this.#schedule({at:0,phase:4,kind:'think'});
-    for(const s of options.script??[]){integer(s.at,0,140000,'script time');if(!this.get(s.actor))throw new Error('Unknown script actor');this.#schedule({at:s.at,phase:4,kind:'script',actor:s.actor,decision:s.decision});}
+    const preparation=options.map==='doca-v2'?PREPARATION_MS:0;
+    this.#schedule({at:ROUND_MS+preparation,phase:5,kind:'timeout'});
+    if(preparation){this.#emit({kind:'preparation_start',detail:String(preparation)});if(options.ai!==false)this.#schedule({at:0,phase:4,kind:'organize'});this.#schedule({at:preparation,phase:1,kind:'actionStart'});}
+    if(options.ai!==false)this.#schedule({at:preparation,phase:4,kind:'think'});
+    for(const s of options.script??[]){integer(s.at,0,140000+preparation,'script time');if(!this.get(s.actor))throw new Error('Unknown script actor');this.#schedule({at:s.at,phase:4,kind:'script',actor:s.actor,decision:s.decision});}
     for(const team of ['A','B'] as const){const plan=options.plans[team];this.#emit({kind:'plan_start',team,detail:JSON.stringify(plan)});if(!profiles.some(p=>p.team===team&&p.role==='Entry'))this.#emit({kind:'role_notice',team,detail:'Sem Entry designado: iniciativa depende da situação e aptidões.'});}
     this.#observeAll();this.#refreshShots();
   }
@@ -91,9 +98,14 @@ export class TacticalRound {
   #token(){return ++this.#serial;}
   #active(a:Area){return a.active&&a.until>this.now;}
   #adjacent(a:Sector,b:Sector){return mapEdges(this.options.map).some(([x,y])=>x===a&&y===b||x===b&&y===a);}
-  #range(a:Unit,b:Unit){return rangeFor(this.options.map,b.movement?.to??b.sector);}
+  #range(a:Unit,b:Unit){return this.options.map==='doca-v2'?docaRange(a as DocaPosition,b as DocaPosition):rangeFor(this.options.map,b.movement?.to??b.sector);}
   #visible(a:Unit,b:Unit){
     if(a.vital.life<=0||b.vital.life<=0||a.team===b.team)return false;
+    if(this.options.map==='doca-v2'&&this.now<PREPARATION_MS)return false;
+    if(this.options.map==='doca-v2'){
+      const sight=docaSight(a as DocaPosition,b as DocaPosition);
+      return sight.visible&&sight.edges.every(edge=>!visionBlocked(this.effects,this.now,a.team,edge)&&!this.areas.some(x=>this.#active(x)&&x.edges.includes(edge)&&(x.kind==='smoke'||x.kind==='barrier')));
+    }
     if(a.movement||b.movement){
       const m=a.movement??b.movement!,observer=a.movement?b:a;
       const observerMove=observer.movement;
@@ -106,9 +118,9 @@ export class TacticalRound {
     return !visionBlocked(this.effects,this.now,a.team,edge)&&!this.areas.some(x=>this.#active(x)&&x.edges.includes(edge)&&(x.kind==='smoke'||x.kind==='barrier'));
   }
   #known(team:Team,id:string){return (this.#knowledge[team].get(id)?.until??0)>this.now;}
-  #reveal(team:Team,u:Unit,ms:number,source:string,tracking=false){
+  #reveal(team:Team,u:Unit,ms:number,source:string,tracking=false,tracker?:string){
     const prior=this.#knowledge[team].get(u.id);
-    this.#knowledge[team].set(u.id,{id:u.id,sector:u.sector,until:Math.max(prior?.until??0,this.now+ms),trackingUntil:tracking?this.now+ms:prior?.trackingUntil,source});
+    this.#knowledge[team].set(u.id,{id:u.id,sector:u.sector,until:Math.max(prior?.until??0,this.now+ms),trackingUntil:tracking?this.now+ms:prior?.trackingUntil,tracker:tracking?tracker:prior?.tracker,source});
     this.#emit({kind:'revealed',actor:u.id,sector:u.sector,team,detail:source});
   }
   #observeAll(){
@@ -117,10 +129,11 @@ export class TacticalRound {
     for(const u of this.alive())for(const e of this.alive(other(u.team)))if(this.#visible(u,e)){
       if(!this.#contactShown[u.team]){this.#contactShown[u.team]=true;this.#emit({kind:'first_contact',team:u.team,actor:u.id,target:e.id,sector:e.sector});}
       const prior=this.#knowledge[u.team].get(e.id);
-      this.#knowledge[u.team].set(e.id,{id:e.id,sector:e.sector,until:Math.max(this.now+1000,prior?.until??0),trackingUntil:prior?.trackingUntil,source:'vision'});
+      this.#knowledge[u.team].set(e.id,{id:e.id,sector:e.sector,until:Math.max(this.now+1000,prior?.until??0),trackingUntil:prior?.trackingUntil,tracker:prior?.tracker,source:'vision'});
     }
     for(const t of ['A','B'] as const)for(const sighting of this.#knowledge[t].values()){
-      const u=this.get(sighting.id);if(u&&(sighting.trackingUntil??0)>this.now)sighting.sector=u.sector;
+      const u=this.get(sighting.id),tracker=sighting.tracker?this.get(sighting.tracker):undefined;
+      if(u&&(sighting.trackingUntil??0)>this.now&&(this.options.map!=='doca-v2'||tracker&&this.#visible(tracker,u)))sighting.sector=u.sector;
     }
   }
   #public(u:Unit):PublicSelf{return {id:u.id,team:u.team,agent:u.agent,sector:u.sector,neutralizing:u.action?.kind==='destroy'?u.action.device:undefined,movement:u.movement?{from:u.movement.from,to:u.movement.to}:null,life:u.vital.life,shield:u.vital.shield,
@@ -134,18 +147,20 @@ export class TacticalRound {
   }
   observeFor(id:string):Observation{
     const u=this.get(id);if(!u)throw new Error('Unknown observer');
-    return {now:this.now,self:this.#public(u),allies:this.units.filter(x=>x.team===u.team&&x.id!==id).map(x=>this.#public(x)),
+    const offset=this.options.map==='doca-v2'?PREPARATION_MS:0;
+    return {now:Math.max(0,this.now-offset),self:this.#public(u),allies:this.units.filter(x=>x.team===u.team&&x.id!==id).map(x=>this.#public(x)),
       visible:this.alive(other(u.team)).filter(x=>this.#visible(u,x)).map(x=>({id:x.id,sector:x.sector,action:x.action?.kind??(x.movement?'move':null)})),
       known:[...this.#knowledge[u.team].values()].filter(x=>x.until>this.now).map(x=>({id:x.id,sector:x.sector})),
       presence:[...this.#presence[u.team].entries()].filter(([,x])=>x.until>this.now).map(([sector,x])=>({sector,present:x.present})),
       devices:[...this.areas.filter(x=>this.#active(x)&&x.team!==u.team&&x.sector===u.sector&&['alarm','trap','barrier'].includes(x.kind)).map(x=>({id:x.id,kind:x.kind,sector:x.sector})),...this.effects.filter(x=>presentEffect(x,this.now)&&x.neutralizeMs&&x.team!==u.team&&x.sector===u.sector).map(x=>({id:x.id,kind:x.kind,sector:x.sector}))],
-      effects:this.effects.filter(e=>presentEffect(e,this.now)&&e.team===u.team).map(e=>({id:e.id,kind:e.kind,sector:e.sector,edges:e.edges.map(([a,b])=>edgeKey(a,b)),target:e.target,capacity:e.capacity,until:e.until})),
-      blocked:this.areas.filter(x=>this.#active(x)&&x.kind==='barrier'&&(x.team===u.team||this.alive(u.team).some(ally=>x.edges.some(edge=>edge.split(':').includes(ally.sector))))).flatMap(x=>x.edges),planted:structuredClone(this.planted),
-      attacking:this.options.attacking,map:this.options.map,plan:structuredClone(this.options.plans[u.team]),attackTarget:this.#targets[u.team]};
+      effects:this.effects.filter(e=>presentEffect(e,this.now)&&e.team===u.team).map(e=>({id:e.id,kind:e.kind,sector:e.sector,edges:e.edges.map(([a,b])=>edgeKey(a,b)),target:e.target,capacity:e.capacity,until:e.until-offset})),
+      blocked:this.areas.filter(x=>this.#active(x)&&x.kind==='barrier'&&(x.team===u.team||this.alive(u.team).some(ally=>x.edges.some(edge=>edge.split(':').includes(ally.sector))))).flatMap(x=>x.edges),planted:this.planted?{...this.planted,deadline:this.planted.deadline-offset}:null,
+      attacking:this.options.attacking,map:this.options.map,plan:structuredClone(this.options.plans[u.team]),attackTarget:this.#targets[u.team],...(this.options.map==='doca-v2'?{feintShifted:this.#feintShown}: {})};
   }
   #stopShot(u:Unit){u.shotToken++;u.shotTarget=null;}
   // Proposed Beta 1.1 traversal rule: fire at half cadence, while actions still block it.
-  #canShoot(u:Unit){return u.vital.life>0&&!u.action;}
+  #canShoot(u:Unit){return u.vital.life>0&&!u.action&&(this.options.map!=='doca-v2'||this.now>=PREPARATION_MS);}
+  #canFireAt(a:Unit,b:Unit){return this.#visible(a,b)&&(this.options.map!=='doca-v2'||docaCanFire(a as DocaPosition,b as DocaPosition));}
   #canAct(u:Unit){return u.vital.life>0&&!u.action&&!u.movement;}
   #endEffect(e:ReworkEffect,reason:string){if(!e.active)return;e.active=false;this.#emit({kind:'effect_ended',actor:e.owner,ability:e.ability,sector:e.sector,detail:JSON.stringify({effect:e.id,reason,remaining:e.capacity})});}
   #syncEffects(){for(const e of this.effects)if(e.active){if(e.until<=this.now)this.#endEffect(e,'expired');else if(e.kind==='interposition'&&!validLink(e,this.units))this.#endEffect(e,'link_broken');}}
@@ -168,7 +183,7 @@ export class TacticalRound {
     this.#schedule({at:this.now+duration,phase:1,kind:'expire'});
   }
   #area(owner:Unit,kind:Area['kind'],sector:Sector,duration:number,value=0,edges:string[]=[]){
-    const area:Area={id:`area:${this.#token()}`,owner:owner.id,team:owner.team,kind,sector,until:duration?this.now+duration:140001,edges,value,active:true};
+    const area:Area={id:`area:${this.#token()}`,owner:owner.id,team:owner.team,kind,sector,until:duration?this.now+duration:145001,edges,value,active:true};
     this.areas.push(area);if(duration)this.#schedule({at:area.until,phase:1,kind:'expire'});return area;
   }
   #travelFactor(u:Unit){
@@ -198,7 +213,7 @@ export class TacticalRound {
     const base=kind?mobilityTime(edge[2],kind):edge[2];
     const delay=this.areas.some(a=>this.#active(a)&&a.kind==='delay'&&a.team!==u.team&&a.edges.includes(edgeKey(u.sector,to)))?2000:0;
     const token=this.#token(),factor=this.#travelFactor(u);this.#stopShot(u);
-    u.movement={from:u.sector,to,remaining:base,updated:this.now,factor,token,delay};
+    u.movement={from:u.sector,to,remaining:base,initial:base,updated:this.now,factor,token,delay};
     this.#schedule({at:this.now+Math.ceil(base*factor/10000)+delay,phase:1,kind:'arrive',actor:u.id,token});
     this.#syncEffects();this.#emit({kind:'move_start',actor:u.id,sector:to,detail:kind??'normal'});return true;
   }
@@ -223,7 +238,8 @@ export class TacticalRound {
     if(this.options.autoFire===false)return;
     for(const u of this.alive()){
       if(!this.#canShoot(u)||u.readyAt>this.now){if(u.shotTarget)this.#stopShot(u);continue;}
-      const visible=this.alive(other(u.team)).filter(e=>this.#visible(u,e)).sort((a,b)=>(a.sector===u.sector?-1:0)-(b.sector===u.sector?-1:0)||this.#compareActors(a.id,b.id));
+      const targetRank=(e:Unit)=>{let x=(this.options.seed^Math.imul(AGENTS.indexOf(u.agent)+1,0x85ebca6b)^Math.imul(AGENTS.indexOf(e.agent)+1,0x9e3779b9)^Math.floor(this.now/500))>>>0;x^=x>>>16;x=Math.imul(x,0x7feb352d);return (x^(x>>>15))>>>0;};
+      const visible=this.alive(other(u.team)).filter(e=>this.#canFireAt(u,e)).sort((a,b)=>(a.sector===u.sector?-1:0)-(b.sector===u.sector?-1:0)||(this.options.map==='doca-v2'?targetRank(a)-targetRank(b):this.#compareActors(a.id,b.id)));
       const existing=visible.find(x=>x.id===u.shotTarget),target=existing??visible[0];
       if(!target){if(u.shotTarget)this.#stopShot(u);continue;}
       if(existing)continue;
@@ -270,6 +286,7 @@ export class TacticalRound {
   #validCast(u:Unit,slot:Slot,sector:Sector,target?:string,edge?:[Sector,Sector],edges?:[Sector,Sector][]){
     const s=ABILITIES[u.agent][slot],adjacent=this.#adjacent(u.sector,sector),local=sector===u.sector;
     const t=target?this.get(target):undefined;
+    if(this.options.map==='doca-v2'&&!local&&!['dash','step','teleport'].includes(s.kind)&&(!isDocaArea(u.sector)||!isDocaArea(sector)||!docaSightLink(u.sector,sector)))return false;
     if(slot===3?(u.ult<8||u.usedUlt):!u.charges[slot])return false;
     if(REWORK_KINDS.includes(s.kind)){
       if(s.kind==='interposition')return !!t&&t.id!==u.id&&t.team===u.team&&t.vital.life>0&&!t.movement&&t.sector===u.sector;
@@ -278,10 +295,10 @@ export class TacticalRound {
       if(s.kind==='refraction'||s.kind==='redoubt')return local&&!!edges&&edges.length===2&&edges.every(valid)&&edgeKey(...edges[0])!==edgeKey(...edges[1]);
       return local&&!!edge&&valid(edge);
     }
-    if(s.kind==='teleport')return !!t&&t.vital.life>0&&t.team===u.team&&t.sector===sector;
+    if(s.kind==='teleport')return !!t&&t.vital.life>0&&t.team===u.team&&t.sector===sector&&(this.options.map!=='doca-v2'||local||adjacent&&isDocaArea(u.sector)&&isDocaArea(sector)&&docaSightLink(u.sector,sector)&&!this.areas.some(a=>this.#active(a)&&a.kind==='barrier'&&a.edges.includes(edgeKey(u.sector,sector))));
     if(s.kind==='fortress'||s.kind==='speed'||s.kind==='position'||s.kind==='sweep')return true;
     if(s.kind==='guard')return !!t&&t.team===u.team&&t.vital.life>0&&t.sector===u.sector;
-    if(s.kind==='track')return !!t&&t.team!==u.team&&t.vital.life>0&&this.#known(u.team,t.id);
+    if(s.kind==='track')return !!t&&t.team!==u.team&&t.vital.life>0&&this.#known(u.team,t.id)&&(this.options.map!=='doca-v2'||this.#visible(u,t));
     if(s.kind==='interrupt')return !!t&&t.team!==u.team&&t.vital.life>0&&t.sector===u.sector&&this.#known(u.team,t.id)&&!!t.action;
     if(['alarm','trap','safe'].includes(s.kind))return local;
     if(['dash','step','scan'].includes(s.kind))return adjacent;
@@ -294,6 +311,12 @@ export class TacticalRound {
   }
   issue(id:string,d:Decision):boolean{
     if(this.result)return false;const u=this.get(id);if(!u)return false;
+    if(d.kind==='move'&&this.options.map==='doca-v2'&&(this.options.movementPolicy??'require-ready-r2')==='require-ready-r2'&&this.now<u.readyAt)return false;
+    if(this.options.map==='doca-v2'&&this.now<PREPARATION_MS){
+      if(d.kind==='wait')return true;
+      const base=u.team===this.options.attacking?ATTACK_BASE:DEFENSE_BASE;
+      if(d.kind!=='move'||!isDocaArea(u.sector)||!isDocaArea(d.to)||!base.includes(u.sector)||!base.includes(d.to))return false;
+    }
     if(d.kind==='move'&&u.action?.kind==='destroy'&&this.#adjacent(u.sector,d.to)){const device=u.action.device;u.action=null;this.#emit({kind:'destroy_cancelled',actor:id,detail:device});}
     if(u.movement&&d.kind==='move'&&d.to!==u.movement.to){
       if(!this.#adjacent(u.sector,d.to))return false;
@@ -311,7 +334,7 @@ export class TacticalRound {
       this.#emit({kind:'cast_start',actor:id,ability:ABILITIES[u.agent][d.slot].name,sector});return true;
     }
     if(d.kind==='plant'){
-      if(u.team!==this.options.attacking||!['A','B'].includes(u.sector)||this.planted||this.now+PLANT_MS>ROUND_MS||this.units.some(x=>x.action?.kind==='plant'))return false;
+      if(u.team!==this.options.attacking||!['A','B'].includes(u.sector)||this.planted||this.now+PLANT_MS>ROUND_MS+(this.options.map==='doca-v2'?PREPARATION_MS:0)||this.units.some(x=>x.action?.kind==='plant'))return false;
     }else if(d.kind==='defuse'){
       if(u.team===this.options.attacking||!this.planted||u.sector!==this.planted.sector||this.now+DEFUSE_MS>this.planted.deadline||this.units.some(x=>x.action?.kind==='defuse'))return false;
     }else if(d.kind==='destroy'){
@@ -325,7 +348,7 @@ export class TacticalRound {
   }
   #resolveAbility(u:Unit,slot:Slot,sector:Sector,target?:string,edge?:[Sector,Sector],edges?:[Sector,Sector][]){
     const s=ABILITIES[u.agent][slot];
-    if(REWORK_KINDS.includes(s.kind)&&!this.#validCast(u,slot,sector,target,edge,edges)){this.#emit({kind:'cast_cancelled',actor:u.id,ability:s.name,detail:'Alvo ou posição deixou de ser elegível; recurso preservado.'});return;}
+    if((REWORK_KINDS.includes(s.kind)||this.options.map==='doca-v2'&&s.kind==='teleport')&&!this.#validCast(u,slot,sector,target,edge,edges)){this.#emit({kind:'cast_cancelled',actor:u.id,ability:s.name,detail:'Alvo ou posição deixou de ser elegível; recurso preservado.'});return;}
     if(slot===3){u.ult-=8;u.usedUlt=true;}else u.charges[slot]=false;
     this.abilityUses[s.name]=(this.abilityUses[s.name]??0)+1;this.#emit({kind:'cast_complete',actor:u.id,ability:s.name,sector});
     const t=target?this.get(target):undefined;
@@ -347,7 +370,7 @@ export class TacticalRound {
       case 'scan':{
         const area=this.#area(u,'scan',sector,s.duration);this.#schedule({at:this.now,phase:4,kind:'scanTick',id:area.id});break;
       }
-      case 'track':if(t&&t.vital.life>0)this.#reveal(u.team,t,s.duration,'track',true);break;
+      case 'track':if(t&&t.vital.life>0)this.#reveal(u.team,t,s.duration,'track',true,u.id);break;
       case 'sweep':{
         const area=this.#area(u,'scan',u.sector,s.duration);area.value=1;this.#schedule({at:this.now,phase:4,kind:'scanTick',id:area.id});break;
       }
@@ -375,8 +398,12 @@ export class TacticalRound {
   }
   #think(){
     this.#observeAll();
-    if(!this.#feintShown&&this.now>=18000&&this.options.plans[this.options.attacking].attack==='feint'){this.#feintShown=true;this.#emit({kind:'strategy_shift',team:this.options.attacking,sector:this.#targets[this.options.attacking],detail:'Fim da finta; rotação para o foco confirmado.'});}
-    for(const team of ['A','B'] as const)if(team===this.options.attacking&&!this.#targetChosen[team]&&this.now>=10000&&this.options.plans[team].attack==='control'){
+    const actionTime=this.now-(this.options.map==='doca-v2'?PREPARATION_MS:0);
+    const falseSite=this.#targets[this.options.attacking]==='A'?'B':'A';
+    const pressure=this.options.map!=='doca-v2'||this.alive(this.options.attacking).some(u=>u.sector===falseSite||u.sector===(falseSite==='A'?'corridor_a':'corridor_b'));
+    if(this.options.map==='doca-v2'&&!this.#feintPressureShown&&pressure&&this.options.plans[this.options.attacking].attack==='feint'){this.#feintPressureShown=true;this.#emit({kind:'feint_pressure',team:this.options.attacking,sector:falseSite,detail:'Atacantes alcançaram o corredor ou ponto da finta.'});}
+    if(!this.#feintShown&&actionTime>=18000&&(this.options.map==='doca-v2'?this.#feintPressureShown:pressure)&&this.options.plans[this.options.attacking].attack==='feint'){this.#feintShown=true;this.#emit({kind:'strategy_shift',team:this.options.attacking,sector:this.#targets[this.options.attacking],detail:'Fim da finta; rotação para o foco confirmado.'});}
+    for(const team of ['A','B'] as const)if(team===this.options.attacking&&!this.#targetChosen[team]&&actionTime>=10000&&this.options.plans[team].attack==='control'){
       const ranked=this.alive(team).sort((a,b)=>(b.attrs[3]*.35+b.attrs[5]*.30+b.attrs[6]*.20+b.attrs[7]*.15)-(a.attrs[3]*.35+a.attrs[5]*.30+a.attrs[6]*.20+a.attrs[7]*.15));
       const igl=ranked.find(p=>p.igl)??ranked[0];
       const known=[...this.#knowledge[team].values()].filter(s=>s.until>this.now);
@@ -388,7 +415,7 @@ export class TacticalRound {
     }
     for(const u of this.alive()){
       if(u.nextDecision>this.now||!this.#canAct(u))continue;
-      const decision=decide(this.observeFor(u.id),this.rng.decisions);this.issue(u.id,decision);
+      const decision=decide(this.observeFor(u.id),this.rng.decisions,this.options.tacticalPolicy);this.issue(u.id,decision);
       // Professional discipline affects execution timing; no hidden attribute bonuses.
       u.nextDecision=this.now+Math.round(300+(100-u.attrs[6])*3+(100-u.attrs[5])*2);
     }
@@ -399,7 +426,7 @@ export class TacticalRound {
     for(const e of batch){
       if(e.kind==='shot'){
         const u=this.get(e.actor!),t=this.get(e.target!);
-        if(!u||!t||e.token!==u.shotToken||!this.#canShoot(u)||u.readyAt>this.now||!this.#visible(u,t)){if(u&&e.token===u.shotToken)this.#stopShot(u);continue;}
+        if(!u||!t||e.token!==u.shotToken||!this.#canShoot(u)||u.readyAt>this.now||!this.#canFireAt(u,t)){if(u&&e.token===u.shotToken)this.#stopShot(u);continue;}
         const range=this.#range(u,t),a=this.#score(u)+(u.weapon==='precision'?RANGE_SCORE[range]:0),b=this.#score(t)+(t.weapon==='precision'?RANGE_SCORE[range]:0);
         const hit=this.rng.combat.chance(clamp(probability(a,b)-opticalPenalty(this.effects,this.now,u),1000,9000));this.#emit({kind:'shot',actor:u.id,target:t.id,detail:hit?'hit':'miss'});
         if(hit)hits.push({actor:u.id,target:t.id,raw:WEAPONS[u.weapon].damage*100,kind:'weapon_damage'});
@@ -419,6 +446,16 @@ export class TacticalRound {
     this.#applyHits(hits);
   }
   #process(e:Scheduled){
+    if(e.kind==='organize'){
+      const plan=this.options.plans[this.options.attacking];
+      for(const u of this.alive(this.options.attacking)){
+        const index=AGENTS.indexOf(u.agent),site=plan.attack==='feint'?(plan.site==='A'?'B':'A'):plan.site;
+        if(plan.attack==='control'&&index%2===0||plan.attack==='split'&&index%2===0)continue;
+        this.issue(u.id,{kind:'move',to:site==='A'?'attack_west':'attack_east'});
+      }
+      return;
+    }
+    if(e.kind==='actionStart'){this.#emit({kind:'action_start',detail:'Fim da preparação; ambas as equipes liberadas.'});return;}
     if(e.kind==='reworkActivate'){const effect=this.effects.find(x=>x.id===e.id);if(effect&&presentEffect(effect,this.now))this.#emit({kind:'effect_activated',actor:effect.owner,ability:effect.ability,sector:effect.sector,detail:effect.id});return;}
     if(e.kind==='reworkExpire'){const effect=this.effects.find(x=>x.id===e.id);if(effect&&effect.active)this.#endEffect(effect,'expired');return;}
     if(e.kind==='think'){this.#think();return;}
@@ -427,7 +464,7 @@ export class TacticalRound {
     if(e.kind==='detonate'){if(this.planted)this.#finish(this.options.attacking,'detonation');return;}
     if(e.kind==='scanTick'){
       const area=this.areas.find(a=>a.id===e.id);if(!area||!this.#active(area))return;
-      if(area.value===1){for(const enemy of this.alive(other(area.team)))this.#reveal(area.team,enemy,1000,'sweep');}
+      if(area.value===1){const owner=this.get(area.owner);for(const enemy of this.alive(other(area.team)))if(this.options.map!=='doca-v2'||owner&&this.#visible(owner,enemy))this.#reveal(area.team,enemy,1000,'sweep');}
       else this.#presence[area.team].set(area.sector,{present:this.alive(other(area.team)).some(x=>x.sector===area.sector),until:area.until});
       if(this.now+1000<area.until)this.#schedule({at:this.now+1000,phase:4,kind:'scanTick',id:area.id});return;
     }
@@ -449,7 +486,7 @@ export class TacticalRound {
     }
   }
   advance(until:number){
-    integer(until,this.now,140001,'advance time');
+    integer(until,this.now,140001+(this.options.map==='doca-v2'?PREPARATION_MS:0),'advance time');
     while(this.#queue.length&&!this.result){
       this.#queue.sort((a,b)=>a.at-b.at||a.phase-b.phase||this.#compareActors(a.actor??a.id??'',b.actor??b.id??''));
       if(this.#queue[0].at>until)break;
@@ -481,7 +518,7 @@ export class TacticalRound {
     if(!this.result){this.#progress(until);this.now=until;this.#observeAll();}
     return this.result;
   }
-  run(){this.advance(140001);if(!this.result)throw new Error('Non-terminating round');return this.result;}
+  run(){this.advance(140001+(this.options.map==='doca-v2'?PREPARATION_MS:0));if(!this.result)throw new Error('Non-terminating round');return this.result;}
 }
 
 export function simulateRound(profiles:Profile[],options:SimulationOptions){return new TacticalRound(profiles,options).run();}
