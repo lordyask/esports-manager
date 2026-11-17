@@ -1,6 +1,6 @@
-# Candidata Doca V2 — Como preservar e importar seu progresso
+# Beta 2.1 — Como preservar e importar seu progresso
 
-Este documento descreve a candidata de desenvolvimento com motor 0.6.1, ainda não publicada. A versão publicada pode ter comportamento diferente.
+Este documento descreve o Beta 2.1 com motor 0.6.1. A versão do produto não altera os identificadores mecânicos dos saves.
 
 ## Antes de atualizar
 
@@ -10,7 +10,7 @@ Este documento descreve a candidata de desenvolvimento com motor 0.6.1, ainda n�
 
 ## O que acontece com cada arquivo
 
-| Arquivo | Comportamento na candidata Doca V2 |
+| Arquivo | Comportamento no Beta 2.1 |
 | --- | --- |
 | Beta 1.0 / motor 0.3.0 | Preservado no Acervo para consulta e exportação; partida antiga não continua nas regras novas |
 | Beta 1.1 a 1.3 / motor 0.4.1 | Save validado e preservado no Acervo; sem transferência de XP, caixa, contratos ou resultados para a carreira atual |

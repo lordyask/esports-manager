@@ -3,7 +3,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {freshWorkspace,defaultDraft,suggestAssignments,createSession,advanceSession,encodeSave,decodeSave,prepareImport} from '../lib/game.ts';
 import {commitWorkspace,loadWorkspace} from '../lib/storage.ts';
-import {readArchive} from '../lib/archive.ts';
+import {archiveFromText,readArchive} from '../lib/archive.ts';
 import {historyJSON,readHistory} from '../lib/history.ts';
 import {BETA_VERSION} from '../lib/release.ts';
 import {MECHANICS} from '../src/content.ts';
@@ -22,6 +22,10 @@ test('Beta 1.3 save is archived with its exact bytes and never becomes an active
 });
 test('history remains compatible when the optional product version is absent',()=>{
  const e=JSON.parse(historyJSON([]));assert.equal(e.beta,BETA_VERSION);delete e.beta;assert.deepEqual(readHistory(JSON.stringify(e)),[]);
+});
+test('archived history displays its recorded product version without changing its contents',()=>{
+ const raw=historyJSON([]),archive=archiveFromText(raw);assert.equal(readArchive(archive).beta,BETA_VERSION);assert.equal(archive.text,raw);
+ const old=JSON.parse(raw);delete old.beta;assert.equal(readArchive(archiveFromText(JSON.stringify(old))).beta,'histórico sem versão identificada');
 });
 test('RC1 saves and history remain readable after the official product version changes',()=>{
  const workspace=freshWorkspace(),save=JSON.parse(encodeSave(workspace));save.beta='2.0.0-rc.1';assert.deepEqual(decodeSave(JSON.stringify(save)),workspace);

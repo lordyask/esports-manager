@@ -11,7 +11,7 @@ import {AGENT_ART} from '../lib/agent-art.ts';
 import {ABILITIES} from '../src/abilities.ts';
 
 const {chromium}=await import(process.env.NEXUS_PLAYWRIGHT??'/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs');
-const root=resolve('out'),fixtures=resolve(process.env.NEXUS_ARENA_FIXTURES??'/tmp/nexus-arena-command-fixtures'),output='validation/arena-premium';
+const root=resolve('out'),fixtures=resolve(process.env.NEXUS_ARENA_FIXTURES??'/tmp/nexus-arena-command-fixtures'),output=process.env.NEXUS_ARENA_OUTPUT??'validation/arena-premium';
 const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.ico':'image/x-icon','.ttf':'font/ttf','.woff2':'font/woff2'};
 const server=createServer(async(req,res)=>{
  try{
@@ -52,7 +52,7 @@ async function checkLayout(page,errors){
 async function stored(page){return page.evaluate(()=>new Promise((resolve,reject)=>{const q=indexedDB.open('esports-manager-beta-1.1',1);q.onerror=()=>reject(q.error);q.onsuccess=()=>{const db=q.result,r=db.transaction('workspace').objectStore('workspace').get('active');r.onsuccess=()=>{db.close();resolve(r.result?.text??null);};r.onerror=()=>reject(r.error);};}));}
 
 try{
- for(const [width,height] of [[1920,1080],[1280,900],[768,900],[390,844],[360,800]]){
+ for(const [width,height] of [[1920,1080],[1366,768],[1280,900],[768,900],[390,844],[360,800]]){
   const {context,page,errors,raw,state}=await open(width,height,'career');
   const player=PLAYERS.find(p=>p.id===state.draft.igl),growth=growthFor(state.development,player.id),agent=state.draft.assignments[player.id].agent,fixture=state.career.fixtures.find(f=>f.result);
   assert.equal(await page.locator('.arena-agent-copy strong').innerText(),agent.toUpperCase());
@@ -62,7 +62,7 @@ try{
   assert.ok((await page.locator('.arena-attributes').innerText()).includes(String(growth.attrs[6])));
   assert.ok((await page.locator('.arena-chart svg desc').textContent()).includes(`Dia ${fixture.day}: ${state.draft.tag} ${fixture.result.score.A}, adversário ${fixture.result.score.B}`));
   const layout=await checkLayout(page,errors);assert.equal(await stored(page),raw);
-  if(width===1920||width===390)await page.screenshot({path:`${output}/screenshots/central-${width}.png`,fullPage:true,animations:'disabled'});
+  if(width===1920||width===1366||width===390)await page.screenshot({path:`${output}/screenshots/central-${width}.png`,fullPage:true,animations:'disabled'});
   results.push({viewport:`${width}x${height}`,fixture:'career',layout,realData:'matched synthetic save',assets:'loaded',save:'unchanged'});await context.close();
  }
  {

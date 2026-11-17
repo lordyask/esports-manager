@@ -1,7 +1,7 @@
-name: Doca V2 development checks
+name: Doca V2 and Beta 2.1 checks
 on:
   push:
-    branches: [codex/doca-v2-spatial]
+    branches: [codex/doca-v2-spatial, release/beta-2.1]
   workflow_dispatch:
 permissions:
   contents: read
@@ -20,3 +20,6 @@ jobs:
       - run: npm run typecheck
       - run: npm run build
       - run: PAGES_BASE_PATH=/esports-manager npm run build
+      - run: PAGES_BASE_PATH=/esports-manager node scripts/check-export.ts
+      - run: node scripts/check-candidate-export.ts
+      - run: PAGES_BASE_PATH=/esports-manager node scripts/check-agent-art.ts --export

@@ -29,7 +29,7 @@ export function readArchive(a:Archive):ArchiveView {
   if(e.engine==='0.5.0')return {engine:e.engine,beta:'histórico reworks anteriores',data:{...freshPrior(),history:readPriorHistory(a.text)}};
   if(e.engine==='0.5.1')return {engine:e.engine,beta:'2.0 · mapa e regras anteriores',data:{...freshBeta51(),history:historyBeta51(a.text)}};
   if(e.engine==='0.6.0')return {engine:e.engine,beta:'Doca V2 · lados a cada 12 rodadas',data:{...freshDoca60(),history:historyDoca60(a.text)}};
-  if(e.engine===ENGINE_VERSION)return {engine:e.engine,beta:'histórico 2.0',data:{...freshWorkspace(),history:readHistory(a.text)}};
+  if(e.engine===ENGINE_VERSION)return {engine:e.engine,beta:typeof e.beta==='string'?e.beta:'histórico sem versão identificada',data:{...freshWorkspace(),history:readHistory(a.text)}};
  }
  if(e.format!=='esports-manager-beta')throw new Error('Tipo de arquivo de consulta desconhecido.');
  if(e.engine==='0.5.0')return {engine:e.engine,beta:e.beta??'reworks anteriores',data:decodePrior(a.text)};

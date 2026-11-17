@@ -1,5 +1,14 @@
 # Histórico de alterações — Esports Manager
 
+## 17/11/2026 — NEXUS Beta 2.1 · Doca V2 e Arena Premium
+
+- Produto `2.1.0`, preservando motor 0.6.1, regras `nexus-2.0-doca-v2-r2`, revisões mecânicas e schema 6.
+- Doca V2 para partidas e circuitos novos; preparação de cinco segundos e trocas de lado nos rounds 7, 13 e 19. O reinício econômico permanece no round 13.
+- Correções de cobertura defensiva e prontidão de comandos de movimento. A Central de Comando Arena Premium usa dados reais da carreira.
+- Saves incompatíveis podem ser preservados e exportados pelo Acervo mediante escolha explícita; não há migração automática de elenco, XP ou finanças.
+- Vantagem ofensiva, coordenação das retomadas e a influência de Eco continuam em avaliação. Não há declaração de equilíbrio global.
+- Referência de reversão da `main` anterior: `61dc03d9d3af60d6fc85628d132782631560725b`. [Notas e limitações](docs/BETA_2_1_NOTAS.md).
+
 ## 16/11/2026 — Prontidão dos comandos de movimento
 
 - Na Doca V2, comandos diretos ou agendados não iniciam movimento antes de `readyAt`; espera e demais ações mantêm suas validações.
