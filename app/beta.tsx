@@ -40,12 +40,15 @@ function Mark({kind=0}:{kind?:number}){return <svg viewBox="0 0 40 44" fill="non
 function download(name:string,text:string){const u=URL.createObjectURL(new Blob([text],{type:'application/json'})),a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);}
 function Field({label,children}:{label:string;children:React.ReactNode}){return <label className="field"><span>{label}</span>{children}</label>;}
 function Section({eyebrow,title,description}:{eyebrow:string;title:string;description:string}){return <div className="section-heading"><span className="eyebrow">{eyebrow}</span><h1>{title}</h1><p>{description}</p></div>;}
-function PlayerCard({p,selected,disabled,locked,toggle}:{p:Player;selected:boolean;disabled:boolean;locked:boolean;toggle:()=>void}){return <article className={`player-card ${selected?'selected':''}`}>
- <div className="player-top"><span className="avatar">{p.name.slice(0,2).toUpperCase()}</span><div><small>{CLASS[p.main]} · {p.profile}</small><h3>{p.name}</h3><span className="muted">{p.main} · {ROLE_NAMES[p.style]??p.style} · {countryLabel(p.country)}</span></div><span className="rating">{p.overall.toFixed(1)}<small>GERAL</small></span></div>
+function PlayerCard({p,selected,disabled,locked,toggle,lineup}:{p:Player;selected:boolean;disabled:boolean;locked:boolean;toggle:()=>void;lineup?:{assignment?:Draft['assignments'][string];igl:boolean;familiarity?:number}}){
+ const agent=lineup?.assignment?.agent??p.main;
+ const role=lineup?.assignment?.role??p.style;
+ return <article className={`player-card ${selected?'selected':''}`}>
+ <div className="player-top"><span className="avatar">{p.name.slice(0,2).toUpperCase()}</span><div><small>{CLASS[agent]} · {p.profile}</small><h3>{p.name}</h3><span className="muted">{lineup&&!lineup.assignment?'Agente e função a definir':`${agent} · ${ROLE_NAMES[role]??role}`}{lineup?.igl?' · IGL':''} · {countryLabel(p.country)}</span></div><span className="rating">{p.overall.toFixed(1)}<small>GERAL</small></span></div>
  <div className="player-numbers"><div><small>POTENCIAL</small><strong>{p.potential}<span>/100</span></strong></div><div><small>SALÁRIO MENSAL</small><strong>{fmt(p.salary)} <span>cr.</span></strong></div></div>
  <div className="meter"><span style={{width:`${p.overall}%`}}/><i style={{left:`${p.potential}%`}}/></div>
  <div className="card-tags"><span>{p.mental}</span><span>IGL {p.apt.IGL.toFixed(0)}</span></div>
- <details><summary>Ver atributos e afinidades</summary><div className="attribute-grid">{ATTRS.map((a,i)=><div key={a}><span>{a}</span><b>{p.attrs[i]}</b></div>)}</div><p className="small">Afinidades iniciais: {p.main} 85 · {p.second} 65 · {p.third} 45 · demais 10. Valores atuais na aba Agentes. Aptidões abaixo são referências iniciais do catálogo.</p><div className="attribute-grid">{Object.entries(p.apt).map(([r,v])=><div key={r}><span>{ROLE_NAMES[r]??r}</span><b>{v.toFixed(1)}</b></div>)}</div></details>
+ <details><summary>Ver atributos e afinidades</summary><div className="attribute-grid">{ATTRS.map((a,i)=><div key={a}><span>{a}</span><b>{p.attrs[i]}</b></div>)}</div>{lineup?.assignment&&<p className="small">Familiaridade atual com {agent}: {lineup.familiarity}/100.</p>}<p className="small">Afinidades iniciais: {p.main} 85 · {p.second} 65 · {p.third} 45 · demais 10. Valores atuais na aba Agentes. Aptidões abaixo são referências iniciais do catálogo.</p><div className="attribute-grid">{Object.entries(p.apt).map(([r,v])=><div key={r}><span>{ROLE_NAMES[r]??r}</span><b>{v.toFixed(1)}</b></div>)}</div></details>
  <button className={`pick ${selected?'picked':''}`} onClick={toggle} disabled={locked||disabled&&!selected}>{selected?'✓ No elenco':'+ Selecionar jogador'}</button>
  </article>;}
 const reasonText=(r:string)=>({defenders_eliminated:'defesa eliminada',attackers_eliminated:'ataque eliminado',mutual_elimination:'eliminação simultânea',defused:'dispositivo desarmado',detonation:'dispositivo detonado',time_expired:'tempo esgotado'}[r]??r);
@@ -58,16 +61,23 @@ export default function Beta(){
  useEffect(()=>{try{setReduceMotion(localStorage.getItem('nexus.ui.motion')==='reduce');}catch{/* Preferences are optional when storage is blocked. */}},[]);
  function motionPreference(value:boolean){setReduceMotion(value);try{localStorage.setItem('nexus.ui.motion',value?'reduce':'system');}catch{}}
  const [data,setData]=useState<Workspace>(freshWorkspace),[tab,setActiveTab]=useState(0),[loaded,setLoaded]=useState(false),[saved,setSaved]=useState(false),[error,setError]=useState(''),[note,setNote]=useState(''),[busy,setBusy]=useState(false),[query,setQuery]=useState(''),[filter,setFilter]=useState('Todos'),[country,setCountry]=useState('Todos'),[sort,setSort]=useState('salary'),[autoBuy,setAutoBuy]=useState(false),[plans,setPlans]=useState<Record<string,Plan>>({}),[speed,setSpeed]=useState('normal'),[lastMs,setLastMs]=useState(0),[recovery,setRecovery]=useState<string|null>(null),[legacyExport,setLegacyExport]=useState<string|null>(null);
- function setTab(next:number){setActiveTab(next);setMenuLevel('page');}
+ const [recruiting,setRecruiting]=useState(false);
+ function setTab(next:number,recruit=false){
+  setActiveTab(next);setMenuLevel('page');setRecruiting(recruit);
+  if(next===1){setQuery('');setFilter('Todos');setCountry('Todos');}
+ }
  function openMainMenu(){if(!loaded||busy)return;setMenuLevel('main');}
  function chooseCategory(index:number){if(!loaded||busy)return;setMenuGroup(index);setMenuLevel('category');}
  const category=menuLevel==='page'?groupForTab(tab):MENU_GROUPS[menuGroup];
- useEffect(()=>{if(loaded){mainContent.current?.focus({preventScroll:true});window.scrollTo({top:0,behavior:'auto'});}},[loaded,menuLevel,menuGroup,tab]);
+ useEffect(()=>{if(loaded){mainContent.current?.focus({preventScroll:true});window.scrollTo({top:0,behavior:'auto'});}},[loaded,menuLevel,menuGroup,tab,recruiting]);
  const current=useRef(data),revision=useRef(0),worker=useRef<Worker|null>(null),pending=useRef(new Map<string,{resolve:(s:Session)=>void;reject:(e:Error)=>void;timer:ReturnType<typeof setTimeout>}>()),working=useRef(false),stop=useRef(false),file=useRef<HTMLInputElement>(null);
  current.current=data;
  const d=data.draft,s=data.session,dev=data.development??newDevelopment();
  const playerView=(p:Player):Player=>{const g=growthFor(dev,p.id);return {...p,attrs:g.attrs,overall:g.attrs.reduce((a,b)=>a+b,0)/8};};
- const selected=d.selected.map(id=>playerView(PLAYERS.find(p=>p.id===id)!)),totalSalary=salary(d),rosterLocked=!!data.career||!!s||dev.used||dev.completed>0;
+ const rosterIds=data.career?.roster??d.selected;
+ const selected=rosterIds.map(id=>playerView(PLAYERS.find(p=>p.id===id)!));
+ const totalSalary=salary(d),rosterLocked=!!data.career||!!s||dev.used||dev.completed>0;
+ const showCandidates=recruiting&&!rosterLocked;
  const scheduled=data.career?nextFixture(data.career):undefined,enemyName=s?.metadata?.opponentId?opponentFor(s.metadata.opponentId).name:scheduled?opponentFor(scheduled.opponentId).name:'Equipe de teste';
  const fam=(p:Player,a:string)=>growthFor(dev,p.id).familiarities[a];
  useEffect(()=>{let active=true;loadWorkspace().then(x=>{if(active){if(x){revision.current=x.revision;if('data' in x){setData(initializeHistory(x.data));setPlans(x.data.buyPreparation??{});setAutoBuy(x.data.autoBuy??false);setSaved(true);}else{setRecovery(x.raw);setError(x.error);}}setLoaded(true);}}).catch(e=>{if(active){setLoaded(true);setError(String(e instanceof Error?e.message:e));}});return()=>{active=false;};},[]);
@@ -76,7 +86,16 @@ export default function Beta(){
  w.onmessage=e=>{const p=pending.current.get(e.data.id);if(!p)return;clearTimeout(p.timer);pending.current.delete(e.data.id);if(e.data.error)p.reject(new Error(e.data.error));else p.resolve(e.data.session);};
  w.onerror=()=>{for(const p of pending.current.values()){clearTimeout(p.timer);p.reject(new Error('O motor não iniciou. Recarregue para tentar novamente com o progresso salvo.'));}pending.current.clear();};
  return()=>{w.terminate();for(const p of pending.current.values()){clearTimeout(p.timer);p.reject(new Error('Operação encerrada.'));}pending.current.clear();};},[]);
- const filtered=useMemo(()=>PLAYERS.filter(p=>!rosterLocked||d.selected.includes(p.id)).map(playerView).filter(p=>(filter==='Todos'||CLASS[p.main]===filter)&&(country==='Todos'||p.country===country)&&`${p.name} ${p.main} ${p.style}`.toLowerCase().includes(query.toLowerCase())).sort((a,b)=>sort==='potential'?b.potential-a.potential:sort==='overall'?b.overall-a.overall:a.salary-b.salary),[query,filter,country,sort,dev,rosterLocked,d.selected]);
+ const rosterSource=showCandidates?PLAYERS:selected;
+ const rosterSearch=query.toLowerCase();
+ const filteredRoster=tab===1?rosterSource.filter(player=>{
+  const assignment=showCandidates?undefined:d.assignments[player.id];
+  const agent=assignment?.agent??player.main;
+  const role=assignment?.role??player.style;
+  const searchText=`${player.name} ${agent} ${role} ${ROLE_NAMES[role]??''}`.toLowerCase();
+  return (filter==='Todos'||CLASS[agent]===filter)&&(country==='Todos'||player.country===country)&&searchText.includes(rosterSearch);
+ }):[];
+ const displayedPlayers=showCandidates?filteredRoster.map(playerView).sort((a,b)=>sort==='potential'?b.potential-a.potential:sort==='overall'?b.overall-a.overall:a.salary-b.salary):filteredRoster;
  const metrics=useMemo(()=>s?stats(s):[],[s]);
  const report=tab===4;
  async function persist(next:Workspace){if(recovery){let original;try{original=archiveFromText(recovery);}catch{original=rescueArchive(recovery);}next=addArchive(next,original);}const rev=await commitWorkspace(next,revision.current);revision.current=rev;current.current=next;setData(next);setRecovery(null);setSaved(true);}
@@ -125,6 +144,7 @@ export default function Beta(){
  async function openCareer(){if(working.current)return;if(!confirm('Confirmar cinco contratos de 365 dias e inscrição de 1.000? Caixa inicial de 30.000; saldo após inscrição 29.000. A evolução começa do catálogo. O histórico concluído será preservado.'))return;working.current=true;setBusy(true);try{const x=current.current,draft=x.draft.selected.every(id=>x.draft.assignments[id])&&x.draft.selected.includes(x.draft.igl)?x.draft:suggestAssignments(x.draft);validateDraft(draft);await persist(startCircuitCareer({...x,draft},newId()));setTab(8);setError('');setNote('Ciclo iniciado no dia 1. Adversários com atributos fixos.');}catch(e){fail(e);}finally{working.current=false;setBusy(false);}}
  async function calendarAdvance(mode:'day'|'event'){if(working.current)return;try{const preview=advancePreview(current.current,mode);if(preview.lost>0&&!confirm(`Avançar ao dia ${preview.target}? ${preview.lost} oportunidade(s) de treino serão perdidas. Nenhum treino será realizado automaticamente.`))return;working.current=true;setBusy(true);await persist(advanceCareer(current.current,mode));setPlans({});setTab(8);setError('');setNote(`Calendário salvo: dia ${preview.target}.`);}catch(e){fail(e);}finally{working.current=false;setBusy(false);}}
  function nav(i:number){if(busy||!loaded)return;if(i===2&&!s){if(d.selected.length!==5){setTab(1);return;}void configure();return;}if(i===3&&!s){setTab(2);return;}if(i===4&&!s?.records.length&&!data.previous&&!data.legacyReport)return;setTab(i);setError('');}
+ function openRecruitment(){if(!loaded||busy)return;setTab(1,!rosterLocked);setError('');}
  const coverage=[...new Set(selected.map(p=>CLASS[d.assignments[p.id]?.agent??p.main]))];
  function unavailableTab(index:number){if(index===3&&!s)return 'Inicie uma partida pela Preparação.';if(index===4&&!s?.records.length&&!data.previous&&!data.legacyReport)return 'Disponível após a primeira rodada concluída.';return undefined;}
  return <div className="shell category-shell" data-reduce-motion={reduceMotion} style={{'--team-accent':d.color} as CSSProperties}>
@@ -144,7 +164,7 @@ export default function Beta(){
  {menuLevel==='page'&&tab===0&&legacyExport&&<section className="notice"><div><b>Seu progresso do Beta 1.0 continua preservado.</b><p>Baixe o arquivo original. Para guardar e consultar os registros antigos no acervo, use Importar progresso.</p></div><button className="secondary" onClick={()=>download('esports-manager-beta-1.0-original.json',legacyExport)}>Baixar backup do Beta 1.0</button></section>}
  {menuLevel==='page'&&!!data.archives?.length&&!data.career&&<div className="notice">Há registros preservados no acervo. Eles não concedem XP ou caixa à nova carreira. <button className="text-button" onClick={()=>setTab(11)}>Abrir acervo</button></div>}
  {recovery&&<section className="panel"><h1>Seu arquivo foi preservado.</h1><p>Este progresso não pode continuar nesta versão. Exporte o original; ao confirmar a importação ou o reinício, uma cópia também será guardada no acervo, sujeita ao limite de 64 MB. A partida antiga permanece apenas para consulta.</p><div className="button-row"><button className="primary" onClick={exportProgress}>Exportar arquivo preservado</button><button className="secondary" disabled={busy} onClick={()=>file.current?.click()}>Importar outro arquivo</button><button className="secondary" disabled={busy} onClick={reset}>Reiniciar com esta versão</button></div></section>}
- {!loaded?<div className="panel loading">Abrindo seu centro de comando…</div>:recovery?null:menuLevel==='main'?<CommandHome workspace={data} busy={busy} onCategory={chooseCategory} onOpen={nav}/>:menuLevel==='category'?<CategoryMenu group={category} onChooseGroup={chooseCategory} onOpenTab={nav} disabled={busy} unavailable={unavailableTab}/>:<>
+ {!loaded?<div className="panel loading">Abrindo seu centro de comando…</div>:recovery?null:menuLevel==='main'?<CommandHome workspace={data} busy={busy} onCategory={chooseCategory} onOpen={nav} onRecruit={openRecruitment}/>:menuLevel==='category'?<CategoryMenu group={category} onChooseGroup={chooseCategory} onOpenTab={nav} disabled={busy} unavailable={unavailableTab}/>:<>
  <CategoryTabs group={category} tab={tab} onOpenTab={nav} disabled={busy} unavailable={unavailableTab}/>
  {tab===11&&<ArchivePanel workspace={data} busy={busy} onExport={text=>download('nexus-arquivo-original.json',text)} onRemove={deleteArchive}/>}
  {tab===9&&<CircuitPanel workspace={data} busy={busy} onProcess={processRound}/>}
@@ -156,13 +176,28 @@ export default function Beta(){
  <div className="two-columns"><section className="panel"><div className="panel-title"><h2>Sua organização</h2><span className="pill">PERSONALIZAR</span></div><div className="form-grid"><Field label="Nome da organização"><input value={d.org} maxLength={40} onChange={e=>edit({org:e.target.value})} disabled={!!s}/></Field><Field label="Sigla"><input value={d.tag} maxLength={5} onChange={e=>edit({tag:e.target.value.toUpperCase()})} disabled={!!s}/></Field></div><div className="identity-row"><Field label="Cor principal"><input aria-label="Cor principal" type="color" value={d.color} onInput={e=>edit({color:e.currentTarget.value})} onChange={e=>edit({color:e.target.value})} disabled={!!s}/></Field><div><span className="label">Escudo</span><div className="crest-options">{[0,1,2].map(i=><button aria-label={`Escudo ${i+1}`} aria-pressed={d.crest===i} key={i} onClick={()=>edit({crest:i})} disabled={!!s} className={d.crest===i?'chosen':''}><Mark kind={i}/></button>)}</div></div></div><div className="button-row"><button className="secondary" onClick={save} disabled={busy}>Salvar organização</button><button className="text-button" onClick={exportProgress}>Exportar</button><button className="text-button" disabled={busy} onClick={()=>file.current?.click()}>Importar</button></div></section><section className="panel"><div className="panel-title"><h2>Partida e desenvolvimento</h2><span className="pill">BASE DO BETA 2.1</span></div><ol className="steps"><li><b>Contratação com escolhas reais</b><p>Compare atributos, mental e potencial dentro do orçamento.</p></li><li><b>Composição e economia</b><p>Agentes, responsabilidades e recursos para os cinco.</p></li><li><b>Treino e agentes</b><p>Uma sessão por dia no calendário; experiência e familiaridade persistentes.</p></li></ol><p className="small muted">Jogo fictício independente. O equilíbrio está em avaliação. O circuito atual tem 28 dias; novas etapas de carreira e contas online virão depois.</p></section></div>
  </>}
  {tab===1&&<>
- <Section eyebrow={rosterLocked?'01 / SEU ELENCO':'01 / RECRUTAMENTO'} title={rosterLocked?'Os jogadores da sua equipe.':'Cinco escolhas. Uma equipe.'} description={rosterLocked?'Consulte os titulares vinculados à sua organização, seus atributos atuais e salários.':'Monte um elenco que caiba no orçamento e combine com sua forma de jogar. Potencial é uma possibilidade de crescimento, não força imediata.'}/>
+ <Section eyebrow={showCandidates?'01 / RECRUTAMENTO':'01 / SEU ELENCO'} title={showCandidates?'Cinco escolhas. Uma equipe.':'Os jogadores da sua equipe.'} description={showCandidates?'Monte um elenco que caiba no orçamento e combine com sua forma de jogar. Potencial é uma possibilidade de crescimento, não força imediata.':'Consulte os atletas da sua organização, seus atributos atuais e salários.'}/>
  <div className="budget-strip"><div><small>TITULARES</small><strong>{d.selected.length}<span>/ 5</span></strong></div><div><small>SALÁRIO MENSAL</small><strong className={totalSalary>12000?'danger':''}>{fmt(totalSalary)}<span>/ 12.000</span></strong></div><div><small>DISPONÍVEL NO TETO</small><strong>{fmt(12000-totalSalary)}</strong></div><button className="primary" onClick={configure} disabled={rosterLocked||d.selected.length!==5||totalSalary>12000||busy}>Preparar meu time</button></div>
  {rosterLocked&&<div className="notice">Titulares vinculados à organização. Nova partida preserva o elenco e os treinos; reiniciar organização permite outra contratação.</div>}
- <div className="filters"><input aria-label="Buscar jogador" placeholder="Buscar jogador, agente ou função…" value={query} onChange={e=>setQuery(e.target.value)}/><select aria-label="Filtrar classe" value={filter} onChange={e=>setFilter(e.target.value)}>{['Todos','Duelista','Iniciador','Controlador','Sentinela'].map(x=><option key={x}>{x}</option>)}</select><select aria-label="Filtrar país" value={country} onChange={e=>setCountry(e.target.value)}><option value="Todos">Todos os países</option>{[...new Set(PLAYERS.map(p=>p.country))].sort().map(x=><option key={x} value={x}>{countryLabel(x)}</option>)}</select><select aria-label="Ordenar jogadores" value={sort} onChange={e=>setSort(e.target.value)}><option value="salary">Menor salário</option><option value="overall">Maior nota geral</option><option value="potential">Maior potencial</option></select></div>
- <div className="roster-grid">{filtered.map(p=><PlayerCard key={p.id} p={p} selected={d.selected.includes(p.id)} disabled={d.selected.length===5} locked={rosterLocked} toggle={()=>toggle(p.id)}/>)}</div>
- {!filtered.length&&<p role="status">Nenhum jogador corresponde aos filtros. Limpe a busca ou altere os filtros para ver {rosterLocked?'seu elenco':'os jogadores disponíveis'}.</p>}
- <div className="selection-footer"><span>{selected.length?selected.map(p=>p.name).join(' · '):'Escolha seus primeiros jogadores para começar.'}</span>{!rosterLocked&&<small>Saldo inicial da organização: 30.000 cr. · Salário não é descontado nesta partida de teste.</small>}</div>
+ {!showCandidates&&!selected.length?<section className="panel">
+  <h2>Nenhum atleta no elenco</h2><p>Escolha cinco jogadores no recrutamento para montar sua equipe.</p>
+  <button type="button" className="primary" disabled={busy||rosterLocked} onClick={openRecruitment}>Montar meu elenco</button>
+ </section>:<>
+  <div className="filters">
+   <input aria-label="Buscar jogador" placeholder="Buscar jogador, agente ou função…" value={query} onChange={e=>setQuery(e.target.value)}/>
+   <select aria-label="Filtrar classe" value={filter} onChange={e=>setFilter(e.target.value)}>{['Todos','Duelista','Iniciador','Controlador','Sentinela'].map(x=><option key={x}>{x}</option>)}</select>
+   <select aria-label="Filtrar país" value={country} onChange={e=>setCountry(e.target.value)}><option value="Todos">Todos os países</option>{[...new Set(rosterSource.map(p=>p.country))].sort().map(x=><option key={x} value={x}>{countryLabel(x)}</option>)}</select>
+   {showCandidates&&<select aria-label="Ordenar jogadores" value={sort} onChange={e=>setSort(e.target.value)}><option value="salary">Menor salário</option><option value="overall">Maior nota geral</option><option value="potential">Maior potencial</option></select>}
+   {showCandidates?<button type="button" className="secondary" disabled={busy} onClick={()=>setTab(1)}>Consultar elenco</button>:!rosterLocked&&<button type="button" className="secondary" disabled={busy} onClick={openRecruitment}>Abrir recrutamento</button>}
+  </div>
+  <div className="roster-grid">{displayedPlayers.map(player=>{
+   const assignment=d.assignments[player.id];
+   const lineup=showCandidates?undefined:{assignment,igl:player.id===d.igl,familiarity:assignment?fam(player,assignment.agent):undefined};
+   return <PlayerCard key={player.id} p={player} selected={rosterIds.includes(player.id)} disabled={d.selected.length===5} locked={!showCandidates||busy} toggle={()=>toggle(player.id)} lineup={lineup}/>;
+  })}</div>
+  {!displayedPlayers.length&&<p role="status">Nenhum jogador corresponde aos filtros. Limpe a busca ou altere os filtros para ver {showCandidates?'os jogadores disponíveis':'seu elenco'}.</p>}
+  <div className="selection-footer"><span>{selected.length?selected.map(p=>p.name).join(' · '):'Escolha seus primeiros jogadores para começar.'}</span>{showCandidates&&<small>Saldo inicial da organização: 30.000 cr. · Salário não é descontado nesta partida de teste.</small>}</div>
+ </>}
  </>}
  {tab===7&&<HistoryPanel history={data.history??[]} onDelete={removeHistory} disabled={busy} onImport={()=>file.current?.click()}/>}
  {tab===5&&<TrainingPanel draft={d} development={dev} day={data.career?.day} preparation={data.trainingPreparation} onChange={changeTraining} saved={saved} onConfirm={train} onSkip={skipTraining} onBack={()=>setTab(data.career?8:2)} disabled={busy}/>}{tab===6&&<AgentsPanel draft={d} development={dev}/>}
