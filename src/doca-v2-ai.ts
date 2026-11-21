@@ -1,3 +1,4 @@
+import {CURRENT_TACTICAL_POLICY} from './tactical-types.ts';
 import {ABILITIES} from './abilities.ts';
 import type {Slot} from './abilities.ts';
 import {shortestPath} from './rules.ts';
@@ -5,7 +6,7 @@ import {ATTACK_BASE,DEFENSE_BASE,docaSightLink,isDocaArea} from './doca-v2.ts';
 import type {Decision,Observation,TacticalPolicy} from './tactical-types.ts';
 
 /** Route decisions use only the team's public observations and its own orders. */
-export function decideDocaV2(view:Observation,policy:TacticalPolicy='doca-v2-tactical-r5'):Decision {
+export function decideDocaV2(view:Observation,policy:TacticalPolicy=CURRENT_TACTICAL_POLICY):Decision {
  const {self}=view,attacking=self.team===view.attacking;
  if(!isDocaArea(self.sector))return {kind:'wait'};
  const roster=[self,...view.allies].sort((a,b)=>(a.slot??0)-(b.slot??0)),alive=roster.filter(a=>a.life>0);

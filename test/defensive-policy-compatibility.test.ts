@@ -9,7 +9,7 @@ import {pendingNpc} from '../lib/circuit-state.ts';
 import {clubPlan} from '../lib/club-policy.ts';
 import {historyJSON,readHistory} from '../lib/history.ts';
 import {loadWorkspace,commitWorkspace} from '../lib/storage.ts';
-import {MECHANICS,PREVIOUS_MECHANICS,mechanicsMatch,tacticalPolicyFor} from '../src/content.ts';
+import {BETA_2_1_MECHANICS,MECHANICS,PREVIOUS_MECHANICS,mechanicsMatch,tacticalPolicyFor} from '../src/content.ts';
 import {sha256} from '../src/hash.ts';
 import {attackingTeam} from '../src/map.ts';
 import {simulateRound} from '../src/simulation.ts';
@@ -28,7 +28,7 @@ async function installRawSave(raw:string){
 
 test('both exact 0.6.1 policy revisions are recognized without accepting other mechanics',()=>{
  assert.equal(PREVIOUS_MECHANICS.contentHash,'60821438f979c30d04fe17daf414ddd15ae01e1e74efafc2ef392f407c91a4e9');
- assert.equal(tacticalPolicyFor(PREVIOUS_MECHANICS),'doca-v2-tactical-r4');assert.equal(tacticalPolicyFor(MECHANICS),'doca-v2-tactical-r5');
+ assert.equal(tacticalPolicyFor(PREVIOUS_MECHANICS),'doca-v2-tactical-r4');assert.equal(tacticalPolicyFor(BETA_2_1_MECHANICS),'doca-v2-tactical-r5');
  assert.notEqual(MECHANICS.contentHash,PREVIOUS_MECHANICS.contentHash);
  assert.equal(mechanicsMatch({...PREVIOUS_MECHANICS,contentHash:'different'}),false);
  assert.throws(()=>tacticalPolicyFor({...MECHANICS,contentHash:'different'}),/incompatível/);
@@ -55,4 +55,29 @@ test('an existing 0.6.1 circuit, history and active match survive loading and ke
  assert.deepEqual(decodeSave(encodeSave(continued)),continued);
  assert.deepEqual(createSession(draft,'new-match').mechanics,MECHANICS);
  const nextNpc=continued.career!.circuit!.matches.find(m=>m.a!=='user'&&!m.result)!;assert.deepEqual(createNpcSession(nextNpc).mechanics,MECHANICS);
+});
+
+test('the published Beta 2.1 save replays round two exactly; new user and NPC sessions use r6',()=>{
+ // Golden SHA-256 of the complete next session calculated independently by 851a11e.
+ assert.equal(BETA_2_1_MECHANICS.contentHash,'c77ea0aa2221851fd120fa4d4fc6d6f3498317140d31d616d938762a90d354de');
+ const draft=suggestAssignments({...defaultDraft(),selected:['J12','J09','J02','J05','J24'],seed:73});
+ const original=createSession(draft,'b1-beta21-replay');
+ assert.equal(tacticalPolicyFor(original.mechanics),'doca-v2-tactical-r6');
+ const career=startCircuitCareer({...freshWorkspace(),draft},'new-circuit-b1',73).career!;
+ const npc=createNpcSession(career.circuit!.matches.find(m=>m.a!=='user')!);
+ assert.deepEqual(npc.mechanics,original.mechanics);
+ original.mechanics=structuredClone(BETA_2_1_MECHANICS);
+ const command=(s:Session)=>({id:'round-'+s.state.rounds,revision:s.state.rounds,buys:automaticBuys(s),plans:{A:draft.plan,B:draft.plan}});
+ const session=advanceSession(original,command(original));
+ const w=freshWorkspace();
+ w.draft=draft;
+ w.session=session;
+ w.development!.used=true;
+ w.development!.matchId=session.id;
+ const envelope=JSON.parse(encodeSave(w));
+ envelope.mechanics=BETA_2_1_MECHANICS;
+ const loaded=decodeSave(JSON.stringify(envelope)).session!;
+ const next=advanceSession(loaded,command(loaded));
+ assert.deepEqual(next.mechanics,BETA_2_1_MECHANICS);
+ assert.equal(sha256(JSON.stringify(next)),'8e7f2f08ed365ec33ae18e51d30225ac636a08b506b80f7cf9522a898f6a054e');
 });

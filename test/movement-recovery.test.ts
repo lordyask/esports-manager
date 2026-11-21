@@ -2,7 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {AGENTS} from '../src/abilities.ts';
 import {decide} from '../src/ai.ts';
-import {MECHANICS,PREVIOUS_MECHANICS,PREVIOUS_MOVEMENT_MECHANICS,mechanicsMatch,movementPolicyFor,tacticalPolicyFor} from '../src/content.ts';
+import {BETA_2_1_MECHANICS,MECHANICS,PREVIOUS_MECHANICS,PREVIOUS_MOVEMENT_MECHANICS,mechanicsMatch,movementPolicyFor,tacticalPolicyFor} from '../src/content.ts';
 import {sha256} from '../src/hash.ts';
 import {Random} from '../src/random.ts';
 import {edgeKey,PREPARATION_MS} from '../src/rules.ts';
@@ -107,7 +107,7 @@ test('prior mechanical revisions retain old scripted behavior and exact replay',
  assert.equal(PREVIOUS_MECHANICS.contentHash,'60821438f979c30d04fe17daf414ddd15ae01e1e74efafc2ef392f407c91a4e9');
  assert.equal(PREVIOUS_MOVEMENT_MECHANICS.contentHash,'f3372a40a11023243d2937492914a551ad259b528b3e83707a4a7dcded371fb6');
  for(const m of [PREVIOUS_MECHANICS,PREVIOUS_MOVEMENT_MECHANICS]){assert.equal(mechanicsMatch(m),true);assert.equal(movementPolicyFor(m),'legacy-r1');}
- assert.equal(movementPolicyFor(MECHANICS),'require-ready-r2');assert.equal(tacticalPolicyFor(MECHANICS),'doca-v2-tactical-r5');assert.notEqual(MECHANICS.contentHash,PREVIOUS_MOVEMENT_MECHANICS.contentHash);
+ assert.equal(movementPolicyFor(MECHANICS),'require-ready-r2');assert.equal(movementPolicyFor(BETA_2_1_MECHANICS),'require-ready-r2');assert.equal(tacticalPolicyFor(BETA_2_1_MECHANICS),'doca-v2-tactical-r5');assert.notEqual(MECHANICS.contentHash,PREVIOUS_MOVEMENT_MECHANICS.contentHash);
  const ps=profiles().map(p=>({...p,charges:[false,false,false] as [boolean,boolean,boolean],ult:0}));
  const options:SimulationOptions={map:'doca-v2',attacking:'A',seed:4242,plans,ai:false,autoFire:false,script:[{at:5000,actor:'A0',decision:{kind:'move',to:'attack_west'}},{at:5000,actor:'B0',decision:{kind:'move',to:'gallery'}},{at:6000,actor:'A0',decision:{kind:'move',to:'reception'}},{at:6750,actor:'B0',decision:{kind:'move',to:'gallery_a'}}]};
  const old=simulateRound(ps,{...options,movementPolicy:'legacy-r1'}),current=simulateRound(ps,options);

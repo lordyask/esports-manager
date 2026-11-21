@@ -1,3 +1,4 @@
+import {CURRENT_TACTICAL_POLICY} from './tactical-types.ts';
 import {ABILITIES} from './abilities.ts';
 import type {Slot} from './abilities.ts';
 import {mapEdges,shortestPath,clamp} from './rules.ts';
@@ -8,7 +9,7 @@ import {decideDocaV2} from './doca-v2-ai.ts';
 import {DEFENSE_BASE,docaSightLink,isDocaArea} from './doca-v2.ts';
 
 // Only an Observation enters this module. No access to hidden positions or future events.
-export function decide(view:Observation,random:Random,policy?:TacticalPolicy):Decision {
+export function decide(view:Observation,random:Random,policy:TacticalPolicy=CURRENT_TACTICAL_POLICY):Decision {
   const {self}=view;
   const attacking=self.team===view.attacking;
   const instruction=attacking?view.plan.attackInstruction:view.plan.defenseInstruction;
@@ -28,7 +29,9 @@ export function decide(view:Observation,random:Random,policy?:TacticalPolicy):De
   if(view.planted&&self.team!==view.attacking&&self.sector===view.planted.sector&&!view.allies.some(a=>a.action==='defuse')) {
     if(objectiveClear||view.planted.deadline-view.now<=9000)return {kind:'defuse'};
   }
-  if(!view.planted&&self.team===view.attacking&&self.sector===view.attackTarget&&objectiveClear&&!view.allies.some(a=>a.action==='plant'))return {kind:'plant'};
+  // A visible moving opponent may still report a nonadjacent sector of origin.
+  const plantClear=view.map==='doca-v2'&&policy==='doca-v2-tactical-r6'?view.visible.length===0:objectiveClear;
+  if(!view.planted&&self.team===view.attacking&&self.sector===view.attackTarget&&plantClear&&!view.allies.some(a=>a.action==='plant'))return {kind:'plant'};
   // An isolated player under direct observation can keep firing rather than
   // repeatedly interrupting their weapon to cast while outnumbered.
   if(view.map==='doca-v2'&&visible.length>localAllies.length)return {kind:'wait'};

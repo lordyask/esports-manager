@@ -1,3 +1,4 @@
+import {CURRENT_TACTICAL_POLICY} from './tactical-types.ts';
 import {AGENTS,ABILITIES,REWORK_KINDS} from './abilities.ts';
 import type {Slot} from './abilities.ts';
 import {damage,professionalScore,probability} from './combat.ts';
@@ -48,7 +49,7 @@ export class TacticalRound {
     if(profiles.length!==10||new Set(profiles.map(p=>p.id)).size!==10)throw new Error('Ten unique profiles required');
     mapEdges(options.map);integer(options.seed,1,0xffffffff,'seed');
     if(!['A','B'].includes(options.attacking))throw new Error('Invalid attack team');
-    if(options.tacticalPolicy!==undefined&&!['doca-v2-tactical-r4','doca-v2-tactical-r5'].includes(options.tacticalPolicy))throw new Error('Invalid tactical policy');
+    if(options.tacticalPolicy!==undefined&&!['doca-v2-tactical-r4','doca-v2-tactical-r5',CURRENT_TACTICAL_POLICY].includes(options.tacticalPolicy))throw new Error('Invalid tactical policy');
     if(options.movementPolicy!==undefined&&!['legacy-r1','require-ready-r2'].includes(options.movementPolicy))throw new Error('Invalid movement policy');
     for(const t of ['A','B'] as const){
       const group=profiles.filter(p=>p.team===t);

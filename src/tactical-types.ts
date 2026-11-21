@@ -4,7 +4,8 @@ import type {Agent,Slot} from './abilities.ts';
 import {MAP_CATALOG} from './maps.ts';
 export type AttackPlan='fast'|'control'|'split'|'feint';
 export type DefensePlan='aggressive'|'balanced'|'retake'|'reading';
-export type TacticalPolicy='doca-v2-tactical-r4'|'doca-v2-tactical-r5';
+export const CURRENT_TACTICAL_POLICY='doca-v2-tactical-r6';
+export type TacticalPolicy='doca-v2-tactical-r4'|'doca-v2-tactical-r5'|typeof CURRENT_TACTICAL_POLICY;
 export type MovementPolicy='legacy-r1'|'require-ready-r2';
 export type TacticalRole='Entry'|'Second'|'Support'|'Anchor'|'Lurker'|'Main OP';
 export interface TeamPlan {attack:AttackPlan;defense:DefensePlan;site:'A'|'B';attackInstruction?:'none'|'trade'|'utility'|'preserve';defenseInstruction?:'none'|'trade'|'cautious'|'resources';defenseAssignments?:Record<string,'A'|'B'|'mid'|'gallery'>;}
