@@ -5,13 +5,17 @@ import {createServer} from 'node:http';
 import {createReadStream} from 'node:fs';
 import {mkdir,readFile,stat,writeFile} from 'node:fs/promises';
 import {extname,join,resolve} from 'node:path';
-import {PLAYERS} from '../lib/game.ts';
+import {PLAYERS,decodeSave,encodeSave} from '../lib/game.ts';
+import {advanceCareer,startCareerMatch} from '../lib/career.ts';
+import {addArchive,archiveFromText} from '../lib/archive.ts';
+import {checkProgressReset} from './progress-reset-browser.mjs';
 
 const {chromium}=await import(process.env.NEXUS_PLAYWRIGHT??'/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs');
-const root=resolve('out'),output=resolve(process.env.NEXUS_BETA21_OUTPUT??'/tmp/nexus-beta21-flow');
+const output=resolve(process.env.NEXUS_BETA21_OUTPUT??'/tmp/nexus-beta21-flow');
 const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.ico':'image/x-icon','.woff2':'font/woff2','.ttf':'font/ttf'};
 const server=createServer(async(req,res)=>{
  try{
+  const root=resolve(req.headers['x-nexus-test-export']==='previous'?(process.env.NEXUS_PRE_RESET_EXPORT??'out'):'out');
   const path=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
   if(!path.startsWith('/esports-manager/')){res.writeHead(404).end();return;}
   let file=resolve(root,`.${path.slice('/esports-manager'.length)}`);
@@ -25,18 +29,11 @@ const url=`http://127.0.0.1:${server.address().port}/esports-manager/`;
 await mkdir(output,{recursive:true});
 const browser=await chromium.launch({headless:true,executablePath:process.env.NEXUS_CHROMIUM??'/usr/bin/chromium',args:['--no-sandbox']});
 const results=[];
-const stored=page=>page.evaluate(()=>new Promise((resolve,reject)=>{const q=indexedDB.open('esports-manager-beta-1.1',1);q.onerror=()=>reject(q.error);q.onsuccess=()=>{const db=q.result,r=db.transaction('workspace').objectStore('workspace').get('active');r.onsuccess=()=>{db.close();resolve(r.result?.text??null);};r.onerror=()=>reject(r.error);};}));
-const put=async(page,text)=>page.evaluate(value=>new Promise((resolve,reject)=>{const q=indexedDB.open('esports-manager-beta-1.1',1);q.onerror=()=>reject(q.error);q.onsuccess=()=>{const db=q.result,t=db.transaction('workspace','readwrite');t.objectStore('workspace').put({revision:1,text:value},'active');t.oncomplete=()=>{db.close();resolve();};t.onerror=()=>reject(t.error);};}),text);
+const stored=page=>page.evaluate(()=>new Promise((resolve,reject)=>{const q=indexedDB.open('esports-manager-beta-1.1');q.onerror=()=>reject(q.error);q.onsuccess=()=>{const db=q.result,r=db.transaction('workspace').objectStore('workspace').get('active');r.onsuccess=()=>{db.close();resolve(r.result?.text??null);};r.onerror=()=>reject(r.error);};}));
+const put=async(page,text)=>page.evaluate(value=>new Promise((resolve,reject)=>{const q=indexedDB.open('esports-manager-beta-1.1');q.onerror=()=>reject(q.error);q.onsuccess=()=>{const db=q.result,t=db.transaction('workspace','readwrite');t.objectStore('workspace').put({revision:1,text:value},'active');t.oncomplete=()=>{db.close();resolve();};t.onerror=()=>reject(t.error);};}),text);
 const data=async page=>JSON.parse(await stored(page)).data;
 const home=page=>page.getByRole('button',{name:'NEXUS — menu principal'}).click();
-try{
- const context=await browser.newContext({viewport:{width:1366,height:768},acceptDownloads:true}),page=await context.newPage(),errors=[],dialogs=[];
- page.on('pageerror',e=>errors.push(`page: ${e.message}`));page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);});
- page.on('dialog',d=>{dialogs.push(d.message());return d.accept();});
- await page.goto(url,{waitUntil:'networkidle'});
- await page.getByRole('heading',{name:'Central de comando',exact:true}).waitFor();
- assert.equal(await page.title(),APP_TITLE);
- assert.equal(await page.evaluate(async()=>('serviceWorker' in navigator?(await navigator.serviceWorker.getRegistrations()).length:0)),0);
+async function trainOneDay(page){
  await page.getByRole('button',{name:'Montar meu elenco',exact:true}).click();
  for(const id of ['J12','J09','J02','J05','J24']){
   const player=PLAYERS.find(p=>p.id===id);assert.ok(player);
@@ -48,13 +45,23 @@ try{
  await home(page);await page.locator('.arena-nav-calendar').click();
  await page.getByRole('button',{name:'Confirmar inscrição e iniciar circuito',exact:true}).click();
  await page.getByRole('heading',{name:'Dia 1 de 28',exact:true}).waitFor();
- let state=await data(page);
+ const state=await data(page);
  assert.equal(state.career.fixtures.length,7);assert.ok(state.career.fixtures.every(f=>f.map==='doca-v2'));
  assert.equal(state.career.circuit.matches.length,28);assert.ok(state.career.circuit.matches.every(m=>m.map==='doca-v2'));
  await page.getByRole('button',{name:'Treinar hoje',exact:true}).click();
  await page.getByRole('button',{name:'Confirmar treino coletivo',exact:true}).click();
  await page.getByText(/Treino confirmado e salvo/).waitFor();
- state=await data(page);assert.equal(state.career.days[0].status,'trained');assert.equal(state.career.days[0].receipt.gains.length,5);
+}
+try{
+ const context=await browser.newContext({viewport:{width:1366,height:768},acceptDownloads:true}),page=await context.newPage(),errors=[],dialogs=[];
+ page.on('pageerror',e=>errors.push(`page: ${e.message}`));page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);});
+ page.on('dialog',d=>{dialogs.push(d.message());return d.accept();});
+ await page.goto(url,{waitUntil:'networkidle'});
+ await page.getByRole('heading',{name:'Central de comando',exact:true}).waitFor();
+ assert.equal(await page.title(),APP_TITLE);
+ assert.equal(await page.evaluate(async()=>('serviceWorker' in navigator?(await navigator.serviceWorker.getRegistrations()).length:0)),0);
+ await trainOneDay(page);
+ let state=await data(page);assert.equal(state.career.days[0].status,'trained');assert.equal(state.career.days[0].receipt.gains.length,5);
  await page.reload();await page.getByRole('heading',{name:'Central de comando',exact:true}).waitFor();
  await page.locator('.arena-nav-calendar').click();
  assert.ok((await page.getByTestId('daily-status').innerText()).includes('realizado'));
@@ -72,7 +79,8 @@ try{
  await page.reload();await page.getByRole('heading',{name:'Central de comando',exact:true}).waitFor();
  await page.getByRole('button',{name:'Continuar partida',exact:true}).click();
  await page.getByText('FIM DA RODADA 1',{exact:true}).waitFor();
- await page.getByLabel('Usar compras automáticas ao simular sequência').check();
+ const autoBuy=page.getByLabel('Usar compras automáticas ao simular sequência');
+ await autoBuy.click();await autoBuy.and(page.locator(':checked')).waitFor();
  await page.getByLabel('Ritmo entre rodadas automáticas').selectOption('fast');
  for(let n=0;n<6;n++){
   if(!(await page.getByRole('button',{name:'Simular até a próxima pausa',exact:true}).count()))break;
@@ -110,6 +118,12 @@ try{
  await recoveryPage.reload();assert.equal((await data(recoveryPage)).archives.find(a=>a.text===old).text,old);
  results.push({scenario:'legacy-recovery',status:'passed',checks:['old active save unchanged on load','exact-byte original export','cancel leaves save unchanged','explicit reset preserves exact original in archive','archive remains after reload']});
  await recoveryContext.close();
+ const nextMatch=startCareerMatch(advanceCareer(decodeSave(finished),'event'));
+ const previous=JSON.parse(encodeSave(addArchive(nextMatch,archiveFromText(old))));
+ previous.beta='2.1.1';
+ await checkProgressReset({browser,url,currentSave:JSON.stringify(previous),oldSave:old,trainOneDay});
+ results.push({scenario:'general-progress-reset',status:'passed',previousAppTested:!!process.env.NEXUS_PRE_RESET_EXPORT});
+
  await writeFile(join(output,'results.json'),JSON.stringify(results,null,2)+'\n');console.log(JSON.stringify(results));
 }catch(error){for(const context of browser.contexts())for(const page of context.pages())await page.screenshot({path:join(output,'failure.png'),fullPage:true}).catch(()=>{});throw error;}
 finally{await browser.close();server.close();}

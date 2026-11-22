@@ -1,3 +1,4 @@
+import {openReadyWorkspace} from '../lib/progress-reset.ts';
 import 'fake-indexeddb/auto';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
@@ -22,7 +23,7 @@ function step(w:Workspace){
 }
 function completeOwn(w:Workspace){while(w.session!.state.phase==='buy')w=step(w);return w;}
 async function installRawSave(raw:string){
- const db=await new Promise<IDBDatabase>((resolve,reject)=>{const r=indexedDB.open('esports-manager-beta-1.1',1);r.onupgradeneeded=()=>r.result.createObjectStore('workspace');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});
+ const db=await openReadyWorkspace();
  await new Promise<void>((resolve,reject)=>{const t=db.transaction('workspace','readwrite');t.objectStore('workspace').put({revision:1,text:raw},'active');t.oncomplete=()=>resolve();t.onerror=()=>reject(t.error);});db.close();
 }
 

@@ -1,12 +1,12 @@
-# NEXUS — Beta 2.1.1
+# NEXUS — Beta 2.1.2
 
-NEXUS é um jogo de gerenciamento de equipe de FPS tático, com simulação de partidas, treinamento e circuito competitivo. O Beta 2.1.1 — Doca V2 e Arena Premium — tem identificador de produto `2.1.1`, motor **0.6.1**, regras `nexus-2.0-doca-v2-r2` e saves de **schema 6**. Os identificadores mecânicos permanecem distintos da versão do produto para preservar a reprodução dos registros.
+NEXUS é um jogo de gerenciamento de equipe de FPS tático, com simulação de partidas, treinamento e circuito competitivo. O Beta 2.1.2 — Doca V2 e Arena Premium — tem identificador de produto `2.1.2`, motor **0.6.1**, regras `nexus-2.0-doca-v2-r2` e saves de **schema 6**. Os identificadores mecânicos permanecem distintos da versão do produto para preservar a reprodução dos registros.
 
-[Jogar](https://lordyask.github.io/esports-manager/) · [Notas do Beta 2.1.1](docs/BETA_2_1_1_NOTAS.md) · [Doca V2 e validação](docs/DOCA_V2_VALIDACAO.md) · [Backup e saves antigos](docs/BETA_2_0_SAVES.md) · [Histórico](CHANGELOG.md)
+[Jogar](https://lordyask.github.io/esports-manager/) · [Notas do Beta 2.1.2](docs/BETA_2_1_2_NOTAS.md) · [Doca V2 e validação](docs/DOCA_V2_VALIDACAO.md) · [Backup e saves antigos](docs/BETA_2_0_SAVES.md) · [Histórico](CHANGELOG.md)
 
 ## Novidades
 
-Na Doca V2, corrigimos uma decisão que fazia o atacante iniciar o plantio enquanto via um defensor se aproximando pela Ligação.
+O progresso anterior do beta é zerado uma vez por navegador ou perfil, após a confirmação do jogador. A limpeza inclui carreira, elenco, treinos, partidas, históricos e Acervo local. As preferências da interface são preservadas.
 
 ## Recursos do beta
 
@@ -22,7 +22,7 @@ Os adversários mantêm atributos fixos neste beta. A simulação usa áreas tá
 
 ## Seus saves
 
-**Antes de experimentar, exporte seu progresso no navegador antigo e guarde o JSON original.** Saves dos motores 0.3.0, 0.4.1, 0.5.0, 0.5.1 e 0.6.0 são preservados para consulta no Acervo mediante escolha explícita; partidas antigas não continuam no motor novo. Consulte as [instruções completas](docs/BETA_2_0_SAVES.md).
+A confirmação do reset remove também os arquivos guardados no Acervo deste navegador. Os JSONs já exportados para o dispositivo permanecem disponíveis. Para consultar arquivos antigos, veja as [instruções de importação e backup](docs/BETA_2_0_SAVES.md).
 
 O progresso é salvo localmente no navegador e depende da origem do site. Não há conta nem sincronização entre dispositivos. O histórico ativo comporta até 20 partidas; o circuito preserva os próprios resultados.
 

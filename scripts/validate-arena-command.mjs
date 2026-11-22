@@ -31,7 +31,7 @@ async function open(width,height,fixture){
  page.on('pageerror',e=>errors.push(`page: ${e.message}`));page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);});
  await page.goto(url,{waitUntil:'networkidle'});
  let raw;
- if(fixture){raw=await readFile(`${fixtures}/${fixture}.json`,'utf8');await page.evaluate(value=>new Promise((resolve,reject)=>{const q=indexedDB.open('esports-manager-beta-1.1',1);q.onerror=()=>reject(q.error);q.onsuccess=()=>{const db=q.result,t=db.transaction('workspace','readwrite');t.objectStore('workspace').put({revision:1,text:value},'active');t.oncomplete=()=>{db.close();resolve();};t.onerror=()=>reject(t.error);};}),raw);await page.reload({waitUntil:'networkidle'});}
+ if(fixture){raw=await readFile(`${fixtures}/${fixture}.json`,'utf8');await page.evaluate(value=>new Promise((resolve,reject)=>{const q=indexedDB.open('esports-manager-beta-1.1');q.onerror=()=>reject(q.error);q.onsuccess=()=>{const db=q.result,t=db.transaction('workspace','readwrite');t.objectStore('workspace').put({revision:1,text:value},'active');t.oncomplete=()=>{db.close();resolve();};t.onerror=()=>reject(t.error);};}),raw);await page.reload({waitUntil:'networkidle'});}
  await page.getByRole('heading',{name:'Central de comando',exact:true}).waitFor();await page.evaluate(()=>document.fonts.ready);
  return {context,page,errors,raw,state:raw?JSON.parse(raw).data:null};
 }
@@ -49,7 +49,7 @@ async function checkLayout(page,errors){
  assert.ok(fonts.includes('exo')&&fonts.includes('orbitron'),JSON.stringify(fonts));
  assert.ok(assets.every(a=>a.status===200),JSON.stringify(assets));assert.deepEqual(errors,[]);return g;
 }
-async function stored(page){return page.evaluate(()=>new Promise((resolve,reject)=>{const q=indexedDB.open('esports-manager-beta-1.1',1);q.onerror=()=>reject(q.error);q.onsuccess=()=>{const db=q.result,r=db.transaction('workspace').objectStore('workspace').get('active');r.onsuccess=()=>{db.close();resolve(r.result?.text??null);};r.onerror=()=>reject(r.error);};}));}
+async function stored(page){return page.evaluate(()=>new Promise((resolve,reject)=>{const q=indexedDB.open('esports-manager-beta-1.1');q.onerror=()=>reject(q.error);q.onsuccess=()=>{const db=q.result,r=db.transaction('workspace').objectStore('workspace').get('active');r.onsuccess=()=>{db.close();resolve(r.result?.text??null);};r.onerror=()=>reject(r.error);};}));}
 
 try{
  for(const [width,height] of [[1920,1080],[1366,768],[1280,900],[768,900],[390,844],[360,800]]){

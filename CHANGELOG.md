@@ -1,5 +1,9 @@
 # Histórico de alterações — Esports Manager
 
+## 22/11/2026 — NEXUS Beta 2.1.2
+
+O progresso anterior do beta é zerado uma vez por navegador ou perfil, após a confirmação do jogador. A limpeza inclui carreira, elenco, treinos, partidas, históricos e Acervo local. As preferências da interface são preservadas.
+
 ## 22/11/2026 — NEXUS Beta 2.1.1
 
 Na Doca V2, corrigimos uma decisão que fazia o atacante iniciar o plantio enquanto via um defensor se aproximando pela Ligação.

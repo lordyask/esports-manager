@@ -1,3 +1,4 @@
+import {openReadyWorkspace} from '../lib/progress-reset.ts';
 import 'fake-indexeddb/auto';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
@@ -27,7 +28,7 @@ test('old in-progress save and nested archives remain byte-for-byte preserved wi
  const archive=imported.data.archives!.find(a=>a.text===original)!,view=readArchive(archive);assert.equal(view.engine,'0.6.0');assert.equal(archive.text,original);assert.deepEqual(view.data.session,session);
  assert.equal(imported.data.archives!.find(a=>a.text===child)?.text,child);assert.equal(decodeSave(encodeSave(imported.data)).archives!.find(a=>a.id===archive.id)!.text,original);
  assert.throws(()=>advanceSession(session as never,{id:'new',revision:session.state.rounds,buys:'eco',plans:{A:d.plan,B:d.plan}}),/incompatível/);
- const db=await new Promise<IDBDatabase>((resolve,reject)=>{const q=indexedDB.open('esports-manager-beta-1.1',1);q.onupgradeneeded=()=>q.result.createObjectStore('workspace');q.onsuccess=()=>resolve(q.result);q.onerror=()=>reject(q.error);});
+ const db=await openReadyWorkspace();
  await new Promise<void>((resolve,reject)=>{const t=db.transaction('workspace','readwrite');t.objectStore('workspace').put({revision:1,text:original},'active');t.oncomplete=()=>resolve();t.onerror=()=>reject(t.error);});db.close();
  const loaded=await loadWorkspace();assert.ok(loaded&&'raw' in loaded);assert.equal(loaded.raw,original);assert.match(loaded.error,/preservado/i);
  const reread=await loadWorkspace();assert.ok(reread&&'raw' in reread);assert.equal(reread.raw,original);assert.equal(reread.revision,1);
