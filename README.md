@@ -1,10 +1,14 @@
-# NEXUS — Beta 2.1
+# NEXUS — Beta 2.1.1
 
-NEXUS é um jogo de gerenciamento de equipe de FPS tático, com simulação de partidas, treinamento e circuito competitivo. O Beta 2.1 — Doca V2 e Arena Premium — tem identificador de produto `2.1.0`, motor **0.6.1**, regras `nexus-2.0-doca-v2-r2` e saves de **schema 6**. Os identificadores mecânicos permanecem distintos da versão do produto para preservar a reprodução dos registros.
+NEXUS é um jogo de gerenciamento de equipe de FPS tático, com simulação de partidas, treinamento e circuito competitivo. O Beta 2.1.1 — Doca V2 e Arena Premium — tem identificador de produto `2.1.1`, motor **0.6.1**, regras `nexus-2.0-doca-v2-r2` e saves de **schema 6**. Os identificadores mecânicos permanecem distintos da versão do produto para preservar a reprodução dos registros.
 
-[Jogar](https://lordyask.github.io/esports-manager/) · [Notas do Beta 2.1](docs/BETA_2_1_NOTAS.md) · [Doca V2 e validação](docs/DOCA_V2_VALIDACAO.md) · [Backup e saves antigos](docs/BETA_2_0_SAVES.md) · [Histórico](CHANGELOG.md)
+[Jogar](https://lordyask.github.io/esports-manager/) · [Notas do Beta 2.1.1](docs/BETA_2_1_1_NOTAS.md) · [Doca V2 e validação](docs/DOCA_V2_VALIDACAO.md) · [Backup e saves antigos](docs/BETA_2_0_SAVES.md) · [Histórico](CHANGELOG.md)
 
 ## Novidades
+
+Na Doca V2, corrigimos uma decisão que fazia o atacante iniciar o plantio enquanto via um defensor se aproximando pela Ligação.
+
+## Recursos do beta
 
 - Doca V2 como único mapa ativo em partidas e no circuito, com bases centrais, rotas independentes, galeria contínua e preparação de cinco segundos simulados.
 - Troca de ataque e defesa a cada seis rodadas regulamentares; o reinício econômico permanece na rodada 13.

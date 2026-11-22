@@ -1,5 +1,9 @@
 # Histórico de alterações — Esports Manager
 
+## 22/11/2026 — NEXUS Beta 2.1.1
+
+Na Doca V2, corrigimos uma decisão que fazia o atacante iniciar o plantio enquanto via um defensor se aproximando pela Ligação.
+
 ## 17/11/2026 — NEXUS Beta 2.1 · Doca V2 e Arena Premium
 
 - Produto `2.1.0`, preservando motor 0.6.1, regras `nexus-2.0-doca-v2-r2`, revisões mecânicas e schema 6.

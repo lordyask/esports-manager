@@ -1,5 +1,6 @@
 // End-to-end release checks with isolated browser profiles and synthetic data only.
 import assert from 'node:assert/strict';
+import {APP_TITLE} from '../lib/release.ts';
 import {createServer} from 'node:http';
 import {createReadStream} from 'node:fs';
 import {mkdir,readFile,stat,writeFile} from 'node:fs/promises';
@@ -34,7 +35,7 @@ try{
  page.on('dialog',d=>{dialogs.push(d.message());return d.accept();});
  await page.goto(url,{waitUntil:'networkidle'});
  await page.getByRole('heading',{name:'Central de comando',exact:true}).waitFor();
- assert.ok((await page.title()).includes('Beta 2.1'));
+ assert.equal(await page.title(),APP_TITLE);
  assert.equal(await page.evaluate(async()=>('serviceWorker' in navigator?(await navigator.serviceWorker.getRegistrations()).length:0)),0);
  await page.getByRole('button',{name:'Montar meu elenco',exact:true}).click();
  for(const id of ['J12','J09','J02','J05','J24']){
