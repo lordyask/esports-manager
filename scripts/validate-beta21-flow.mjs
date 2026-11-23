@@ -5,8 +5,12 @@ import {createServer} from 'node:http';
 import {createReadStream} from 'node:fs';
 import {mkdir,readFile,stat,writeFile} from 'node:fs/promises';
 import {extname,join,resolve} from 'node:path';
-import {PLAYERS,decodeSave,encodeSave} from '../lib/game.ts';
-import {advanceCareer,startCareerMatch} from '../lib/career.ts';
+import {PLAYERS,advanceSession,automaticBuys,encodeSave} from '../lib/game.ts';
+import {acceptCareerResult,advanceCareer,startCareerMatch} from '../lib/career.ts';
+import {createNpcSession,npcCommand,acceptNpcResult} from '../lib/circuit.ts';
+import {pendingNpc} from '../lib/circuit-state.ts';
+import {clubPlan} from '../lib/club-policy.ts';
+import {BETA_2_1_1_MECHANICS} from '../src/content.ts';
 import {addArchive,archiveFromText} from '../lib/archive.ts';
 import {checkProgressReset} from './progress-reset-browser.mjs';
 
@@ -52,6 +56,28 @@ async function trainOneDay(page){
  await page.getByRole('button',{name:'Confirmar treino coletivo',exact:true}).click();
  await page.getByText(/Treino confirmado e salvo/).waitFor();
 }
+// The old tab must receive a genuine r6 career, including every recorded result.
+function preResetSave(firstMatch,archive){
+ let w=structuredClone(firstMatch);
+ assert.equal(w.session.state.rounds,0);
+ w.session.mechanics=BETA_2_1_1_MECHANICS;
+ while(w.session.state.phase==='buy'){
+  const s=w.session,round=s.state.rounds;
+  const plans={A:w.draft.plan,B:clubPlan(s.metadata.opponentId,s.seed,round)};
+  w=acceptCareerResult(w,advanceSession(s,{id:'previous-'+round,revision:round,buys:automaticBuys(s),plans}));
+ }
+ let match;
+ while((match=pendingNpc(w.career))){
+  let npc=createNpcSession(match);
+  npc.mechanics=BETA_2_1_1_MECHANICS;
+  while(npc.state.phase==='buy')npc=advanceSession(npc,npcCommand(match,npc));
+  w=acceptNpcResult(w,match.id,npc);
+ }
+ const next=startCareerMatch(advanceCareer(w,'event'));
+ next.session.mechanics=BETA_2_1_1_MECHANICS;
+ const envelope=JSON.parse(encodeSave(addArchive(next,archiveFromText(archive))));
+ return JSON.stringify({...envelope,beta:'2.1.1',mechanics:BETA_2_1_1_MECHANICS});
+}
 try{
  const context=await browser.newContext({viewport:{width:1366,height:768},acceptDownloads:true}),page=await context.newPage(),errors=[],dialogs=[];
  page.on('pageerror',e=>errors.push(`page: ${e.message}`));page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);});
@@ -70,7 +96,7 @@ try{
  await page.getByRole('button',{name:'Preparar confronto de hoje',exact:true}).click();
  await page.getByRole('button',{name:'Confirmar e ir à partida',exact:true}).click();
  await page.getByText('Preparação · 5 segundos simulados',{exact:true}).waitFor();
- state=await data(page);assert.equal(state.session.map,'doca-v2');
+ const firstMatch=await data(page);assert.equal(firstMatch.session.map,'doca-v2');
  await page.getByRole('button',{name:'Confirmar compras e jogar rodada',exact:true}).click();
  await page.getByText('FIM DA RODADA 1',{exact:true}).waitFor({timeout:60000});
  state=await data(page);const first=state.session.records[0];assert.equal(first.equipment.A.length,5);assert.equal(first.equipment.B.length,5);
@@ -118,10 +144,7 @@ try{
  await recoveryPage.reload();assert.equal((await data(recoveryPage)).archives.find(a=>a.text===old).text,old);
  results.push({scenario:'legacy-recovery',status:'passed',checks:['old active save unchanged on load','exact-byte original export','cancel leaves save unchanged','explicit reset preserves exact original in archive','archive remains after reload']});
  await recoveryContext.close();
- const nextMatch=startCareerMatch(advanceCareer(decodeSave(finished),'event'));
- const previous=JSON.parse(encodeSave(addArchive(nextMatch,archiveFromText(old))));
- previous.beta='2.1.1';
- await checkProgressReset({browser,url,currentSave:JSON.stringify(previous),oldSave:old,trainOneDay});
+ await checkProgressReset({browser,url,currentSave:preResetSave(firstMatch,old),oldSave:old,trainOneDay});
  results.push({scenario:'general-progress-reset',status:'passed',previousAppTested:!!process.env.NEXUS_PRE_RESET_EXPORT});
 
  await writeFile(join(output,'results.json'),JSON.stringify(results,null,2)+'\n');console.log(JSON.stringify(results));
