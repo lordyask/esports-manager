@@ -1,5 +1,11 @@
 # Histórico de alterações — Esports Manager
 
+## 23/11/2026 — NEXUS Beta 2.1.4
+
+Na Preparação, os cinco titulares do próximo adversário aparecem primeiro, com país, função, agente, OVR e indicação do IGL. Os atributos detalhados ficam a um clique.
+
+Em **Estratégias mais usadas**, selecione Ataque ou Defesa para consultar até três planos usados pelo clube nos confrontos já concluídos da carreira, inclusive entre NPCs. Cada round conta uma vez para o lado em que o adversário jogou.
+
 ## 23/11/2026 — NEXUS Beta 2.1.3
 
 Na Doca V2, a ordem **Preservar jogadores** faz um atacante com menos de 35 de vida recuar um trecho em direção à base quando vê um adversário antes do plantio. Se a saída estiver bloqueada ou ocupada por um adversário visível, ele pode manter a posição e responder ao contato.
