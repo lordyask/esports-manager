@@ -1,5 +1,11 @@
 # Histórico de alterações — Esports Manager
 
+## 23/11/2026 — NEXUS Beta 2.1.3
+
+Na Doca V2, a ordem **Preservar jogadores** faz um atacante com menos de 35 de vida recuar um trecho em direção à base quando vê um adversário antes do plantio. Se a saída estiver bloqueada ou ocupada por um adversário visível, ele pode manter a posição e responder ao contato.
+
+Novas partidas do treinador e dos NPCs usam a revisão tática r7. Partidas em andamento continuam com a revisão em que começaram.
+
 ## 22/11/2026 — NEXUS Beta 2.1.2
 
 O progresso anterior do beta é zerado uma vez por navegador ou perfil, após a confirmação do jogador. A limpeza inclui carreira, elenco, treinos, partidas, históricos e Acervo local. As preferências da interface são preservadas.
