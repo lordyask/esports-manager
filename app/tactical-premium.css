@@ -108,3 +108,19 @@ button:disabled,.primary:disabled,.secondary:disabled {background:linear-gradien
 
 .circuit-entry-metrics strong {font-size:clamp(18px,2vw,26px);overflow-wrap:anywhere}
 @media(max-width:600px) {.circuit-entry-metrics {grid-template-columns:minmax(0,1fr)}}
+
+.opponent-preview h2 {margin:0 0 14px}
+.opponent-columns {display:grid;grid-template-columns:minmax(0,3fr) minmax(240px,2fr);gap:24px}
+.opponent-preview th[scope="row"] {font:600 14px var(--font-exo),sans-serif;letter-spacing:normal;text-transform:none;color:var(--text)}
+.opponent-igl {margin-inline-start:.5em;font-size:11px;color:var(--accent)}
+.opponent-strategies {border-inline-start:1px solid var(--premium-edge);padding-inline-start:22px}
+.opponent-strategies h3 {margin:0 0 10px}
+.opponent-sides {display:inline-flex;gap:4px}
+.opponent-strategies ol {padding-inline-start:1.5em}
+.opponent-strategies li {padding-block:3px}
+.opponent-results {border-top:1px solid var(--premium-edge)}
+.opponent-results p {margin:.65em 0}
+@media(max-width:900px) {
+ .opponent-columns {grid-template-columns:minmax(0,1fr);gap:12px}
+ .opponent-strategies {border-inline-start:0;padding-inline-start:0}
+}

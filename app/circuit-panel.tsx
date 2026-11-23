@@ -1,10 +1,11 @@
 'use client';
+import {useState} from 'react';
 import type {Workspace} from '../lib/game';
 import {PLAYERS,MAP_NAMES,ATTRS} from '../lib/game';
 import {standings,completedDay,pendingNpc} from '../lib/circuit-state';
 import {PRIZES,cashCents,payroll,salaryAccrued} from '../lib/club-finance';
 import {opponentFor} from '../lib/opponents';
-import {clubPlan} from '../lib/club-policy';
+import {opponentStrategies,previousClubMatches} from '../lib/opponent-preview';
 import {countryLabel} from '../lib/countries';
 import {ATTACKS,DEFENSES} from '../src/strategies';
 const money=(cents:number)=>(cents/100).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})+' cr.';
@@ -31,7 +32,39 @@ export function FinancePanel({workspace:w}:{workspace:Workspace}){
  return <><div className="section-heading"><span className="eyebrow">CAIXA DA ORGANIZAÇÃO</span><h1>Planeje cada vencimento.</h1><p>Economia separada dos créditos de rodada. Salários não mudam com o treinamento.</p></div><div className="two-columns"><section className="panel"><h2>Saldo disponível</h2><p className="finance-value">{money(cashCents(f))}</p><p>Folha mensal: {money(payroll(c.roster)*100)}.</p><p>Despesas provisionadas ainda não pagas: {money(accrued)}.</p><p>{next?`Próximo pagamento: fechamento do dia ${next}.`:'Todos os vencimentos do ciclo estão liquidados.'}</p><p className="small muted">Dia atual ainda em curso. Despesas são liquidadas ao fechar o dia; o fechamento do dia 28 aguarda todos os jogos finais.</p></section><section className="panel"><h2>Projeção do ciclo</h2><p>Sem contar premiação incerta: <b>{money(3000000-100000-salaryAccrued(c.roster,28)-280000)}</b>.</p><p>Salários: {money(salaryAccrued(c.roster,28))}. Operação: 2.800,00 cr. Inscrição: 1.000,00 cr.</p><p className="small">Uma sessão de treino não gera cobrança adicional. Não há patrocínio, juros, multa ou conversão dos créditos da partida.</p></section></div><section className="panel"><h2>Extrato</h2><div className="table-wrap"><table><thead><tr><th>Dia</th><th>Lançamento</th><th>Valor</th></tr></thead><tbody>{f.ledger.map(e=><tr key={e.id}><td>{e.day}</td><th>{labels[e.kind]}</th><td>{money(e.cents)}</td></tr>)}</tbody></table></div></section><section className="panel"><h2>Contratos dos titulares</h2><div className="table-wrap"><table><thead><tr><th>Jogador</th><th>Salário mensal</th><th>Início</th><th>Último dia coberto</th><th>Dias restantes</th></tr></thead><tbody>{f.contracts.map(p=><tr key={p.playerId}><th>{PLAYERS.find(x=>x.id===p.playerId)!.name}</th><td>{money(p.monthlySalary*100)}</td><td>{p.startDay}</td><td>{p.endDayExclusive-1}</td><td>{365-f.closedThrough}</td></tr>)}</tbody></table></div><p className="small muted">Contagem após os dias já fechados. Ao concluir os 28 dias, restam 337 dias de contrato.</p></section></>;
 }
 export function OpponentPreview({workspace:w}:{workspace:Workspace}){
- const f=w.career?.fixtures.find(f=>!f.result);if(!f)return null;const t=opponentFor(f.opponentId),seed=((w.career!.seed+Math.imul(w.career!.fixtures.indexOf(f)+1,0x9e3779b9))>>>0)||1,plan=clubPlan(t.id,seed,0);
- const x=w.career!.circuit,through=x?completedDay(x):0,position=x?standings(x.matches,x.draws,through).findIndex(r=>r.id===t.id)+1:0,previous=x?.matches.filter(m=>m.result&&m.day<=through&&(m.a===t.id||m.b===t.id))??[];
- return <section className="panel"><h2>{t.name} · {t.tag}</h2><p>{through?`${position}º na classificação da última rodada completa.`:'Classificação ainda sem rodada completa.'} {previous.length} confrontos anteriores registrados.</p>{previous.map(m=><p className="small" key={m.id}>Dia {m.day}: {clubName(m.a,w)} {m.result!.score.A} × {m.result!.score.B} {clubName(m.b,w)}</p>)}<p className="small">Repertório inicial: {ATTACKS[plan.attack].name} / {DEFENSES[plan.defense].name}. O clube varia entre estratégias existentes por rodada, sem consultar seu plano. Atributos fixos.</p><div className="table-wrap"><table><thead><tr><th>Atleta</th><th>País</th><th>Função</th><th>Agente</th><th>OVR</th></tr></thead><tbody>{t.players.map(p=><tr key={p.id}><th>{p.name}{p.igl?' · IGL':''}</th><td>{countryLabel(p.country)}</td><td>{p.role}</td><td>{p.main}</td><td>{p.overall}</td></tr>)}</tbody></table></div><details><summary>Atributos dos adversários</summary>{t.players.map(p=><p className="small" key={p.id}>{p.name}: {ATTRS.map((a,i)=>`${a} ${p.attrs[i]}`).join(' · ')}</p>)}</details></section>;
+ const [side,setSide]=useState<'attack'|'defense'>('attack');
+ const career=w.career,circuit=career?.circuit,fixture=career?.fixtures.find(f=>!f.result);
+ if(!career||!circuit||!fixture)return null;
+ const club=opponentFor(fixture.opponentId);
+ const previous=previousClubMatches(circuit.matches,club.id,career.day);
+ const {total,ranked}=opponentStrategies(previous,club.id,side);
+ const through=completedDay(circuit);
+ const position=through?standings(circuit.matches,circuit.draws,through).findIndex(r=>r.id===club.id)+1:0;
+ return <section className="panel opponent-preview" aria-labelledby="opponent-name">
+  <span className="eyebrow">Próximo adversário</span>
+  <h2 id="opponent-name">{club.name} · {club.tag}</h2>
+  <div className="opponent-columns">
+   <div>
+    <div className="table-wrap"><table aria-label={`Elenco de ${club.name}`}>
+     <thead><tr>{['Atleta','País','Função','Agente','OVR'].map(label=><th scope="col" key={label}>{label}</th>)}</tr></thead>
+     <tbody>{club.players.map(p=><tr key={p.id}>
+      <th scope="row">{p.name}{p.igl&&<span className="opponent-igl"> IGL</span>}</th><td>{countryLabel(p.country)}</td><td>{p.role}</td><td>{p.main}</td><td>{p.overall}</td>
+     </tr>)}</tbody>
+    </table></div>
+    <details><summary>Atributos dos adversários</summary>{club.players.map(p=><p className="small" key={p.id}><strong>{p.name}</strong> · {ATTRS.map((a,i)=>`${a} ${p.attrs[i]}`).join(' · ')}</p>)}</details>
+   </div>
+   <section className="opponent-strategies" aria-labelledby="opponent-strategies-title">
+    <h3 id="opponent-strategies-title">Estratégias mais usadas</h3>
+    <div className="opponent-sides" role="group" aria-label="Lado do adversário">
+     {(['attack','defense'] as const).map(value=><button type="button" key={value} aria-pressed={value===side} onClick={()=>setSide(value)} className={value===side?'primary small-button':'secondary small-button'}>{value==='attack'?'Ataque':'Defesa'}</button>)}
+    </div>
+    <div aria-live="polite">{ranked.length?<ol>{ranked.map(entry=><li key={entry.id}><strong>{entry.name}</strong> · {entry.count} de {total} {total===1?'round':'rounds'} de {side==='attack'?'ataque':'defesa'}</li>)}</ol>
+     :<p className="small muted">{previous.length?'Sem estratégias registradas para este lado.':'O adversário ainda não disputou partidas nesta carreira.'}</p>}</div>
+   </section>
+  </div>
+  <footer className="opponent-results">
+   <p className="small">{position?`${position}º na classificação da última rodada completa.`:'Classificação ainda sem rodada completa.'}</p>
+   {previous.length>0&&<details><summary>Placares anteriores ({previous.length})</summary>{previous.map(m=><p className="small" key={m.id}>Dia {m.day} · {clubName(m.a,w)} {m.result!.score.A} × {m.result!.score.B} {clubName(m.b,w)}</p>)}</details>}
+  </footer>
+ </section>;
 }

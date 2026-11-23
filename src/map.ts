@@ -11,7 +11,7 @@ export function createMap(A:Account[],B:Account[],initialAttack:Team='A',overtim
   if(overtimePairLimit!==undefined)integer(overtimePairLimit,1,20,'overtime pair limit');
   return {teams:{A:A.map(reset),B:B.map(reset)},score:{A:0,B:0},rounds:0,loss:{A:0,B:0},initialAttack,phase:'buy',winner:null,...(overtimePairLimit===undefined?{}:{overtimePairLimit})};
 }
-export function attackingTeam(s:MapState):Team {
+export function attackingTeam(s:Pick<MapState,'initialAttack'|'rounds'>):Team {
   const swap=s.rounds>=24 ? (s.rounds-24)%2===1 : Math.floor(s.rounds/6)%2===1;
   return swap?(s.initialAttack==='A'?'B':'A'):s.initialAttack;
 }
