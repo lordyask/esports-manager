@@ -47,11 +47,12 @@ function plantAt(sim:TacticalRound,id:string,at:number){
 
 for(const site of ['A','B'] as const)for(const attacking of ['A','B'] as const)for(const seed of [17,73]){
  test(`plant decision at 7000 ms: site ${site}, attacking ${attacking}, seed ${seed}`,()=>{
-  for(const policy of ['doca-v2-tactical-r5','doca-v2-tactical-r6'] as const){
+  for(const policy of ['doca-v2-tactical-r5','doca-v2-tactical-r6','doca-v2-tactical-r7'] as const){
    const scene=approach(7000,{site,attacking,seed,policy});
    const {sim,defender,attacker}=scene,view=sim.observeFor(attacker);
    assert.equal(view.self.ready,true);
-   assert.deepEqual(view.visible,[{id:defender,sector:'mid',action:'move'}]);
+   assert.deepEqual(view.visible,[{id:defender,sector:'mid',action:'move',
+    ...(policy==='doca-v2-tactical-r7'?{visibleExits:[edgeKey(site,scene.link)]}:{})}]);
    assert.ok(docaCanFire(sim.get(attacker)! as DocaPosition,sim.get(defender)! as DocaPosition));
    const old=policy==='doca-v2-tactical-r5';
    assert.equal(choose(scene),old?'plant':'wait');
@@ -135,7 +136,7 @@ test('urgent defuse still takes priority in sight of an opponent',()=>{
 });
 
 test('scheduled AI at first contact keeps its weapon active instead of channeling',()=>{
- for(const policy of ['doca-v2-tactical-r5','doca-v2-tactical-r6'] as const){
+ for(const policy of ['doca-v2-tactical-r5','doca-v2-tactical-r6','doca-v2-tactical-r7'] as const){
   const {sim,attacker,defender}=scenario({automatic:true,policy});
   // Align the planter's first decision with the engine's 250 ms observation tick.
   sim.get(attacker)!.nextDecision=7000;
@@ -143,6 +144,6 @@ test('scheduled AI at first contact keeps its weapon active instead of channelin
   assert.ok(sim.events.some(e=>e.kind==='first_contact'&&e.actor===attacker&&e.target===defender&&e.at===7000));
   assert.equal(plantAt(sim,attacker,7000),policy==='doca-v2-tactical-r5');
   sim.advance(7500);
-  assert.equal(sim.events.some(e=>e.kind==='shot'&&e.actor===attacker&&e.target===defender),policy==='doca-v2-tactical-r6');
+  assert.equal(sim.events.some(e=>e.kind==='shot'&&e.actor===attacker&&e.target===defender),policy!=='doca-v2-tactical-r5');
  }
 });

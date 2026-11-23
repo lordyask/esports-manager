@@ -10,7 +10,7 @@ import {pendingNpc} from '../lib/circuit-state.ts';
 import {clubPlan} from '../lib/club-policy.ts';
 import {historyJSON,readHistory} from '../lib/history.ts';
 import {loadWorkspace,commitWorkspace} from '../lib/storage.ts';
-import {BETA_2_1_MECHANICS,MECHANICS,PREVIOUS_MECHANICS,mechanicsMatch,tacticalPolicyFor} from '../src/content.ts';
+import {BETA_2_1_1_MECHANICS,BETA_2_1_MECHANICS,MECHANICS,PREVIOUS_MECHANICS,mechanicsMatch,tacticalPolicyFor} from '../src/content.ts';
 import {sha256} from '../src/hash.ts';
 import {attackingTeam} from '../src/map.ts';
 import {simulateRound} from '../src/simulation.ts';
@@ -58,12 +58,12 @@ test('an existing 0.6.1 circuit, history and active match survive loading and ke
  const nextNpc=continued.career!.circuit!.matches.find(m=>m.a!=='user'&&!m.result)!;assert.deepEqual(createNpcSession(nextNpc).mechanics,MECHANICS);
 });
 
-test('the published Beta 2.1 save replays round two exactly; new user and NPC sessions use r6',()=>{
+test('the published Beta 2.1 save replays round two exactly; new user and NPC sessions use r7',()=>{
  // Golden SHA-256 of the complete next session calculated independently by 851a11e.
  assert.equal(BETA_2_1_MECHANICS.contentHash,'c77ea0aa2221851fd120fa4d4fc6d6f3498317140d31d616d938762a90d354de');
  const draft=suggestAssignments({...defaultDraft(),selected:['J12','J09','J02','J05','J24'],seed:73});
  const original=createSession(draft,'b1-beta21-replay');
- assert.equal(tacticalPolicyFor(original.mechanics),'doca-v2-tactical-r6');
+ assert.equal(tacticalPolicyFor(original.mechanics),'doca-v2-tactical-r7');
  const career=startCircuitCareer({...freshWorkspace(),draft},'new-circuit-b1',73).career!;
  const npc=createNpcSession(career.circuit!.matches.find(m=>m.a!=='user')!);
  assert.deepEqual(npc.mechanics,original.mechanics);
@@ -81,4 +81,23 @@ test('the published Beta 2.1 save replays round two exactly; new user and NPC se
  const next=advanceSession(loaded,command(loaded));
  assert.deepEqual(next.mechanics,BETA_2_1_MECHANICS);
  assert.equal(sha256(JSON.stringify(next)),'8e7f2f08ed365ec33ae18e51d30225ac636a08b506b80f7cf9522a898f6a054e');
+});
+
+test('a saved r6 match with preserve replays the published next round',()=>{
+ // Complete session digest from f6e3f96, with preserve selected for both teams.
+ assert.equal(BETA_2_1_1_MECHANICS.contentHash,'99fc3b08b1dbec3ada3bb072284727f7dc4511cc717ff5e3708ac797c63cb1a1');
+ const draft=suggestAssignments({...defaultDraft(),selected:['J12','J09','J02','J05','J24'],seed:73});
+ draft.plan={...draft.plan,attack:'control',attackInstruction:'preserve'};
+ const session=createSession(draft,'b4-r6-replay');
+ session.mechanics=structuredClone(BETA_2_1_1_MECHANICS);
+ const command=(s:Session)=>({id:'round-'+s.state.rounds,revision:s.state.rounds,buys:automaticBuys(s),plans:{A:draft.plan,B:draft.plan}});
+ const w=freshWorkspace();
+ w.draft=draft;
+ w.session=advanceSession(session,command(session));
+ w.development!.used=true;
+ w.development!.matchId=session.id;
+ const envelope=JSON.parse(encodeSave(w));
+ envelope.mechanics=BETA_2_1_1_MECHANICS;
+ const loaded=decodeSave(JSON.stringify(envelope)).session!;
+ assert.equal(sha256(JSON.stringify(advanceSession(loaded,command(loaded)))),'4d6a0ddb816fef310d128a8dad5225c38598a002fc1fc66410188a97c8128bda');
 });

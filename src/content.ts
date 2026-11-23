@@ -10,12 +10,14 @@ const mechanicsFor=(ai:TacticalPolicy,resolver='doca-v2-r2')=>({engine:ENGINE_VE
 export const PREVIOUS_MECHANICS=mechanicsFor('doca-v2-tactical-r4');
 export const PREVIOUS_MOVEMENT_MECHANICS=mechanicsFor('doca-v2-tactical-r5');
 export const BETA_2_1_MECHANICS=mechanicsFor('doca-v2-tactical-r5','doca-v2-r3');
+export const BETA_2_1_1_MECHANICS=mechanicsFor('doca-v2-tactical-r6','doca-v2-r3');
 export const MECHANICS=mechanicsFor(CURRENT_TACTICAL_POLICY,'doca-v2-r3');
 
 const revisions=new Map<string,{tactical:TacticalPolicy;movement:MovementPolicy}>([
  [JSON.stringify(PREVIOUS_MECHANICS),{tactical:'doca-v2-tactical-r4',movement:'legacy-r1'}],
  [JSON.stringify(PREVIOUS_MOVEMENT_MECHANICS),{tactical:'doca-v2-tactical-r5',movement:'legacy-r1'}],
  [JSON.stringify(BETA_2_1_MECHANICS),{tactical:'doca-v2-tactical-r5',movement:'require-ready-r2'}],
+ [JSON.stringify(BETA_2_1_1_MECHANICS),{tactical:'doca-v2-tactical-r6',movement:'require-ready-r2'}],
  [JSON.stringify(MECHANICS),{tactical:CURRENT_TACTICAL_POLICY,movement:'require-ready-r2'}],
 ]);
 export const mechanicsMatch=(value:unknown)=>revisions.has(JSON.stringify(value));

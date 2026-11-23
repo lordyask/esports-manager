@@ -5,7 +5,7 @@ import {mapEdges,shortestPath,clamp} from './rules.ts';
 import type {Sector} from './rules.ts';
 import type {Observation,Decision,TacticalPolicy} from './tactical-types.ts';
 import type {Random} from './random.ts';
-import {decideDocaV2} from './doca-v2-ai.ts';
+import {decideDocaV2,preserveRetreat} from './doca-v2-ai.ts';
 import {DEFENSE_BASE,docaSightLink,isDocaArea} from './doca-v2.ts';
 
 // Only an Observation enters this module. No access to hidden positions or future events.
@@ -19,6 +19,9 @@ export function decide(view:Observation,random:Random,policy:TacticalPolicy=CURR
   const lurking=attacking&&self.role==='Lurker'&&view.now<22000&&!view.planted;
   const targetSite=(feint||lurking)?(view.attackTarget==='A'?'B':'A'):view.attackTarget;
   if(self.busy||!self.ready)return {kind:'wait'};
+  if(view.map==='doca-v2'&&policy==='doca-v2-tactical-r7'&&attacking&&!view.planted&&instruction==='preserve'&&self.life<3500&&view.visible.length){
+    return preserveRetreat(view);
+  }
   const adjacent=(s:Sector)=>mapEdges(view.map).some(([a,b])=>a===self.sector&&b===s||b===self.sector&&a===s);
   const visible=view.visible.filter(x=>x.sector===self.sector||adjacent(x.sector));
   const known=view.known.filter(x=>x.sector===self.sector||adjacent(x.sector));
@@ -30,7 +33,8 @@ export function decide(view:Observation,random:Random,policy:TacticalPolicy=CURR
     if(objectiveClear||view.planted.deadline-view.now<=9000)return {kind:'defuse'};
   }
   // A visible moving opponent may still report a nonadjacent sector of origin.
-  const plantClear=view.map==='doca-v2'&&policy==='doca-v2-tactical-r6'?view.visible.length===0:objectiveClear;
+  const legacyPlant=policy==='doca-v2-tactical-r4'||policy==='doca-v2-tactical-r5';
+  const plantClear=view.map==='doca-v2'&&!legacyPlant?view.visible.length===0:objectiveClear;
   if(!view.planted&&self.team===view.attacking&&self.sector===view.attackTarget&&plantClear&&!view.allies.some(a=>a.action==='plant'))return {kind:'plant'};
   // An isolated player under direct observation can keep firing rather than
   // repeatedly interrupting their weapon to cast while outnumbered.

@@ -41,6 +41,7 @@ export class TacticalRound {
   #knowledge:Record<Team,Map<string,Sighting>>={A:new Map(),B:new Map()};
   #presence:Record<Team,Map<Sector,{present:boolean;until:number}>>={A:new Map(),B:new Map()};
   #targets:Record<Team,'A'|'B'>;
+  #retreats=new Map<string,{edge:string;repeated:boolean}>();
   #targetChosen:Record<Team,boolean>={A:false,B:false};
   #feintShown=false;
   #feintPressureShown=false;
@@ -49,7 +50,7 @@ export class TacticalRound {
     if(profiles.length!==10||new Set(profiles.map(p=>p.id)).size!==10)throw new Error('Ten unique profiles required');
     mapEdges(options.map);integer(options.seed,1,0xffffffff,'seed');
     if(!['A','B'].includes(options.attacking))throw new Error('Invalid attack team');
-    if(options.tacticalPolicy!==undefined&&!['doca-v2-tactical-r4','doca-v2-tactical-r5',CURRENT_TACTICAL_POLICY].includes(options.tacticalPolicy))throw new Error('Invalid tactical policy');
+    if(options.tacticalPolicy!==undefined&&!['doca-v2-tactical-r4','doca-v2-tactical-r5','doca-v2-tactical-r6',CURRENT_TACTICAL_POLICY].includes(options.tacticalPolicy))throw new Error('Invalid tactical policy');
     if(options.movementPolicy!==undefined&&!['legacy-r1','require-ready-r2'].includes(options.movementPolicy))throw new Error('Invalid movement policy');
     for(const t of ['A','B'] as const){
       const group=profiles.filter(p=>p.team===t);
@@ -149,8 +150,16 @@ export class TacticalRound {
   observeFor(id:string):Observation{
     const u=this.get(id);if(!u)throw new Error('Unknown observer');
     const offset=this.options.map==='doca-v2'?PREPARATION_MS:0;
+    const retreat=this.#retreats.get(id);
+    const reportExits=this.options.map==='doca-v2'&&(this.options.tacticalPolicy??CURRENT_TACTICAL_POLICY)==='doca-v2-tactical-r7'&&!u.movement;
     return {now:Math.max(0,this.now-offset),self:this.#public(u),allies:this.units.filter(x=>x.team===u.team&&x.id!==id).map(x=>this.#public(x)),
-      visible:this.alive(other(u.team)).filter(x=>this.#visible(u,x)).map(x=>({id:x.id,sector:x.sector,action:x.action?.kind??(x.movement?'move':null)})),
+      ...(retreat?.repeated?{retreatEdge:retreat.edge}:{}),
+      visible:this.alive(other(u.team)).filter(x=>this.#visible(u,x)).map(x=>({
+        id:x.id,sector:x.sector,action:x.action?.kind??(x.movement?'move':null),
+        // A moving contact reports its origin. Only expose links actually seen
+        // at this observer's exit, never a hidden destination beyond the corner.
+        ...(reportExits&&x.movement?{visibleExits:docaSight(u as DocaPosition,x as DocaPosition).edges.filter(e=>e.split(':').includes(u.sector))}:{}),
+      })),
       known:[...this.#knowledge[u.team].values()].filter(x=>x.until>this.now).map(x=>({id:x.id,sector:x.sector})),
       presence:[...this.#presence[u.team].entries()].filter(([,x])=>x.until>this.now).map(([sector,x])=>({sector,present:x.present})),
       devices:[...this.areas.filter(x=>this.#active(x)&&x.team!==u.team&&x.sector===u.sector&&['alarm','trap','barrier'].includes(x.kind)).map(x=>({id:x.id,kind:x.kind,sector:x.sector})),...this.effects.filter(x=>presentEffect(x,this.now)&&x.neutralizeMs&&x.team!==u.team&&x.sector===u.sector).map(x=>({id:x.id,kind:x.kind,sector:x.sector}))],
@@ -325,7 +334,14 @@ export class TacticalRound {
     }
     if(!this.#canAct(u))return false;
     if(d.kind==='wait')return true;
-    if(d.kind==='move')return this.#startMove(u,d.to);
+    if(d.kind==='move'){
+      const started=this.#startMove(u,d.to);
+      if(started&&d.intent==='preserve'){
+        const edge=edgeKey(u.sector,d.to);
+        this.#retreats.set(id,{edge,repeated:this.#retreats.get(id)?.edge===edge});
+      }
+      return started;
+    }
     if(d.kind==='cast'){
       if(![0,1,2,3].includes(d.slot))return false;
       const sector=d.sector??u.sector;

@@ -1,9 +1,21 @@
 import {CURRENT_TACTICAL_POLICY} from './tactical-types.ts';
 import {ABILITIES} from './abilities.ts';
 import type {Slot} from './abilities.ts';
-import {shortestPath} from './rules.ts';
+import {edgeKey,shortestPath} from './rules.ts';
 import {ATTACK_BASE,DEFENSE_BASE,docaSightLink,isDocaArea} from './doca-v2.ts';
 import type {Decision,Observation,TacticalPolicy} from './tactical-types.ts';
+
+// Only retreat along the baseward path. A blocked first step is not a reason
+// to turn toward the fight and circle the map to get home.
+export function preserveRetreat(view:Observation):Decision {
+ const from=view.self.sector;
+ const next=shortestPath('doca-v2',from,'attack')?.path[1];
+ if(!next)return {kind:'wait'};
+ const edge=edgeKey(from,next);
+ const occupied=view.visible.some(enemy=>enemy.visibleExits?.includes(edge)??(enemy.sector===next));
+ if(view.blocked.includes(edge)||occupied)return {kind:'wait'};
+ return {kind:'move',to:next,intent:'preserve'};
+}
 
 /** Route decisions use only the team's public observations and its own orders. */
 export function decideDocaV2(view:Observation,policy:TacticalPolicy=CURRENT_TACTICAL_POLICY):Decision {
@@ -48,7 +60,14 @@ export function decideDocaV2(view:Observation,policy:TacticalPolicy=CURRENT_TACT
   }
   if(self.sector===destination)return {kind:'wait'};
  }
- const path=shortestPath('doca-v2',self.sector,destination,view.blocked);if(!path||path.path.length<2)return {kind:'wait'};
+ // After repeated contact on the same approach, keep the plan's waypoint
+ // and try another connection instead of shuttling between the same two areas.
+ const retreatEdge=attacking&&self.life<3500&&!view.planted&&policy==='doca-v2-tactical-r7'&&view.plan.attackInstruction==='preserve'?view.retreatEdge:undefined;
+ let path=shortestPath('doca-v2',self.sector,destination,view.blocked);
+ if(retreatEdge&&path?.path.some((area,i,route)=>i>0&&edgeKey(route[i-1],area)===retreatEdge)){
+  path=shortestPath('doca-v2',self.sector,destination,[...view.blocked,retreatEdge])??path;
+ }
+ if(!path||path.path.length<2)return {kind:'wait'};
  const next=path.path[1];
  // Do not force five defenders to different sites; explicit assignments remain valid.
  // A visible opponent on the next connection can be fought instead of crossing blindly.

@@ -4,8 +4,8 @@ import type {Agent,Slot} from './abilities.ts';
 import {MAP_CATALOG} from './maps.ts';
 export type AttackPlan='fast'|'control'|'split'|'feint';
 export type DefensePlan='aggressive'|'balanced'|'retake'|'reading';
-export const CURRENT_TACTICAL_POLICY='doca-v2-tactical-r6';
-export type TacticalPolicy='doca-v2-tactical-r4'|'doca-v2-tactical-r5'|typeof CURRENT_TACTICAL_POLICY;
+export const CURRENT_TACTICAL_POLICY='doca-v2-tactical-r7';
+export type TacticalPolicy='doca-v2-tactical-r4'|'doca-v2-tactical-r5'|'doca-v2-tactical-r6'|typeof CURRENT_TACTICAL_POLICY;
 export type MovementPolicy='legacy-r1'|'require-ready-r2';
 export type TacticalRole='Entry'|'Second'|'Support'|'Anchor'|'Lurker'|'Main OP';
 export interface TeamPlan {attack:AttackPlan;defense:DefensePlan;site:'A'|'B';attackInstruction?:'none'|'trade'|'utility'|'preserve';defenseInstruction?:'none'|'trade'|'cautious'|'resources';defenseAssignments?:Record<string,'A'|'B'|'mid'|'gallery'>;}
@@ -17,8 +17,8 @@ export interface ActionState {kind:'plant'|'defuse'|'cast'|'destroy';token:numbe
 export interface Area {id:string;kind:'smoke'|'zone'|'slow'|'safe'|'scan'|'sensor'|'alarm'|'trap'|'delay'|'confinement'|'barrier';team:Team;owner:string;sector:Sector;until:number;edges:string[];value:number;active:boolean;}
 export interface Sighting {id:string;sector:Sector;until:number;trackingUntil?:number;tracker?:string;source:string;}
 export interface PublicSelf {id:string;team:Team;agent:Agent;sector:Sector;movement?:{from:Sector;to:Sector}|null;neutralizing?:string;life:number;shield:number;charges:[boolean,boolean,boolean];ult:number;usedUlt:boolean;ready:boolean;busy:boolean;action:string|null;role?:TacticalRole;slot?:number;tactical:{entry:number;retake:number;reading:number;communication:number;discipline:number};}
-export interface Observation {effects?:{id:string;kind:string;sector:Sector;edges:string[];target?:string;capacity?:number;until:number}[];now:number;self:PublicSelf;allies:PublicSelf[];visible:{id:string;sector:Sector;action:string|null}[];known:{id:string;sector:Sector}[];presence:{sector:Sector;present:boolean}[];devices:{id:string;kind:string;sector:Sector}[];blocked:string[];planted:{sector:Sector;deadline:number}|null;attacking:Team;map:MapId;plan:TeamPlan;attackTarget:'A'|'B';feintShifted?:boolean;}
-export type Decision={kind:'wait'}|{kind:'move';to:Sector}|{kind:'plant'|'defuse'}|{kind:'destroy';device:string}|{kind:'cast';slot:Slot;sector?:Sector;target?:string;edge?:[Sector,Sector];edges?:[Sector,Sector][]};
+export interface Observation {retreatEdge?:string;effects?:{id:string;kind:string;sector:Sector;edges:string[];target?:string;capacity?:number;until:number}[];now:number;self:PublicSelf;allies:PublicSelf[];visible:{id:string;sector:Sector;action:string|null;visibleExits?:string[]}[];known:{id:string;sector:Sector}[];presence:{sector:Sector;present:boolean}[];devices:{id:string;kind:string;sector:Sector}[];blocked:string[];planted:{sector:Sector;deadline:number}|null;attacking:Team;map:MapId;plan:TeamPlan;attackTarget:'A'|'B';feintShifted?:boolean;}
+export type Decision={kind:'wait'}|{kind:'move';to:Sector;intent?:'preserve'}|{kind:'plant'|'defuse'}|{kind:'destroy';device:string}|{kind:'cast';slot:Slot;sector?:Sector;target?:string;edge?:[Sector,Sector];edges?:[Sector,Sector][]};
 export interface SimEvent extends RoundEvent {sector?:Sector;ability?:string;amount?:number;team?:Team;}
 export interface SimulationResult extends RoundResult {events:SimEvent[];kills:Record<string,number>;rng:{combat:number;decisions:number};processed:number;abilityUses:Record<string,number>;}
 export interface SimulationOptions {map:MapId;attacking:Team;seed:number;plans:Record<Team,TeamPlan>;tacticalPolicy?:TacticalPolicy;movementPolicy?:MovementPolicy;teamwork?:Partial<Record<Team,number>>;ai?:boolean;autoFire?:boolean;initial?:Partial<Record<string,{sector?:Sector;life?:number}>>;script?:{at:number;actor:string;decision:Decision}[];}
