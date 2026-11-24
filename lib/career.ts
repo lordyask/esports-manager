@@ -36,7 +36,7 @@ export function advanceCareer(w:Workspace,mode:'day'|'event'):Workspace{
  if(next.session){next.previous=next.session;next.session=null;}
  for(let day=c.day;day<target;day++)if(!c.days.some(d=>d.day===day))c.days.push({day,status:'forfeited'});
  c.day=target;next.draft.map=nextFixture(c)?.map??next.draft.map;next.development=careerDevelopment(c,null);delete next.trainingPreparation;delete next.buyPreparation;
- if(c.circuit)c.circuit.finance=clubFinance(c.roster,c.day-1);
+ if(c.circuit)c.circuit.finance=clubFinance(c.roster,c.day-1,undefined,c.circuit.sponsor);
  validateCareer(next);return next;
 }
 export function trainCareer(w:Workspace,choice:TrainingChoice):Workspace{

@@ -3,7 +3,7 @@ import {validateEquipment} from './equipment.ts';
 import type {EquipmentByTeam} from './equipment.ts';
 import {OPPONENTS,opponentProfiles} from './opponents.ts';
 import {clubFinance} from './club-finance.ts';
-import type {ClubFinance} from './club-finance.ts';
+import type {ClubFinance,Sponsorship} from './club-finance.ts';
 import type {Career} from './career-state.ts';
 import type {Profile,TeamPlan} from '../src/tactical-types.ts';
 import type {Purchase} from '../src/economy.ts';
@@ -28,7 +28,7 @@ export interface CircuitStat {id:string;team:'A'|'B';name:string;agent:string;ki
 export interface CircuitResult {mechanics:typeof MECHANICS;score:{A:number;B:number};winner:'A'|'B'|null;seed:number;rounds:number;profiles:Profile[];stats:CircuitStat[];receipts:CircuitRound[];}
 export interface CircuitMatch {id:string;day:number;map:'doca-v2';a:string;b:string;initialAttack:'A'|'B';seed:number;result?:CircuitResult;}
 export interface TieDraw {teams:string[];order:string[];seed:number;}
-export interface Circuit {version:1;matches:CircuitMatch[];draws:TieDraw[];closed:boolean;finance:ClubFinance;}
+export interface Circuit {sponsor?:Sponsorship;version:1;matches:CircuitMatch[];draws:TieDraw[];closed:boolean;finance:ClubFinance;}
 export function circuitSchedule(id:string,seed:number):CircuitMatch[]{return PAIRS.flatMap((pairs,i)=>pairs.map(([attack,defense],slot)=>{const own=slot===0,matchId=own?`${id}:jogo:${i+1}`:`${id}:npc:${i+1}:${slot}`;return {id:matchId,day:(i+1)*4,map:'doca-v2',a:own?'user':attack,b:own?(attack==='user'?defense:attack):defense,initialAttack:own?(attack==='user'?'A':'B'):'A',seed:matchSeed(id,seed,matchId)};}));}
 export function newCircuit(id:string,seed:number,roster:string[]):Circuit{return {version:1,matches:circuitSchedule(id,seed),draws:[],closed:false,finance:clubFinance(roster,0)};}
 export const completedDay=(c:Circuit)=>{let day=0;for(const d of [4,8,12,16,20,24,28]){if(c.matches.filter(m=>m.day===d).every(m=>m.result))day=d;else break;}return day;};
@@ -47,7 +47,13 @@ export function finalDraws(matches:CircuitMatch[],seed:number):TieDraw[]{
  const groups=new Map<string,string[]>();for(const r of standings(matches)){const key=[r.points,r.wins,r.head,r.difference,r.won].join(':');groups.set(key,[...(groups.get(key)??[]),r.id]);}
  return [...groups.values()].filter(g=>g.length>1).map(teams=>({teams:[...teams].sort(),seed,order:[...teams].sort((a,b)=>sha256(`${seed}:draw:${a}`).localeCompare(sha256(`${seed}:draw:${b}`)))}));
 }
-export function finishCircuit(c:Career){const x=c.circuit;if(!x)return;if(x.matches.every(m=>m.result)){x.draws=finalDraws(x.matches,c.seed);x.closed=true;const place=standings(x.matches,x.draws).findIndex(r=>r.id==='user')+1;x.finance=clubFinance(c.roster,28,place);c.agendaCompleted=true;}}
+export function offersAvailable(c?:Career){return !!c?.circuit&&!c.circuit.closed&&!c.circuit.sponsor&&!!c.fixtures[0]?.result;}
+export function signSponsor(c:Career,brand:Sponsorship['brand']):Career {
+ if(!offersAvailable(c))throw new Error('Propostas indisponíveis neste circuito.');
+ const next=structuredClone(c),x=next.circuit!;x.sponsor={brand,day:c.day};
+ x.finance=clubFinance(c.roster,x.finance.closedThrough,undefined,x.sponsor);return next;
+}
+export function finishCircuit(c:Career){const x=c.circuit;if(!x)return;if(x.matches.every(m=>m.result)){x.draws=finalDraws(x.matches,c.seed);x.closed=true;const place=standings(x.matches,x.draws).findIndex(r=>r.id==='user')+1;x.finance=clubFinance(c.roster,28,place,x.sponsor);c.agendaCompleted=true;}}
 export function validateCircuit(c:Career){
  const x=c.circuit;if(!x||x.version!==1||!Array.isArray(x.matches)||x.matches.length!==28||typeof x.closed!=='boolean'||!Array.isArray(x.draws))throw new Error('Circuito salvo inválido.');
  const expected=circuitSchedule(c.id,c.seed);
@@ -73,5 +79,6 @@ export function validateCircuit(c:Career){
  const closed=x.matches.every(m=>m.result);if(x.closed!==closed||c.agendaCompleted!==closed||closed&&c.day!==28)throw new Error('Fechamento de circuito inconsistente.');
  const draws=closed?finalDraws(x.matches,c.seed):[];if(JSON.stringify(x.draws)!==JSON.stringify(draws))throw new Error('Sorteio final inconsistente.');
  const place=closed?standings(x.matches,draws).findIndex(r=>r.id==='user')+1:undefined;
- if(JSON.stringify(x.finance)!==JSON.stringify(clubFinance(c.roster,closed?28:c.day-1,place)))throw new Error('Extrato ou contratos inconsistentes.');
+ if(x.sponsor!==undefined&&(!x.sponsor||!['wynx','skx'].includes(x.sponsor.brand)||!c.fixtures[0]?.result||!Number.isInteger(x.sponsor.day)||x.sponsor.day<c.fixtures[0].day||x.sponsor.day>c.day))throw new Error('Patrocínio inconsistente.');
+ if(JSON.stringify(x.finance)!==JSON.stringify(clubFinance(c.roster,closed?28:c.day-1,place,x.sponsor)))throw new Error('Extrato ou contratos inconsistentes.');
 }

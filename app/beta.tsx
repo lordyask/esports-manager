@@ -13,10 +13,12 @@ import {startCircuitCareer,advanceCareer,advancePreview,trainCareer,skipCareerTr
 import {currentFixture,nextFixture,dayClosed} from '../lib/career-state';
 import {opponentFor} from '../lib/opponents';
 import {countryLabel} from '../lib/countries';
-import {pendingNpc} from '../lib/circuit-state';
+import {SponsorFinance} from './sponsorship';
+import type {Sponsorship} from '../lib/club-finance';
+import {offersAvailable,signSponsor,pendingNpc} from '../lib/circuit-state';
 import {clubPlan} from '../lib/club-policy';
 import {createNpcSession,npcCommand,acceptNpcResult} from '../lib/circuit';
-import {CircuitPanel,FinancePanel,OpponentPreview} from './circuit-panel';
+import {CircuitPanel,OpponentPreview} from './circuit-panel';
 import {useEffect,useMemo,useRef,useState} from 'react';
 import type {CSSProperties,ChangeEvent} from 'react';
 import {PLAYERS,AGENTS,ROLES,newId,ROLE_NAMES,ATTRS,MAP_NAMES,CLASS,PLAN_NAMES,defaultDraft,salary,familiarity,suggestAssignments,validateDraft,createSession,automaticBuys,previewRound,spendable,encodeSave,decodeSave,stats,nextSide,ENGINE_VERSION} from '../lib/game';
@@ -58,7 +60,13 @@ export default function Beta(){
  useEffect(()=>{try{setReduceMotion(localStorage.getItem('nexus.ui.motion')==='reduce');}catch{/* Preferences are optional when storage is blocked. */}},[]);
  function motionPreference(value:boolean){setReduceMotion(value);try{localStorage.setItem('nexus.ui.motion',value?'reduce':'system');}catch{}}
  const [data,setData]=useState<Workspace>(freshWorkspace),[tab,setActiveTab]=useState(0),[loaded,setLoaded]=useState(false),[saved,setSaved]=useState(false),[error,setError]=useState(''),[note,setNote]=useState(''),[busy,setBusy]=useState(false),[query,setQuery]=useState(''),[filter,setFilter]=useState('Todos'),[country,setCountry]=useState('Todos'),[sort,setSort]=useState('salary'),[autoBuy,setAutoBuy]=useState(false),[plans,setPlans]=useState<Record<string,Plan>>({}),[speed,setSpeed]=useState('normal'),[lastMs,setLastMs]=useState(0),[recovery,setRecovery]=useState<string|null>(null);
- function setTab(next:number){setActiveTab(next);setMenuLevel('page');}
+ const [showOffers,setShowOffers]=useState(false);
+ async function sign(brand:Sponsorship['brand']){
+  if(working.current)return;working.current=true;setBusy(true);
+  try{const w=current.current;await persist({...w,career:signSponsor(w.career!,brand)});setError('');setNote('Contrato confirmado. Assinatura creditada no caixa.');}
+  catch(e){fail(e);}finally{working.current=false;setBusy(false);}
+ }
+ function setTab(next:number){setShowOffers(false);setActiveTab(next);setMenuLevel('page');}
  function openMainMenu(){if(!loaded||busy||onboardingWriting)return;setLegacyHome(false);setMenuLevel('main');}
  function chooseCategory(index:number){if(!loaded||busy)return;setMenuGroup(index);setMenuLevel('category');}
  const category=menuLevel==='page'?groupForTab(tab):MENU_GROUPS[menuGroup];
@@ -155,11 +163,11 @@ export default function Beta(){
  {note&&<div className="notice" role="status"><span>{note}</span><button aria-label="Fechar aviso" onClick={()=>setNote('')}>×</button></div>}
  {menuLevel==='page'&&!!data.archives?.length&&!data.career&&<div className="notice">Há registros preservados no acervo. Eles não concedem XP ou caixa à nova carreira. <button className="text-button" onClick={()=>setTab(11)}>Abrir acervo</button></div>}
  {recovery&&<section className="panel"><h1>Seu arquivo foi preservado.</h1><p>Este progresso não pode continuar nesta versão. Exporte o original; ao confirmar a importação ou o reinício, uma cópia também será guardada no acervo, sujeita ao limite de 64 MB. A partida antiga permanece apenas para consulta.</p><div className="button-row"><button className="primary" onClick={exportProgress}>Exportar arquivo preservado</button><button className="secondary" disabled={busy} onClick={()=>file.current?.click()}>Importar outro arquivo</button><button className="secondary" disabled={busy} onClick={reset}>Reiniciar com esta versão</button></div></section>}
- {!loaded?<div className="panel loading">Abrindo seu centro de comando…</div>:recovery?null:firstAccess?<FirstAccess key={accessKey} workspace={data} save={saveOnboarding} enroll={finishOnboarding} onWriting={setOnboardingWriting} help={()=>roleHelp.current?.showModal()} openRecords={()=>{setLegacyHome(true);setTab(data.archives?.length?11:7);}}/>:menuLevel==='main'?<CommandHome workspace={data} busy={busy} onCategory={chooseCategory} onOpen={nav}/>:menuLevel==='category'?<CategoryMenu group={category} onChooseGroup={chooseCategory} onOpenTab={nav} disabled={busy} unavailable={unavailableTab}/>:<>
+ {!loaded?<div className="panel loading">Abrindo seu centro de comando…</div>:recovery?null:firstAccess?<FirstAccess key={accessKey} workspace={data} save={saveOnboarding} enroll={finishOnboarding} onWriting={setOnboardingWriting} help={()=>roleHelp.current?.showModal()} openRecords={()=>{setLegacyHome(true);setTab(data.archives?.length?11:7);}}/>:menuLevel==='main'?<>{offersAvailable(data.career)&&<section className="panel"><h2>Sua organização recebeu duas propostas de patrocínio</h2><button className="primary" disabled={busy} onClick={()=>{setTab(10);setShowOffers(true);}}>Ver propostas</button></section>}<CommandHome workspace={data} busy={busy} onCategory={chooseCategory} onOpen={nav}/></>:menuLevel==='category'?<CategoryMenu group={category} onChooseGroup={chooseCategory} onOpenTab={nav} disabled={busy} unavailable={unavailableTab}/>:<>
  <CategoryTabs group={category} tab={tab} onOpenTab={nav} disabled={busy} unavailable={unavailableTab}/>
  {tab===11&&<ArchivePanel workspace={data} busy={busy} onExport={text=>download('nexus-arquivo-original.json',text)} onRemove={deleteArchive}/>}
  {tab===9&&<CircuitPanel workspace={data} busy={busy} onProcess={processRound}/>}
- {tab===10&&<FinancePanel workspace={data}/>}
+ {tab===10&&<SponsorFinance workspace={data} startOffers={showOffers} busy={busy} sign={sign}/>}
  {tab===8&&<CalendarPanel workspace={data} busy={busy} onStart={openCareer} onAdvance={calendarAdvance} onTrain={()=>setTab(5)} onPrepare={()=>setTab(2)} onProcessNpc={processRound}/>}
  {tab===0&&<>
  <HomeDashboard workspace={data} busy={busy} onRoster={()=>setTab(1)} onPlan={()=>void configure()} onPrepare={()=>setTab(2)} onCalendar={()=>setTab(8)} onTrain={()=>setTab(5)} onMatch={()=>setTab(3)} onReport={()=>setTab(4)}/>

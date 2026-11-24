@@ -79,3 +79,38 @@ test('recomputed checksum cannot hide duplicated entries, changed grade or extra
  for(const receipt of result.receipts)receipt.equipment[npc.team].find(p=>p.id===npc.id)!.attrs[0]++;
  assert.throws(()=>decodeSave(encodeSave(altered)),/NPC alterados/);
 });
+
+test('sponsorship unlocks on the user result and is saved with its signature exactly once',async()=>{
+ const {offersAvailable,signSponsor}=await import('../lib/circuit-state.ts');
+ const ready=advanceCareer(start(),'event');
+ assert.equal(offersAvailable(ready.career),false);
+ const w=ownGame(ready),before=cashCents(w.career!.circuit!.finance);
+ assert.equal(offersAvailable(w.career),true);
+ const npcOnly=structuredClone(ready.career!);
+ npcOnly.circuit!.matches[1].result=w.career!.circuit!.matches[0].result;
+ assert.equal(offersAvailable(npcOnly),false);
+ for(const winner of ['A','B'] as const){
+  const recorded=structuredClone(w.career!);recorded.fixtures[0].result!.winner=winner;
+  assert.equal(offersAvailable(recorded),true);
+ }
+ for(const brand of ['wynx','skx'] as const){
+  const next={...w,career:signSponsor(w.career!,brand)};
+  const saved=decodeSave(encodeSave(next)).career!;
+  assert.equal(cashCents(saved.circuit!.finance),before+(brand==='wynx'?400000:200000));
+  assert.throws(()=>signSponsor(saved,brand));assert.equal(saved.circuit!.finance.ledger.filter(e=>e.kind==='signature').length,1);
+ }
+});
+test('fourth earns the Skx bonus, fifth misses, Wynx always settles at signature',async()=>{
+ const {finishCircuit,signSponsor}=await import('../lib/circuit-state.ts');
+ for(const place of [4,5])for(const brand of ['wynx','skx'] as const){
+  const c=start().career!,x=c.circuit!;
+  const order=CLUB_IDS.filter(id=>id!=='user') as string[];order.splice(place-1,0,'user');
+  x.sponsor={brand,day:4};c.day=28;
+  for(const m of x.matches){const wins=order.indexOf(m.a)<order.indexOf(m.b);m.result=mock(m.a,m.b,wins?13:0,wins?0:13).result;}
+  finishCircuit(c);finishCircuit(c);assert.throws(()=>signSponsor(c,brand));
+  assert.equal(standings(x.matches,x.draws)[place-1].id,'user');
+  const earned=x.finance.ledger.filter(e=>e.kind==='signature'||e.kind==='bonus');
+  assert.equal(earned.length,brand==='skx'&&place===4?2:1);
+  assert.equal(earned.reduce((n,e)=>n+e.cents,0),brand==='wynx'?400000:place===4?600000:200000);
+ }
+});
