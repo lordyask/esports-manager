@@ -1,0 +1,60 @@
+.fa-options-label {font:600 14px var(--font-exo),sans-serif}
+.category-top-actions button[title="Opções"] {display:inline-flex;align-items:center;gap:8px;width:auto;padding:0 12px}
+[data-first-access] .top-context,[data-first-access] .org-badge {display:none}
+[data-first-access] .main {background:radial-gradient(ellipse at 90% 8%,#12314765,transparent 46%),radial-gradient(ellipse at 5% 0%,#74552924,transparent 40%),#0a0c0f}
+.fa-welcome,.fa-workbench {max-width:1480px;margin:auto;font-family:var(--font-exo),sans-serif}
+.fa-welcome {min-height:70vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:8%;padding:3vw 5vw}
+.fa-welcome h1 {font-size:clamp(48px,4.9vw,80px);line-height:1.05;margin:20px 0;letter-spacing:-.04em}
+.fa-welcome p {max-width:48ch;color:var(--muted);font-size:18px;line-height:1.5}
+.fa-brand {aspect-ratio:1.42;display:grid;place-items:center;border:1px solid var(--premium-edge);background:linear-gradient(#b4cad808 1px,transparent 1px),linear-gradient(90deg,#b4cad808 1px,transparent 1px),radial-gradient(ellipse,#183446,#0b1016 72%);background-size:26px 26px,26px 26px,auto}
+.fa-brand img {width:54%;height:auto}
+.fa-workbench {padding-bottom:12px}
+.fa-steps {display:flex;gap:8px;list-style:none;padding:0;margin:0 0 12px}
+.fa-steps li {display:flex;align-items:center;gap:.65em;color:var(--muted);padding:7px 14px;border-bottom:2px solid var(--premium-edge)}
+.fa-steps [aria-current] {border-color:#57b6f2;color:#c6eaff}
+.fa-steps li span {font-family:var(--font-orbitron),sans-serif}
+.fa-step-title,.fa-footer,.fa-accounts div,.fa-review li,.fa-player-line,.fa-slots li {display:flex;align-items:center;justify-content:space-between;gap:12px}
+.fa-step-title {margin:0 0 14px}
+.fa-step-title h1 {margin:0;font-size:clamp(24px,2.5vw,42px)}
+.fa-identity,.fa-review {display:grid;grid-template-columns:1fr 1fr;gap:6%;padding:clamp(18px,3vw,44px)}
+.fa-identity .field {margin-bottom:16px}
+.fa-identity fieldset {border:0;padding:0}
+.fa-club {display:flex;align-items:center;gap:12px;padding:14px 0;border-block:1px solid var(--premium-edge);overflow-wrap:anywhere}
+.fa-club>span {flex:0 0 42px}
+.fa-club svg {width:40px;height:44px}
+.fa-club b {margin-left:auto;color:var(--accent)}
+.fa-recommendations {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 14px}
+.fa-option {background:var(--premium-panel);color:var(--text);border:1px solid var(--premium-edge);padding:16px;text-align:left;display:grid;align-content:space-between;gap:10px;font:inherit;cursor:pointer}
+.fa-option>strong {font:600 clamp(15px,1.15vw,20px) var(--font-orbitron),sans-serif}
+.fa-option>span {font-size:14px}
+.fa-option[aria-pressed=true],.fa-workbench .player-card.selected,.fa-workbench .crest-options .chosen {border-color:#51aeeb;box-shadow:inset 3px 0 #389fdf}
+.fa-metrics {display:flex;justify-content:space-between;gap:6px;color:var(--muted);border-top:1px solid var(--premium-edge);padding-top:8px}
+.fa-metrics b,.fa-slots small {display:block}
+.fa-metrics b {color:var(--text)}
+.fa-roster-layout {display:grid;grid-template-columns:minmax(245px,0.85fr) minmax(0,2fr);gap:16px}
+.fa-roster-layout>.panel {margin:0;min-width:0;padding:16px}
+.fa-slots ol,.fa-review ol {margin:0;padding:0;list-style:none}
+.fa-slots li,.fa-player-line,.fa-review li,.fa-accounts div {border-bottom:1px solid var(--premium-edge);padding:9px 0}
+.fa-slots small,.fa-review li span {color:var(--muted)}
+.fa-slots .field {margin-top:12px}
+.fa-filters {display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:10px;margin-bottom:10px}
+.fa-catalog {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(234px,100%),1fr));gap:10px;max-height:clamp(240px,43vh,540px);overflow:auto;overscroll-behavior:contain;padding:4px}
+.fa-catalog .player-card {margin:0;padding:12px;min-width:0}
+.fa-catalog .player-top {gap:8px}
+.fa-catalog .avatar {width:36px;height:36px;font-size:13px}
+.fa-card-actions,.fa-proposal {display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.fa-card-actions {margin-top:10px}
+.fa-card-actions button {width:auto;margin:0;padding:6px 12px;min-height:34px}
+.fa-proposal {padding:10px;background:#173146;border-left:3px solid #55b9ff}
+.fa-footer {position:sticky;bottom:0;z-index:2;background:#171b20;border:1px solid var(--premium-edge);padding:12px 16px;margin-top:16px;box-shadow:0 -4px 18px #0006}
+.fa-summary {flex:1;font-size:14px}
+.fa-dialog {max-height:82vh;overflow:auto}
+.fa-dialog dt,.fa-accounts dd {font-weight:700}
+.fa-dialog dd {margin:2px 0 12px;color:var(--muted)}
+.fa-review h3 {margin:12px 0}
+.fa-review ol {list-style:none}
+@media(max-width:800px){
+ .fa-recommendations,.fa-roster-layout,.fa-identity,.fa-review,.fa-welcome {grid-template-columns:1fr}
+ .fa-brand {max-width:280px}.fa-filters {grid-template-columns:1fr 1fr}
+ .fa-footer {flex-wrap:wrap}.fa-summary {min-width:170px}.fa-steps li {padding:5px}
+}

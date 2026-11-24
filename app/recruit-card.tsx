@@ -1,5 +1,5 @@
 import type {ReactNode} from 'react';
-import {AGENTS,ATTRS,CLASS,ROLE_NAMES,familiarity} from '../lib/game';
+import {AGENTS,ATTRS,CLASS,familiarity} from '../lib/game';
 import type {Player} from '../lib/game';
 import {countryLabel} from '../lib/countries';
 const fmt=(n:number)=>n.toLocaleString('pt-BR');

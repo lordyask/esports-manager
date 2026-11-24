@@ -148,6 +148,7 @@ export function decodeSave(text:string):Workspace {
  if(!w?.draft||!Array.isArray(w.draft.selected)||w.draft.selected.length>5||new Set(w.draft.selected).size!==w.draft.selected.length||w.draft.selected.some(id=>!PLAYERS.some(p=>p.id===id))||typeof w.draft.org!=='string'||w.draft.org.length>40||typeof w.draft.tag!=='string'||w.draft.tag.length>5||typeof w.draft.igl!=='string'||!w.draft.assignments||typeof w.draft.assignments!=='object'||!/^#[0-9a-f]{6}$/i.test(w.draft.color)||![0,1,2].includes(w.draft.crest)||!isActiveMapId(w.draft.map)||!['development','balanced','experienced'].includes(w.draft.opponent))throw new Error('Configuração salva inválida.');
  integer(w.draft.seed,1,0xffffffff,'seed');validatePlan(w.draft.plan);
  for(const a of Object.values(w.draft.assignments))if(!a||!AGENTS.includes(a.agent)||!ROLES.includes(a.role))throw new Error('Escalação salva inválida.');
+ if(w.onboarding?.stage==='registration'&&!w.career&&!w.session)validateDraft(w.draft);
  if(w.session){validateDraft(w.draft);validateSession(w.session);}
  if(!w.development)throw new Error('Registro de desenvolvimento ausente.');validateDevelopment(w.development);
  if(w.trainingPreparation!==undefined)validateTrainingPreparation(w.trainingPreparation,w.draft.selected);
