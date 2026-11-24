@@ -1,5 +1,5 @@
 import {useEffect,useRef,useState} from 'react';
-import {CLASS,PLAYERS,validateIdentity} from '../lib/game';
+import {CLASS,PLAYERS,defaultDraft,validateIdentity} from '../lib/game';
 import type {Draft,Onboarding,Workspace} from '../lib/game';
 import {cashCents,clubFinance} from '../lib/club-finance';
 import {credits,registrationDraft,rosterTotals,withRoster} from '../lib/first-access';
@@ -14,6 +14,7 @@ interface Props {
  help:()=>void;
  openRecords:()=>void;
 }
+const defaults=defaultDraft();
 const stages=[['organization','Organização'],['roster','Elenco'],['registration','Inscrição']] as const;
 export function FirstAccess({workspace,save,enroll,onWriting,help,openRecords}:Props){
  const initial=workspace.draft,legacyDraft=initial.selected.length>0;
@@ -21,7 +22,7 @@ export function FirstAccess({workspace,save,enroll,onWriting,help,openRecords}:P
  const [flow,setFlow]=useState<Onboarding>(workspace.onboarding??{stage:legacyDraft?'roster':'organization',path:legacyDraft?'manual':null});
  const [open,setOpen]=useState(!!workspace.onboarding),[writing,setWriting]=useState(false),[failure,setFailure]=useState(''),[submitting,setSubmitting]=useState(false);
  const queue=useRef(Promise.resolve()),serial=useRef(0),confirming=useRef(false),heading=useRef<HTMLHeadingElement>(null);
- const hasDraft=!!workspace.onboarding||legacyDraft||initial.org!=='Minha organização'||initial.tag!=='ORG';
+ const hasDraft=!!workspace.onboarding||legacyDraft||initial.org!==defaults.org||initial.tag!==defaults.tag||initial.crest!==defaults.crest||initial.color!==defaults.color;
  useEffect(()=>{if(open){heading.current?.focus({preventScroll:true});window.scrollTo(0,0);}},[open,flow.stage]);
  function change(next:Draft,step:Onboarding){
   if(confirming.current)return;

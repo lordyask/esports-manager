@@ -34,13 +34,13 @@ export function Recruitment({draft,path,change,help}:Props){
   const p=byId(draft.selected[i]);return <li key={i}><div>{p?<><strong>{p.name}{p.id===draft.igl?' · IGL':''}</strong><small>{p.style} · {p.main} ({CLASS[p.main]})</small></>:<span>Vaga aberta</span>}</div>
   {p&&<button className="text-button" onClick={e=>{swapOrigin.current=e.currentTarget;setSwap(p.id);clearSearch();requestAnimationFrame(()=>document.getElementById('fa-search')?.focus());}}>Trocar atleta<span className="sr-only"> · {p.name}</span></button>}</li>;
  })}</ol>
- {draft.selected.length>0&&<label className="field">Capitão (IGL)<select value={draft.igl} onChange={e=>change({...draft,igl:e.target.value},path)}>{draft.selected.map(id=><option value={id} key={id}>{byId(id).name}</option>)}</select></label>}
+ {draft.selected.length>0&&<label className="field">Capitão (IGL)<select aria-label="Capitão (IGL)" value={draft.igl} onChange={e=>change({...draft,igl:e.target.value},path)}>{draft.selected.map(id=><option value={id} key={id}>{byId(id).name}</option>)}</select></label>}
  </section>
  {(path==='manual'||replacing)?<section className="panel fa-market"><div className="panel-title"><h3>{replacing?'Trocar '+replacing.name:'Recrutamento'}</h3>{replacing&&<button className="text-button" onClick={closeSwap}>Cancelar troca</button>}</div>
  <div className="fa-filters">
  <label className="field">Buscar atleta<input id="fa-search" type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Nome, país ou agente"/></label>
- <label className="field">Função tática<select value={role} onChange={e=>setRole(e.target.value)}><option value="">Todas</option>{['IGL',...ROLES].map(r=><option key={r}>{r}</option>)}</select></label>
- <label className="field">Classe do agente<select value={agentClass} onChange={e=>setClass(e.target.value)}><option value="">Todas</option>{[...new Set(AGENTS.map(a=>CLASS[a]))].map(c=><option key={c}>{c}</option>)}</select></label>
+ <label className="field">Função tática<select aria-label="Função tática" value={role} onChange={e=>setRole(e.target.value)}><option value="">Todas</option>{['IGL',...ROLES].map(r=><option key={r}>{r}</option>)}</select></label>
+ <label className="field">Classe do agente<select aria-label="Classe do agente" value={agentClass} onChange={e=>setClass(e.target.value)}><option value="">Todas</option>{[...new Set(AGENTS.map(a=>CLASS[a]))].map(c=><option key={c}>{c}</option>)}</select></label>
  </div>
  {replacing&&chosen&&<div className="fa-proposal" aria-live="polite"><strong>{replacing.name} → {chosen.name}</strong>
  <span>Folha antes {credits(totals.payroll)} · Folha depois {credits(totals.payroll+delta)} · Diferença {delta>0?'+':''}{credits(delta)} · Margem salarial {credits(totals.margin-delta)}</span>

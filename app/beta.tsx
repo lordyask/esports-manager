@@ -129,7 +129,8 @@ export default function Beta(){
  const firstAccess=menuLevel==='main'&&!legacyHome&&!data.career&&!s&&!dev.used&&!dev.completed;
  async function saveOnboarding(draft:Draft,onboarding:Onboarding){
   const x=current.current;
-  await persist({...x,draft,onboarding,trainingPreparation:x.trainingPreparation?trainingPreparation(draft,x.trainingPreparation):undefined});
+  try{await persist({...x,draft,onboarding,trainingPreparation:x.trainingPreparation&&draft.selected.length?trainingPreparation(draft,x.trainingPreparation):undefined});}
+  catch(e){setSaved(false);throw e;}
  }
  async function finishOnboarding(draft:Draft,onboarding:Onboarding){
   if(working.current)throw new Error('Aguarde a gravação em andamento.');
