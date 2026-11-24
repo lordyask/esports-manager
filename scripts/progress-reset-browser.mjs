@@ -46,11 +46,11 @@ export async function checkProgressReset({browser,url,currentSave,oldSave,trainO
    }
    await page.goto(url);await page.getByText(notice,{exact:true}).waitFor();await page.reload();await confirm(page).waitFor();
    assert.equal(await readSlot(page,primary),text);assert.equal(await readSlot(page,legacy),'legacy checkpoint');
-   assert.equal(await page.getByRole('button',{name:'Montar meu elenco',exact:true}).count(),0);
+   assert.equal(await page.getByRole('button',{name:/^Iniciar carreira/}).count(),0);
    const second=await context.newPage();await second.goto(url);await confirm(second).waitFor();
-   await confirm(page).click();await page.getByRole('heading',{name:'Central de comando',exact:true}).waitFor();
+   await confirm(page).click();await page.getByRole('button',{name:/^Iniciar carreira/}).waitFor();
    assert.equal(await readSlot(page,primary),null);assert.equal(await readSlot(page,legacy),null);
-   await second.getByRole('heading',{name:'Central de comando',exact:true}).waitFor();
+   await second.getByRole('button',{name:/^Iniciar carreira/}).waitFor();
    assert.equal(await readSlot(page,'unrelated-app'),'keep');
    assert.deepEqual(await page.evaluate(()=>[localStorage.getItem('nexus.ui.motion'),localStorage.getItem('unrelated-pref')]),['reduce','keep']);
    if(kind==='active-career'){

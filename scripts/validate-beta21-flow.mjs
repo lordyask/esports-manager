@@ -5,13 +5,14 @@ import {createServer} from 'node:http';
 import {createReadStream} from 'node:fs';
 import {mkdir,readFile,stat,writeFile} from 'node:fs/promises';
 import {extname,join,resolve} from 'node:path';
-import {PLAYERS,advanceSession,automaticBuys,encodeSave} from '../lib/game.ts';
+import {advanceSession,automaticBuys,encodeSave} from '../lib/game.ts';
 import {acceptCareerResult,advanceCareer,startCareerMatch} from '../lib/career.ts';
 import {createNpcSession,npcCommand,acceptNpcResult} from '../lib/circuit.ts';
 import {pendingNpc} from '../lib/circuit-state.ts';
 import {clubPlan} from '../lib/club-policy.ts';
 import {BETA_2_1_1_MECHANICS} from '../src/content.ts';
 import {addArchive,archiveFromText} from '../lib/archive.ts';
+import {enrollEconomy} from './enroll-browser.mjs';
 import {checkProgressReset} from './progress-reset-browser.mjs';
 
 const {chromium}=await import(process.env.NEXUS_PLAYWRIGHT??'/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs');
@@ -36,18 +37,10 @@ const results=[];
 const stored=page=>page.evaluate(()=>new Promise((resolve,reject)=>{const q=indexedDB.open('esports-manager-beta-1.1');q.onerror=()=>reject(q.error);q.onsuccess=()=>{const db=q.result,r=db.transaction('workspace').objectStore('workspace').get('active');r.onsuccess=()=>{db.close();resolve(r.result?.text??null);};r.onerror=()=>reject(r.error);};}));
 const put=async(page,text)=>page.evaluate(value=>new Promise((resolve,reject)=>{const q=indexedDB.open('esports-manager-beta-1.1');q.onerror=()=>reject(q.error);q.onsuccess=()=>{const db=q.result,t=db.transaction('workspace','readwrite');t.objectStore('workspace').put({revision:1,text:value},'active');t.oncomplete=()=>{db.close();resolve();};t.onerror=()=>reject(t.error);};}),text);
 const data=async page=>JSON.parse(await stored(page)).data;
-const home=page=>page.getByRole('button',{name:'NEXUS — menu principal'}).click();
 async function trainOneDay(page){
- await page.getByRole('button',{name:'Montar meu elenco',exact:true}).click();
- for(const id of ['J12','J09','J02','J05','J24']){
-  const player=PLAYERS.find(p=>p.id===id);assert.ok(player);
-  await page.locator('.player-card').filter({has:page.getByRole('heading',{name:player.name,exact:true})}).getByRole('button',{name:/Selecionar jogador/}).click();
- }
- await page.getByRole('button',{name:'Preparar meu time',exact:true}).click();
- await page.getByRole('button',{name:'Ir para o treinamento',exact:true}).waitFor();
+ await enrollEconomy(page);
  assert.equal((await data(page)).draft.selected.length,5);
- await home(page);await page.locator('.arena-nav-calendar').click();
- await page.getByRole('button',{name:'Confirmar inscrição e iniciar circuito',exact:true}).click();
+ await page.locator('.arena-nav-calendar').click();
  await page.getByRole('heading',{name:'Dia 1 de 28',exact:true}).waitFor();
  const state=await data(page);
  assert.equal(state.career.fixtures.length,7);assert.ok(state.career.fixtures.every(f=>f.map==='doca-v2'));
@@ -83,7 +76,7 @@ try{
  page.on('pageerror',e=>errors.push(`page: ${e.message}`));page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);});
  page.on('dialog',d=>{dialogs.push(d.message());return d.accept();});
  await page.goto(url,{waitUntil:'networkidle'});
- await page.getByRole('heading',{name:'Central de comando',exact:true}).waitFor();
+ await page.getByRole('button',{name:/^Iniciar carreira/}).waitFor();
  assert.equal(await page.title(),APP_TITLE);
  assert.equal(await page.evaluate(async()=>('serviceWorker' in navigator?(await navigator.serviceWorker.getRegistrations()).length:0)),0);
  await trainOneDay(page);
@@ -131,7 +124,7 @@ try{
 
  const recoveryContext=await browser.newContext({viewport:{width:1366,height:768},acceptDownloads:true}),recoveryPage=await recoveryContext.newPage();
  const old=await readFile('/tmp/nexus-doca-v2-browser-old.json','utf8');
- await recoveryPage.goto(url);await recoveryPage.getByRole('heading',{name:'Central de comando',exact:true}).waitFor();await put(recoveryPage,old);await recoveryPage.reload();
+ await recoveryPage.goto(url);await recoveryPage.getByRole('button',{name:/^Iniciar carreira/}).waitFor();await put(recoveryPage,old);await recoveryPage.reload();
  await recoveryPage.getByRole('heading',{name:'Seu arquivo foi preservado.',exact:true}).waitFor();assert.equal(await stored(recoveryPage),old);
  const [download]=await Promise.all([recoveryPage.waitForEvent('download'),recoveryPage.getByRole('button',{name:'Exportar arquivo preservado',exact:true}).click()]);
  assert.equal(await readFile(await download.path(),'utf8'),old);
