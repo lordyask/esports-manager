@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import {freshWorkspace,defaultDraft,suggestAssignments,advanceSession,automaticBuys,encodeSave,decodeSave,PLAYERS} from '../lib/game.ts';
 import type {Workspace} from '../lib/game.ts';
 import {startCircuitCareer,startCareer,advanceCareer,startCareerMatch,acceptCareerResult,trainCareer} from '../lib/career.ts';
-import {circuitSchedule,pendingNpc,standings,completedDay,finalDraws,CLUB_IDS} from '../lib/circuit-state.ts';
+import {circuitSchedule,pendingNpc,signSponsor,standings,completedDay,finalDraws,CLUB_IDS} from '../lib/circuit-state.ts';
 import type {CircuitMatch,CircuitResult} from '../lib/circuit-state.ts';
 import {simulateNpc,acceptNpcResult} from '../lib/circuit.ts';
 import {clubPlan} from '../lib/club-policy.ts';
@@ -17,8 +17,8 @@ const base=()=>({...freshWorkspace(),draft:suggestAssignments({...defaultDraft()
 const start=(seed=7331)=>startCircuitCareer(base(),'circuit-test',seed);
 function ownGame(w:Workspace){let next=startCareerMatch(w);while(next.session!.state.phase==='buy'){const s=next.session!;next=acceptCareerResult(next,advanceSession(s,{id:'r'+s.state.rounds,revision:s.state.rounds,buys:automaticBuys(s),plans:{A:next.draft.plan,B:clubPlan(s.metadata!.opponentId!,s.seed,s.state.rounds)}}));}return next;}
 function closeRound(w:Workspace){let next=w,m=pendingNpc(next.career!);while(m){next=acceptNpcResult(next,m.id,simulateNpc(m));m=pendingNpc(next.career!);}return next;}
-function campaign(seed:number,mode:'none'|'collective'|'individual'='none'){
- let w=start(seed);for(let day=1;day<=28;day++){if(mode!=='none')w=trainCareer(w,{kind:'attribute',attribute:0,...(mode==='individual'?{mode:'individual',playerId:ids[0]}:{})});if(day%4===0)w=decodeSave(encodeSave(closeRound(ownGame(w))));if(day<28)w=advanceCareer(w,'day');}return w;
+function campaign(seed:number,mode:'none'|'collective'|'individual'='none',sponsored=false){
+ let w=start(seed);for(let day=1;day<=28;day++){if(mode!=='none')w=trainCareer(w,{kind:'attribute',attribute:0,...(mode==='individual'?{mode:'individual',playerId:ids[0]}:{})});if(day%4===0)w=decodeSave(encodeSave(closeRound(ownGame(w))));if(day===4&&sponsored)w={...w,career:signSponsor(w.career!,'skx')};if(day<28)w=advanceCareer(w,'day');}return w;
 }
 test('full approved grid contains every pair once and balanced starts for all eight clubs',()=>{
  const grid=circuitSchedule('grid',7);assert.equal(grid.length,28);assert.equal(new Set(grid.map(m=>[m.a,m.b].sort().join(':'))).size,28);
@@ -56,12 +56,19 @@ test('exceptional draw is deterministic, saved once and applies only after numer
  const grid=circuitSchedule('draw',55).map(m=>({...m,result:{score:{A:15,B:15},winner:null,rounds:30} as CircuitResult}));const d=finalDraws(grid,55);assert.equal(d.length,1);assert.equal(d[0].teams.length,8);assert.deepEqual(finalDraws(grid,55),d);assert.deepEqual(standings(grid,d).map(r=>r.id),d[0].order);
 });
 test('complete circuit closes 28 games, expenses and one prize; export/import is idempotent',async()=>{
- const before=JSON.stringify(OPPONENTS),w=campaign(8901,'collective'),c=w.career!,x=c.circuit!,rows=standings(x.matches,x.draws);
+ const before=JSON.stringify(OPPONENTS),w=campaign(8901,'collective',true),c=w.career!,x=c.circuit!,rows=standings(x.matches,x.draws);
  assert.equal(c.day,28);assert.equal(x.matches.filter(m=>m.result).length,28);assert.ok(rows.every(r=>r.played===7));assert.equal(rows.reduce((n,r)=>n+r.difference,0),0);assert.equal(rows.reduce((n,r)=>n+r.wins,0),rows.reduce((n,r)=>n+r.lost,0));assert.equal(rows.reduce((n,r)=>n+r.points,0),x.matches.reduce((n,m)=>n+(m.result!.winner===null?2:3),0));
  assert.ok(x.matches.every(m=>m.map==='doca-v2'&&m.result!.receipts.every(r=>r.equipment.A.length===5&&r.equipment.B.length===5)));
- assert.equal(x.finance.ledger.filter(e=>e.kind==='salary').length,4);assert.equal(x.finance.ledger.filter(e=>e.kind==='operation').length,4);assert.equal(x.finance.ledger.filter(e=>e.kind==='prize').length,1);assert.equal(cashCents(x.finance),3000000-100000-salaryAccrued(ids,28)-280000+PRIZES[rows.findIndex(r=>r.id==='user')]*100);assert.equal(JSON.stringify(OPPONENTS),before);
+ assert.equal(x.finance.ledger.filter(e=>e.kind==='salary').length,4);assert.equal(x.finance.ledger.filter(e=>e.kind==='operation').length,4);assert.equal(x.finance.ledger.filter(e=>e.kind==='prize').length,1);assert.equal(cashCents(x.finance),3000000-100000-salaryAccrued(ids,28)-280000+600000+PRIZES[rows.findIndex(r=>r.id==='user')]*100);assert.equal(JSON.stringify(OPPONENTS),before);
  assert.equal(w.history!.length,7);const s=encodeSave(w);assert.ok(Buffer.byteLength(s)<64*1024*1024);assert.deepEqual(decodeSave(s),w);const removed=deleteHistory(w,w.history![0].id);assert.deepEqual(removed.career!.circuit,w.career!.circuit);assert.throws(()=>advanceCareer(w,'day'),/dia 28/);
- const prior=await loadWorkspace(),revision=prior?.revision??0;const rev=await commitWorkspace(w,revision);assert.deepEqual((await loadWorkspace() as {data:Workspace}).data,w);await assert.rejects(commitWorkspace(w,revision),/Outra aba/);assert.equal((await loadWorkspace())!.revision,rev);
+ assert.ok(rows.findIndex(r=>r.id==='user')<4,'A carreira de teste deve terminar no Top 4.');
+ const prior=await loadWorkspace(),revision=prior?.revision??0;const rev=await commitWorkspace(w,revision);for(let reopen=0;reopen<2;reopen++){
+  const reopened=(await loadWorkspace() as {data:Workspace}).data;
+  assert.deepEqual(reopened,w);
+  const ledger=reopened.career!.circuit!.finance.ledger;
+  assert.deepEqual(ledger.filter(e=>e.kind==='bonus').map(e=>e.cents),[400000]);
+  assert.deepEqual(ledger.filter(e=>e.kind==='signature').map(e=>e.cents),[200000]);
+ }await assert.rejects(commitWorkspace(w,revision),/Outra aba/);assert.equal((await loadWorkspace())!.revision,rev);
 });
 test('campaign with individual training keeps opponents fixed and records complete results',()=>{const w=campaign(993,'individual');assert.equal(w.career!.circuit!.closed,true);assert.equal(w.career!.days.filter(d=>d.status==='trained').length,28);});
 test('new circuit saves identify schema 6 and explicit mechanics',()=>{

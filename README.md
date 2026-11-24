@@ -1,14 +1,12 @@
-# NEXUS — Beta 2.1.4
+# NEXUS — Beta 2.1.5
 
-NEXUS é um jogo de gerenciamento de equipe de FPS tático, com simulação de partidas, treinamento e circuito competitivo. O Beta 2.1.4 — Doca V2 e Arena Premium — tem identificador de produto `2.1.4`, motor **0.6.1**, regras `nexus-2.0-doca-v2-r2` e saves de **schema 6**. Os identificadores mecânicos permanecem distintos da versão do produto para preservar a reprodução dos registros.
+NEXUS é um jogo de gerenciamento de equipe de FPS tático, com simulação de partidas, treinamento e circuito competitivo. O Beta 2.1.5 — Doca V2 e Arena Premium — tem identificador de produto `2.1.5`, motor **0.6.1**, regras `nexus-2.0-doca-v2-r2` e saves de **schema 6**. Os identificadores mecânicos permanecem distintos da versão do produto para preservar a reprodução dos registros.
 
-[Jogar](https://lordyask.github.io/esports-manager/) · [Notas do Beta 2.1.4](docs/BETA_2_1_4_NOTAS.md) · [Doca V2 e validação](docs/DOCA_V2_VALIDACAO.md) · [Backup e saves antigos](docs/BETA_2_0_SAVES.md) · [Histórico](CHANGELOG.md)
+[Jogar](https://lordyask.github.io/esports-manager/) · [Notas do Beta 2.1.5](docs/BETA_2_1_5_NOTAS.md) · [Doca V2 e validação](docs/DOCA_V2_VALIDACAO.md) · [Backup e saves antigos](docs/BETA_2_0_SAVES.md) · [Histórico](CHANGELOG.md)
 
 ## Novidades
 
-Na Preparação, os cinco titulares do próximo adversário aparecem primeiro, com país, função, agente, OVR e indicação do IGL. Os atributos detalhados ficam a um clique.
-
-Em **Estratégias mais usadas**, selecione Ataque ou Defesa para consultar até três planos usados pelo clube nos confrontos já concluídos da carreira, inclusive entre NPCs. Cada round conta uma vez para o lado em que o adversário jogou.
+Depois da estreia no primeiro circuito, a Central apresenta duas propostas. Wynx Fibra paga 4.000 cr. na assinatura. Skx Periféricos paga 2.000 cr. na assinatura e mais 4.000 cr. se a organização terminar no Top 4. O contrato e os pagamentos podem ser consultados em Finanças.
 
 ## Recursos do beta
 
