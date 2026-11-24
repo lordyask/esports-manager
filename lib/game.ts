@@ -48,13 +48,18 @@ export interface Draft {org:string;tag:string;color:string;crest:number;selected
 export interface RoundRecord {command:RoundCommand;seed:number;result:SimulationResult;purchases:Record<Team,Purchase[]>;equipment:EquipmentByTeam;}
 export interface Session {mechanics:typeof MECHANICS;metadata?:MatchMetadata;id:string;map:MapId;seed:number;profiles:Profile[];names:Record<string,string>;state:MapState;records:RoundRecord[];}
 export interface RoundCommand {id:string;revision:number;plans:Record<Team,TeamPlan>;buys:BuyPlan;}
-export interface Workspace {archives?:Archive[];career?:Career;history?:Session[];autoBuy?:boolean;trainingPreparation?:TrainingPreparation;draft:Draft;session:Session|null;development?:Development;buyPreparation?:Record<string,Plan>;previous?:Session;legacyReport?:{engine:string;session:Session};}
+export interface Onboarding {stage:'organization'|'roster'|'registration';path:'balanced'|'economy'|'manual'|null;}
+export interface Workspace {onboarding?:Onboarding;archives?:Archive[];career?:Career;history?:Session[];autoBuy?:boolean;trainingPreparation?:TrainingPreparation;draft:Draft;session:Session|null;development?:Development;buyPreparation?:Record<string,Plan>;previous?:Session;legacyReport?:{engine:string;session:Session};}
 export function defaultDraft():Draft{return {org:'Minha organização',tag:'ORG',color:'#62e5ba',crest:0,selected:[],assignments:{},igl:'',map:'doca-v2',opponent:'balanced',seed:20261021,plan:{attack:'fast',defense:'balanced',site:'A'}};}
 export const salary=(d:Draft)=>d.selected.reduce((s,id)=>s+(PLAYERS.find(p=>p.id===id)?.salary??0),0);
 export const familiarity=(p:Player,agent:string)=>agent===p.main?85:agent===p.second?65:agent===p.third?45:10;
-export function validateDraft(d:Draft){
+export const SALARY_CAP=12000;
+export function validateIdentity(d:Draft){
  if(!d||typeof d.org!=='string'||!d.org.trim()||d.org.length>40||typeof d.tag!=='string'||!d.tag.trim()||d.tag.length>5||!/^#[0-9a-f]{6}$/i.test(d.color)||!Number.isInteger(d.crest)||d.crest<0||d.crest>2)throw new Error('Revise nome, sigla e identidade da organização.');
- if(d.selected.length!==5||new Set(d.selected).size!==5||d.selected.some(id=>!PLAYERS.some(p=>p.id===id))||salary(d)>12000)throw new Error('Escolha cinco jogadores com salário total de até 12.000.');
+}
+export function validateDraft(d:Draft){
+ validateIdentity(d);
+ if(d.selected.length!==5||new Set(d.selected).size!==5||d.selected.some(id=>!PLAYERS.some(p=>p.id===id))||salary(d)>SALARY_CAP)throw new Error('Escolha cinco jogadores com salário total de até 12.000.');
  if(!d.selected.includes(d.igl))throw new Error('Defina um IGL entre os cinco titulares.');
  const assignments=d.selected.map(id=>d.assignments[id]);
  if(assignments.some(a=>!a||!AGENTS.includes(a.agent)||!ROLES.includes(a.role))||new Set(assignments.map(a=>a.agent)).size!==5)throw new Error('Escolha cinco agentes diferentes e uma responsabilidade para cada jogador.');
@@ -137,6 +142,7 @@ export function decodeSave(text:string):Workspace {
  if(e?.format!=='esports-manager-beta'||e.schema!==6||!mechanicsMatch(e.mechanics)||e.engine!==ENGINE_VERSION||e.rules!==RULES_VERSION)throw new Error('Versão incompatível. Preserve o arquivo original para uma futura migração.');
  if(e.digest!==sha256(JSON.stringify(e.data)))throw new Error('O arquivo está incompleto ou foi modificado.');
  const w=e.data as Workspace;
+ if(w?.onboarding!==undefined&&(!w.onboarding||!['organization','roster','registration'].includes(w.onboarding.stage)||![null,'balanced','economy','manual'].includes(w.onboarding.path)))throw new Error('Etapa de inscrição inválida.');
  if(w.career&&w.career.version!==2)throw new Error('Agenda anterior deve ser aberta pelo acervo legado.');
  validateArchives(w.archives);
  if(!w?.draft||!Array.isArray(w.draft.selected)||w.draft.selected.length>5||new Set(w.draft.selected).size!==w.draft.selected.length||w.draft.selected.some(id=>!PLAYERS.some(p=>p.id===id))||typeof w.draft.org!=='string'||w.draft.org.length>40||typeof w.draft.tag!=='string'||w.draft.tag.length>5||typeof w.draft.igl!=='string'||!w.draft.assignments||typeof w.draft.assignments!=='object'||!/^#[0-9a-f]{6}$/i.test(w.draft.color)||![0,1,2].includes(w.draft.crest)||!isActiveMapId(w.draft.map)||!['development','balanced','experienced'].includes(w.draft.opponent))throw new Error('Configuração salva inválida.');

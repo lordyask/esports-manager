@@ -22,6 +22,8 @@ import type {Agent} from '../src/abilities';
 import type {SimEvent} from '../src/tactical-types';
 import {loadWorkspace,commitWorkspace} from '../lib/storage';
 import {TacticalMap} from './tactical-map';
+import Mark from './club-mark';
+import {PlayerCard} from './recruit-card';
 import ProductLogo from './product-logo';
 import {HomeDashboard} from './home-dashboard';
 import {UiIcon} from './ui-icons';
@@ -36,18 +38,9 @@ import type {TrainingPreparation} from '../lib/training-preparation';
 import {HistoryPanel,AnalysisPanel,saveDownload} from './history-panel';
 import {initializeHistory,archiveResult,deleteHistory,readHistory,mergeHistory,historyJSON,SAVE_LIMIT} from '../lib/history';
 const fmt=(n:number)=>new Intl.NumberFormat('pt-BR',{maximumFractionDigits:0}).format(n);
-function Mark({kind=0}:{kind?:number}){return <svg viewBox="0 0 40 44" fill="none" aria-hidden="true"><path d="M20 2 37 9v15c0 9-9 15-17 18C12 39 3 33 3 24V9L20 2Z" stroke="currentColor" strokeWidth="2"/>{kind===0?<path d="m12 27 8-15 8 15M15 22h10" stroke="currentColor" strokeWidth="3"/>:kind===1?<path d="m23 10-12 15h9l-3 10 14-17h-10l2-8Z" fill="currentColor"/>:<path d="m11 27 9-15 9 15H11Zm9-8v15" stroke="currentColor" strokeWidth="2"/>}</svg>;}
 function download(name:string,text:string){const u=URL.createObjectURL(new Blob([text],{type:'application/json'})),a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);}
 function Field({label,children}:{label:string;children:React.ReactNode}){return <label className="field"><span>{label}</span>{children}</label>;}
 function Section({eyebrow,title,description}:{eyebrow:string;title:string;description:string}){return <div className="section-heading"><span className="eyebrow">{eyebrow}</span><h1>{title}</h1><p>{description}</p></div>;}
-function PlayerCard({p,selected,disabled,locked,toggle}:{p:Player;selected:boolean;disabled:boolean;locked:boolean;toggle:()=>void}){return <article className={`player-card ${selected?'selected':''}`}>
- <div className="player-top"><span className="avatar">{p.name.slice(0,2).toUpperCase()}</span><div><small>{CLASS[p.main]} · {p.profile}</small><h3>{p.name}</h3><span className="muted">{p.main} · {ROLE_NAMES[p.style]??p.style} · {countryLabel(p.country)}</span></div><span className="rating">{p.overall.toFixed(1)}<small>GERAL</small></span></div>
- <div className="player-numbers"><div><small>POTENCIAL</small><strong>{p.potential}<span>/100</span></strong></div><div><small>SALÁRIO MENSAL</small><strong>{fmt(p.salary)} <span>cr.</span></strong></div></div>
- <div className="meter"><span style={{width:`${p.overall}%`}}/><i style={{left:`${p.potential}%`}}/></div>
- <div className="card-tags"><span>{p.mental}</span><span>IGL {p.apt.IGL.toFixed(0)}</span></div>
- <details><summary>Ver atributos e afinidades</summary><div className="attribute-grid">{ATTRS.map((a,i)=><div key={a}><span>{a}</span><b>{p.attrs[i]}</b></div>)}</div><p className="small">Afinidades iniciais: {p.main} 85 · {p.second} 65 · {p.third} 45 · demais 10. Valores atuais na aba Agentes. Aptidões abaixo são referências iniciais do catálogo.</p><div className="attribute-grid">{Object.entries(p.apt).map(([r,v])=><div key={r}><span>{ROLE_NAMES[r]??r}</span><b>{v.toFixed(1)}</b></div>)}</div></details>
- <button className={`pick ${selected?'picked':''}`} onClick={toggle} disabled={locked||disabled&&!selected}>{selected?'✓ No elenco':'+ Selecionar jogador'}</button>
- </article>;}
 const reasonText=(r:string)=>({defenders_eliminated:'defesa eliminada',attackers_eliminated:'ataque eliminado',mutual_elimination:'eliminação simultânea',defused:'dispositivo desarmado',detonation:'dispositivo detonado',time_expired:'tempo esgotado'}[r]??r);
 export default function Beta(){
  const [reduceMotion,setReduceMotion]=useState(false);
