@@ -62,3 +62,5 @@
 .sponsor-card {display:flex;flex-direction:column;align-items:flex-start;gap:8px;background:var(--premium-panel)}
 .sponsor-card p {margin:4px 0}
 .sponsor-card>button,.sponsor-card>.button-row {margin-top:auto}
+
+.staff-negotiation {max-width:760px;display:grid;gap:14px;justify-items:start}.staff-negotiation form {display:grid;gap:12px;width:min(100%,360px)}

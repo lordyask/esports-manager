@@ -1,5 +1,9 @@
 # Histórico de alterações — Esports Manager
 
+## 25/11/2026 — Beta 2.1.6 · Prévia da Staff
+
+Depois da estreia, abra **Equipe → Staff** para comparar quatro analistas e consultar amostras da sua partida. Cada profissional avalia até duas ofertas. A confirmação contrata um analista até o fim do circuito e registra o pagamento em Finanças. Os relatórios permitem consultar os rounds de cada confronto da organização.
+
 ## 24/11/2026 — Beta 2.1.5 · Prévia de patrocínios do primeiro circuito
 
 Depois da estreia no primeiro circuito, a Central apresenta duas propostas. Wynx Fibra paga 4.000 cr. na assinatura. Skx Periféricos paga 2.000 cr. na assinatura e mais 4.000 cr. se a organização terminar no Top 4. O contrato e os pagamentos podem ser consultados em Finanças.

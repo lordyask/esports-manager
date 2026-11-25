@@ -1,10 +1,12 @@
-# NEXUS — Beta 2.1.5
+# NEXUS — Beta 2.1.6
 
-NEXUS é um jogo de gerenciamento de equipe de FPS tático, com simulação de partidas, treinamento e circuito competitivo. O Beta 2.1.5 — Doca V2 e Arena Premium — tem identificador de produto `2.1.5`, motor **0.6.1**, regras `nexus-2.0-doca-v2-r2` e saves de **schema 6**. Os identificadores mecânicos permanecem distintos da versão do produto para preservar a reprodução dos registros.
+NEXUS é um jogo de gerenciamento de equipe de FPS tático, com simulação de partidas, treinamento e circuito competitivo. O Beta 2.1.6 — Doca V2 e Arena Premium — tem identificador de produto `2.1.6`, motor **0.6.1**, regras `nexus-2.0-doca-v2-r2` e saves de **schema 6**. Os identificadores mecânicos permanecem distintos da versão do produto para preservar a reprodução dos registros.
 
-[Jogar](https://lordyask.github.io/esports-manager/) · [Notas do Beta 2.1.5](docs/BETA_2_1_5_NOTAS.md) · [Doca V2 e validação](docs/DOCA_V2_VALIDACAO.md) · [Backup e saves antigos](docs/BETA_2_0_SAVES.md) · [Histórico](CHANGELOG.md)
+[Jogar](https://lordyask.github.io/esports-manager/) · [Notas do Beta 2.1.6](docs/BETA_2_1_6_NOTAS.md) · [Doca V2 e validação](docs/DOCA_V2_VALIDACAO.md) · [Backup e saves antigos](docs/BETA_2_0_SAVES.md) · [Histórico](CHANGELOG.md)
 
 ## Novidades
+
+Depois da estreia, abra **Equipe → Staff** para comparar quatro analistas e consultar amostras da sua partida. Cada profissional avalia até duas ofertas. A confirmação contrata um analista até o fim do circuito e registra o pagamento em Finanças. Os relatórios permitem consultar os rounds de cada confronto da organização.
 
 Depois da estreia no primeiro circuito, a Central apresenta duas propostas. Wynx Fibra paga 4.000 cr. na assinatura. Skx Periféricos paga 2.000 cr. na assinatura e mais 4.000 cr. se a organização terminar no Top 4. O contrato e os pagamentos podem ser consultados em Finanças.
 

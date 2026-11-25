@@ -1,8 +1,8 @@
 'use client';
 import {UiIcon} from './ui-icons';
 
-export const MENU_LABELS=['Visão geral','Elenco','Preparação','Partida','Relatório','Treinamento','Agentes','Histórico','Calendário','Circuito','Finanças','Acervo'];
-const ICONS=['home','players','tactics','match','report','training','agents','history','calendar','report','finance','history'];
+export const MENU_LABELS=['Visão geral','Elenco','Preparação','Partida','Relatório','Treinamento','Agentes','Histórico','Calendário','Circuito','Finanças','Acervo','Staff'];
+const ICONS=['home','players','tactics','match','report','training','agents','history','calendar','report','finance','history','players'];
 const DESCRIPTIONS=[
  'Resumo da organização e próximo compromisso.',
  'Consulte os titulares e seus perfis.',
@@ -16,10 +16,11 @@ const DESCRIPTIONS=[
  'Equipes, rodadas e classificação.',
  'Acompanhe o caixa e os compromissos.',
  'Acesse as carreiras preservadas.',
+ 'Negocie com analistas e consulte seus relatórios.',
 ];
 export const MENU_GROUPS=[
  {id:'central',name:'Central de comando',icon:'home',summary:'Visão geral e Calendário',tabs:[0,8]},
- {id:'team',name:'Equipe',icon:'players',summary:'Elenco, Treinamento e Agentes',tabs:[1,5,6]},
+ {id:'team',name:'Equipe',icon:'players',summary:'Elenco, Treinamento e Agentes',tabs:[1,5,6,12]},
  {id:'competition',name:'Competição',icon:'match',summary:'Circuito, Preparação e Partida',tabs:[9,2,3]},
  {id:'records',name:'Resultados e gestão',icon:'report',summary:'Relatório, Histórico, Finanças e Acervo',tabs:[4,7,10,11]},
 ];

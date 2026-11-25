@@ -13,6 +13,8 @@ import {startCircuitCareer,advanceCareer,advancePreview,trainCareer,skipCareerTr
 import {currentFixture,nextFixture,dayClosed} from '../lib/career-state';
 import {opponentFor} from '../lib/opponents';
 import {countryLabel} from '../lib/countries';
+import {StaffPanel} from './staff-panel';
+import {negotiate,type Analyst} from '../lib/staff';
 import {SponsorFinance} from './sponsorship';
 import type {Sponsorship} from '../lib/club-finance';
 import {offersAvailable,signSponsor,pendingNpc} from '../lib/circuit-state';
@@ -61,6 +63,11 @@ export default function Beta(){
  function motionPreference(value:boolean){setReduceMotion(value);try{localStorage.setItem('nexus.ui.motion',value?'reduce':'system');}catch{}}
  const [data,setData]=useState<Workspace>(freshWorkspace),[tab,setActiveTab]=useState(0),[loaded,setLoaded]=useState(false),[saved,setSaved]=useState(false),[error,setError]=useState(''),[note,setNote]=useState(''),[busy,setBusy]=useState(false),[query,setQuery]=useState(''),[filter,setFilter]=useState('Todos'),[country,setCountry]=useState('Todos'),[sort,setSort]=useState('salary'),[autoBuy,setAutoBuy]=useState(false),[plans,setPlans]=useState<Record<string,Plan>>({}),[speed,setSpeed]=useState('normal'),[lastMs,setLastMs]=useState(0),[recovery,setRecovery]=useState<string|null>(null);
  const [showOffers,setShowOffers]=useState(false);
+ async function staffOffer(id:Analyst,amount:number|'confirm'){
+  if(working.current)return;working.current=true;setBusy(true);
+  try{const w=current.current;await persist({...w,career:negotiate(w.career!,id,amount)});setError('');setNote(amount==='confirm'?'Contratação confirmada.':'Oferta avaliada.');}
+  catch(e){fail(e);}finally{working.current=false;setBusy(false);}
+ }
  async function sign(brand:Sponsorship['brand']){
   if(working.current)return;working.current=true;setBusy(true);
   try{const w=current.current;await persist({...w,career:signSponsor(w.career!,brand)});setError('');setNote('Contrato confirmado. Assinatura creditada no caixa.');}
@@ -167,6 +174,7 @@ export default function Beta(){
  <CategoryTabs group={category} tab={tab} onOpenTab={nav} disabled={busy} unavailable={unavailableTab}/>
  {tab===11&&<ArchivePanel workspace={data} busy={busy} onExport={text=>download('nexus-arquivo-original.json',text)} onRemove={deleteArchive}/>}
  {tab===9&&<CircuitPanel workspace={data} busy={busy} onProcess={processRound}/>}
+ {tab===12&&<StaffPanel w={data} busy={busy} submit={staffOffer}/>}
  {tab===10&&<SponsorFinance workspace={data} startOffers={showOffers} busy={busy} sign={sign}/>}
  {tab===8&&<CalendarPanel workspace={data} busy={busy} onStart={openCareer} onAdvance={calendarAdvance} onTrain={()=>setTab(5)} onPrepare={()=>setTab(2)} onProcessNpc={processRound}/>}
  {tab===0&&<>

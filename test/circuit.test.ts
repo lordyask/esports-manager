@@ -121,3 +121,38 @@ test('fourth earns the Skx bonus, fifth misses, Wynx always settles at signature
   assert.equal(earned.reduce((n,e)=>n+e.cents,0),brand==='wynx'?400000:place===4?600000:200000);
  }
 });
+
+test('staff negotiation, escrow terms, unique charge and recorded round evidence',async()=>{
+ const {negotiate}=await import('../lib/staff.ts'),{staffReport}=await import('../lib/staff-report.ts');
+ const ready=advanceCareer(start(),'event');assert.throws(()=>negotiate(ready.career!,'lia',1700));
+ const w=ownGame(ready),c=w.career!,baseCash=cashCents(c.circuit!.finance);
+ for(const outcome of ['A','B'] as const){
+  const copy=structuredClone(c);copy.fixtures[0].result!.winner=outcome;
+  const discounted=negotiate(negotiate(copy,'lia',1700),'lia','confirm');
+  assert.equal(baseCash-cashCents(discounted.circuit.finance),170000);
+ }
+ for(const invalid of [0,-1,NaN,1.25,baseCash])assert.throws(()=>negotiate(c,'caio',invalid));
+ const once=negotiate(c,'helena',4399);assert.throws(()=>negotiate(once,'helena','confirm'));
+ const twice=negotiate(once,'helena',4000);assert.throws(()=>negotiate(twice,'helena',4500));assert.ok(negotiate(twice,'lia',1700));
+ for(const amount of [4400,4500]){
+  const terms=negotiate(c,'helena',amount);
+  const restored=decodeSave(encodeSave({...w,career:terms})).career!;
+  assert.equal(cashCents(restored.circuit!.finance),baseCash);
+  const poor=structuredClone(restored);poor.circuit!.finance.ledger[0].cents=0;
+  assert.throws(()=>negotiate(poor,'helena','confirm'));
+  const hired=negotiate(restored,'helena','confirm');
+  assert.throws(()=>negotiate(hired,'helena','confirm'));
+  const saved=decodeSave(encodeSave({...w,career:hired}));
+  assert.deepEqual(saved.career!.circuit!.finance.ledger.filter(e=>e.kind==='staff').map(e=>e.cents),[-amount*100]);
+ }
+ const m=c.circuit!.matches[0],records=w.session!.records;
+ for(const id of ['lia','caio','rafael','helena'] as const){
+  const report=staffReport(w,m,id);assert.equal(report.rounds.length,records.length);
+  report.rounds.forEach((r,i)=>{
+   const events=records[i].result.events;
+   assert.equal(r.win,records[i].result.winner==='A');assert.equal(r.plant,events.some(e=>e.kind==='planted'));
+   assert.equal(r.ownOpen,events.find(e=>e.kind==='eliminated')?.target?.startsWith('A:'));
+  });
+ }
+ assert.match(staffReport({...w,session:null,previous:undefined,history:[]},m,'caio').summary,/Sem autoria/);
+});
